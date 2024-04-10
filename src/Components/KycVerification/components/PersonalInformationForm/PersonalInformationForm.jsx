@@ -1,0 +1,178 @@
+import { Form, Select, Input, DatePicker, Row, Col } from "antd";
+import * as Styled from "./PersonalInformationForm.styled";
+import { useGetUserQuery } from "../../../../Redux/slice";
+import { useEffect, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { updateKycField } from "../../../../Redux/KycVerificationSlice";
+import { updateProfileField } from "../../../../Redux/profileSlice";
+import {
+  selectKycVerification,
+  selectProfile,
+} from "../../../../Redux/selectors";
+import { PhoneInput } from "react-international-phone";
+
+import dayjs from "dayjs";
+
+const { Option } = Select;
+
+export const PersonalInformationForm = () => {
+  const [form] = Form.useForm();
+  const [formValues, setFormValues] = useState({});
+  const [value, setValue] = useState();
+  const [countryCode, setCountryCode] = useState("");
+  const [phone, setPhone] = useState(0);
+
+  const [selectedGender, setSelectedGender] = useState("male");
+  const [isFirstTimeEditing, setIsFirstTimeEditing] = useState(false);
+  const kycFormData = useSelector(selectKycVerification);
+  const profileFormData = useSelector(selectProfile);
+
+  const dispatch = useDispatch();
+  //  useUpdateProfileDataMutation;
+  const {
+    data: user,
+    error,
+    isLoading,
+    isFetching,
+  } = useGetUserQuery({
+    uuid: "3e15561e-5408-4859-85d8-e0bb6b15f549",
+  });
+
+  const span = {
+    xs: { span: 24 },
+    sm: { span: 24 },
+    md: { span: 12 },
+    lg: { span: 12 },
+    xxl: { span: 12 },
+  };
+
+  const handleValuesChange = useCallback(
+    (changedValues, _allValues) => {
+      setFormValues(changedValues);
+      Object.entries(changedValues).forEach(([field, value]) => {
+        if (
+          field === "firstName" ||
+          field === "lastName" ||
+          field === "username" ||
+          field === "email"
+        ) {
+          dispatch(updateProfileField({ field, value }));
+        } else if (field === "mobileNo") {
+          dispatch(
+            updateProfileField({
+              field: "countryCode",
+              value: countryCode,
+            })
+          );
+          dispatch(updateProfileField({ field: "phoneNumber", value: phone }));
+        } else if (field === "dateOfBirth") {
+          const formattedDate = dayjs(value).format("YYYY-MM-DD");
+          dispatch(updateKycField({ field, value: formattedDate }));
+        } else {
+          dispatch(updateKycField({ field, value }));
+        }
+      });
+    },
+    [countryCode, dispatch, phone]
+  );
+
+  const handleGenderChange = (value) => {
+    setSelectedGender(value);
+    console.log(`selected ${value}`);
+  };
+
+  const handlePhoneNumberChange = (inputValue, country) => {
+    const val = inputValue.replace(`+${country.country.dialCode}`, "");
+    setCountryCode(`+${country.country.dialCode}`);
+    setPhone(val);
+  };
+
+  const makePhoneNumber = (countryCode, phoneNumber) => {
+    return `${countryCode}${phoneNumber}`;
+  };
+  useEffect(() => {
+    if (user) {
+      if (user?.kyc) {
+        console.log("user.kyc", user.kyc);
+        setIsFirstTimeEditing(false);
+      } else {
+        setIsFirstTimeEditing(true);
+      }
+    }
+  }, [form, user]);
+
+  return (
+    <Styled.FormContainer>
+      <Styled.Heading>Personal Information Form</Styled.Heading>
+      <Form
+        form={form}
+        initialValues={{
+          firstName: profileFormData?.firstName,
+          lastName: profileFormData?.lastName,
+          username: profileFormData?.username,
+          email: profileFormData?.email,
+          mobileNo: makePhoneNumber(
+            profileFormData?.countryCode,
+            profileFormData?.phoneNumber
+          ),
+          dateOfBirth: kycFormData?.dateOfBirth
+            ? dayjs(kycFormData?.dateOfBirth?.dateOfBirth)
+            : null,
+          address: kycFormData?.address,
+          occupation: kycFormData?.occupation,
+        }}
+        //Would need to already add these values on signin or signup
+        onValuesChange={handleValuesChange}
+        layout="vertical"
+        style={{ maxWidth: isFirstTimeEditing ? "100%" : "600" }}
+      >
+        <Row gutter={[16, 16]}>
+          {isFirstTimeEditing && (
+            <Col {...span}>
+              <Form.Item label="First Name" name="firstName">
+                <Input placeholder="Add your first name" />
+              </Form.Item>
+              <Form.Item label="Last Name" name="lastName">
+                <Input placeholder="Add your last name" />
+              </Form.Item>
+              <Form.Item label="Username" name="username">
+                <Input placeholder="Add your username" />
+              </Form.Item>
+              <Form.Item label="Email" name="email">
+                <Input placeholder="Add your email" type="email" />
+              </Form.Item>
+              <Form.Item label="Phone Number" name="mobileNo">
+                <PhoneInput
+                  defaultCountry="bd"
+                  value={value}
+                  onChange={handlePhoneNumberChange}
+                />
+              </Form.Item>
+            </Col>
+          )}
+          <Col {...span}>
+            <Form.Item label="Date of birth" name="dateOfBirth">
+              <Styled.StyledDatePicker/>   
+            </Form.Item>    
+            <Form.Item label="Gender" name="gender">
+              <Styled.StyledSelect 
+                defaultValue={selectedGender} 
+                onChange={handleGenderChange}
+                placeholder="Gender"
+              >
+                <Option value="male">Male</Option>
+                <Option value="female">Female</Option>
+              </Styled.StyledSelect>  
+            </Form.Item>
+            <Form.Item label="Occupation" name="occupation">
+              <Input placeholder="Add your occupation" />
+            </Form.Item>
+            <Form.Item label="Address" name="address">
+              <Input placeholder="Add your address" />
+            </Form.Item>
+          </Col>
+        </Row>
+      </Form>
+    </Styled.FormContainer>
+  );
+};
