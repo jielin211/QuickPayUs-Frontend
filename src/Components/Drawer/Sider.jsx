@@ -271,7 +271,7 @@ export const Sider = () => {
               </span>
             </Menu.Item>
           </Link>
-          <Link to="/support">
+          {/* <Link to="/support">
             <Menu.Item
               key="support"
               icon={
@@ -300,7 +300,7 @@ export const Sider = () => {
                 Support
               </span>
             </Menu.Item>
-          </Link>
+          </Link> */}
           <Link to="/share">
             <Menu.Item
               key="share"

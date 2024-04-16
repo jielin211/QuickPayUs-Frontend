@@ -89,7 +89,6 @@ export const Banner = () => {
       width: 130,
       position: "absolute",
       top: "27px",
-      left: "12px",
       boxShadow: "2px 4px 12px #00000014"
     }}
     defaultSelectedKeys={[]}
@@ -103,7 +102,7 @@ export const Banner = () => {
     style={{
       width: 120,
       position: "fixed",
-      top: "40px",
+      top: "46px",
       right: "6px",
       boxShadow: "2px 4px 12px #00000014"
     }}

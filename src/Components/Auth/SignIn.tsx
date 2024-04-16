@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Typography, Form, Col, Checkbox } from "antd";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import axios from "axios"
 import * as Styled from "./SignIn.styled";
-const { Title } = Typography;
+import { FloatingInput } from "./FloatingInput/FloatingInput";
+import { Link } from "react-router-dom";
 
 interface FormErrors {
   email?: string;
@@ -78,7 +79,7 @@ const SignIn: React.FC = () => {
           >
             {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
               <Form layout="vertical" onFinish={handleSubmit}>
-                <Form.Item
+                {/* <Form.Item
                   label="Email / Username"
                   validateStatus={errors.email && "error"}
                   help={errors.email}
@@ -88,17 +89,29 @@ const SignIn: React.FC = () => {
                     value={values.email}
                     onChange={handleChange}
                   />
-                </Form.Item>
+
+                </Form.Item> */}
+                <Field name="firstName"> 
+                  {({ field }) => (
+                    <FloatingInput 
+                      label="Email / Username" 
+                      name="firstName" 
+                      field= {field}
+                  />
+                  )}
+                </Field>
 
                 <Form.Item
-                  label="Password"
+                  label=""
                   validateStatus={errors.password && "error"}
+                  style={{marginTop: "20px"}}
                   help={errors.password}
                 >
                   <Styled.StyledInputPassword
                     name="password"
                     value={values.password}
                     onChange={handleChange}
+                    placeholder="Password"
                   />
                 </Form.Item>
                 <Form.Item>
@@ -107,7 +120,7 @@ const SignIn: React.FC = () => {
                     htmlType="submit"
                     disabled={isSubmitting}
                   >
-                    SIGN IN
+                    Sign In
                   </Styled.SignInButton>
                 </Form.Item>
                 <a href="#">
@@ -125,7 +138,7 @@ const SignIn: React.FC = () => {
 
           <p>
             <Styled.SignUpBtn danger type="text">
-              Sign Up
+              <Link to="/signup">Sign Up</Link>
             </Styled.SignUpBtn>
             to join QUICKPAYUS.
           </p>
@@ -136,7 +149,7 @@ const SignIn: React.FC = () => {
               Learn more.
             </Styled.LearnMoreButton>
           </Styled.PrivacyTxt>
-          <Styled.PrivacyTxt2 style={{ display: showMoreInfo ? "block" : "none" }}>
+          <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}>
             The information collected by Google reCAPTCHA is subject to the
             Google <a href="https://policies.google.com/privacy" className="color-red" target="_blank"> Privacy Policy </a>  and <a href="https://policies.google.com/terms" className="color-red" target="_blank"> Terms of Service, </a> and is used for
             providing, maintaining, and improving the reCAPTCHA service and for

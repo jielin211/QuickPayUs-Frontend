@@ -115,7 +115,7 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column; 
   padding: 16px 24px;
-  background-color: #f5f5f5; 
+  background-color: white; 
 `;
 export const StepsWrapper = styled.div` 
   display: flex; 

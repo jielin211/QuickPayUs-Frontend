@@ -1,5 +1,5 @@
-import { Col, Row, Button } from "antd";
 import * as Styled from "./Profile.styled.js"; 
+import { Link } from 'react-router-dom';
 
 const KYCVerification = () => {
   return (
@@ -8,7 +8,9 @@ const KYCVerification = () => {
         <Styled.StyledKYCCol span={24}>  
           <Styled.KycBox>       
             <Styled.KycBoxH3>Get your identity verified to explore QUICKPAYUS.</Styled.KycBoxH3>
-            <Styled.KycBtn>Get Verified</Styled.KycBtn>   
+            <Styled.KycBtn>
+              <Link to="/verification">Get Verified</Link>
+            </Styled.KycBtn>   
           </Styled.KycBox>      
         </Styled.StyledKYCCol>  
       </Styled.KycMainRow> 

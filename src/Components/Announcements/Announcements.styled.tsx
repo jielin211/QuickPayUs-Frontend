@@ -12,7 +12,7 @@ export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: baseline;
+  align-items: baseline;d
   width: 100%;
   padding: 0px 8px 0px 8px;
 `;

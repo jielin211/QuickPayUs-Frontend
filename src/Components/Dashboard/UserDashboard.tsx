@@ -18,7 +18,7 @@ const UserDashboard = () => {
     <Styled.Main className='dashboard'>     
       <Styled.StyledHeading >
         {loading ? (
-          <Skeleton.Input  active size="small" /> 
+          <Skeleton.Input  active style={{ width: '100%' }}/> 
         ) : (
           <> 
             Account Overview

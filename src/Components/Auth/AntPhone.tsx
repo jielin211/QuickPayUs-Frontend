@@ -6,17 +6,19 @@ import "react-international-phone/style.css";
 
 interface AntPhoneProps {
   value: string;
-  onChange: (phone: string) => void;
-  onBlur: () => void;
-  name: string
+  onChange: any;
+  onBlur: any;
+  name: string,
+  handleChange: any
 }
 
-export const AntPhone: React.FC<AntPhoneProps> = ({ value, onChange }) => {
+export const AntPhone: React.FC<AntPhoneProps> = ({ value, onChange, handleChange }) => {
   const phoneInput = usePhoneInput({
     defaultCountry: "us",
     value,
     onChange: (data) => {
       onChange(data.phone);
+      handleChange(data.country.dialCode, data.phone);
     }
   });
 
@@ -57,6 +59,7 @@ export const AntPhone: React.FC<AntPhoneProps> = ({ value, onChange }) => {
           placeholder="Phone number"
           type="tel"
           value={phoneInput.phone}
+          name="phone"
           onChange={phoneInput.handlePhoneValueChange}
           ref={inputRef}
           style={{height: "40px"}}

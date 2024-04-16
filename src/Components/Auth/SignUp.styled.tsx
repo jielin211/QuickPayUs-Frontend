@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Card, Input, Button, Checkbox} from "antd";     
+import { Card, Input, Button, Checkbox, Steps as UiSteps} from "antd";     
 import ReactFlagsSelect from "react-flags-select";
 
 export const StyledWrapper = styled.div`    
@@ -97,5 +97,48 @@ export const StyledCheckbox = styled(Checkbox)`
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {
     border-radius: 8px !important;
+  }
+`;
+export const Steps = styled(UiSteps)`
+  max-width: 100%;
+  padding: 0px;
+  width: 6%;
+  padding-left: 2%;
+  @media screen and (max-width: 768px) {
+    width: calc(100% - 16px);
+    padding: 0px;
+    .ant-steps-item-title {
+      font-size: 14px;
+    }
+    .ant-steps {
+      width: 30px !important;
+    }
+    .ant-steps-item {
+      width: 30px !important;
+    }
+
+    .ant-steps-item .ant-steps-item-process .ant-steps-item-active {
+      width: 30px !important;
+    }
+    .ant-steps-item-process {
+      width: 30px !important;
+    }
+
+    .ant-steps-item-active {
+      width: 30px !important;
+    }
+    .ant-steps-item-container {
+      width: 30px;
+    }
+
+    .ant-steps-item-wait {
+      width: 15px !important;
+    }
+    /* .ant-steps-item .ant-steps-item-process {
+      width: 30px !important;
+    }
+    .ant-steps-item-container {
+      width: 30px;
+    } */
   }
 `;

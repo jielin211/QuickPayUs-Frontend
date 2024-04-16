@@ -18,7 +18,10 @@ export const PrivacyTxt = styled.p`
 `; 
 export const PrivacyTxt2 = styled.p`     
     font-size: 12px; 
-    color: #121212;      
+    color: #121212; 
+    opacity: 0;
+    transition: height .5s ease, opacity .5s ease;
+    visibility: hidden;
 `; 
 export const LearnMoreButton = styled.a`     
     cursor: pointer;  
@@ -56,7 +59,6 @@ export const SignInButton = styled(Button)`
     font-size: 18px;    
     background: #f00000; 
     border-radius: 5px;  
-    border: 1px solid #1e1e1e; 
     margin-top: 20px;
 `; 
 export const SignUpBtn = styled(Button)`   

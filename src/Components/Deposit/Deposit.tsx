@@ -7,21 +7,32 @@ import {
 import amount from "../../assets/images/amount.png";
 import support from "../../assets/images/question.svg";
 import statements from "../../assets/images/statements-icon.svg";
-import { IdcardOutlined } from "@ant-design/icons";
+import { FilePdfFilled, IdcardOutlined } from "@ant-design/icons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";  
 import * as Styled from "./Deposit.styled";
 
 const { Option } = Select; 
+
+interface FormProps {
+  receiverAddress: string;
+  senderAddress: string;
+  investmentAmount: string;
+}
  
-const Deposit = () => {
+const Deposit: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [formValues, setFormValues] = useState(null);
+  const [formValues, setFormValues] = useState<FormProps>({
+    receiverAddress: "",
+    senderAddress: "",
+    investmentAmount: ""
+  });
+  
   const {
     data: programsData,
     isLoading: programsLoading,
     refetch,
-  } = useGetProgramsDataQuery();
+  } = useGetProgramsDataQuery(null);
   const [postData, { isLoading: submitLoading }] = usePostDepositFormMutation();
 
   useEffect(() => {

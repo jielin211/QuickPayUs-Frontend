@@ -14,6 +14,7 @@ export const StyledFloatInput = styled.input`
   background: transparent;
   color: black;
   outline: none;
+  font-size: 14px;
 
   &:focus {
     border: 1px solid red;
