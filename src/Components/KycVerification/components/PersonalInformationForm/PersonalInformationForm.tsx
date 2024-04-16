@@ -10,19 +10,20 @@ import {
   selectProfile,
 } from "../../../../Redux/selectors";
 import { PhoneInput } from "react-international-phone";
+import { FloatingInput } from "../FloatingInput/FloatingInput";
 
 import dayjs from "dayjs";
 
 const { Option } = Select;
 
-export const PersonalInformationForm = () => {
+export const PersonalInformationForm: React.FC = () => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState();
   const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState(0);
 
-  const [selectedGender, setSelectedGender] = useState("male");
+  const [selectedGender, setSelectedGender] = useState("Male");
   const [isFirstTimeEditing, setIsFirstTimeEditing] = useState(false);
   const kycFormData = useSelector(selectKycVerification);
   const profileFormData = useSelector(selectProfile);
@@ -66,7 +67,7 @@ export const PersonalInformationForm = () => {
           );
           dispatch(updateProfileField({ field: "phoneNumber", value: phone }));
         } else if (field === "dateOfBirth") {
-          const formattedDate = dayjs(value).format("YYYY-MM-DD");
+          const formattedDate = dayjs(value as string).format("YYYY-MM-DD");
           dispatch(updateKycField({ field, value: formattedDate }));
         } else {
           dispatch(updateKycField({ field, value }));
@@ -154,7 +155,7 @@ export const PersonalInformationForm = () => {
             <Form.Item label="Date of birth" name="dateOfBirth">
               <Styled.StyledDatePicker/>   
             </Form.Item>    
-            <Form.Item label="Gender" name="gender">
+            <Form.Item name="gender" label="Gender">
               <Styled.StyledSelect 
                 defaultValue={selectedGender} 
                 onChange={handleGenderChange}
@@ -164,11 +165,11 @@ export const PersonalInformationForm = () => {
                 <Option value="female">Female</Option>
               </Styled.StyledSelect>  
             </Form.Item>
-            <Form.Item label="Occupation" name="occupation">
-              <Input placeholder="Add your occupation" />
+            <Form.Item name="occupation">
+              <FloatingInput label="Occupation" name="occupation"/>
             </Form.Item>
-            <Form.Item label="Address" name="address">
-              <Input placeholder="Add your address" />
+            <Form.Item name="address">
+              <FloatingInput label="Address" name="address"/>
             </Form.Item>
           </Col>
         </Row>

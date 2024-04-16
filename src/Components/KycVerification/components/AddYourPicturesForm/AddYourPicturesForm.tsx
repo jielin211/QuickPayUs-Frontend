@@ -5,12 +5,11 @@ import { UploadButton } from "../../../UploadButton/UploadButton";
 import { useState } from "react";
 const { Option } = Select;
 
-export const AddYourPicturesForm = () => {
+export const AddYourPicturesForm: React.FC = () => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState(1);
   const onChange = (e) => {
-    console.log("radio checked", e.target.value);
     setValue(e.target.value);
   };
 
@@ -20,6 +19,10 @@ export const AddYourPicturesForm = () => {
 
   const handleChange = (value) => {
     console.log(`selected ${value}`);
+  };
+
+  const getFileList = (images) => {
+    
   };
 
   const InfoPoints = [
@@ -37,7 +40,7 @@ export const AddYourPicturesForm = () => {
           layout="vertical"
         > 
           <Form.Item label="Add Document">
-            <UploadButton />
+            <UploadButton getFileList={getFileList}/>
           </Form.Item>
         </Styled.StyledForm>
         <Styled.InfoContainer>

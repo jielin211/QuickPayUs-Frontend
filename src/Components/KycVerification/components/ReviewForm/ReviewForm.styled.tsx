@@ -1,10 +1,12 @@
 import styled from "styled-components";
+import { SolutionOutlined } from "@ant-design/icons";
 
 export const Heading = styled.div`
   font-family: IBM Plex Sans, sans-serif;
   font-size: 20px;
   font-weight: 600;
   padding: 16px 0px;
+  padding-top: 0;
   @media screen and (max-width: 1200px) {
     font-size: 16px;
   }
@@ -54,7 +56,7 @@ export const ImgGrp = styled.div`
   gap: 16px; 
 `;   
  
-export const UploadImg = styled.img`
-  width: 100px; 
-  height: 100px;    
+export const UploadImg = styled(SolutionOutlined)`
+  font-size: 80px;
+  padding: 10px 2px;    
 `; 

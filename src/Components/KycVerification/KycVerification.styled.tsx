@@ -54,9 +54,11 @@ export const Content = styled.div`
 
 export const Steps = styled(UiSteps)`
   max-width: 100%;
-  margin-left: -57px;
   padding: 0px;
+  width: 6%;
+  padding-left: 2%;
   @media screen and (max-width: 768px) {
+    margin-left: -57px;
     width: calc(100% - 16px);
     padding: 0px;
     .ant-steps-item-title {
@@ -117,15 +119,25 @@ export const PageWrapper = styled.div`
 `;
 export const StepsWrapper = styled.div` 
   display: flex; 
-  flex-direction: column;
   width: 100%;  
+  height: 68vh;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    height: 100%;
+  }
 `;
 export const StepsContent = styled.div` 
   width: 100%;  
 `; 
 export const PaginationWrapper = styled.div` 
-  margin-top: 16px;  
+  margin-top: 16px;
+  margin-left: auto;  
+  @media screen and (max-width: 768px) {
+    margin-left: 0;
+  }
 `;
 export const StyledBtn = styled(Button)` 
-  margin-right: "8px"      
+  margin: 0 8px;      
 `;   
+
+

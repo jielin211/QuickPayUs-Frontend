@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, message } from "antd";
+import { Avatar, Button, message } from "antd";
 import { CheckOutlined } from "@ant-design/icons";
 import * as Styled from "./KycVerification.styled";
 import { PersonalInformationForm } from "./components/PersonalInformationForm/PersonalInformationForm";
@@ -11,9 +11,11 @@ import { useUpdateKycVerificationDataMutation } from "../../Redux/slice";
 import { selectKycVerification } from "../../Redux/selectors";
 import { selectProfile } from "../../Redux/selectors";
 import { useSelector } from "react-redux";
+import { useDevice } from "../../Utils/Hooks/useDevice";
  
-export const KycVerification = () => {
+export const KycVerification: React.FC = () => {
   const [current, setCurrent] = useState(0);
+  const device = useDevice();
 
   const kycRedux = useSelector(selectKycVerification);
 
@@ -22,8 +24,7 @@ export const KycVerification = () => {
   console.log(kycRedux, "kycReduc");
   console.log(profileRedux, "profileRedux");
 
-  const [updateKycVerificationData, { isLoading }] =
-    useUpdateKycVerificationDataMutation();
+  const [updateKycVerificationData, { isLoading }] = useUpdateKycVerificationDataMutation();
 
   const next = () => {
     setCurrent(current + 1);
@@ -55,64 +56,79 @@ export const KycVerification = () => {
   const steps = [
     {
       content: <PersonalInformationForm />,
+      title: "personalInformation"
     },
 
     {
       content: <IDVerificationForm />,
+      title: "IDVerification"
     },
     {
       content: <AddYourPicturesForm />,
+      title: "AddYourPicture"
     },
     {
       content: <ReviewForm />,
+      title: "Review"
     },
     {
-      content: <CompleteForm />,
+      content: <CompleteForm state={0}/>,
+      title: "Complete"
     },
   ];
 
   const items = steps.map((item) => ({
     key: item.title,
-    description: item.description,
-    title: item.title,
+    title: ""
   }));
-
-  const customDot = (dot, { status, index }) => {
-    return (
-      <Styled.StyledDot> 
-        {status === "finish" ? ( 
-          <CheckOutlined className="color-white" />
-        ) : ( 
-          index + 1
-        )}
-      </Styled.StyledDot> 
-    );
-  }; 
  
   return ( 
     <Styled.PageWrapper>
+      {current !== steps.length - 1 &&
       <Styled.Header>
         <Styled.HeaderTitle>KYC Verification</Styled.HeaderTitle>
         <Styled.HeaderSubTitle>
           Please complete your KYC verification to continue using our services
         </Styled.HeaderSubTitle>
       </Styled.Header>
+      }
       <Styled.Content>
-        <Styled.StepsWrapper>   
-          <Styled.Steps
-            progressDot={customDot}
-            current={current}
-            items={items}
-            direction={"horizontal"}
-            labelPlacement="vertical"
-            responsive={false}
-          />
-          <Styled.StepsContent>  
-            <div>{steps[current].content}</div>
-          </Styled.StepsContent>
-        </Styled.StepsWrapper>
+        { device?.isBreakpoint("MD") ? (
+          <Styled.StepsWrapper>   
+            {current !== steps.length - 1 &&
+            <Styled.Steps
+              progressDot
+              current={current}
+              items={items}
+              direction={"vertical"}
+              labelPlacement="horizontal"
+              responsive={false}
+            />}
+            <Styled.StepsContent>  
+              <div>{steps[current].content}</div>
+            </Styled.StepsContent>
+          </Styled.StepsWrapper>
+        ) : (
+          <>
+            <Styled.StepsWrapper>   
+            {current !== steps.length - 1 &&
+              <Styled.Steps
+                progressDot
+                current={current}
+                items={items}
+                direction={"horizontal"}
+                labelPlacement="vertical"
+                responsive={false}
+              />
+            }
+              <Styled.StepsContent>  
+                <div>{steps[current].content}</div>
+              </Styled.StepsContent>
+            </Styled.StepsWrapper>
+          </>
+        )}
         <Styled.PaginationWrapper>  
-          {current > 0 && ( 
+          {current > 0 && current < steps.length - 1 && ( 
             <Styled.StyledBtn onClick={() => prev()}>
               Previous
             </Styled.StyledBtn>  
@@ -125,14 +141,6 @@ export const KycVerification = () => {
           {current === steps.length - 2 && (
             <Button type="primary" onClick={handleSubmitForm}>
               Submit{" "}
-            </Button>
-          )}
-          {current === steps.length - 1 && (
-            <Button
-              type="primary"
-              onClick={() => message.success("Processing complete!")}
-            >
-              Done
             </Button>
           )}
         </Styled.PaginationWrapper>

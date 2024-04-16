@@ -9,11 +9,34 @@ import referral from "../../assets/images/referrals-icons.svg";
 import rank from "../../assets/images/rank-icon.svg";
 import support from "../../assets/images/support-icon.svg";
 import { useDevice } from "../../Utils/Hooks/useDevice";
+
+import styled from "styled-components";
  
 const { Panel } = Collapse;
 import { Layout } from "antd"; 
  
 const { Sider: UiSider } = Layout;
+
+const UiSiderCustom = styled(UiSider)`     
+  padding-top: 16px;
+  position: fixed !important;
+  top: 44px; 
+  left: 0;
+  width: 25% !important;
+  line-height: 120px; 
+  min-height: 100vh;
+  color: #fff;   
+  background: #fff !important;  
+  border-right: 1px solid #dfdfdf !important;   
+  overflow: hidden;  
+  @media (max-width: 575px) {   
+      border-right: 0 !important;
+  }
+`;
+
+const MenuCustom = styled(Menu)`
+  border-inline-end: 0 !important;
+`
 
 export const Sider = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -72,25 +95,12 @@ export const Sider = () => {
 
   return (  
     <>
-      <UiSider 
+      <UiSiderCustom 
         theme="light" 
-        style={{
-          paddingTop: "16px",
-          position: "fixed",
-          top: "44px", 
-          left: "0",
-          width: "25%",
-          lineHeight: "120px", 
-          minHeight: "100vh",
-          color: "#fff",   
-          background: "#fff",  
-          borderRight: "1px solid #dfdfdf",   
-          overflow: "hidden"
-        }}
         width={!device?.isBreakpoint("MD") ? "0" : "250"}
       >
         <div className="logo" />
-        <Menu
+        <MenuCustom
           theme="light"
           mode="inline"
           defaultSelectedKeys={["dashboard"]}
@@ -351,9 +361,9 @@ export const Sider = () => {
               </span>
             </Menu.Item>
           </Link>
-        </Menu>
+        </MenuCustom>
         
-      </UiSider>
+      </UiSiderCustom>
     </>
   );
 };

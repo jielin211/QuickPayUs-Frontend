@@ -1,20 +1,22 @@
 import ReactApexChart from "react-apexcharts";
+import { ApexOptions } from 'apexcharts';
 import eChart from "./ChartData";
 import { Row, Select, Col } from "antd";
 import * as Styled from "./Style/Dashboard.styled"; 
 
-function EChart() {
-   const options = { 
-      ...eChart.options,
-      fill: {
-         type: "gradient",
-         gradient: {
-            type: "vertical",
-            gradientToColors: ["#FF6B00"],
-            stops: [0, 100],
-         },
-      },
-   };
+const EChart: React.FC = () => {
+   const options: ApexOptions = eChart.options;
+   // {
+   //    fill: {
+   //      type: "gradient",
+   //      gradient: {
+   //        type: "vertical",
+   //        gradientToColors: ["#FF6B00"],
+   //        stops: [0, 100],
+   //      },
+   //    },
+   //    ...eChart.options,
+   //  };
 
    return ( 
       <>

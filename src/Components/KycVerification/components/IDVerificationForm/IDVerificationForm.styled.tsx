@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import ReactFlagsSelect from "react-flags-select";
 import { Form } from "antd";  
+import { SolutionOutlined } from '@ant-design/icons';
+
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {
     border-radius: 8px !important;
@@ -10,6 +12,7 @@ export const Heading = styled.div`
   font-size: 20px;
   font-weight: 600;
   padding: 16px 0px;
+  padding-top: 0;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -93,3 +96,7 @@ export const StyledImg = styled.img`
   width: 200px;   
   height: 200px; 
 `;  
+export const StyledSolutionIcon = styled(SolutionOutlined)`
+  font-size: 100px;
+  padding: 20px
+`

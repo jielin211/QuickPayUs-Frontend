@@ -11,6 +11,7 @@ export const Heading = styled.div`
   font-size: 20px;
   font-weight: 600;
   padding: 16px 0px;
+  padding-top: 0;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }

@@ -1,6 +1,6 @@
 import { Row, Col, Input, Button } from "antd";
 
-const ChangePassword = () => {
+const ChangePassword: React.FC = () => {
    return (
       <div  style={{
          border: "1px solid #858585", 

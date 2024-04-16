@@ -77,3 +77,9 @@ export const SelectCol = styled(Col)`
         justify-content: center;    
     }  
 `;      
+export const SkeletonInputCustom = styled(Skeleton.Input)`
+    @media (max-width: 575px) {   
+        min-width: 100px !important;
+        width: 100px !important
+    }
+`

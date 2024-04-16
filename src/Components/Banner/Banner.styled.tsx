@@ -77,7 +77,8 @@ export const PcLogoWrapper = styled.div`
 `;  
 export const PcLogo = styled.img`
   width: 28%;  
-  transform: translateX(-20px);   
+  transform: translateX(-20px);
+  src: "/src/assets/images/logo.svg";   
 `;  
 export const AvatarWrapper = styled.div`
   position: relative;
@@ -116,3 +117,7 @@ export const StyledAvatar = styled(Avatar)`
   color: #fff;  
   background: #121212;
 `;  
+export const ModeItem = styled.div`
+  display: flex;
+  justify-content: space-between
+`;

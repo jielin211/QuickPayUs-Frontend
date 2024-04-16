@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Card, Input, Button, Checkbox} from "antd";     
-  
+import ReactFlagsSelect from "react-flags-select";
 
 export const StyledWrapper = styled.div`    
     display: flex;
@@ -52,7 +52,7 @@ export const PreviousBtn = styled(Button)`
     color: #fff;
     margin-right: 20px; 
     font-size: 16px;  
-    padding: 8px 40px;     
+    padding: 6px 20px;     
     height: 42px;    
 `;  
 export const NextBtn = styled(Button)`   
@@ -60,7 +60,7 @@ export const NextBtn = styled(Button)`
     border-color: #f00000;      
     color: #fff; 
     font-size: 16px;  
-    padding: 8px 40px;       
+    padding: 8px 30px;       
     height: 42px;  
 `; 
 export const SignInBtn = styled(Button)`   
@@ -72,11 +72,16 @@ export const SignInBtn = styled(Button)`
 `;  
 export const PrivacyTxt = styled.p`    
     font-size: 12px; 
-    color: #121212;    
+    color: #121212;   
+    padding: 0 10px; 
 `; 
 export const PrivacyTxt2 = styled.p`     
     font-size: 12px;  
-    color: #121212;      
+    color: #121212;     
+    opacity: 0;
+    transition: height .5s ease, opacity .5s ease;
+    visibility: hidden;
+    padding: 0 10px;
 `; 
 export const LearnMoreButton = styled.a`     
     cursor: pointer;  
@@ -89,3 +94,8 @@ export const LearnMoreButton = styled.a`
 export const StyledCheckbox = styled(Checkbox)`   
     margin-top: 0px;    
 `;   
+export const CountrySelect = styled(ReactFlagsSelect)`
+  button {
+    border-radius: 8px !important;
+  }
+`;

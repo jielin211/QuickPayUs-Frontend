@@ -3,10 +3,8 @@ import { Button } from "antd";
 import { StyledUpload } from "./UploadButton.styled";
 
 export const UploadButton = ({ getFileList }) => {
-  console.log("UploadButton");
   const handleUploadFileList = (fileList) => {
     getFileList(fileList);
-    console.log("fileList", fileList);
   };
 
   return (

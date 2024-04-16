@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Col, Row, Button } from "antd";
+import { Col, Row, Button, Avatar } from "antd";
 
 export const AboutBoxH4 = styled.h4`
     margin: 0;
@@ -32,7 +32,7 @@ export const KycBox = styled.div`
 `;
 export const KycBoxH3 = styled.h3`
     font-weight: 700;  
-    font-size: 26px;  
+    font-size: 24px;  
     color: #fff; 
     margin: 0 0 30px 0;
     text-align: center;
@@ -88,3 +88,26 @@ export const KycBtn = styled(Button)`
     font-weight: 600;
     text-transform: uppercase;   
 `;
+export const StyledProfileAvatar = styled(Avatar)`
+  color: #121212; 
+  width: 100px;
+  height: 100px; 
+  font-size: 64px;
+`
+export const StyledNameLabel = styled.h1`
+  margin-bottom: 5px;
+`
+export const StyledLevelLabel = styled.p`
+  font-size: 18px; 
+  margin: 0;
+  font-weight: 600; 
+  color: #f00000 
+`
+export const StyledUserInfo = styled.div`
+  text-align: center;
+  margin-bottom: 40px;
+`
+export const StyledKYCCol = styled(Col)`
+  display: flex;
+  justify-content: center;
+`

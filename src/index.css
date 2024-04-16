@@ -39,23 +39,14 @@ body {
   height: 100%;
 }
 nav .desktop-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
+  display: block;
+  padding: 0 48px 0;
   list-style: none;
-}
-
-nav .desktop-nav li:not(:first-child):not(:last-child) {
-  margin-left: 1em;
-  margin-right: 1em;
 }
 
 nav .desktop-nav li:first-child {
   margin-right: auto;
-}
-
-.nav-container nav .desktop-nav li:last-child {
-  margin-left: auto;
 }
 
 nav .desktop-nav li a {
@@ -64,7 +55,8 @@ nav .desktop-nav li a {
   font-size: 14px;
   opacity: 0.8;
   transition: opacity 400ms;
-  text-align: center;
+  text-align: left;
+  /* padding-left: 50px; */
 }
 
 nav .desktop-nav li a:hover {
@@ -79,7 +71,7 @@ nav .desktop-nav li a:hover {
   width: 8em;
   background-repeat: no-repeat;
   background-size: contain;  
-}
+} 
 
 .link-close {
   /* background: url('images/close-icon.svg'); */
@@ -106,15 +98,86 @@ nav .desktop-nav li a:hover {
 /* Desktop Nav Animation */
 
 .desktop-nav li {
-  transition: all 400ms ease;
+  font-size: 24px;
+  transition: color .32s cubic-bezier(.4,0,.6,1);
+  margin-top: 5px;
+  /* transform: scale(1.5) translateY(-30px); */
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99), opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
 }
 
 .desktop-nav.hide li {
   opacity: 0;
-  transform: scale(0.8);
+  /* transform: scale(0.8); */
   pointer-events: none;
 }
 
+.menu-opened .desktop-nav {
+  height: 100%;
+  background-color: white;
+  transition: all 0.2s ease-in, background 0.3s ease-in;
+  transition-delay: 0.2s;
+  z-index: 1;
+}
+
+.menu-opened .desktop-nav {
+  position: relative;
+  display: block;
+  padding: 0 48ox 0;
+  list-style: none;
+}
+
+.menu-opened .desktop-nav li {
+  opacity: 1;
+}
+
+.menu-opened .desktop-nav li:nth-child(12) {
+  transition-delay: 0.32s;
+}
+
+.menu-opened .desktop-nav li:nth-child(11) {
+  transition-delay: 0.3s;
+}
+
+.menu-opened .desktop-nav li:nth-child(10) {
+  transition-delay: 0.28s;
+}
+
+.menu-opened .desktop-nav li:nth-child(9) {
+  transition-delay: 0.26s;
+}
+
+.menu-opened .desktop-nav li:nth-child(8) {
+  transition-delay: 0.24s;
+}
+
+.menu-opened .desktop-nav li:nth-child(7) {
+  transition-delay: 0.22s;
+}
+
+.menu-opened .desktop-nav li:nth-child(6) {
+  transition-delay: 0.2s;
+}
+
+.menu-opened .desktop-nav li:nth-child(5) {
+  transition-delay: 0.18s;
+}
+
+.menu-opened .desktop-nav li:nth-child(4) {
+  transition-delay: 0.16s;
+}
+
+.menu-opened .desktop-nav li:nth-child(3) {
+  transition-delay: 0.14s;
+}
+
+.menu-opened .desktop-nav li:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.menu-opened .desktop-nav li:nth-child(1) {
+  transition-delay: 0.1s;
+}
 /* Overlay Animation */
 
 .overlay {
@@ -123,55 +186,55 @@ nav .desktop-nav li a:hover {
 
 /* Navigation Menu Items Transition Delay */
 
-.desktop-nav li:nth-of-type(1),
+/* .desktop-nav li:nth-of-type(1),
 .desktop-nav.hide li:nth-of-type(10) {
   transition-delay: 0ms;
 }
 
 .desktop-nav li:nth-of-type(2),
 .desktop-nav.hide li:nth-of-type(9) {
-  transition-delay: 30ms;
+  transition-delay: 0.27;
 }
 
 .desktop-nav li:nth-of-type(3),
 .desktop-nav.hide li:nth-of-type(8) {
-  transition-delay: 60ms;
+  transition-delay: 0.34;
 }
 
 .desktop-nav li:nth-of-type(4),
 .desktop-nav.hide li:nth-of-type(7) {
-  transition-delay: 90ms;
+  transition-delay: 0.41s;
 }
 
 .desktop-nav li:nth-of-type(5),
 .desktop-nav.hide li:nth-of-type(6) {
-  transition-delay: 120ms;
+  transition-delay: 0.48s;
 }
 
 .desktop-nav li:nth-of-type(6),
 .desktop-nav.hide li:nth-of-type(5) {
-  transition-delay: 150ms;
+  transition-delay: 0.56s;
 }
 
 .desktop-nav li:nth-of-type(7),
 .desktop-nav.hide li:nth-of-type(4) {
-  transition-delay: 180ms;
+  transition-delay: 0.63s;
 }
 
 .desktop-nav li:nth-of-type(8),
 .desktop-nav.hide li:nth-of-type(3) {
-  transition-delay: 210ms;
+  transition-delay: 0.7s;
 }
 
 .desktop-nav li:nth-of-type(9),
 .desktop-nav.hide li:nth-of-type(2) {
-  transition-delay: 240ms;
+  transition-delay: 0.77s;
 }
 
 .desktop-nav li:nth-of-type(10),
 .desktop-nav.hide li:nth-of-type(1) {
-  transition-delay: 270ms;
-}
+  transition-delay: 0.84s;
+} */
 
 /* Hidden Items */
 
@@ -209,7 +272,12 @@ nav .desktop-nav li a:hover {
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
     z-index: -1;
-    transition: all 400ms ease;
+    transition: all 500ms ease-out;
+  }
+
+  .menu-opened .desktop-nav {
+    transition: all 0.2s ease-in, background 0.2s ease-in;
+    transition-delay: 0.05s;
   }
 
   /* hide scroller */
@@ -223,7 +291,8 @@ nav .desktop-nav li a:hover {
  
   .nav-container.active .desktop-nav {
     height: 100vh; 
-    padding-left: 0;
+    /* padding-left: 0;
+    padding-top: 30px; */
   }
 
   .nav-container .desktop-nav li {
@@ -250,6 +319,8 @@ nav .desktop-nav li a:hover {
     transform: translateY(-80px);
     opacity: 0;
     transition: all 700ms ease;
+    /* text-align: left;
+    padding-left: 50px; */
   }
 
   .nav-container.active .desktop-nav li a {
@@ -420,33 +491,36 @@ a {
   font-family: "IBM Plex Sans", sans-serif !important;  
 }     
 /* sign up */ 
-:where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-dot .ant-steps-item-content, :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-content {
+.ant-steps.ant-steps-dot .ant-steps-item-content, .ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-content {
   width: 0px;  
 }   
-.signup :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps {
+.signup .ant-steps {
   transform: translateY(10px) translateX(-50px); 
-  margin-bottom: 50px; 
+  margin-bottom: 20px; 
 } 
 .ant-card .ant-card-head-title {
   text-align: center; 
   font-size: 24px;
   font-weight: 600;
 }
-:where(.css-dev-only-do-not-override-1p6ewuu).ant-card .ant-card-head{
+.ant-card .ant-card-head{
   border: none;
+} 
+.ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
+  transition: all 1s ease-in;
 } 
 
 @media (max-width: 575px) { 
-  :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps {
+  .ant-steps {
     transform: translateY(0px) translateX(0px); 
     margin-bottom: 50px; 
   }
-  :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-vertical {
+  .ant-steps.ant-steps-vertical {
     display: flex;
     flex-direction: row;    
     transform: translateX(9%);   
   } 
-  :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail {
+  .ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail {
     position: absolute;
     top: 0;
     inset-inline-start: 15px; 
@@ -455,13 +529,13 @@ a {
     height: 2px;   
     padding: 0px;
   }
-  :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-vertical.ant-steps-dot .ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail {
+  .ant-steps.ant-steps-vertical.ant-steps-dot .ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail {
     top: 14px;
     inset-inline-start: 6px; 
     margin: 0;  
     padding: 0; 
   } 
-  :where(.css-dev-only-do-not-override-1p6ewuu).ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
+  .ant-steps.ant-steps-vertical >.ant-steps-item>.ant-steps-item-container>.ant-steps-item-tail::after {
     width: 80%;  
     height: 100%;
   } 
@@ -541,6 +615,69 @@ a {
   background: #fff;
 }
 
+.ant-menu-item.ant-menu-item-selected {
+  background: #fff !important;
+  color: black !important;
+}
 
+.ant-menu-submenu-selected {
+  background: #fff !important;
+  color: black !important;
+}
 
+.ant-menu-sub.ant-menu-inline {
+  background: #fff !important;
+}
 
+.ant-menu-sub.ant-menu-inline .ant-menu-item {
+  padding-left: 24px !important;
+}
+
+@media (max-width: 575px) {
+  .ant-skeleton-title {
+    margin: 0 auto !important;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    opacity: 1;
+    display: block;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s forwards;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    display: block;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}
+
+.fade-out {
+  animation: fadeOut 0.4s forwards;
+}
+
+.ant-steps-item-content {
+  padding-left: 50px;
+  padding-top: 12px;
+}
+
+.privacy-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+.ReactPasswordStrengthBar-bar {
+  height: 10px; /* Set the desired height */
+}

@@ -1,6 +1,5 @@
 import { Form, Select, Radio, Divider } from "antd";
 import * as Styled from "./IDVerificationForm.styled";
-import imgID2 from "../../../../assets/images/imgID2.jpeg";
 import { UploadButton } from "../../../UploadButton/UploadButton";
 import { useDispatch, useSelector } from "react-redux";
 import { updateKycField } from "../../../../Redux/KycVerificationSlice";
@@ -9,7 +8,8 @@ import { selectKycVerification } from "../../../../Redux/selectors";
 import { DOCUMENT_TYPES } from "./constants";
 import { getCountryCode, getCountryData } from "countries-list";
 
-export const IDVerificationForm = () => {
+
+export const IDVerificationForm: React.FC = () => {
   const dispatch = useDispatch(); 
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
@@ -113,7 +113,7 @@ export const IDVerificationForm = () => {
             Take pictures of both sides of your government issued id card
           </Styled.InfoTitle> 
           <div>  
-            <Styled.StyledImg src={imgID2}></Styled.StyledImg> 
+            <Styled.StyledSolutionIcon/>
           </div>  
           <Styled.InfoList>
             {InfoPoints.map((point, index) => (

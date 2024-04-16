@@ -1,4 +1,15 @@
-const eChart = {
+import { ApexOptions } from 'apexcharts';
+
+interface ChartSeries {
+   name: string;
+   data: number[];
+   color: string;
+}
+
+const eChart: {
+   series: ChartSeries[];
+   options: ApexOptions;
+ } = {
    series: [
       {
          name: "Sales",
@@ -8,8 +19,16 @@ const eChart = {
    ],
 
    options: {
+      fill: {
+         type: "gradient",
+         gradient: {
+           type: "vertical",
+           gradientToColors: ["#FF6B00"],
+           stops: [0, 100],
+         },
+      },
       chart: {
-         type: "bar",
+         type: 'bar',
          width: "100%",
          height: "auto",
 
@@ -51,9 +70,6 @@ const eChart = {
          ],
          labels: {
             show: true,
-            align: "right",
-            minWidth: 0,
-            maxWidth: 160,
          },
       },
       yaxis: {

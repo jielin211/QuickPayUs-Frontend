@@ -2,9 +2,7 @@ import * as Styled from "./ReviewForm.styled";
 import { Space } from "antd";
 import { useDevice } from "../../../../Utils/Hooks/useDevice";
 
-import imgID2 from "../../../../assets/images/imgID2.jpeg";
-
-export const ReviewForm = ({ form, onSubmit, onCancel }) => {
+export const ReviewForm: React.FC = () => {
   const firstName = "John";
   const lastName = "Doe";
   const country = "Pakistan";
@@ -12,7 +10,6 @@ export const ReviewForm = ({ form, onSubmit, onCancel }) => {
   const occupation = "Developer";
   const dateOfBirth = "2021 - 08 - 20";
   const documentType = "Passport";
-  const documentImage = "image.jpg";
 
   const handleValuesChange = (changedValues, allValues) => {
     console.log(allValues);
@@ -87,8 +84,7 @@ export const ReviewForm = ({ form, onSubmit, onCancel }) => {
         <Styled.UploadSection>    
           <Styled.FieldTitle> Uploaded Documents</Styled.FieldTitle>
           <Styled.ImgGrp>    
-            <Styled.UploadImg src={imgID2}></Styled.UploadImg> 
-            <Styled.UploadImg src={imgID2}></Styled.UploadImg>
+            <Styled.UploadImg/>            
           </Styled.ImgGrp>  
         </Styled.UploadSection>
       </Styled.ContainerWrapper> 
