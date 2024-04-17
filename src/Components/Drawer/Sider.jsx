@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, Collapse } from "antd";  
+import { Menu, Collapse } from "antd";
 import { Link, useLocation } from "react-router-dom";
 import dashboard from "../../assets/images/dashboard-icon.svg";
 import statements from "../../assets/images/statements-icon.svg";
@@ -11,10 +11,10 @@ import support from "../../assets/images/support-icon.svg";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
 import styled from "styled-components";
- 
+
 const { Panel } = Collapse;
-import { Layout } from "antd"; 
- 
+import { Layout } from "antd";
+
 const { Sider: UiSider } = Layout;
 
 const UiSiderCustom = styled(UiSider)`     
@@ -48,7 +48,7 @@ export const Sider = () => {
     setCollapsed(!collapsed);
   };
 
-  const items = [ 
+  const items = [
     {
       key: "1",
       label: <a href="/profile">My Profile</a>,
@@ -60,30 +60,23 @@ export const Sider = () => {
   ];
 
   useEffect(() => {
-    // Listen for route changes and update selectedOption accordingly
     const pathname = location.pathname;
-    if (pathname.includes("/dashboard")) {
-      setSelectedOption("dashboard");
-    } else if (pathname.includes("/referrals")) {
-      setSelectedOption("referrals");
-    } else if (pathname.includes("/transaction")) {
-      setSelectedOption("transaction");
-    } else if (pathname.includes("/support")) {
-      setSelectedOption("support");
-    } else if (pathname.includes("/share")) {
-      setSelectedOption("share");
-    } else if (pathname.includes("/withdrawal")) {
-      setSelectedOption("withdraw");
-    } else if (pathname.includes("/deposit")) {
-      setSelectedOption("deposit");
-    } else if (pathname.includes("/announcements")) {
-      setSelectedOption("announcements");
-    } else if (pathname.includes("/settings")) {
-      setSelectedOption("settings");
-    } else if (pathname.includes("/rank")) {
-      setSelectedOption("rank");
-    }
-  }, [location.pathname]);
+    const pathToOptionMap = {
+      "/dashboard": "dashboard",
+      "/referrals": "referrals",
+      "/transaction": "transaction",
+      "/support": "support",
+      "/share": "share",
+      "/withdrawal": "withdraw",
+      "/deposit": "deposit",
+      "/announcements": "announcements",
+      "/settings": "settings",
+      "/rank": "rank",
+    };
+    const defaultOption = "dashboard";
+
+    setSelectedOption(pathToOptionMap[pathname] || defaultOption);
+  }, [location.pathname])
 
   useEffect(() => {
     const storedOption = localStorage.getItem("selectedOption");
@@ -91,12 +84,47 @@ export const Sider = () => {
       setSelectedOption(storedOption);
     }
   }, []);
+  const menuItems = [
+    { key: "dashboard", icon: dashboard, text: "Dashboard", link: "/dashboard" },
+    { key: "transaction", icon: statements, text: "Transactions", link: "/transaction" },
+    { key: "deposit", icon: deposit, text: "Deposit", link: "/deposit" },
+    { key: "withdrawal", icon: withdrawal, text: "Withdrawal", link: "/withdrawal" },
+    { key: "referrals", icon: referral, text: "Referrals", link: "/referrals" },
+    { key: "rank", icon: rank, text: "Rank", link: "/rank" },
+    { key: "support", icon: support, text: "Support", link: "/support" },
+    { key: "share", icon: referral, text: "Refer a friend", link: "/share" },
+    { key: "announcement", icon: support, text: "Announcements", link: "/announcements" },
+  ];
+  const MenuItem = ({ item, selectedOption }) => (
+    <Link to={item.link}>
+      <Menu.Item
+        key={item.key}
+        icon={<img src={item.icon} style={{ width: "14px", textAlign: "center" }} />}
+        style={{
+          color: selectedOption === item.key ? "red" : "black",
+          width: "100%",
+          paddingLeft: "30px",
+          fontSize: "14px",
+        }}
+      >
+        <span
+          className="links"
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+          }}
+        >
+          {item.text}
+        </span>
+      </Menu.Item>
+    </Link>
+  );
 
 
-  return (  
+  return (
     <>
-      <UiSiderCustom 
-        theme="light" 
+      <UiSiderCustom
+        theme="light"
         width={!device?.isBreakpoint("MD") ? "0" : "250"}
       >
         <div className="logo" />
@@ -107,262 +135,12 @@ export const Sider = () => {
           selectedKeys={[selectedOption]}
           width={200}
         >
-          <Link to="/dashboard">
-            <Menu.Item
-              key="dashboard"
-              icon={
-                <img
-                  src={dashboard}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "dashboard" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span className="links">Dashboard</span>
-            </Menu.Item>
-          </Link>
-          <Link to="/transaction">
-            <Menu.Item
-              key="transaction"
-              icon={
-                <img
-                  src={statements}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "transaction" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Transactions
-              </span>
-            </Menu.Item>
-          </Link>
-          <Link to="/deposit">
-            <Menu.Item
-              key="deposit"
-              icon={
-                <img
-                  src={deposit}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "deposit" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span className="links">Deposit</span>
-            </Menu.Item>
-          </Link>
-          <Link to="/withdrawal">
-            <Menu.Item
-              key="withdrawal"
-              icon={
-                <img
-                  src={withdrawal}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "withdraw" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Withdrawal
-              </span>
-            </Menu.Item>
-          </Link>
-          <Link to="/referrals">
-            <Menu.Item
-              key="referrals"
-              icon={
-                <img
-                  src={referral}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "referrals" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Referrals
-              </span>
-            </Menu.Item>
-          </Link>
-          <Link to="/rank">
-            <Menu.Item
-              key="rank"
-              icon={
-                <img
-                  src={rank}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "rank" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Rank
-              </span>
-            </Menu.Item>
-          </Link>
-          {/* <Link to="/support">
-            <Menu.Item
-              key="support"
-              icon={
-                <img
-                  src={support}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "support" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Support
-              </span>
-            </Menu.Item>
-          </Link> */}
-          <Link to="/share">
-            <Menu.Item
-              key="share"
-              icon={
-                <img
-                  src={referral}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "share" ? "red" : "black",
-                width: "100%",
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Refer a friend
-              </span>
-            </Menu.Item>
-          </Link>
-          <Link to="/announcements">
-            <Menu.Item
-              key="announcement"
-              icon={
-                <img
-                  src={support}
-                  style={{
-                    width: !device?.isBreakpoint("MD") ? "22px" : "14px",
-                    textAlign: "center",
-                  }}
-                />
-              }
-              style={{
-                color: selectedOption === "announcements" ? "red" : "black",
-                width: "100%", 
-                paddingLeft: "30px",
-                fontSize: "13px",
-              }}
-            >
-              <span
-                className="links"
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                }}
-              >
-                Announcements
-              </span>
-            </Menu.Item>
-          </Link>
+          {menuItems.map((item) => (
+            <MenuItem key={item.key} item={item} selectedOption={selectedOption} />
+          ))}
+
         </MenuCustom>
-        
+
       </UiSiderCustom>
     </>
   );

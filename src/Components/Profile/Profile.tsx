@@ -17,9 +17,11 @@ const Profile = () => {
       {/* Display skeletons while loading */}
       {isLoading ? (
         <>
+          <div style={{padding:"20px"}}>
+         <Skeleton active />
           <Skeleton active />
           <Skeleton active />
-          <Skeleton active />
+         </div>
         </>
       ) : (
         <>
