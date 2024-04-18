@@ -300,7 +300,7 @@ const SignupForm = () => {
           )}
         </Formik>   
         <Styled.SignInWrapper>      
-          <Styled.SignInBtn><Link to="/signin">Sign In</Link></Styled.SignInBtn>  
+          <Styled.SignInBtn><Styled.StyleLink to="/signin">Sign In</Styled.StyleLink></Styled.SignInBtn>  
           <p>if you’re a member.</p>       
         </Styled.SignInWrapper>  
          

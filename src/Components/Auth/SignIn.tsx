@@ -4,7 +4,7 @@ import { Formik, Field } from "formik";
 import axios from "axios"
 import * as Styled from "./SignIn.styled";
 import { FloatingInput } from "./FloatingInput/FloatingInput";
-import { Link } from "react-router-dom";
+import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
 
 interface FormErrors {
   email?: string;
@@ -101,18 +101,29 @@ const SignIn: React.FC = () => {
                   )}
                 </Field>
 
+                
+
                 <Form.Item
                   label=""
                   validateStatus={errors.password && "error"}
                   style={{marginTop: "20px"}}
                   help={errors.password}
                 >
-                  <Styled.StyledInputPassword
+                  <Field name="password"> 
+                  {({ field }) => (
+                    <FloatingLabelInputPassword 
+                      label="Password" 
+                      field= {field}
+                      name="password"
+                    />
+                  )}
+                </Field>
+                  {/* <Styled.StyledInputPassword
                     name="password"
                     value={values.password}
                     onChange={handleChange}
                     placeholder="Password"
-                  />
+                  /> */}
                 </Form.Item>
                 <Form.Item>
                   <Styled.SignInButton
@@ -125,7 +136,10 @@ const SignIn: React.FC = () => {
                 </Form.Item>
                 <a href="#">
                   <Styled.ForgetTxt>
-                    Forget Password?
+                    <Styled.StyleLink to="/forgot-password">
+                      Forget Password?
+                    </Styled.StyleLink>
+                    
                   </Styled.ForgetTxt>
                 </a>
                 <Form.Item name="remember" valuePropName="checked">
@@ -137,8 +151,8 @@ const SignIn: React.FC = () => {
 
 
           <p>
-            <Styled.SignUpBtn danger type="text">
-              <Link to="/signup">Sign Up</Link>
+            <Styled.SignUpBtn>
+              <Styled.StyleLink to="/signup">Sign Up</Styled.StyleLink>
             </Styled.SignUpBtn>
             to join QUICKPAYUS.
           </p>
