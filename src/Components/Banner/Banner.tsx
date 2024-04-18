@@ -4,7 +4,7 @@ import { Badge, Menu, QRCode, Popover } from "antd";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import { CheckOutlined, QrcodeOutlined, CopyOutlined, ShareAltOutlined ,DownOutlined,UpOutlined   } from '@ant-design/icons';
+import { CheckOutlined, QrcodeOutlined, CopyOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
 import * as Styled from "./Banner.styled";
 
@@ -21,7 +21,6 @@ function getItem(label, key, icon, children, type) {
 export const Banner = () => {
 
   const [collapsed, setCollapsed] = useState(false);
-  const [Dropdown, setDropdown] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
@@ -147,36 +146,6 @@ export const Banner = () => {
     setCopied(true);
     setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
   };
-  const handleDropdown = () => {
-    setDropdown(!Dropdown);
-  }
-  const share = () => {
-    if (navigator.share) {
-        navigator.share({
-            text: "Checkout this cool website",
-            url: "https://github.com/"
-        })
-        .then(() => console.log('Shared successfully'))
-        .catch(error => console.error('Error sharing:', error));
-    } else {
-        // Fallback for browsers that do not support Web Share API
-        const fallbackUrl = 'https://github.com/';
-        // Create a dummy input element
-        const input = document.createElement('input');
-        // Set its value to the URL
-        input.value = fallbackUrl;
-        // Append it to the body
-        document.body.appendChild(input);
-        // Select its value
-        input.select();
-        // Copy the URL to the clipboard
-        document.execCommand('copy');
-        // Remove the input from the DOM
-        document.body.removeChild(input);
-        // Notify the user about the copied URL
-        alert('Website URL copied to clipboard: ' + fallbackUrl);
-    }
-};
 
   return (
     <Styled.StyledHeader className="header">
@@ -218,7 +187,7 @@ export const Banner = () => {
                         background: "#fff",
                         cursor: "pointer",
                         color: "#f00000"
-                      }} onClick={share}>Share <ShareAltOutlined /></button>
+                      }}>Share <ShareAltOutlined /></button>
                     </div>
                   </div>
                 </>
@@ -240,9 +209,9 @@ export const Banner = () => {
               <a onClick={(e) => handleToggle(e)} >
                 <Styled.AvatarWrapper>
                   <Styled.StyledAvatar>U</Styled.StyledAvatar>
-                  <Styled.AvatarInfo id="avatarMenu" onClick={handleDropdown} >
+                  <Styled.AvatarInfo id="avatarMenu">
                     <Styled.AvatarInfoP1>Username</Styled.AvatarInfoP1>
-                    <Styled.AvatarInfoP2 >Level 1 <Styled.dropDown>{Dropdown?<UpOutlined />:<DownOutlined />}</Styled.dropDown></Styled.AvatarInfoP2 >
+                    <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
                   </Styled.AvatarInfo>
                 </Styled.AvatarWrapper>
               </a>

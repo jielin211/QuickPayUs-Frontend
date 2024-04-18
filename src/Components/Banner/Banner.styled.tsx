@@ -26,10 +26,7 @@ export const CtaContainer = styled.div`
   flex-direction: row;
   gap: 10px;
 `;
-export const dropDown = styled.span`
-  transition: all ease 0.5s;
-  color: black;
-`;
+
 export const BalanceTitle = styled.div`
   font-size: 14px;
   font-weight: 500;
