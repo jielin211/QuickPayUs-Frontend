@@ -24,7 +24,7 @@ const App = () => {
   const location = useLocation();
   const device = useDevice();
   const isSignInRoute =
-    location.pathname === "/signin" || location.pathname === "/signup";
+    location.pathname === "/signin" || location.pathname === "/signup" || location.pathname === "/forgot-password";
 
   const contentStyle = {
     marginLeft: device?.isBreakpoint("MD") ? "250px" : "0px",

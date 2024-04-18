@@ -4,8 +4,10 @@ import {
   usePostDepositFormMutation,
   useGetProgramsDataQuery, 
 } from "../../Redux/slice";
+
 import support from "../../assets/images/question.svg";
 import { SendOutlined, IdcardOutlined,DollarOutlined,CopyOutlined,CheckOutlined } from "@ant-design/icons";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";  
 import * as Styled from "./Deposit.styled";
@@ -20,7 +22,9 @@ interface FormProps {
  
 const Deposit: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+
   const [isCopy, setisCopy] = useState(false);
+
   const [formValues, setFormValues] = useState<FormProps>({
     receiverAddress: "",
     senderAddress: "",
@@ -42,6 +46,7 @@ const Deposit: React.FC = () => {
     setFormValues(values);
     setIsModalVisible(true);
   };
+
   const handleCopy = (value: string) => {
     setisCopy(true);
     setTimeout(() => {
@@ -49,6 +54,7 @@ const Deposit: React.FC = () => {
     }, 2000);
     navigator.clipboard.writeText(value);
   };
+
 
   const handleModalSubmit = async () => {
     try {
@@ -96,6 +102,7 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
                       <span>Investment amount:</span>
+
                       <Tooltip title="Investment amount" color="#F00000">
                       <Styled.TooltipImg    
       src={support}   
@@ -106,6 +113,19 @@ const Deposit: React.FC = () => {
                     <Styled.FieldCover>     
                       <Styled.FieldLeft>         
                       <DollarOutlined  style={{fontSize:"25px",padding:"10px",color:"red"}} />
+
+                      <Tooltip title="Investment amount">
+                        {" "}   
+                        <Styled.TooltipImg
+                          src={support}
+                          alt="Investment amount"
+                        />
+                      </Tooltip>{" "}
+                    </Styled.StyledLabel> 
+                    <Styled.FieldCover>     
+                      <Styled.FieldLeft>         
+                        <Styled.FieldLeftImg src={amount} alt="Amount"/>
+
                       </Styled.FieldLeft>
                       <Field name="investmentAmount">
                         {({ field }) => ( 
@@ -145,7 +165,7 @@ const Deposit: React.FC = () => {
                           </Styled.SelectOne>
                         )} 
                       </Field> 
-                      
+
                     </Styled.FieldCover> 
                     <ErrorMessage
                       name="investmentAmount"
@@ -162,7 +182,7 @@ const Deposit: React.FC = () => {
                   </Styled.FlexColumnContainer> 
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
-                      <span>Receiver Address:</span>
+
                       <Tooltip title="Receiver Address" color="#F00000">
                       <Styled.TooltipImg    
       src={support}   
@@ -198,10 +218,12 @@ const Deposit: React.FC = () => {
     </Field>
 
                     </Styled.FieldCover>
+
                   </Styled.FlexColumnContainer>  
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel> 
                       <span>Sender Address:</span>
+
                       <Tooltip title="Sender Address" color="#F00000">
                       <Styled.TooltipImg    
       src={support}   
@@ -212,6 +234,9 @@ const Deposit: React.FC = () => {
                     <Styled.FieldCover>   
                       <Styled.FieldLeft>  
                       <SendOutlined className="deposit-idcard" style={{fontSize:"25px",color:"red"}}/>
+
+                     
+
                       </Styled.FieldLeft> 
                       <Field name="senderAddress">
                         {({ field }) => (   
