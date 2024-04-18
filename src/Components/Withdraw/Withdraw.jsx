@@ -139,7 +139,7 @@ const Withdrawal = () => {
 
   return (
     <Styled.WithdrawalContainer>
-      <Styled.StyledH2>Withdrawal</Styled.StyledH2>
+      <Styled.StyledH2>Withdraw</Styled.StyledH2>
       <Styled.FormContainer>
         <Styled.StyledForm
           onSubmit={(e) => {

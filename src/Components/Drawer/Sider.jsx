@@ -62,23 +62,6 @@ export const Sider = () => {
   useEffect(() => {
     // Listen for route changes and update selectedOption accordingly
     const pathname = location.pathname;
-<<<<<<< HEAD
-    const pathToOptionMap = {
-      "/dashboard": "dashboard",
-      "/referrals": "referrals",
-      "/transaction": "transaction",
-      "/support": "support",
-      "/withdrawal": "withdraw",
-      "/deposit": "deposit",
-      "/announcements": "announcements",
-      "/settings": "settings",
-      "/rank": "rank",
-    };
-    const defaultOption = "dashboard";
-
-    setSelectedOption(pathToOptionMap[pathname] || defaultOption);
-  }, [location.pathname])
-=======
     if (pathname.includes("/dashboard")) {
       setSelectedOption("dashboard");
     } else if (pathname.includes("/referrals")) {
@@ -89,7 +72,7 @@ export const Sider = () => {
       setSelectedOption("support");
     } else if (pathname.includes("/share")) {
       setSelectedOption("share");
-    } else if (pathname.includes("/withdrawal")) {
+    } else if (pathname.includes("/withdraw")) {
       setSelectedOption("withdraw");
     } else if (pathname.includes("/deposit")) {
       setSelectedOption("deposit");
@@ -101,7 +84,6 @@ export const Sider = () => {
       setSelectedOption("rank");
     }
   }, [location.pathname]);
->>>>>>> parent of e23407e (optimisation of code and issue solved on account/profile page!)
 
   useEffect(() => {
     const storedOption = localStorage.getItem("selectedOption");
@@ -109,49 +91,6 @@ export const Sider = () => {
       setSelectedOption(storedOption);
     }
   }, []);
-<<<<<<< HEAD
-  const menuItems = [
-    { key: "dashboard", firsticon: dashboard, text: "Dashboard", link: "/dashboard" },
-    { key: "transaction", firsticon: statements, text: "Transactions", link: "/transaction" },
-    { key: "deposit", firsticon: deposit, text: "Deposit", link: "/deposit" },
-    { key: "withdrawal", firsticon: withdrawal, text: "Withdrawal", link: "/withdrawal" },
-    { key: "referrals", firsticon: referral, text: "Referrals", link: "/referrals" },
-    { key: "rank", firsticon: rank, text: "Rank", link: "/rank" },
-    { key: "support", firsticon: support, text: "Support", link: "/support" },
-    { key: "announcement", firsticon: support, text: "Announcements", link: "/announcements" },
-  ];
-  const MenuItem = ({ item, selectedOption }) => (
-    <Link to={item.link}>
-      <Menu.Item
-        key={item.key}
-        style={{
-          color: selectedOption === item.key ? "red" : "black",
-          width: "100%",
-          paddingLeft: "30px",
-          fontSize: "14px",
-        }}
-      >
-        <span
-          className="links"
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          {selectedOption === item.key ? ( // Check if item is selected
-            // Render second icon when item is selected
-            <img src={item.secondIcon} style={{ width: "14px", textAlign: "center" }} />
-          ) : (
-            // Render first icon by default
-            <img src={item.firsticon} style={{ width: "14px", textAlign: "center" }} />
-          )}
-          {item.text}
-        </span>
-      </Menu.Item>
-    </Link>
-  );
-=======
->>>>>>> parent of e23407e (optimisation of code and issue solved on account/profile page!)
 
 
   return (  
@@ -242,9 +181,9 @@ export const Sider = () => {
               <span className="links">Deposit</span>
             </Menu.Item>
           </Link>
-          <Link to="/withdrawal">
+          <Link to="/withdraw">
             <Menu.Item
-              key="withdrawal"
+              key="withdraw"
               icon={
                 <img
                   src={withdrawal}
@@ -268,7 +207,7 @@ export const Sider = () => {
                   justifyContent: "space-between",
                 }}
               >
-                Withdrawal
+                Withdraw
               </span>
             </Menu.Item>
           </Link>
