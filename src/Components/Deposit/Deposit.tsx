@@ -5,7 +5,7 @@ import {
   useGetProgramsDataQuery, 
 } from "../../Redux/slice";
 import support from "../../assets/images/question.svg";
-import { SendOutlined, IdcardOutlined,DollarOutlined } from "@ant-design/icons";
+import { SendOutlined, IdcardOutlined,DollarOutlined,CopyOutlined,CheckOutlined } from "@ant-design/icons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";  
 import * as Styled from "./Deposit.styled";
@@ -20,6 +20,7 @@ interface FormProps {
  
 const Deposit: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isCopy, setisCopy] = useState(false);
   const [formValues, setFormValues] = useState<FormProps>({
     receiverAddress: "",
     senderAddress: "",
@@ -40,6 +41,13 @@ const Deposit: React.FC = () => {
   const handleConfirm = (values) => {
     setFormValues(values);
     setIsModalVisible(true);
+  };
+  const handleCopy = (value: string) => {
+    setisCopy(true);
+    setTimeout(() => {
+      setisCopy(false);
+    }, 2000);
+    navigator.clipboard.writeText(value);
   };
 
   const handleModalSubmit = async () => {
@@ -137,6 +145,7 @@ const Deposit: React.FC = () => {
                           </Styled.SelectOne>
                         )} 
                       </Field> 
+                      
                     </Styled.FieldCover> 
                     <ErrorMessage
                       name="investmentAmount"
@@ -167,26 +176,28 @@ const Deposit: React.FC = () => {
                         <IdcardOutlined className="deposit-idcard" style={{fontSize:"25px",color:"red"}}/>  
                       </Styled.FieldLeft>
                       <Field name="receiverAddress">
-                        {({ field }) => ( 
-                          <Styled.InputBox 
-                            {...field}
-                            placeholder="Enter receiver address"
-                          />
-                        )}
-                      </Field>
+      {({ field }: any) => (
+        <>
+          <Styled.InputBox
+            {...field}
+            placeholder="Enter receiver address"
+            contentEditable="true"
+            value={"hello it's receivers address"}
+          />
+
+          <Tooltip title={isCopy ? "Copied receiver's address" : "Copy receiver's address"} color="#F00000">
+            <Styled.FieldLeft style={{ cursor: "pointer" }} onClick={() => handleCopy(field.value)}>
+              {isCopy ?
+                <CheckOutlined style={{ fontSize: "20px", color: "red", padding: "10px", transition: "opacity 0.3s ease", opacity: 1 }} /> :
+                <CopyOutlined style={{ fontSize: "20px", color: "red", padding: "10px", transition: "opacity 0.3s ease", opacity: 1 }} />
+              }
+            </Styled.FieldLeft>
+          </Tooltip>
+        </>
+      )}
+    </Field>
+
                     </Styled.FieldCover>
-                    <ErrorMessage
-                      name="receiverAddress"
-                      component="div"
-                      className="error"
-                    >
-                      {(msg) => (
-                        <Styled.AlertMessage
-                          message={msg}
-                          type="error"
-                        ></Styled.AlertMessage>
-                      )}
-                    </ErrorMessage>
                   </Styled.FlexColumnContainer>  
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel> 
