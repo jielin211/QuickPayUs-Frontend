@@ -1,16 +1,9 @@
 import styled from "styled-components";
-import ReactFlagsSelect from "react-flags-select";
-import { Form } from "antd";  
-import { SolutionOutlined } from '@ant-design/icons';
+import { Form } from "antd";   
 
-export const CountrySelect = styled(ReactFlagsSelect)`
-  button {
-    border-radius: 8px !important;
-  }
-`;
 export const Heading = styled.div`
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 600; 
   padding: 16px 0px;
   padding-top: 0;
   @media screen and (max-width: 768px) {
@@ -88,15 +81,8 @@ export const InfoList = styled.ul`
       left: 0;
     }
   }
-`;
-export const StyledForm = styled(Form)`
-  width: 100%; 
 `; 
-export const StyledImg = styled.img` 
-  width: 200px;   
-  height: 200px; 
-`;  
-export const StyledSolutionIcon = styled(SolutionOutlined)`
-  font-size: 100px;
-  padding: 20px
-`
+
+export const StyledForm = styled(Form)` 
+  width: 100%;        
+`; 
