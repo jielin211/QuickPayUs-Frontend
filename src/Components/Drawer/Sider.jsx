@@ -66,7 +66,6 @@ export const Sider = () => {
       "/referrals": "referrals",
       "/transaction": "transaction",
       "/support": "support",
-      "/share": "share",
       "/withdrawal": "withdraw",
       "/deposit": "deposit",
       "/announcements": "announcements",
@@ -85,21 +84,19 @@ export const Sider = () => {
     }
   }, []);
   const menuItems = [
-    { key: "dashboard", icon: dashboard, text: "Dashboard", link: "/dashboard" },
-    { key: "transaction", icon: statements, text: "Transactions", link: "/transaction" },
-    { key: "deposit", icon: deposit, text: "Deposit", link: "/deposit" },
-    { key: "withdrawal", icon: withdrawal, text: "Withdrawal", link: "/withdrawal" },
-    { key: "referrals", icon: referral, text: "Referrals", link: "/referrals" },
-    { key: "rank", icon: rank, text: "Rank", link: "/rank" },
-    { key: "support", icon: support, text: "Support", link: "/support" },
-    { key: "share", icon: referral, text: "Refer a friend", link: "/share" },
-    { key: "announcement", icon: support, text: "Announcements", link: "/announcements" },
+    { key: "dashboard", firsticon: dashboard, text: "Dashboard", link: "/dashboard" },
+    { key: "transaction", firsticon: statements, text: "Transactions", link: "/transaction" },
+    { key: "deposit", firsticon: deposit, text: "Deposit", link: "/deposit" },
+    { key: "withdrawal", firsticon: withdrawal, text: "Withdrawal", link: "/withdrawal" },
+    { key: "referrals", firsticon: referral, text: "Referrals", link: "/referrals" },
+    { key: "rank", firsticon: rank, text: "Rank", link: "/rank" },
+    { key: "support", firsticon: support, text: "Support", link: "/support" },
+    { key: "announcement", firsticon: support, text: "Announcements", link: "/announcements" },
   ];
   const MenuItem = ({ item, selectedOption }) => (
     <Link to={item.link}>
       <Menu.Item
         key={item.key}
-        icon={<img src={item.icon} style={{ width: "14px", textAlign: "center" }} />}
         style={{
           color: selectedOption === item.key ? "red" : "black",
           width: "100%",
@@ -114,6 +111,13 @@ export const Sider = () => {
             justifyContent: "space-between",
           }}
         >
+          {selectedOption === item.key ? ( // Check if item is selected
+            // Render second icon when item is selected
+            <img src={item.secondIcon} style={{ width: "14px", textAlign: "center" }} />
+          ) : (
+            // Render first icon by default
+            <img src={item.firsticon} style={{ width: "14px", textAlign: "center" }} />
+          )}
           {item.text}
         </span>
       </Menu.Item>

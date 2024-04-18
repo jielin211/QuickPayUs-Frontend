@@ -4,10 +4,8 @@ import {
   usePostDepositFormMutation,
   useGetProgramsDataQuery, 
 } from "../../Redux/slice";
-import amount from "../../assets/images/amount.png";
 import support from "../../assets/images/question.svg";
-import statements from "../../assets/images/statements-icon.svg";
-import { FilePdfFilled, IdcardOutlined } from "@ant-design/icons";
+import { SendOutlined, IdcardOutlined,DollarOutlined } from "@ant-design/icons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";  
 import * as Styled from "./Deposit.styled";
@@ -90,17 +88,16 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
                       <span>Investment amount:</span>
-                      <Tooltip title="Investment amount">
-                        {" "}   
-                        <Styled.TooltipImg
-                          src={support}
-                          alt="Investment amount"
-                        />
-                      </Tooltip>{" "}
+                      <Tooltip title="Investment amount" color="#F00000">
+                      <Styled.TooltipImg    
+      src={support}   
+      alt="Investment amount"
+    /> 
+        </Tooltip>
                     </Styled.StyledLabel> 
                     <Styled.FieldCover>     
                       <Styled.FieldLeft>         
-                        <Styled.FieldLeftImg src={amount} alt="Amount"/>
+                      <DollarOutlined  style={{fontSize:"25px",padding:"10px",color:"red"}} />
                       </Styled.FieldLeft>
                       <Field name="investmentAmount">
                         {({ field }) => ( 
@@ -157,17 +154,17 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
                       <span>Receiver Address:</span>
-                      <Tooltip title="Receiver Address">
-                        {" "}   
-                        <Styled.TooltipImg    
-                          src={support}   
-                          alt="Receiver Address"
-                        /> 
-                      </Tooltip>
+                      <Tooltip title="Receiver Address" color="#F00000">
+                      <Styled.TooltipImg    
+      src={support}   
+      alt="Receiver Address"
+    /> 
+        </Tooltip>
+        
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
                       <Styled.FieldLeft>      
-                        <IdcardOutlined className="deposit-idcard"/>  
+                        <IdcardOutlined className="deposit-idcard" style={{fontSize:"25px",color:"red"}}/>  
                       </Styled.FieldLeft>
                       <Field name="receiverAddress">
                         {({ field }) => ( 
@@ -194,20 +191,16 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel> 
                       <span>Sender Address:</span>
-                      <Tooltip title="Sender Address">
-                        {" "}
-                        <Styled.TooltipImg 
-                          src={support}
-                          alt="Sender Address"
-                        />
-                      </Tooltip>{" "}
+                      <Tooltip title="Sender Address" color="#F00000">
+                      <Styled.TooltipImg    
+      src={support}   
+      alt="Sender Address"
+    /> 
+        </Tooltip>
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
                       <Styled.FieldLeft>  
-                        <Styled.FieldLeftImg2 
-                          src={statements}
-                          alt="Statements"
-                        />
+                      <SendOutlined className="deposit-idcard" style={{fontSize:"25px",color:"red"}}/>
                       </Styled.FieldLeft> 
                       <Field name="senderAddress">
                         {({ field }) => (   
