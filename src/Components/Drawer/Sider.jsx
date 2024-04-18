@@ -301,7 +301,7 @@ export const Sider = () => {
               </span>
             </Menu.Item>
           </Link> */}
-          <Link to="/share">
+          {/* <Link to="/share">
             <Menu.Item
               key="share"
               icon={
@@ -330,7 +330,7 @@ export const Sider = () => {
                 Refer a friend
               </span>
             </Menu.Item>
-          </Link>
+          </Link> */}
           <Link to="/announcements">
             <Menu.Item
               key="announcement"

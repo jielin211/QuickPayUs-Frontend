@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Card, Input, Button, Checkbox, Steps as UiSteps} from "antd";     
 import ReactFlagsSelect from "react-flags-select";
+import { Link } from 'react-router-dom';
 
 export const StyledWrapper = styled.div`    
     display: flex;
@@ -63,12 +64,18 @@ export const NextBtn = styled(Button)`
     padding: 8px 30px;       
     height: 42px;  
 `; 
-export const SignInBtn = styled(Button)`   
+export const SignInBtn = styled.div`   
     border: none; 
     background: transparent; 
     font-size: 16px;
     color: red;      
     padding-right: 5px; 
+`;
+export const StyleLink = styled(Link)`
+  color: red;
+  &:hover{
+    color: red;
+  }
 `;  
 export const PrivacyTxt = styled.p`    
     font-size: 12px; 

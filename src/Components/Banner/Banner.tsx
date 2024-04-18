@@ -26,7 +26,7 @@ export const Banner = () => {
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-      if (event.target.parentNode.id === "avatarMenu") {
+      if (event.target.parentNode.id === "avatarMenu0" || event.target.parentNode.id === "avatarMenu1") {
         return
       }
       setCollapsed(false); // Collapse the menu
@@ -89,7 +89,8 @@ export const Banner = () => {
       width: 130,
       position: "absolute",
       top: "27px",
-      boxShadow: "2px 4px 12px #00000014"
+      boxShadow: "2px 4px 12px #00000014",
+      borderInlineEnd: 0
     }}
     defaultSelectedKeys={[]}
     defaultOpenKeys={['sub1']}
@@ -104,7 +105,8 @@ export const Banner = () => {
       position: "fixed",
       top: "46px",
       right: "6px",
-      boxShadow: "2px 4px 12px #00000014"
+      boxShadow: "2px 4px 12px #00000014",
+      borderInlineEnd: 0
     }}
     defaultSelectedKeys={[]}
     defaultOpenKeys={['sub1']}
@@ -208,8 +210,8 @@ export const Banner = () => {
             <div>
               <a onClick={(e) => handleToggle(e)} >
                 <Styled.AvatarWrapper>
-                  <Styled.StyledAvatar>U</Styled.StyledAvatar>
-                  <Styled.AvatarInfo id="avatarMenu">
+                  <Styled.StyledAvatar id="avatarMenu0">U</Styled.StyledAvatar>
+                  <Styled.AvatarInfo id="avatarMenu1">
                     <Styled.AvatarInfoP1>Username</Styled.AvatarInfoP1>
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
                   </Styled.AvatarInfo>
