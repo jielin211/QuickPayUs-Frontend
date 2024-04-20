@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Row, Card, Input, Button, Checkbox} from "antd";     
-import { Link } from "react-router-dom";
+
   
 export const StyledH1 = styled.h1` 
     text-align: center;
@@ -62,6 +62,7 @@ export const SignInButton = styled(Button)`
     border-radius: 5px;  
     margin-top: 20px;
 `; 
+
 export const SignUpBtn = styled.span`   
     color: #f00000;
     padding: 0 5px 0 0;  
@@ -71,4 +72,5 @@ export const StyleLink = styled(Link)`
   &:hover{
     color: red;
   }
+
 `;
