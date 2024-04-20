@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Row, Card, Input, Button, Checkbox} from "antd";     
+import { Row, Card, Input, Button, Checkbox} from "antd";  
+import { Link } from "react-router-dom";  
 
   
 export const StyledH1 = styled.h1` 

@@ -105,15 +105,14 @@ const Deposit: React.FC = () => {
 
                       <Tooltip title="Investment amount" color="#F00000">
                       <Styled.TooltipImg    
-      src={support}   
-      alt="Investment amount"
-    /> 
-        </Tooltip>
+                        src={support}   
+                        alt="Investment amount"
+                      /> 
+                      </Tooltip>
                     </Styled.StyledLabel> 
-                    <Styled.FieldCover>     
-                      <Styled.FieldLeft>         
+                    {/* <Styled.StyledLabel>     
+                      <Styled.FieldLeft/>         
                       <DollarOutlined  style={{fontSize:"25px",padding:"10px",color:"red"}} />
-
                       <Tooltip title="Investment amount">
                         {" "}   
                         <Styled.TooltipImg
@@ -121,11 +120,11 @@ const Deposit: React.FC = () => {
                           alt="Investment amount"
                         />
                       </Tooltip>{" "}
-                    </Styled.StyledLabel> 
+                    </Styled.StyledLabel>  */}
                     <Styled.FieldCover>     
                       <Styled.FieldLeft>         
-                        <Styled.FieldLeftImg src={amount} alt="Amount"/>
-
+                        {/* <Styled.FieldLeftImg src={amount} alt="Amount"/> */}
+                        <DollarOutlined  style={{fontSize:"25px",padding:"10px",color:"red"}} />
                       </Styled.FieldLeft>
                       <Field name="investmentAmount">
                         {({ field }) => ( 
@@ -182,13 +181,13 @@ const Deposit: React.FC = () => {
                   </Styled.FlexColumnContainer> 
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
-
+                      <span>Receiver Address:</span>
                       <Tooltip title="Receiver Address" color="#F00000">
                       <Styled.TooltipImg    
-      src={support}   
-      alt="Receiver Address"
-    /> 
-        </Tooltip>
+                        src={support}   
+                        alt="Receiver Address"
+                      /> 
+                          </Tooltip>
         
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
