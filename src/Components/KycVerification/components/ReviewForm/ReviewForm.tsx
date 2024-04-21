@@ -1,15 +1,27 @@
 import * as Styled from "./ReviewForm.styled";
 import { Space } from "antd";
 import { useDevice } from "../../../../Utils/Hooks/useDevice";
+import { useDispatch, useSelector } from "react-redux";
+
+import {
+  selectKycVerification,
+  selectProfile,
+} from "../../../../Redux/selectors";
 
 export const ReviewForm: React.FC = () => {
-  const firstName = "John";
-  const lastName = "Doe";
-  const country = "Pakistan";
-  const gender = "Female";
-  const occupation = "Developer";
-  const dateOfBirth = "2021 - 08 - 20";
-  const documentType = "Passport";
+
+  const kycFormData = useSelector(selectKycVerification);
+  const profileFormData = useSelector(selectProfile);
+  
+  const firstName = profileFormData.firstName || "";
+  const lastName = profileFormData.lastName || "";
+  const country = kycFormData.country;
+  const gender = kycFormData.gender;
+  const address = kycFormData.address;
+  const occupation = kycFormData.occupation;
+  const dateOfBirth = kycFormData.dateOfBirth;
+  const documentType = kycFormData.documentType;
+  const documents = kycFormData.documents;
 
   const handleValuesChange = (changedValues, allValues) => {
     console.log(allValues);
@@ -73,7 +85,7 @@ export const ReviewForm: React.FC = () => {
           >
             <div>
               <Styled.FieldTitle>Address</Styled.FieldTitle>
-              <Styled.FieldValue>{dateOfBirth}</Styled.FieldValue>
+              <Styled.FieldValue>{address}</Styled.FieldValue>
             </div>
             <div>
               <Styled.FieldTitle>Document Type</Styled.FieldTitle>
@@ -84,7 +96,13 @@ export const ReviewForm: React.FC = () => {
         <Styled.UploadSection>    
           <Styled.FieldTitle> Uploaded Documents</Styled.FieldTitle>
           <Styled.ImgGrp>    
-            <Styled.UploadImg/>            
+             
+            {
+              documents.fileList?.map((item, index) => (
+                <Styled.UploadImg key={index}/>
+                // <img key={index} src=""/>
+              ))
+            }           
           </Styled.ImgGrp>  
         </Styled.UploadSection>
       </Styled.ContainerWrapper> 

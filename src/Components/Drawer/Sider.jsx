@@ -72,7 +72,7 @@ export const Sider = () => {
       setSelectedOption("support");
     } else if (pathname.includes("/share")) {
       setSelectedOption("share");
-    } else if (pathname.includes("/withdraw")) {
+    } else if (pathname.includes("/withdrawal")) {
       setSelectedOption("withdraw");
     } else if (pathname.includes("/deposit")) {
       setSelectedOption("deposit");
@@ -181,9 +181,9 @@ export const Sider = () => {
               <span className="links">Deposit</span>
             </Menu.Item>
           </Link>
-          <Link to="/withdraw">
+          <Link to="/withdrawal">
             <Menu.Item
-              key="withdraw"
+              key="withdrawal"
               icon={
                 <img
                   src={withdrawal}
@@ -207,7 +207,7 @@ export const Sider = () => {
                   justifyContent: "space-between",
                 }}
               >
-                Withdraw
+                Withdrawal
               </span>
             </Menu.Item>
           </Link>
@@ -301,7 +301,6 @@ export const Sider = () => {
               </span>
             </Menu.Item>
           </Link> */}
-
           {/* <Link to="/share">
             <Menu.Item
               key="share"

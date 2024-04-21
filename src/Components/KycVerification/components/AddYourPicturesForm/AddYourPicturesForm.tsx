@@ -1,14 +1,25 @@
 import { Form, Select, Radio, Divider } from "antd";
 import * as Styled from "./AddYourPicturesForm.styled";
 import { UploadButton } from "../../../UploadButton/UploadButton";
+import { updateKycField } from "../../../../Redux/KycVerificationSlice";
 
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 const { Option } = Select;
 
-export const AddYourPicturesForm: React.FC = () => {
+interface AddYourPicturesFormProps {
+  errors: {
+    images: string,
+  }
+}
+
+export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}) => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState(1);
+
+  const dispatch = useDispatch();
+
   const onChange = (e) => {
     setValue(e.target.value);
   };
@@ -22,7 +33,7 @@ export const AddYourPicturesForm: React.FC = () => {
   };
 
   const getFileList = (images) => {
-    
+    dispatch(updateKycField({ field: "images", value: images}));
   };
 
   const InfoPoints = [
@@ -40,8 +51,9 @@ export const AddYourPicturesForm: React.FC = () => {
           layout="vertical"
         > 
           <Form.Item label="Add Document">
-            <UploadButton getFileList={getFileList}/>
+            <UploadButton getFileList={getFileList} maxCount={1}/>
           </Form.Item>
+          <Styled.ErrorMessage>{errors.images}</Styled.ErrorMessage>
         </Styled.StyledForm>
         <Styled.InfoContainer>
           <Styled.InfoTitle>

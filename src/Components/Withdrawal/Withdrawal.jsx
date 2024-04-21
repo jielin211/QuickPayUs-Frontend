@@ -2,16 +2,15 @@ import { useState, useEffect } from "react";
 import { Card, Input, Select, Button, Modal } from "antd";
 import { InputOTP } from "antd-input-otp";
 import { usePostDataMutation } from "../../Redux/slice"; // Update the path accordingly
-import * as Styled from "./Withdraw.styled";
-import amount from "../../assets/images/amount.png";
-
+import * as Styled from "./Withdrawal.styled";
+ 
 const { Option } = Select;
 
 const Withdrawal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const [timer, setTimer] = useState(0);
-  const [otp, setOtp] = useState([]);
+  const [otp, setOtp] = useState([]); 
   const [verificationError, setVerificationError] = useState("");
   const [verificationLoading, setVerificationLoading] = useState(false);
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
@@ -73,22 +72,22 @@ const Withdrawal = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { 
     if (otp.length === 6) {
       handleVerifyOTP();
     }
   }, [otp]);
 
   const handleVerifyOTP = async () => {
-    if (otp.length === 6) {
+    if (otp.length === 6) { 
       setVerificationLoading(true);
-      try {
+      try { 
         const isVerified = await verifyOTP();
         if (isVerified?.error?.data.success !== false) {
           await submitTransaction(); // Submit transaction only if OTP is verified
           setIsModalVisible(false);
           setOtp([]); // Clear OTP input value
-        }
+        } 
       } catch (error) {
         console.error("Error verifying OTP:", error);
         setVerificationError("Invalid OTP. Please try again.");
@@ -137,45 +136,41 @@ const Withdrawal = () => {
     }
   };
 
-  return (
-    <Styled.WithdrawalContainer>
-      <Styled.StyledH2>Withdraw</Styled.StyledH2>
+  return ( 
+    <Styled.WithdrawalContainer>  
+      <Styled.StyledH2>Withdrawal</Styled.StyledH2>
       <Styled.FormContainer>
-        <Styled.StyledForm
+        <Styled.StyledForm 
           onSubmit={(e) => {
-            e.preventDefault();
+            e.preventDefault(); 
             handleSubmit();
-          }}
-        >
-          <Styled.StyledCard>
-            <Styled.InputWrapper>
-              <label>Amount:</label>
+          }}  
+        >      
+          <Styled.StyledCard>   
+            <Styled.InputWrapper>  
+              <label>Amount:</label> 
               <Input
                 type="text"
                 value={withdrawalAmount}
                 onChange={(e) => setWithdrawalAmount(e.target.value)}
                 placeholder="Enter amount"
-                style={{ marginTop: '10px', border: '1.5px solid #9e9e9e' }}
               />
             </Styled.InputWrapper>
-            <Styled.InputWrapper>
-
+            <Styled.InputWrapper> 
               <label>Address:</label>
               <Input
                 type="text"
                 value={withdrawalAddress}
                 onChange={(e) => setWithdrawalAddress(e.target.value)}
                 placeholder="Enter receiver account ID"
-                style={{ marginTop: '10px', border: '1.5px solid #9e9e9e' }}
-              />
+              /> 
             </Styled.InputWrapper>
-            <Styled.BalanceContainer>
+            <Styled.BalanceContainer> 
               <div>
-                <div>Type:</div>
-                <Styled.StyledSelect
-                  value={transactionType}
+                <div>Type:</div>   
+                <Styled.StyledSelect  
+                  value={transactionType} 
                   onChange={(value) => setTransactionType(value)}
-                  style={{ marginTop: '10px' }}
                 >
                   <Option value="">Select Transaction Type</Option>
                   <Option value="profit">Profit</Option>
@@ -187,7 +182,7 @@ const Withdrawal = () => {
                 <Styled.Balance disabled>$334400</Styled.Balance>
               </div>
             </Styled.BalanceContainer>
-          </Styled.StyledCard>
+          </Styled.StyledCard> 
 
           <Styled.SubmitButtonContainer>
             <Button type="primary" htmlType="submit" disabled={isLoading}>
@@ -211,10 +206,10 @@ const Withdrawal = () => {
               >
                 {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Send OTP"}
               </Button>
-              {verificationError && (
+              {verificationError && ( 
                 <div className="color-red">{verificationError}</div>
               )}
-            </div>
+            </div> 
           </Modal>
         </Styled.StyledForm>
       </Styled.FormContainer>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Typography, Form, Col, Checkbox } from "antd";
 import { Formik, Field } from "formik";
-import axios from "axios";
+import axios from "axios"
 import * as Styled from "./SignIn.styled";
+import { FloatingInput } from "./FloatingInput/FloatingInput";
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
-import { Link } from "react-router-dom";
 
 interface FormErrors {
   email?: string;
@@ -27,6 +27,7 @@ const SignIn: React.FC = () => {
     setShowMoreInfo(!showMoreInfo); // Toggle the state
   };
 
+
   const handleSignIn = async (values: SignInValues, { setSubmitting }: FormikBag): Promise<void> => {
     const reqData = {
       email: values.email,
@@ -35,8 +36,13 @@ const SignIn: React.FC = () => {
 
     try {
       const response = await axios.post('/api/v1/auth/signin', reqData);
+
+      // Axios automatically parses JSON, so you don't need to call `.json()`
       const data = response.data;
+
+      // Save the token in a cookie
       document.cookie = `token=${data.token}; path=/`;
+
       console.log("Sign-in successful");
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -60,6 +66,7 @@ const SignIn: React.FC = () => {
             initialValues={{ email: "", password: "", remember: true }}
             validate={(values) => {
               const errors: FormErrors = {};
+
               if (!values.email) {
                 errors.email = "Please input your email!";
               }
@@ -70,26 +77,54 @@ const SignIn: React.FC = () => {
             }}
             onSubmit={handleSignIn}
           >
-            {({ values, errors, handleSubmit, isSubmitting }) => (
+            {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
               <Form layout="vertical" onFinish={handleSubmit}>
-                <Field name="email">
+                {/* <Form.Item
+                  label="Email / Username"
+                  validateStatus={errors.email && "error"}
+                  help={errors.email}
+                >
+                  <Styled.StyledInput
+                    name="email"
+                    value={values.email}
+                    onChange={handleChange}
+                  />
+
+                </Form.Item> */}
+                <Field name="firstName"> 
                   {({ field }) => (
-                    <FloatingLabelInput
-                      label="Email / Username"
-                      field={field}
-                    />
+                    <FloatingInput 
+                      label="Email / Username" 
+                      name="firstName" 
+                      field= {field}
+                  />
                   )}
                 </Field>
 
-                <Field name="password">
+                
+
+                <Form.Item
+                  label=""
+                  validateStatus={errors.password && "error"}
+                  style={{marginTop: "20px"}}
+                  help={errors.password}
+                >
+                  <Field name="password"> 
                   {({ field }) => (
-                    <FloatingLabelInputPassword
-                      label="Password"
-                      field={field}
+                    <FloatingLabelInputPassword 
+                      label="Password" 
+                      field= {field}
+                      name="password"
                     />
                   )}
                 </Field>
-
+                  {/* <Styled.StyledInputPassword
+                    name="password"
+                    value={values.password}
+                    onChange={handleChange}
+                    placeholder="Password"
+                  /> */}
+                </Form.Item>
                 <Form.Item>
                   <Styled.SignInButton
                     type="primary"
@@ -101,7 +136,10 @@ const SignIn: React.FC = () => {
                 </Form.Item>
                 <a href="#">
                   <Styled.ForgetTxt>
-                    Forget Password?
+                    <Styled.StyleLink to="/forgot-password">
+                      Forget Password?
+                    </Styled.StyleLink>
+                    
                   </Styled.ForgetTxt>
                 </a>
                 <Form.Item name="remember" valuePropName="checked">
@@ -111,9 +149,10 @@ const SignIn: React.FC = () => {
             )}
           </Formik>
 
+
           <p>
             <Styled.SignUpBtn>
-              <Link to="/signup">Sign Up</Link>
+              <Styled.StyleLink to="/signup">Sign Up</Styled.StyleLink>
             </Styled.SignUpBtn>
             to join QUICKPAYUS.
           </p>

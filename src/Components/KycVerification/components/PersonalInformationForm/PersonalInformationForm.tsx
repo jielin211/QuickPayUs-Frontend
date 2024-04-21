@@ -16,7 +16,15 @@ import dayjs from "dayjs";
 
 const { Option } = Select;
 
-export const PersonalInformationForm: React.FC = () => {
+interface PersonalInformationFormProps {
+  errors: {
+    dateOfBirth: string,
+    occupation: string,
+    address: string
+  }
+}
+
+export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({errors}) => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState();
@@ -88,6 +96,10 @@ export const PersonalInformationForm: React.FC = () => {
     setPhone(val);
   };
 
+  const handleChangeFloating = (value) => {
+    console.log(value);
+  }
+
   const makePhoneNumber = (countryCode, phoneNumber) => {
     return `${countryCode}${phoneNumber}`;
   };
@@ -152,9 +164,10 @@ export const PersonalInformationForm: React.FC = () => {
             </Col>
           )}
           <Col {...span}>
-            <Form.Item label="Date of birth" name="dateOfBirth">
-              <Styled.StyledDatePicker/>   
-            </Form.Item>    
+            <Styled.StyledFormItem label="Date of birth" name="dateOfBirth">
+              <Styled.StyledDatePicker/>
+            </Styled.StyledFormItem>    
+            <Styled.ErrorMessage>{errors.dateOfBirth}</Styled.ErrorMessage>
             <Form.Item name="gender" label="Gender">
               <Styled.StyledSelect 
                 defaultValue={selectedGender} 
@@ -165,12 +178,14 @@ export const PersonalInformationForm: React.FC = () => {
                 <Option value="female">Female</Option>
               </Styled.StyledSelect>  
             </Form.Item>
-            <Form.Item name="occupation">
-              <FloatingInput label="Occupation" name="occupation"/>
-            </Form.Item>
-            <Form.Item name="address">
-              <FloatingInput label="Address" name="address"/>
-            </Form.Item>
+            <Styled.StyledFormItem name="occupation">
+              <FloatingInput label="Occupation" name="occupation" onChange={handleChangeFloating} value={value}/>
+            </Styled.StyledFormItem>
+            <Styled.ErrorMessage>{errors.occupation}</Styled.ErrorMessage>
+            <Styled.StyledFormItem name="address">
+              <FloatingInput label="Address" name="address" onChange={handleChangeFloating} value={value}/>
+            </Styled.StyledFormItem>
+            <Styled.ErrorMessage>{errors.address}</Styled.ErrorMessage>
           </Col>
         </Row>
       </Form>

@@ -8,19 +8,35 @@ import { selectKycVerification } from "../../../../Redux/selectors";
 import { DOCUMENT_TYPES } from "./constants";
 import { getCountryCode, getCountryData } from "countries-list";
 
+interface IDVerificationFormProps {
+  errors: {
+    country: string,
+    documents: string,
+  }
+}
 
-export const IDVerificationForm: React.FC = () => {
+export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({errors}) => {
   const dispatch = useDispatch(); 
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [country, setCountry] = useState("");
-  const [selected, setSelected] = useState("");
-  const [documentType, setDocumentType] = useState(DOCUMENT_TYPES.ID_CARD);
+  const [maxCount, setMaxCount] = useState(2);
+  
   const [images, setImages] = useState([]);
   const kycFormData = useSelector(selectKycVerification);
+
+  const [selected, setSelected] = useState(getCountryCode(kycFormData?.country));
+  const [documentType, setDocumentType] = useState(kycFormData?.documentType);
+
   const onChange = (e) => {
     console.log("radio checked", e.target.value);
     setDocumentType(e.target.value);
+    if (e.target.value === DOCUMENT_TYPES.PASSPORT) {
+      setMaxCount(1);
+    } else {
+      setMaxCount(2);
+    }
+    dispatch(updateKycField({ field: "documentType", value: e.target.value}));
   };
 
   const handleValuesChange = useCallback(
@@ -40,27 +56,22 @@ export const IDVerificationForm: React.FC = () => {
     [country, dispatch, images]
   );
 
-  const handleChange = (value) => {
-    console.log(`selected ${value}`);
-  };
-
   const InfoPoints = [
-    "Upload a complete image of your ID document",
     "Ensure all details are readable in the image you upload",
     "Ensure the document is the original and has not expired",
     "Place documents against a solid-colored background",
   ];
 
   const getFileList = (images) => {
-    console.log("images", images);
     setImages(images);
+    dispatch(updateKycField({ field: "documents", value: images}));
   };
 
   const handleCountryChange = (value) => {
     const countryData = getCountryData(value);
-    setCountry(countryData.name);
+    // setCountry(countryData.name);
     setSelected(value);
-    console.log("countryData", countryData.name, country);
+    dispatch(updateKycField({ field: "country", value: countryData.name}));
   };
 
   return (
@@ -79,13 +90,14 @@ export const IDVerificationForm: React.FC = () => {
           onValuesChange={handleValuesChange}
           layout="vertical" 
         >
-          <Form.Item label="Country" name="country">
+          <Styled.StyledFormItem label="Country" name="country">
             <Styled.CountrySelect
               searchable 
-              selected={selected}
+              selected={selected || ""}
               onSelect={handleCountryChange} 
             />
-          </Form.Item>
+          </Styled.StyledFormItem>
+          <Styled.ErrorMessage>{errors.country}</Styled.ErrorMessage>
           <Form.Item label="Choose Document Type">
             <Radio.Group className="id-radiobtn" 
               onChange={onChange}   
@@ -93,7 +105,7 @@ export const IDVerificationForm: React.FC = () => {
             > 
               <Styled.RadioCardContainer>
                 <Styled.RadioCard>
-                  <Radio value={DOCUMENT_TYPES.ID_CARD}>National ID</Radio>
+                  <Radio value={DOCUMENT_TYPES.ID_CARD}>ID Card</Radio>
                 </Styled.RadioCard>
                 <Styled.RadioCard>
                   <Radio value={DOCUMENT_TYPES.PASSPORT}>Passport</Radio>
@@ -104,18 +116,26 @@ export const IDVerificationForm: React.FC = () => {
               </Styled.RadioCardContainer>
             </Radio.Group>
           </Form.Item>
-          <Form.Item label="Upload Documents" name="images">
-            <UploadButton getFileList={getFileList} />
-          </Form.Item>
+          <Styled.StyledFormItem label="Upload Documents" name="images">
+            <UploadButton getFileList={getFileList} maxCount={maxCount}/>
+          </Styled.StyledFormItem>
+          <Styled.ErrorMessage>{errors.documents}</Styled.ErrorMessage>
         </Styled.StyledForm>
         <Styled.InfoContainer>
           <Styled.InfoTitle>
-            Take pictures of both sides of your government issued id card
+            {documentType === DOCUMENT_TYPES.ID_CARD && "Take pictures of both sides of your government issued id card"}
+            {documentType === DOCUMENT_TYPES.PASSPORT && "Take picture of your passport"}
+            {documentType === DOCUMENT_TYPES.LICENSE && "Take pictures of both sides of your license"}
           </Styled.InfoTitle> 
-          <div>  
+          {/* <div>  
             <Styled.StyledSolutionIcon/>
-          </div>  
+          </div>   */}
           <Styled.InfoList>
+            <li>
+              {documentType === DOCUMENT_TYPES.ID_CARD && "Please upload clear images of both the front and back of your ID card."}
+              {documentType === DOCUMENT_TYPES.PASSPORT && "Kindly upload a high-quality, clear picture of your passport."}
+              {documentType === DOCUMENT_TYPES.LICENSE && "Upload a clear image of your driving license."}
+            </li>
             {InfoPoints.map((point, index) => (
               <li key={index}>{point}</li>
             ))}
