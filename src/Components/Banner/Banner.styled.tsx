@@ -121,3 +121,9 @@ export const ModeItem = styled.div`
   display: flex;
   justify-content: space-between
 `;
+export const ShareBtn = styled.button`
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  color: #f00000;
+`

@@ -18,8 +18,7 @@ const UserDashboard = () => {
     <Styled.Main className='dashboard'>     
       <Styled.StyledHeading >
         {loading ? (
-
-          <Skeleton.Input  active style={{ width: '100%' }}/> 
+          <Styled.SkeletonInputCustom  active size="small"/> 
         ) : (
           <> 
             Account Overview
@@ -33,7 +32,7 @@ const UserDashboard = () => {
             <Col span={24}>    
               <Styled.OverviewCard    
                 className="dashboard-card" 
-                bodyStyle={{ padding: '0' }} 
+                style={{ padding: '0' }} 
               >    
                 <Row gutter={[16, 16]}>          
                   <Col sm={8} xs={8} md={8} xl={8}>   
@@ -80,7 +79,7 @@ const UserDashboard = () => {
             <Col span={24}>  
               <Styled.OverviewCard 
                 className="dashboard-card"
-                bodyStyle={{ padding: '0' }}
+                style={{ padding: '0' }}
               >  
                 <Row gutter={[16, 16]}>  
                   <Col xs={8} sm={8} md={8} xl={8}> 
@@ -127,7 +126,7 @@ const UserDashboard = () => {
             <Col span={24}>  
               <Styled.OverviewCard 
                 className="dashboard-card"
-                bodyStyle={{ padding: '0' }} 
+                style={{ padding: '0' }} 
               >
                 <Row gutter={[16, 16]}>      
                   <Col xs={8} sm={8} md={8} xl={8}>

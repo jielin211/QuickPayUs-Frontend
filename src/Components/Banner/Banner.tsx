@@ -26,9 +26,7 @@ export const Banner = () => {
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
-
       if (event.target.parentNode.id === "avatarMenu0" || event.target.parentNode.id === "avatarMenu1") {
-
         return
       }
       setCollapsed(false); // Collapse the menu
@@ -68,6 +66,21 @@ export const Banner = () => {
       setSelectedKey(key);
   };
 
+  const handleShare = async () => {
+    if (navigator && navigator.share) {
+      navigator.share({
+          title: 'Awesome Content',
+          text: 'Check out this awesome content!',
+          url: 'https://example.com',
+        })
+        .then(() => console.log('Shared successfully'))
+        .catch((error) => console.error('Sharing failed:', error));
+    } else {
+      alert("Please use Share API support web browser");
+    }
+    
+  }
+
   const menuItems = [
     getItem(<a href="/profile">Account</a>, '1', null, null, null),
     getItem(<a href="/settings">Settings</a>, '2', null, null, null),
@@ -91,9 +104,8 @@ export const Banner = () => {
       width: 130,
       position: "absolute",
       top: "27px",
-
-      boxShadow: "2px 4px 12px #00000014"
-
+      boxShadow: "2px 4px 12px #00000014",
+      borderInlineEnd: 0
     }}
     defaultSelectedKeys={[]}
     defaultOpenKeys={['sub1']}
@@ -108,9 +120,8 @@ export const Banner = () => {
       position: "fixed",
       top: "46px",
       right: "6px",
-
-      boxShadow: "2px 4px 12px #00000014"
-
+      boxShadow: "2px 4px 12px #00000014",
+      borderInlineEnd: 0
     }}
     defaultSelectedKeys={[]}
     defaultOpenKeys={['sub1']}
@@ -188,12 +199,7 @@ export const Banner = () => {
                           color: "#f00000"
                         }}>{copied ? 'Copied!' : 'Copy'} <CopyOutlined /> </button>
                       </CopyToClipboard>
-                      <button style={{
-                        border: "none",
-                        background: "#fff",
-                        cursor: "pointer",
-                        color: "#f00000"
-                      }}>Share <ShareAltOutlined /></button>
+                      <Styled.ShareBtn onClick={handleShare}>Share <ShareAltOutlined /></Styled.ShareBtn>
                     </div>
                   </div>
                 </>
@@ -214,10 +220,8 @@ export const Banner = () => {
             <div>
               <a onClick={(e) => handleToggle(e)} >
                 <Styled.AvatarWrapper>
-
                   <Styled.StyledAvatar id="avatarMenu0">U</Styled.StyledAvatar>
                   <Styled.AvatarInfo id="avatarMenu1">
-
                     <Styled.AvatarInfoP1>Username</Styled.AvatarInfoP1>
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
                   </Styled.AvatarInfo>

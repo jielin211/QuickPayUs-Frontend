@@ -5,7 +5,7 @@ import Settings from "../Settings/Settings";
 import Support from "../Support/Support";
 import Rank from "../Rank/Rank";
 import Deposit from "../Deposit/Deposit";
-import Withdraw from "../Withdraw/Withdraw";
+import Withdrawal from "../Withdrawal/Withdrawal";
 import ShareWithFriend from "../ShareLink/Sharelink";
 import ChangePassword from "../Auth/Changepassword"; 
 import { Notifications } from "../Notifications";
@@ -17,6 +17,9 @@ import ReferralsList from "../ReferralsList/ReferralsList";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 import { Sider } from "./Sider";
 import { KycVerification } from "../KycVerification";
+import CustomTicket from "../Support/CustomTicket";
+import FAQ from "../Support/FAQ";
+import ContactInfo from "../Support/Contact";
 
 const { Content } = Layout; 
 
@@ -55,13 +58,16 @@ const App = () => {
                 <Route path="/support" element={<Support />} />
                 <Route path="/rank" element={<Rank />} />
                 <Route path="/deposit" element={<Deposit />} />
-                <Route path="/withdraw" element={<Withdraw />} />
+                <Route path="/withdrawal" element={<Withdrawal />} />
                 <Route path="/share" element={<ShareWithFriend />} />
                 <Route path="/change-password" element={<ChangePassword />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/announcements" element={<Announcements />} />
                 <Route path="/verification" element={<KycVerification />} />
+                <Route path="/support/ticket" element={<CustomTicket/>} />
+                <Route path="/support/faq" element={<FAQ/>} />
+                <Route path="/support/contact" element={<ContactInfo/>} />
               </Routes>
             </Content>
           </Layout>

@@ -1,5 +1,5 @@
 import { styled } from "styled-components";
-import { DatePicker, Select } from "antd";  
+import { DatePicker, Select, Form } from "antd";  
 
 export const FormContainer = styled.div`
   @media screen and (max-width: 768px) {
@@ -22,3 +22,10 @@ export const StyledDatePicker = styled(DatePicker)`
 export const StyledSelect = styled(Select)` 
   width: 100%;        
 `;  
+export const ErrorMessage = styled.div`
+  color: red;
+  height: 24px;
+`;
+export const StyledFormItem = styled(Form.Item)`
+  margin-bottom: 0;
+`

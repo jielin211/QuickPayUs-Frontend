@@ -54,6 +54,7 @@ export const RadioCard = styled.div`
 export const InfoTitle = styled.div`
   font-size: 16px;
   font-weight: 500;
+  margin-bottom: 10px;
 `;
 export const InfoContainer = styled.div`
   display: flex;
@@ -84,8 +85,9 @@ export const InfoList = styled.ul`
       display: block;
       position: absolute;
       transform: rotate(45deg);
-      top: 0.25em;
-      left: 0;
+      top: 7.5px;
+      left: 7px;
+      border-radius: 10px;
     }
   }
 `;
@@ -99,4 +101,11 @@ export const StyledImg = styled.img`
 export const StyledSolutionIcon = styled(SolutionOutlined)`
   font-size: 100px;
   padding: 20px
+`
+export const ErrorMessage = styled.div`
+  color: red;
+  height: 24px;
+`;
+export const StyledFormItem = styled(Form.Item)`
+  margin-bottom: 0;
 `

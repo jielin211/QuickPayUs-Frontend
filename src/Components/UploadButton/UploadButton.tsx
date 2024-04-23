@@ -2,7 +2,7 @@ import { UploadOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { StyledUpload } from "./UploadButton.styled";
 
-export const UploadButton = ({ getFileList }) => {
+export const UploadButton = ({ getFileList, maxCount }) => {
   const handleUploadFileList = (fileList) => {
     getFileList(fileList);
   };
@@ -15,6 +15,7 @@ export const UploadButton = ({ getFileList }) => {
         defaultFileList={[]}
         style={{ width: "100%" }}
         onChange={handleUploadFileList} 
+        maxCount = {maxCount}
       >
         <Button icon={<UploadOutlined />}>Upload</Button>
       </StyledUpload>

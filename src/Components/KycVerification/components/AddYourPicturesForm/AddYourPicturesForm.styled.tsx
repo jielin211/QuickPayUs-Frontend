@@ -86,3 +86,7 @@ export const InfoList = styled.ul`
 export const StyledForm = styled(Form)` 
   width: 100%;        
 `; 
+export const ErrorMessage = styled.div`
+  color: red;
+  height: 24px;
+`;

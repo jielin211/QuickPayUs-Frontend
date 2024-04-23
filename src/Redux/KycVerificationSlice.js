@@ -2,11 +2,13 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   dateOfBirth: "",
-  gender: "",
+  gender: "Male",
   occupation: "",
+  address: "",
   country: "",
   documentType: "ID_CARD",
   images: [],
+  documents: []
 };
 
 const kycVerificationSlice = createSlice({
@@ -15,6 +17,7 @@ const kycVerificationSlice = createSlice({
   reducers: {
     updateKycField(state, action) {
       const { field, value } = action.payload;
+      console.log(field, action.payload);
       return {
         ...state,
         [field]: value,
