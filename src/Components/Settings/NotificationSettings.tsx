@@ -1,16 +1,14 @@
-import { Link } from "react-router-dom";
-import rightArrow from "../../assets/images/red-right-arrow.svg";
-import * as Styled from "./settings.styled.jsx"; 
+import { Switch } from "antd";
+import * as Styled from "./settings.styled.js"; 
 
-const LanguageAndRegionSettings = () => {
+const NotificationSettings = () => {
    return (
       <Styled.SettingsBox>
          <Styled.SettingsBoxH2>
-            Language & Region
+            Notification Settings
          </Styled.SettingsBoxH2>
          <div>
-            <Link
-               to="/change-password"
+            <div
                style={{
                   display: "flex",
                   alignItems: "center",
@@ -20,12 +18,11 @@ const LanguageAndRegionSettings = () => {
                }}
             >
                <Styled.SettingsBoxP>
-                  Choose Language
+                  Alert notifications
                </Styled.SettingsBoxP>
-               <img src={rightArrow} alt="." />
-            </Link>
-            <Link
-               to="/change-password"
+               <Switch defaultChecked />
+            </div>
+            <div
                style={{
                   display: "flex",
                   alignItems: "center",
@@ -35,13 +32,13 @@ const LanguageAndRegionSettings = () => {
                }}
             >
                <Styled.SettingsBoxP>
-                  Choose Region
+                  Allow notifications of important events on E-mail provided
                </Styled.SettingsBoxP>
-               <img src={rightArrow} alt="." />
-            </Link>
+               <Switch />
+            </div>
          </div>
       </Styled.SettingsBox>
    );
 };
 
-export default LanguageAndRegionSettings;
+export default NotificationSettings;

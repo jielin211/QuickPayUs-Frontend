@@ -1,11 +1,12 @@
 import { Switch } from "antd";
-import * as Styled from "./settings.styled.jsx"; 
+import logoutIcon from "../../assets/images/logout-icon.svg";
+import * as Styled from "./settings.styled.js"; 
 
-const NotificationSettings = () => {
+const AccountDeactivation = () => {
    return (
       <Styled.SettingsBox>
          <Styled.SettingsBoxH2>
-            Notification Settings
+            Account Deactivation
          </Styled.SettingsBoxH2>
          <div>
             <div
@@ -18,9 +19,9 @@ const NotificationSettings = () => {
                }}
             >
                <Styled.SettingsBoxP>
-                  Alert notifications
+                  Deactivate Account
                </Styled.SettingsBoxP>
-               <Switch defaultChecked />
+               <Switch />
             </div>
             <div
                style={{
@@ -32,13 +33,13 @@ const NotificationSettings = () => {
                }}
             >
                <Styled.SettingsBoxP>
-                  Allow notifications of important events on E-mail provided
+                  Sign out{" "}
                </Styled.SettingsBoxP>
-               <Switch />
+               <img src={logoutIcon} alt="." style={{ display: "block" }} />
             </div>
          </div>
       </Styled.SettingsBox>
    );
 };
 
-export default NotificationSettings;
+export default AccountDeactivation;

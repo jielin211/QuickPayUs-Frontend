@@ -71,7 +71,7 @@ export const Notifications = () => {
     isLoading: isUnreadLoading,
     isSuccess: isUnreadSuccess,
     refetch: refetchTotal,
-  } = useGetUnreadNotificationsCountQuery();
+  } = useGetUnreadNotificationsCountQuery(null);
 
   useEffect(() => {
     if (isUnreadFetching || isUnreadLoading) {
@@ -111,7 +111,7 @@ export const Notifications = () => {
       const result = await putData({
         data: { isRead: true },
       });
-      if (result.data.success) {
+      if ('data' in result && result.data.success) {
         refetchTotal();
         dispatch(setNotificationsReadStatus());
       }

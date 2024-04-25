@@ -6,6 +6,13 @@ import { UploadButton } from "../UploadButton/UploadButton";
 
 const { TextArea } = Input;
 
+interface File {
+   name: string;
+   size: number;
+   lastModifiedDate: string;
+   lastModified: any;
+}
+
 const CustomTicket: React.FC = () => {
 
    const [isLoading, setIsLoading] = useState(false);
@@ -13,7 +20,7 @@ const CustomTicket: React.FC = () => {
    const [open, setOpen] = useState(false);
    const [subject, setSubject] = useState("");
    const [description, setDescription] = useState("");
-   const [fileList, setFileList] = useState([]);
+   const [fileList, setFileList] = useState<File[]>([]);
 
    const showModal = () => {
       setOpen(true);
@@ -28,15 +35,23 @@ const CustomTicket: React.FC = () => {
    };
 
    const getFileList = (images) => {
-      setFileList(images.fileList);
+      const filesWithSerializedDate = images.fileList.map(file => ({
+         // ...file,
+         lastModified: file.lastModified,
+         lastModifiedDate: file.lastModifiedDate.toISOString(), // Convert Date to string
+         name: file.name,
+         size: file.size,
+         // Copy any other needed properties
+       }));
+      setFileList(filesWithSerializedDate);
    };
 
    return (
       <Styled.CustomTicketContainer>     
-         <Styled.StyledH2>
-            Ticket Submission System
-         </Styled.StyledH2>
          <Styled.FormContainer>
+            <Styled.StyledH2>
+               Ticket Submission System
+            </Styled.StyledH2>
             <Styled.StyledForm 
                onSubmit={(e) => {
                   e.preventDefault(); 

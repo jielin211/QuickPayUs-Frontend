@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
+import App from "./App";
 import "./index.css";
-import ThemeProvider from "./Theme/themeProvider.jsx";
-import { store } from "./Redux/store.js";
+import ThemeProvider from "./Theme/themeProvider";
+import { store } from "./Redux/store";
 import { Provider } from "react-redux";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

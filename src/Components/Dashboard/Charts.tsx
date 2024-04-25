@@ -27,22 +27,20 @@ const EChart: React.FC = () => {
                </Styled.ChartHeading>  
             </Col>  
             <Styled.SelectCol>   
-               <Select    
+               <Styled.ChartSubjectSelect    
                   defaultValue="Profit"
-                  style={{ width: 120, marginRight: "10px" }}
                   options={[ 
                      { value: "profit", label: "Profit" },
-                     { value: "lucy", label: "Lucy" },
-                     { value: "Yiminghe", label: "yiminghe" },
+                     { value: "balance", label: "Balance" },
+                     { value: "reward", label: "Reward" },
                   ]} 
                />  
-               <Select
+               <Styled.ChartDateSelect
                   defaultValue="Month"
-                  style={{ width: 120 }}
                   options={[
                      { value: "month", label: "Month" },
-                     { value: "lucy", label: "Lucy" },
-                     { value: "Yiminghe", label: "yiminghe" },
+                     { value: "week", label: "Week" },
+                     { value: "year", label: "Year" },
                   ]}
                />
             </Styled.SelectCol> 

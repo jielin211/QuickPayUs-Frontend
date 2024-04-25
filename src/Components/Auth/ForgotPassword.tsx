@@ -1,65 +1,50 @@
-import React, { useState, useMemo, useEffect } from "react";
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import { Steps, Select} from 'antd';  
+import React, { useState, useEffect } from "react";
+import { Formik, Field } from 'formik';
+import { Form } from 'antd';  
 import * as Styled from "./SignUp.styled";  
 import { InputOTP } from "antd-input-otp";
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
+import { FloatingInput } from "./FloatingInput/FloatingInput";
 
 interface FormErrors {
-  firstName?: string;
-  lastName?: string;
   email?: string;
-  username?: string;
   password?: string;
   confirmPassword?: string;
-  referral?: string;
-  policy?: string;
-  phone?: string
 }
 
 const initialValues = {  
-  firstName: '',
-  lastName: '',
   email: '',
-  username: '',
   password: '', 
   confirmPassword: '', 
-  referral: '',
-  phone: ''
 };  
   
-const steps = [ 'OTP', 'Password', 'Confirm Password', ''];
+const steps = [ 'Email', 'OTP', 'Password', 'Confirm Password'];
   
-const ForgotPassword = () => {    
+const ForgotPassword: React.FC = () => {    
  
   const [otp, setOtp] = useState([]);
-  const [minutes, setMinutes] = useState(1);
-  const [seconds, setSeconds] = useState(59);
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const [minutes, setMinutes] = useState<number>(1);
+  const [seconds, setSeconds] = useState<number>(59);
+  const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false);
 
   useEffect(() => {
-    // Function to handle the countdown logic
+
     const interval = setInterval(() => {
-      // Decrease seconds if greater than 0
       if (seconds > 0) {
         setSeconds(seconds - 1);
       }
 
-      // When seconds reach 0, decrease minutes if greater than 0
       if (seconds === 0) {
         if (minutes === 0) {
-          // Stop the countdown when both minutes and seconds are 0
           clearInterval(interval);
         } else {
-          // Reset seconds to 59 and decrease minutes by 1
           setSeconds(59);
           setMinutes(minutes - 1);
         }
       }
-    }, 1000); // Run this effect every 1000ms (1 second)
+    }, 1000);
 
     return () => {
-      // Cleanup: stop the interval when the component unmounts
       clearInterval(interval);
     };
   }, [seconds]); 
@@ -76,7 +61,11 @@ const ForgotPassword = () => {
   const [currentStep, setCurrentStep] = React.useState(0);
    
   const nextStep = () => {
-    setCurrentStep((prevStep) => prevStep + 1);
+    if (currentStep === steps.length - 1) {
+      window.location.href = "/signin";
+    } else {
+      setCurrentStep((prevStep) => prevStep + 1);
+    }
   };
 
   const prevStep = () => {
@@ -93,26 +82,38 @@ const ForgotPassword = () => {
   const validate = (values): FormErrors => {
     const errors: FormErrors = {};
 
-    if (currentStep === 1) {
-      
-    } else if (currentStep === 2 ) {
-      
-    } else if (currentStep === 3) {
+   if (currentStep === 0) {
       if (!values.email) {
-        errors.email = 'Email is required';
+        errors.email = 'Email address is required';
       } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
         errors.email = 'Invalid email address';
       }
-      if (!values.username) {
-        errors.username = 'Username is required';
-      }
     } 
+
+    if (currentStep === 2) {
+      if (!values.password) {
+        errors.password = "Password is required";
+      } else if (values.password.length < 6) {
+        errors.password = "Password should be more than 6 characters";
+      }
+    }
+
+    if (currentStep === 3) {
+      if (!values.confirmPassword) {
+        errors.confirmPassword = "Confirm password is required";
+      } else if (values.confirmPassword !== values.password) {
+        errors.confirmPassword = "Confirm password should be matched";
+      }
+    }
 
     return errors;
   };
 
   const handleOtpInput = (value) => {
     setOtp(value);
+    if (value.length === 6) {
+      nextStep();
+    }
   };
  
   return (     
@@ -125,14 +126,30 @@ const ForgotPassword = () => {
           validate={validate}
           onSubmit={handleSubmit} 
         > 
-          {({ isSubmitting, values }) => (  
+          {({ isSubmitting, values, errors }) => (  
             <Form>   
-              <Styled.InputBox>     
-                {currentStep === 0 && (  
+              <Styled.InputBox>   
+                {currentStep === 0 && (
+                  <Form.Item
+                    label=""
+                    validateStatus={errors.email && "error"}
+                    help={errors.email}
+                  >
+                    <Field name="email"> 
+                      {({ field }) => (
+                        <FloatingInput 
+                          label="Email" 
+                          name="email" 
+                          field= {field}
+                        />
+                      )}
+                    </Field>
+                  </Form.Item>                    
+                )}  
+                {currentStep === 1 && (  
                     <>
                         <InputOTP value={otp} onChange={handleOtpInput} />
-                        <div className="countdown-text" style={{textAlign: "center"}}>
-                            
+                        <Styled.CountDownTimer>
                             {seconds > 0 || minutes > 0 ? (
                                 <p>
                                 Time Remaining:{" "}
@@ -145,11 +162,15 @@ const ForgotPassword = () => {
                                 // Display if countdown timer reaches 0
                                 <p>Didn't receive code?</p>
                             )}
-                        </div>
+                        </Styled.CountDownTimer>
                     </>
                 )} 
-                {currentStep === 1 && (
-                  <>
+                {currentStep === 2 && (
+                  <Form.Item
+                    label=""
+                    validateStatus={errors.password && "error"}
+                    help={errors.password}
+                  >
                     <Field name="password"> 
                       {({ field }) => (   
                         <FloatingLabelInputPassword 
@@ -159,39 +180,47 @@ const ForgotPassword = () => {
                         />
                       )}
                     </Field> 
-                  </>
+                  </Form.Item>
                 )}
-                {currentStep === 2 && (
-                  <Field name="confirmPassword">    
-                    {({ field }) => (  
-                        <FloatingLabelInputPassword 
-                            label="Confirm Password" 
-                            field= {field}
-                            name="confirmPassword"
-                        />
-                    )}
-                  </Field>
+                {currentStep === 3 && (
+                  <Form.Item
+                    label=""
+                    validateStatus={errors.confirmPassword && "error"}
+                    help={errors.confirmPassword}
+                  >
+                    <Field name="confirmPassword">    
+                      {({ field }) => (  
+                          <FloatingLabelInputPassword 
+                              label="Confirm Password" 
+                              field= {field}
+                              name="confirmPassword"
+                          />
+                      )}
+                    </Field>
+                  </Form.Item>
                 )}
 
                 { currentStep !== steps.length &&
                   <Styled.BtnGrp>    
-                    {currentStep > 0 && ( 
+                    {currentStep !== 1 && ( 
                         <>
-                            <Styled.PreviousBtn onClick={prevStep}>Previous</Styled.PreviousBtn>
+                            {currentStep > 0 && 
+                              <Styled.PreviousBtn onClick={prevStep}>Previous</Styled.PreviousBtn>                            
+                            }
                             <Styled.NextBtn    
                                 type="primary" 
                                 htmlType={currentStep === steps.length - 1 ? 'submit' : 'button'}
                                 onClick={nextStep} 
                                 loading={isSubmitting}   
-                                className={currentStep === 0 ? 'getone' : (currentStep === steps.length - 1 ? 'Submit' : 'Next')}
+                                className={currentStep === 1 ? 'getone' : (currentStep === steps.length - 1 ? 'Submit' : 'Next')}
                                 disabled={Object.keys(validate(values)).some(field => !!field)} 
                                 >   
                                 {currentStep === steps.length - 1 ? 'Submit' : 'Next'}
                             </Styled.NextBtn> 
                         </>  
-                    )}
+                    )} 
                     {
-                    !currentStep && 
+                    currentStep === 1 && 
                     <Styled.PreviousBtn 
                         onClick={resendOTP}
                         disabled={seconds > 0 || minutes > 0}>

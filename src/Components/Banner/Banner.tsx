@@ -181,23 +181,11 @@ export const Banner = () => {
               content={
                 <>
                   <div>
-                    <p style={{
-                      padding: "10px 0px 0px 0px",
-                      textAlign: "center",
-                      fontSize: "14px",
-                      fontWeight: "600"
-                    }}>Referral code</p>
-                    <QRCode value="https://quickpayus.com/username" style={{
-                      marginTop: "0px"
-                    }} />
+                    <Styled.ReferralTitle>Referral code</Styled.ReferralTitle>
+                    <QRCode value="https://quickpayus.com/username" />
                     <div className="d-flex">
                       <CopyToClipboard text="https://quickpayus.com/username" onCopy={onCopy}>
-                        <button style={{
-                          border: "none",
-                          background: "#fff",
-                          cursor: "pointer",
-                          color: "#f00000"
-                        }}>{copied ? 'Copied!' : 'Copy'} <CopyOutlined /> </button>
+                        <Styled.CopyToClipboardContent>{copied ? 'Copied!' : 'Copy'} <CopyOutlined /> </Styled.CopyToClipboardContent>
                       </CopyToClipboard>
                       <Styled.ShareBtn onClick={handleShare}>Share <ShareAltOutlined /></Styled.ShareBtn>
                     </div>
@@ -205,9 +193,7 @@ export const Banner = () => {
                 </>
               }
             >
-              <QrcodeOutlined style={{
-                cursor: "pointer"
-              }} />
+              <Styled.CustomQrCodeIcon/>
             </Popover>
 
             <Link to="/notifications">
@@ -220,7 +206,9 @@ export const Banner = () => {
             <div>
               <a onClick={(e) => handleToggle(e)} >
                 <Styled.AvatarWrapper>
-                  <Styled.StyledAvatar id="avatarMenu0">U</Styled.StyledAvatar>
+                  <div id="avatarMenu0">
+                    <Styled.StyledAvatar>U</Styled.StyledAvatar>  
+                  </div>
                   <Styled.AvatarInfo id="avatarMenu1">
                     <Styled.AvatarInfoP1>Username</Styled.AvatarInfoP1>
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
@@ -278,27 +266,15 @@ export const Banner = () => {
                         }} />
                         <div className="d-flex">
                           <CopyToClipboard text="https://quickpayus.com/username" onCopy={onCopy}>
-                            <button style={{
-                              border: "none",
-                              background: "#fff",
-                              cursor: "pointer",
-                              color: "#f00000"
-                            }}>{copied ? 'Copied!' : 'Copy'} <CopyOutlined /> </button>
+                            <Styled.CopyToClipboardContent>{copied ? 'Copied!' : 'Copy'} <CopyOutlined /> </Styled.CopyToClipboardContent>
                           </CopyToClipboard>
-                          <button style={{
-                            border: "none",
-                            background: "#fff",
-                            cursor: "pointer",
-                            color: "#f00000"
-                          }}>Share <ShareAltOutlined /></button>
+                          <Styled.ShareBtn onClick={handleShare}>Share <ShareAltOutlined /></Styled.ShareBtn>
                         </div>
                       </div>
                     </>
                   }
                 >
-                  <QrcodeOutlined style={{
-                    cursor: "pointer"
-                  }} />
+                  <Styled.CustomQrCodeIcon/>
                 </Popover>
               </li>
 

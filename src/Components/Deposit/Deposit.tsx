@@ -64,8 +64,9 @@ const Deposit: React.FC = () => {
 
   return (
     <Styled.DepositContainer>   
-      <Styled.PageHeading>Deposit</Styled.PageHeading>
+      
       <Styled.FormContainer>
+        <Styled.PageHeading>Deposit</Styled.PageHeading>
         <Formik  
           initialValues={{
             investmentAmount: "", 
@@ -243,7 +244,7 @@ const Deposit: React.FC = () => {
         </Formik> 
         <Modal 
           title="Confirmation"
-          visible={isModalVisible} 
+          open={isModalVisible} 
           onCancel={handleModalCancel}
           footer={[
             <Button key="cancel" onClick={handleModalCancel}>

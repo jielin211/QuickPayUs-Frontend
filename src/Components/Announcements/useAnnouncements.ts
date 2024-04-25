@@ -14,8 +14,8 @@ export function useAnnouncements() {
   const dispatch = useDispatch();
   const location = useLocation();
   const announcements = useSelector(selectAnnouncements);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const {
     data: announcementsList,
@@ -68,5 +68,6 @@ export function useAnnouncements() {
     refetch,
     currentPage,
     setCurrentPage,
+    isFetching
   };
 }

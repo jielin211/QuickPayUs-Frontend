@@ -6,11 +6,9 @@ import * as Styled from "./Announcements.styled";
 
 const { Content } = Layout;
 
-export const Announcements = () => {
+export const Announcements: React.FC = () => {
   const { announcements, isLoading, isFetching, currentPage, setCurrentPage } =
     useAnnouncements();
-
-  console.log(announcements, "announcements");
 
   return (
     <Styled.Container>

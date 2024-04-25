@@ -5,14 +5,14 @@ const ContactInfo: React.FC = () => {
 
    return (
     <Styled.CustomTicketContainer>
-        <Styled.StyledH2>Contact Us</Styled.StyledH2>
         <Styled.StyledContactContent>
+            <Styled.StyledH2>Contact Us</Styled.StyledH2>
             <Styled.ContactItemWrapper>
                 <Styled.ContactIconWrapper>
                     <EnvironmentFilled style={{color: "white"}}/>
                 </Styled.ContactIconWrapper>
                 <Styled.ContactItemContentWrapper>
-                    <b>Address</b>: qweqweqweqweqweqweqweqweq weqweqweqweqweqweq weqweqweqwssssssssssssssssss sssssssss
+                    <b>Address</b>: <br/>ENCINITAS CA 92024, USA
                 </Styled.ContactItemContentWrapper>
             </Styled.ContactItemWrapper>
             <Styled.ContactItemWrapper>
@@ -20,7 +20,7 @@ const ContactInfo: React.FC = () => {
                     <SendOutlined style={{color: "white"}}/>
                 </Styled.ContactIconWrapper>
                 <Styled.ContactItemContentWrapper>
-                    <b>Email</b>: qweqweqweqweqweqweqweqwe
+                    <b>Email</b>: <br/>support@quickpayus.com
                 </Styled.ContactItemContentWrapper>
             </Styled.ContactItemWrapper>
             <Styled.ContactItemWrapper>
@@ -28,7 +28,7 @@ const ContactInfo: React.FC = () => {
                     <PhoneFilled style={{color: "white"}}/>
                 </Styled.ContactIconWrapper>
                 <Styled.ContactItemContentWrapper>
-                    <b>Phone</b>: qweqweqweqweqweqweqweqwe
+                    <b>Phone</b>: <br/>+1 760-487-5420
                 </Styled.ContactItemContentWrapper>
             </Styled.ContactItemWrapper>
             <Styled.ContactItemWrapper>
@@ -36,7 +36,7 @@ const ContactInfo: React.FC = () => {
                     <EnvironmentFilled style={{color: "white"}}/>
                 </Styled.ContactIconWrapper>
                 <Styled.ContactItemContentWrapper>
-                    <b>Website</b>: qweqweqweqweqweqweqweqwe
+                    <b>Website</b>: <br/>quickpayus.com
                 </Styled.ContactItemContentWrapper>
             </Styled.ContactItemWrapper>
         </Styled.StyledContactContent>

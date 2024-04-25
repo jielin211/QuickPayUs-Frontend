@@ -40,9 +40,9 @@ const steps = [ 'Get Started', 'Name', 'Number', 'Email & Username', 'Password',
 const SignupForm = () => {    
  
   const [otp, setOtp] = useState([]);
-  const [showMoreInfo, setShowMoreInfo] = useState(false);
-  const [phone, setPhone] = useState('');
-  const [dial, setDial] = useState('');
+  const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false);
+  const [phone, setPhone] = useState<string>('');
+  const [dial, setDial] = useState<string>('');
 
   const handleChangePhone = (dial, phone) => {
     setPhone(phone);
@@ -54,10 +54,15 @@ const SignupForm = () => {
   };  
 
   const [currentStep, setCurrentStep] = React.useState(0);
-  const [referral, setReferral] = useState('');
    
   const nextStep = () => {
-    setCurrentStep((prevStep) => prevStep + 1);
+    if (currentStep === steps.length - 1) {
+      setTimeout(() => {
+        setCurrentStep((prevStep) => prevStep + 1);
+      }, 400);
+    } else {
+      setCurrentStep((prevStep) => prevStep + 1);
+    }
   };
 
   const prevStep = () => {
@@ -128,6 +133,9 @@ const SignupForm = () => {
 
   const handleOtpInput = (value) => {
     setOtp(value);
+    if (value.length === 6) {
+      window.location.href = "/signin";
+    }
   };
  
   return (     
@@ -190,11 +198,6 @@ const SignupForm = () => {
                   <Field name="phone">    
                     {({ field }) => (  
                       <Styled.InputWrapper>
-                        {/* <Styled.InputLabel htmlFor="phoneNumber">
-                          Number 
-                        </Styled.InputLabel> 
-                        <Styled.InputField {...field} placeholder="Last Name" /> */}
-                        {/* <FloatingInput label="Phone Number" name="phoneNumber" field={field}/> */}
                         <AntPhone {...field} handleChange={handleChangePhone}/>
                         <ErrorMessage name="phone" component="div" className='color-red' />
                       </Styled.InputWrapper> 
@@ -206,8 +209,6 @@ const SignupForm = () => {
                     <Field name="email">
                       {({ field }) => (
                         <Styled.InputWrapper>   
-                          {/* <Styled.InputLabel htmlFor="email">Email</Styled.InputLabel>
-                          <Styled.InputField {...field} placeholder="Email" />  */}
                           <FloatingInput label="Email" name="email" field={field}/>
                           <ErrorMessage name="email" component="div" className='color-red' />
                         </Styled.InputWrapper> 
@@ -216,9 +217,7 @@ const SignupForm = () => {
                     <Field name="username">
                       {({ field }) => (
                         <Styled.InputWrapper>  
-                          {/* <Styled.InputLabel htmlFor="username">Username</Styled.InputLabel>
-                          <Styled.InputField {...field} placeholder="Username" />  */}
-                          <FloatingInput label="User Name" name="userName" field={field}/>
+                          <FloatingInput label="User Name" name="username" field={field}/>
                           <ErrorMessage name="username" component="div" className='color-red' />
                         </Styled.InputWrapper> 
                       )}
@@ -264,7 +263,10 @@ const SignupForm = () => {
                   <Field name="policy">   
                   {({ field }) => ( 
                     <Styled.InputWrapper>   
-                      <Styled.StyledCheckbox {...field}>         
+                      <Styled.StyledCheckbox 
+                        checked={field.value}
+                        {...field}
+                      >         
                         I agree with the <a href="#" className="color-red">Privacy Policy</a> and <a href="#" className="color-red">Terms of Services.</a>
                       </Styled.StyledCheckbox>    
                       <ErrorMessage name="policy" component="div" className='color-red'/>     

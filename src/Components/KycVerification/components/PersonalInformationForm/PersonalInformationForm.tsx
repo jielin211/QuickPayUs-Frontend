@@ -31,7 +31,7 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
   const [countryCode, setCountryCode] = useState("");
   const [phone, setPhone] = useState(0);
 
-  const [selectedGender, setSelectedGender] = useState("Male");
+  const [selectedGender, setSelectedGender] = useState("female");
   const [isFirstTimeEditing, setIsFirstTimeEditing] = useState(false);
   const kycFormData = useSelector(selectKycVerification);
   const profileFormData = useSelector(selectProfile);
@@ -87,7 +87,6 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
 
   const handleGenderChange = (value) => {
     setSelectedGender(value);
-    console.log(`selected ${value}`);
   };
 
   const handlePhoneNumberChange = (inputValue, country) => {
@@ -97,7 +96,7 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
   };
 
   const handleChangeFloating = (value) => {
-    console.log(value);
+
   }
 
   const makePhoneNumber = (countryCode, phoneNumber) => {
@@ -123,6 +122,7 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
           firstName: profileFormData?.firstName,
           lastName: profileFormData?.lastName,
           username: profileFormData?.username,
+          gender: profileFormData?.gender,
           email: profileFormData?.email,
           mobileNo: makePhoneNumber(
             profileFormData?.countryCode,
@@ -170,7 +170,7 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
             <Styled.ErrorMessage>{errors.dateOfBirth}</Styled.ErrorMessage>
             <Form.Item name="gender" label="Gender">
               <Styled.StyledSelect 
-                defaultValue={selectedGender} 
+                value={selectedGender}
                 onChange={handleGenderChange}
                 placeholder="Gender"
               >

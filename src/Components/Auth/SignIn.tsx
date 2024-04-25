@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Typography, Form, Col, Checkbox } from "antd";
+import { Form, Col, Checkbox } from "antd";
 import { Formik, Field } from "formik";
 import axios from "axios"
 import * as Styled from "./SignIn.styled";
@@ -68,10 +68,10 @@ const SignIn: React.FC = () => {
               const errors: FormErrors = {};
 
               if (!values.email) {
-                errors.email = "Please input your email!";
+                errors.email = "Please input your email";
               }
               if (!values.password) {
-                errors.password = "Please input your password!";
+                errors.password = "Please input your password";
               }
               return errors;
             }}
@@ -79,51 +79,39 @@ const SignIn: React.FC = () => {
           >
             {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
               <Form layout="vertical" onFinish={handleSubmit}>
-                {/* <Form.Item
-                  label="Email / Username"
+                <Form.Item
+                  label=""
                   validateStatus={errors.email && "error"}
                   help={errors.email}
                 >
-                  <Styled.StyledInput
-                    name="email"
-                    value={values.email}
-                    onChange={handleChange}
-                  />
+                  <Field name="email"> 
+                    {({ field }) => (
+                      <FloatingInput 
+                        label="Email / Username" 
+                        name="email" 
+                        field= {field}
+                    />
+                    )}
+                  </Field>
 
-                </Form.Item> */}
-                <Field name="firstName"> 
-                  {({ field }) => (
-                    <FloatingInput 
-                      label="Email / Username" 
-                      name="firstName" 
-                      field= {field}
-                  />
-                  )}
-                </Field>
-
+                </Form.Item>
                 
 
                 <Form.Item
                   label=""
                   validateStatus={errors.password && "error"}
-                  style={{marginTop: "20px"}}
+                  style={{marginTop: "30px"}}
                   help={errors.password}
                 >
                   <Field name="password"> 
-                  {({ field }) => (
-                    <FloatingLabelInputPassword 
-                      label="Password" 
-                      field= {field}
-                      name="password"
-                    />
-                  )}
-                </Field>
-                  {/* <Styled.StyledInputPassword
-                    name="password"
-                    value={values.password}
-                    onChange={handleChange}
-                    placeholder="Password"
-                  /> */}
+                    {({ field }) => (
+                      <FloatingLabelInputPassword 
+                        label="Password" 
+                        field= {field}
+                        name="password"
+                      />
+                    )}
+                  </Field>
                 </Form.Item>
                 <Form.Item>
                   <Styled.SignInButton
@@ -134,14 +122,13 @@ const SignIn: React.FC = () => {
                     Sign In
                   </Styled.SignInButton>
                 </Form.Item>
-                <a href="#">
+                <span>
                   <Styled.ForgetTxt>
                     <Styled.StyleLink to="/forgot-password">
                       Forget Password?
                     </Styled.StyleLink>
-                    
                   </Styled.ForgetTxt>
-                </a>
+                </span>
                 <Form.Item name="remember" valuePropName="checked">
                   <Checkbox>Remember me</Checkbox>
                 </Form.Item>

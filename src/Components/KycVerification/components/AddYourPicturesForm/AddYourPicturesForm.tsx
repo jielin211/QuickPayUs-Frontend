@@ -33,7 +33,15 @@ export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}
   };
 
   const getFileList = (images) => {
-    dispatch(updateKycField({ field: "images", value: images}));
+    const filesWithSerializedDate = images.fileList.map(file => ({
+      // ...file,
+      lastModified: file.lastModified,
+      lastModifiedDate: file.lastModifiedDate.toISOString(), // Convert Date to string
+      name: file.name,
+      size: file.size,
+      // Copy any other needed properties
+    }));
+    dispatch(updateKycField({ field: "images", value: filesWithSerializedDate}));
   };
 
   const InfoPoints = [

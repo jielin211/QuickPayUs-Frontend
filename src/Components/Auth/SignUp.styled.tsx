@@ -149,3 +149,6 @@ export const Steps = styled(UiSteps)`
     } */
   }
 `;
+export const CountDownTimer = styled.div`
+  text-align: center;
+`;

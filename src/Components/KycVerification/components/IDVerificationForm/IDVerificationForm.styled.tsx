@@ -8,6 +8,7 @@ export const CountrySelect = styled(ReactFlagsSelect)`
     border-radius: 8px !important;
   }
 `;
+
 export const Heading = styled.div`
   font-size: 20px;
   font-weight: 600;

@@ -37,7 +37,6 @@ export const KycVerification: React.FC = () => {
 
   const next = () => {
     let flag = false;
-    console.log(kycRedux);
 
     if (current === 0) {
       let tempError = {
@@ -68,18 +67,18 @@ export const KycVerification: React.FC = () => {
         flag = true;
         tempError.country = "Please insert country";
       }
-      if (!kycRedux.documents.fileList && !kycRedux.documents.fileList?.length) {
+      if (!kycRedux.documents && !kycRedux.documents?.length) {
         flag = true;
         tempError.documents = "Please insert documents"; 
       }
-      if (kycRedux.documentType !== "PASSPORT" && kycRedux.documents.fileList?.length < 2 ) {
+      if (kycRedux.documentType !== "PASSPORT" && kycRedux.documents?.length < 2 ) {
         flag = true;
         tempError.documents = "Please insert both side of document";
       }
       setErrors({...errors, country: tempError.country, documents: tempError.documents});
       if (flag) return;
     } else if (current === 2) {
-      if (!kycRedux.images.fileList && !kycRedux.images.fileList?.length) {
+      if (!kycRedux.images && !kycRedux.images?.length) {
         setErrors({...errors, images: "Please insert your picture"});
         return;
       }

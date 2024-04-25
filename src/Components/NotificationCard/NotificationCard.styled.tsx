@@ -1,6 +1,26 @@
 import styled from "styled-components";
 
-export const NotificationCardContainer = styled.div`
+interface NotificationCardContainerProps {
+  $type: string; // Assuming $type is a string, adjust as necessary
+}
+
+interface NotificationIconProps {
+  $variant: string; // Same here, assuming $variant is a string
+}
+
+interface TitleProps {
+  $type: string;
+}
+
+interface NotificationIconProps {
+  $variant: string; // Adjust the type as needed, e.g., to a more specific type or enum if applicable
+}
+
+interface TimeProps {
+  $variant: string; // Adjust the type as needed, for example, you might use an enum or union type for specific variant strings
+}
+
+export const NotificationCardContainer = styled.div<NotificationCardContainerProps>`
   display: flex;
   align-items: flex-start;
   padding: 15px;
@@ -29,7 +49,7 @@ export const NotificationCardContainer = styled.div`
   }
 `;
 
-export const NotificationIcon = styled.div`
+export const NotificationIcon = styled.div<NotificationIconProps>`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -64,7 +84,7 @@ export const Message = styled.p`
   font-size: 14px;
 `;
 
-export const Time = styled.div`
+export const Time = styled.div<TimeProps>`
   display: flex;
   flex-direction: column;
   justify-content: ${(props) =>
@@ -85,7 +105,7 @@ export const UnreadDot = styled.div`
   position: relative;
 `;
 
-export const Title = styled.div`
+export const Title = styled.div<TitleProps>`
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;

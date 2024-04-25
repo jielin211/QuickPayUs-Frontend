@@ -4,7 +4,7 @@ import EChart from './Charts';
 import * as Styled from "./Style/Dashboard.styled"; 
   
 const UserDashboard = () => {   
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -18,7 +18,7 @@ const UserDashboard = () => {
     <Styled.Main className='dashboard'>     
       <Styled.StyledHeading >
         {loading ? (
-          <Styled.SkeletonInputCustom  active size="small"/> 
+          <Styled.SkeletonInputCustomHeader active size="small"/> 
         ) : (
           <> 
             Account Overview
@@ -88,7 +88,7 @@ const UserDashboard = () => {
                         <Styled.SkeletonInputCustom className='w-100' active size="small" />
                       ) : (
                         <>
-                          <Styled.CardH3>Account Balance</Styled.CardH3> 
+                          <Styled.CardH3>Equity Balance</Styled.CardH3> 
                           <Styled.CardP>$50.53</Styled.CardP>  
                         </>
                       )}
@@ -112,7 +112,7 @@ const UserDashboard = () => {
                         <Styled.SkeletonInputCustom className='w-100' active size="small" />
                       ) : (
                         <> 
-                          <Styled.CardH3>Profit Balance</Styled.CardH3>
+                          <Styled.CardH3>Referral Credits</Styled.CardH3>
                           <Styled.CardP>$50.53</Styled.CardP> 
                         </>
                       )} 

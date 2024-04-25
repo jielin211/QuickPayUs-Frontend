@@ -3,12 +3,19 @@ import dayjs from "dayjs";
 import { useGetReferralsListQuery } from "../../Redux/slice";
 import { REFERRAL_TYPE } from "./constants";
 
+interface Referal {
+  firstName?: string;
+  lastName?: string;
+  fullName?: string;
+  username: string;
+}
+
 export function useReferralsList() {
   const [currentPage, setCurrentPage] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [type, setType] = useState(REFERRAL_TYPE.DIRECT);
   const [level, setLevel] = useState(2);
-  const [referralsList, setReferralsList] = useState([]);
+  const [referralsList, setReferralsList] = useState<Referal[]>([]);
   const levels = Array.from({ length: 9 }, (_, index) => index + 2);
 
   const directLevel = 1;
@@ -113,7 +120,7 @@ export function useReferralsList() {
       dataIndex: "createdAt",
       key: "joiningDate",
       render: (date) => dayjs(date).format("DD-MM-YYYY"),
-      sorter: (a, b) => new Date(a.createdAt) - new Date(b.createdAt),
+      sorter: (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime(),
     },
   ];
 
