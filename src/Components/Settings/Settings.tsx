@@ -2,7 +2,7 @@ import AccountDeactivation from "./AccountDeactivation";
 import GeneralSettings from "./GeneralSettings";
 import LanguageAndRegionSettings from "./LanguageAndRegionSettings";
 import NotificationSettings from "./NotificationSettings";
-import * as Styled from "./settings.styled.jsx"; 
+import * as Styled from "./settings.styled.js"; 
 
 const Settings = () => {
    return (

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Badge, Layout, Avatar} from "antd"; 
-import { BellOutlined } from "@ant-design/icons";
+import { BellOutlined, QrcodeOutlined } from "@ant-design/icons";
 const { Header } = Layout;  
  
 export const HeaderContainer = styled.div`
@@ -126,4 +126,19 @@ export const ShareBtn = styled.button`
   background: #fff;
   cursor: pointer;
   color: #f00000;
+`
+export const ReferralTitle = styled.p`
+  padding: 10px 0px 0px 0px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+`
+export const CopyToClipboardContent = styled.button`
+  border: none;
+  background: #fff;
+  cursor: pointer;
+  color: #f00000;
+`
+export const CustomQrCodeIcon = styled(QrcodeOutlined)`
+  cursor: pointer;
 `

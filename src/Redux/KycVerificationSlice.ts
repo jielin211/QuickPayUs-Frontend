@@ -17,7 +17,6 @@ const kycVerificationSlice = createSlice({
   reducers: {
     updateKycField(state, action) {
       const { field, value } = action.payload;
-      console.log(field, action.payload);
       return {
         ...state,
         [field]: value,

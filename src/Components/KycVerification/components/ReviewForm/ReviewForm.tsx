@@ -98,7 +98,7 @@ export const ReviewForm: React.FC = () => {
           <Styled.ImgGrp>    
              
             {
-              documents.fileList?.map((item, index) => (
+              documents?.map((item, index) => (
                 <Styled.UploadImg key={index}/>
                 // <img key={index} src=""/>
               ))

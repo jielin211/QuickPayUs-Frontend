@@ -111,3 +111,46 @@ export const StyledKYCCol = styled(Col)`
   display: flex;
   justify-content: center;
 `
+export const ProfileHeroHeader = styled.div`
+  height: 185px;
+  background: url(/images/profile-bg.png);
+`
+export const ProfileHeroContent = styled.div`
+  max-height: 120px;
+  padding: 20px 34px 34px 46px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+`
+export const ProfileHeroLevel = styled.h3`
+  margin: 0;
+  font-size: 24px;
+  font-weight: bold;
+  color: #DF0B0B;
+`
+export const ProfileHeroLocation = styled.p`
+  margin: 0;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+`
+export const ProfileHeroName = styled.h1`
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+`
+export const ProfileHeroImage = styled.img`
+  display: block;
+  border-radius: 6px;
+  width: 170px;
+  height: 170px;
+  margin-top: -105px;
+`
+export const ProfileHeroImageWrapper = styled.div`
+  display: flex;
+  gap: 26px;
+`

@@ -6,7 +6,7 @@ import { useTransactionsList } from "./useTransactionsList";
 
 const { Option } = Select;
 
-const TransactionsList = () => {
+const TransactionsList: React.FC = () => {
   const {
     currentPage,
     pageSize,

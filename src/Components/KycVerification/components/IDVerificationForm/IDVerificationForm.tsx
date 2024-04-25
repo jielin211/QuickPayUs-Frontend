@@ -7,6 +7,7 @@ import { useState, useCallback } from "react";
 import { selectKycVerification } from "../../../../Redux/selectors";
 import { DOCUMENT_TYPES } from "./constants";
 import { getCountryCode, getCountryData } from "countries-list";
+import ReactFlagsSelect from "react-flags-select";
 
 interface IDVerificationFormProps {
   errors: {
@@ -29,7 +30,6 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({errors}) 
   const [documentType, setDocumentType] = useState(kycFormData?.documentType);
 
   const onChange = (e) => {
-    console.log("radio checked", e.target.value);
     setDocumentType(e.target.value);
     if (e.target.value === DOCUMENT_TYPES.PASSPORT) {
       setMaxCount(1);
@@ -64,7 +64,15 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({errors}) 
 
   const getFileList = (images) => {
     setImages(images);
-    dispatch(updateKycField({ field: "documents", value: images}));
+    const filesWithSerializedDate = images.fileList.map(file => ({
+      // ...file,
+      lastModified: file.lastModified,
+      lastModifiedDate: file.lastModifiedDate.toISOString(), // Convert Date to string
+      name: file.name,
+      size: file.size,
+      // Copy any other needed properties
+    }));
+    dispatch(updateKycField({ field: "documents", value: filesWithSerializedDate}));
   };
 
   const handleCountryChange = (value) => {
@@ -91,7 +99,7 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({errors}) 
           layout="vertical" 
         >
           <Styled.StyledFormItem label="Country" name="country">
-            <Styled.CountrySelect
+            <ReactFlagsSelect
               searchable 
               selected={selected || ""}
               onSelect={handleCountryChange} 

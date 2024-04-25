@@ -6,7 +6,7 @@ import { useReferralsList } from "./useReferralsList";
   
 const { Option } = Select; 
  
-const Referrals = () => {
+const Referrals: React.FC = () => {
   const { 
     currentPage,
     pageSize,

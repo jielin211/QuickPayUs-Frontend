@@ -5,6 +5,7 @@ const initialState = {
   lastName: "",
   username: "",
   email: "",
+  gender: "male",
   countryCode: "+93",
   phoneNumber: 6256,
   alertNotifications: true,

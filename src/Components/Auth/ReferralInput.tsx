@@ -16,8 +16,6 @@ interface ReferralInputProps {
 
 export const ReferralInput: React.FC<ReferralInputProps> = ({onChange}) => {
     const [value, setValue] = useState('');
-    console.log(onChange);
-    console.log(setValue);
 
     const handleChange = (value) => {
         setValue(value);

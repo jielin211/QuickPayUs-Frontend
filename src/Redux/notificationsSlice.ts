@@ -1,6 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+interface Notification {
+  id: string; // Assuming each notification has an ID
+  isRead: boolean;
+  // Add other notification properties here
+}
+
+interface NotificationsState {
+  success: boolean;
+  total: number;
+  totalPages: number;
+  data: Notification[];
+}
+
+const initialState: NotificationsState = {
   success: false,
   total: 0,
   totalPages: 0,

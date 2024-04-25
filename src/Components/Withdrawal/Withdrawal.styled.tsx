@@ -17,9 +17,15 @@ export const FormContainer = styled.div`
   margin-left: auto;
   margin-right: auto; 
   width: 650px; 
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  padding-bottom: 48px;
 
   @media screen and (max-width: 992px) {
     width: 100%;
+    padding: 0;
+    box-shadow: none;
   }
 `;
 

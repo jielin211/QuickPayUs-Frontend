@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Row, Card, Skeleton, Col} from "antd";     
+import { Row, Card, Skeleton, Col, Select } from "antd";     
    
 export const Main = styled.div`     
     padding: 20px;    
@@ -82,4 +82,19 @@ export const SkeletonInputCustom = styled(Skeleton.Input)`
         min-width: 100px !important;
         width: 100px !important
     }
+`
+export const SkeletonInputCustomHeader = styled(Skeleton.Input)`
+    margin-left: 14px;
+    @media (max-width: 575px) {   
+        margin-left: 0;
+        min-width: 100px !important;
+        width: 100px !important
+    }
+`
+export const ChartSubjectSelect = styled(Select)`
+    width: 120px;
+    margin-right: 10px;
+`
+export const ChartDateSelect = styled(Select)`
+    width: 120px;
 `

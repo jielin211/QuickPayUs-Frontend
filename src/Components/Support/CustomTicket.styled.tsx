@@ -14,14 +14,18 @@ export const CustomTicketContainer = styled.div`
 `;
 export const StyledH2 = styled.h2`
   text-align: center;
+  margin-bottom: 30px;
 `; 
 export const FormContainer = styled.div`
   margin-left: auto;
   margin-right: auto; 
   width: 650px; 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
 
   @media screen and (max-width: 992px) {
     width: 100%;
+    box-shadow: none;
   }
 `;
 export const StyledForm = styled.form`
@@ -52,18 +56,24 @@ export const StyledFAQContent = styled(Collapse)`
   margin: 0 auto;
   width: 80%;
   margin-top: 30px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
 
   @media screen and (max-width: 992px) {
     width: 100%;
+    box-shadow: none;
   }
 `
 export const StyledContactContent = styled.div`
   margin: 0 auto;
   width: 350px;
   margin-top: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
 
   @media screen and (max-width: 992px) {
     width: 100%;
+    box-shadow: none;
   }
 `
 export const ContactIconWrapper = styled.div`
@@ -82,5 +92,5 @@ export const ContactItemWrapper = styled.div`
 `
 export const ContactItemContentWrapper = styled.div`
   padding: 0 10px;
-  wordWrap: break-word";
+  wordWrap: break-word;
 `

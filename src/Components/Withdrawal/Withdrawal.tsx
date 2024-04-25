@@ -15,7 +15,7 @@ const Withdrawal = () => {
   const [verificationLoading, setVerificationLoading] = useState(false);
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
   const [withdrawalAddress, setWithdrawalAddress] = useState("");
-  const [transactionType, setTransactionType] = useState("");
+  const [transactionType, setTransactionType] = useState<string>("");
   const [isLoading, setIsLoading] = useState(false);
   const [postData] = usePostDataMutation();
 
@@ -27,6 +27,7 @@ const Withdrawal = () => {
           if (prevTimer === 0) {
             clearInterval(interval);
             setOtpSent(false);
+            return prevTimer;
           } else {
             return prevTimer - 1;
           }
@@ -39,7 +40,7 @@ const Withdrawal = () => {
   const sendOTP = async () => {
     try {
       // Call API to send OTP
-      await postData({ url: "/otp/create" });
+      await postData({ url: "/otp/create", data: "", id: "" });
       setOtpSent(true);
       setTimer(60);
       setIsModalVisible(true); // Open the modal after OTP is sent
@@ -83,11 +84,13 @@ const Withdrawal = () => {
       setVerificationLoading(true);
       try { 
         const isVerified = await verifyOTP();
-        if (isVerified?.error?.data.success !== false) {
-          await submitTransaction(); // Submit transaction only if OTP is verified
-          setIsModalVisible(false);
-          setOtp([]); // Clear OTP input value
-        } 
+        if (isVerified !== false && 'error' in isVerified && 'data' in isVerified.error && isVerified.error.data && typeof isVerified.error.data === "object") {
+          if ('success' in isVerified.error.data && isVerified.error.data.success !== false) {
+            await submitTransaction(); // Submit transaction only if OTP is verified
+            setIsModalVisible(false);
+            setOtp([]); // Clear OTP input value
+          } 
+        }
       } catch (error) {
         console.error("Error verifying OTP:", error);
         setVerificationError("Invalid OTP. Please try again.");
@@ -107,6 +110,7 @@ const Withdrawal = () => {
           userId: "65d90f020e3b5a197c585b8f",
           otp: otp.join(""),
         },
+        id: ""
       });
       return datares;
     } catch (error) {
@@ -128,6 +132,7 @@ const Withdrawal = () => {
           withdrawalType: transactionType,
           transactionType: "WITHDRAWAL",
         },
+        id: ""
       });
     } catch (error) {
       console.error("Error submitting transaction:", error);
@@ -138,8 +143,8 @@ const Withdrawal = () => {
 
   return ( 
     <Styled.WithdrawalContainer>  
-      <Styled.StyledH2>Withdrawal</Styled.StyledH2>
       <Styled.FormContainer>
+        <Styled.StyledH2>Withdrawal</Styled.StyledH2>
         <Styled.StyledForm 
           onSubmit={(e) => {
             e.preventDefault(); 
@@ -170,7 +175,7 @@ const Withdrawal = () => {
                 <div>Type:</div>   
                 <Styled.StyledSelect  
                   value={transactionType} 
-                  onChange={(value) => setTransactionType(value)}
+                  onChange={(value) => setTransactionType(value as string)}
                 >
                   <Option value="">Select Transaction Type</Option>
                   <Option value="profit">Profit</Option>
@@ -179,7 +184,7 @@ const Withdrawal = () => {
               </div>
               <div>
                 <div>My Balance:</div>
-                <Styled.Balance disabled>$334400</Styled.Balance>
+                <Styled.Balance>$334400</Styled.Balance>
               </div>
             </Styled.BalanceContainer>
           </Styled.StyledCard> 
@@ -193,19 +198,22 @@ const Withdrawal = () => {
           {/* OTP Modal */}
           <Modal
             title="Enter OTP"
-            visible={isModalVisible}
+            open={isModalVisible}
             onCancel={() => setIsModalVisible(false)}
             footer={null}
           >
             <div>
               <InputOTP value={otp} onChange={handleInputChange} />
-              <Button
-                type="primary"
-                onClick={handleResendOTP}
-                disabled={timer > 0}
-              >
-                {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Send OTP"}
-              </Button>
+              <div>
+                <Button
+                  type="primary"
+                  style={{marginTop: "20px", marginLeft: "auto"}}
+                  onClick={handleResendOTP}
+                  disabled={timer > 0}
+                >
+                  {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Send OTP"}
+                </Button>
+              </div>
               {verificationError && ( 
                 <div className="color-red">{verificationError}</div>
               )}
