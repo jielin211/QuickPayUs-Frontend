@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Row, Card, Skeleton, Col} from "antd";     
+import { Row, Card, Skeleton, Col} from "antd";    
+import { Link } from "react-router-dom"; 
 
 export const SettingsH1 = styled.h1`     
     font-size: 24px;
@@ -10,8 +11,8 @@ export const SettingsH1 = styled.h1`
     }   
 `;
 export const SettingsBox = styled.div`     
-    border: 1px solid #858585;
     border-radius: 10px; 
+    box-shadow: 2px 4px 12px #00000014;
     padding: 50px 30px;
     margin: 0 30px 30px 30px;
     @media (max-width: 575px) {  
@@ -39,3 +40,18 @@ export const SettingsBoxP= styled.p`
         font-size: 15px;
     }   
 `;
+
+export const CustomLink = styled(Link)`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d9d9d9;
+    padding-inline: 10px;
+`
+export const CustomSettingBox = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #d9d9d9;
+    padding-inline: 10px;
+`

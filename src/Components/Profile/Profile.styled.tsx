@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Col, Row, Button, Avatar } from "antd";
+import { Col, Row, Button, Avatar, Skeleton } from "antd";
 
 export const AboutBoxH4 = styled.h4`
     margin: 0;
@@ -21,11 +21,9 @@ export const AboutBoxP = styled.p`
   }
 `;
 export const KycBox = styled.div`
-    background: #1e1e1e; 
-    box-shadow: 2px 4px 12px #00000014;
+    background: white; 
     width: 70%;
     border-radius: 5px;  
-    padding: 30px; 
     @media screen and (max-width: 580px) {
         width: 90%;
     }
@@ -79,9 +77,9 @@ export const KycMainRow = styled(Row)`
 export const KycBtn = styled(Button)`
     display: block;
     margin: auto;
-    padding: 8px 24px;
+    padding: 8px 16px;
     height: 40px;
-    width: 170px ;
+    width: 140px ;
     color: #fff;
     background: #f00000;
     border: 1px solid #f00000;
@@ -153,4 +151,10 @@ export const ProfileHeroImage = styled.img`
 export const ProfileHeroImageWrapper = styled.div`
   display: flex;
   gap: 26px;
+`
+export const SkeletonInputCustom = styled(Skeleton.Input)`
+    @media (max-width: 575px) {   
+        min-width: 80px !important;
+        width: 80px !important
+    }
 `

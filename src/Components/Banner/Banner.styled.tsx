@@ -108,7 +108,7 @@ export const StyledHeader = styled(Header)`
 `;    
 export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px; 
-  color: red;    
+  color: black;    
 `;   
 export const StyledAvatar = styled(Avatar)`
   font-size: 14px;   

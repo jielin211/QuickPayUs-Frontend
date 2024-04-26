@@ -688,6 +688,12 @@ a {
 }
 
 .sider-menu-item.active {
-  color: red;
+  color: black;
   background-color: rgba(0, 0, 0, 0.06);
+  transform: scale(0.98);
+  transition: transform 0.3s ease;
+}
+
+.text-center {
+  text-align: center;
 }

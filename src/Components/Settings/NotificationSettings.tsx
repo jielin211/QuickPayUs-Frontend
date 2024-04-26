@@ -8,34 +8,18 @@ const NotificationSettings = () => {
             Notification Settings
          </Styled.SettingsBoxH2>
          <div>
-            <div
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Alert notifications
                </Styled.SettingsBoxP>
                <Switch defaultChecked />
-            </div>
-            <div
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            </Styled.CustomSettingBox>
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Allow notifications of important events on E-mail provided
                </Styled.SettingsBoxP>
                <Switch />
-            </div>
+            </Styled.CustomSettingBox>
          </div>
       </Styled.SettingsBox>
    );
