@@ -1,3 +1,4 @@
+import { Button } from "antd";
 import styled from "styled-components";
 
 export const RankTitle = styled.h2`
@@ -7,18 +8,61 @@ export const RankTitle = styled.h2`
 `
 
 export const RankSubtitleWrapper = styled.div`
-    margin: 30px;
-    text-align: left;
-    border-radius: 10px;
-    background: linear-gradient(90.5deg, #DF0B0B -35.48%, rgba(255, 107, 0, 0.79) 206.32%);
+    padding: 0 20px;
+    background: #f0f0f0;
+    border-radius: 8px 8px 0 0;
 `
 
 export const RankSubtitle = styled.h2`
-    color: white; 
-    padding: 5px;
+    padding: 10px 5px;
 `
 
 export const RankCol = styled.div`
     text-align: left;
     padding-left: 50px;
+`
+export const RankContainer = styled.div`
+    padding: 30px;
+`
+export const RankDataWrapper = styled.div`
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding-bottom: 10px;
+`
+export const RankDataItem = styled.h3`
+    color: #DF0B0B;
+    text-align: center;
+`
+export const RankDataDescription = styled.div`
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    margin: 30px;
+`
+export const ClaimRewardBtnWrapper = styled.div`
+    display: flex;
+    justify-content: right;
+`
+export const ClaimRewardBtn = styled(Button)`
+    padding: 0 50px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 20px 0;
+`
+export const RankResultTitle = styled.h3`
+    color: #DF0B0B;
+`
+export const RankResultWrapper = styled.div`
+    padding-bottom: 30px;
+    padding-left: 50px;
+`
+export const RankChartWrapper = styled.div`
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin: 30px 0;
+`
+export const RankResultContent = styled.span`
+    margin: auto 0;
+    font-weight: 500;
+    font-size: 16px;
 `

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, Collapse, Layout } from "antd";  
 import { Link, useLocation } from "react-router-dom";
 import dashboard from "../../assets/images/dashboard-icon.svg";
-import statements from "../../assets/images/statements-icon.svg";
+import transaction from "../../assets/images/statements-icon.svg";
 import deposit from "../../assets/images/deposit-icon.svg";
 import withdrawal from "../../assets/images/withdrawal-icon.svg";
 import referral from "../../assets/images/referrals-icons.svg";
@@ -105,12 +105,12 @@ export const Sider: React.FC = () => {
           selectedKeys={[selectedOption]}
         >
           <SiderMenuItem icon={dashboard} selectedOption={selectedOption} keyValue="dashboard" label="Dashboard"/>
-          <SiderMenuItem icon={statements} selectedOption={selectedOption} keyValue="transaction" label="Transactions"/>
+          <SiderMenuItem icon={transaction} selectedOption={selectedOption} keyValue="transaction" label="Transactions"/>
           <SiderMenuItem icon={deposit} selectedOption={selectedOption} keyValue="deposit" label="Deposit"/>
           <SiderMenuItem icon={withdrawal} selectedOption={selectedOption} keyValue="withdrawal" label="Withdrawal"/>
           <SiderMenuItem icon={referral} selectedOption={selectedOption} keyValue="referrals" label="Referrals"/>
           <SiderMenuItem icon={rank} selectedOption={selectedOption} keyValue="rank" label="Rank"/>
-          <SiderMenuItem icon={support} selectedOption={selectedOption} keyValue="announcements" label="Announcements"/>
+          {/* <SiderMenuItem icon={support} selectedOption={selectedOption} keyValue="announcements" label="Announcements"/> */}
         </MenuCustom>
         
       </UiSiderCustom>

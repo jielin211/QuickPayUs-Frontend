@@ -21,7 +21,7 @@ const SiderMenuItem: React.FC<SiderMenuItemProp> = ({icon, selectedOption, keyVa
                 <img
                     src={icon}
                     style={{
-                        width: !device?.isBreakpoint("MD") ? "22px" : "14px",
+                        width: !device?.isBreakpoint("MD") ? "22px" : "16px",
                         textAlign: "center",
                     }}
                 />

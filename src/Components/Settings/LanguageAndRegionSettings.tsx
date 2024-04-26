@@ -9,36 +9,18 @@ const LanguageAndRegionSettings = () => {
             Language & Region
          </Styled.SettingsBoxH2>
          <div>
-            <Link
-               to="/change-password"
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Choose Language
                </Styled.SettingsBoxP>
                <img src={rightArrow} alt="." />
-            </Link>
-            <Link
-               to="/change-password"
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            </Styled.CustomSettingBox>
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Choose Region
                </Styled.SettingsBoxP>
                <img src={rightArrow} alt="." />
-            </Link>
+            </Styled.CustomSettingBox>
          </div>
       </Styled.SettingsBox>
    );

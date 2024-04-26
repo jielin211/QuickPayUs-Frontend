@@ -9,34 +9,18 @@ const AccountDeactivation = () => {
             Account Deactivation
          </Styled.SettingsBoxH2>
          <div>
-            <div
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Deactivate Account
                </Styled.SettingsBoxP>
                <Switch />
-            </div>
-            <div
-               style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  borderBottom: "1px solid #d9d9d9",
-                  paddingInline: "10px",
-               }}
-            >
+            </Styled.CustomSettingBox>
+            <Styled.CustomSettingBox>
                <Styled.SettingsBoxP>
                   Sign out{" "}
                </Styled.SettingsBoxP>
                <img src={logoutIcon} alt="." style={{ display: "block" }} />
-            </div>
+            </Styled.CustomSettingBox>
          </div>
       </Styled.SettingsBox>
    );

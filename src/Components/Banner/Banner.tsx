@@ -8,6 +8,22 @@ import { CheckOutlined, QrcodeOutlined, CopyOutlined, ShareAltOutlined } from '@
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
 import * as Styled from "./Banner.styled";
 
+// import support from "../../assets/images/support-icon.svg";
+
+const AnnouncementIcon = (props) => (
+  <svg
+    fill="#000000"
+    width="16px"
+    height="16px"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+    style={{marginBottom: "2px"}}
+    {...props}
+  >
+    <path d="M5,7.087a3,3,0,0,0-3,3v3.826a3,3,0,0,0,2,2.816V21a1,1,0,0,0,1,1H9a1,1,0,0,0,1-1V17.423l10.609,4.5A1,1,0,0,0,22,21V3a1,1,0,0,0-1.391-.921L8.8,7.087ZM8,20H6V16.913H8Zm0-5.087H5a1,1,0,0,1-1-1V10.087a1,1,0,0,1,1-1H8Zm2-6.164L20,4.51V19.49L10,15.251Z" />
+  </svg>
+);
+
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -26,6 +42,9 @@ export const Banner = () => {
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
+      if (event.target.parentNode.className.includes("avatarMenu0")) {
+        return
+      }
       if (event.target.parentNode.id === "avatarMenu0" || event.target.parentNode.id === "avatarMenu1") {
         return
       }
@@ -104,6 +123,7 @@ export const Banner = () => {
       width: 130,
       position: "absolute",
       top: "27px",
+      left: "25px",
       boxShadow: "2px 4px 12px #00000014",
       borderInlineEnd: 0
     }}
@@ -203,12 +223,15 @@ export const Banner = () => {
                 </Badge>
               </Styled.BellWrapper>
             </Link>
+            <Link to="/announcements">
+              <Styled.BellWrapper>
+                <AnnouncementIcon/>
+              </Styled.BellWrapper>
+            </Link>
             <div>
-              <a onClick={(e) => handleToggle(e)} >
+              <a onClick={(e) => handleToggle(e)}>
                 <Styled.AvatarWrapper>
-                  <div id="avatarMenu0">
-                    <Styled.StyledAvatar>U</Styled.StyledAvatar>  
-                  </div>
+                  <Styled.StyledAvatar className="avatarMenu0">U</Styled.StyledAvatar>  
                   <Styled.AvatarInfo id="avatarMenu1">
                     <Styled.AvatarInfoP1>Username</Styled.AvatarInfoP1>
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
@@ -279,6 +302,11 @@ export const Banner = () => {
               </li>
 
               <li>
+                <Link to="/announcements">
+                  <Styled.BellWrapper>
+                    <AnnouncementIcon/>
+                  </Styled.BellWrapper>
+                </Link>
                 <Link to="/notifications">
                   <Styled.MobileBellWrapper>
                     <Badge count={counter}>
@@ -286,6 +314,7 @@ export const Banner = () => {
                     </Badge>
                   </Styled.MobileBellWrapper>
                 </Link>
+                
               </li>
               <li>
                 <a onClick={(e) => handleToggle(e)}>
