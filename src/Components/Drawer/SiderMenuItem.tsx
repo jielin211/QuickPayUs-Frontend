@@ -26,14 +26,14 @@ const SiderMenuItem: React.FC<SiderMenuItemProp> = ({icon, selectedOption, keyVa
                     }}
                 />
             }
-            // style={{
-            //     color: selectedOption === keyValue ? "red" : "black",
-            //     backgroundColor: selectedOption === keyValue ? "rgba(0, 0, 0, 0.06)" : "",
-            //     width: "100%",
-            //     paddingLeft: "30px",
-            //     fontSize: "13px",
-            //     borderRadius: "8px",
-            // }}
+            style={{
+                color: selectedOption === keyValue ? "red" : "black",
+                backgroundColor: selectedOption === keyValue ? "rgba(0, 0, 0, 0.00)" : "rgba(0, 0, 0, 0.06)",
+                fontWeight:selectedOption === keyValue ? "600" : "400",
+                paddingLeft: "30px",
+                fontSize: "13px",
+                borderRadius: "6px",
+            }}
             className={`sider-menu-item ${selectedOption === keyValue && "active"}`}
             >
             <Link to={`/${keyValue}`}>

@@ -5,23 +5,17 @@ export const DepositContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%; 
-  padding-right: 32px;
-  padding-left: 32px;
-  padding-top: 16px;
-  padding-bottom: 32px;
+  padding:30px;
   height: 100%;
-  border-radius: 10px;  
-`;  
-
-export const FormContainer = styled.div`
+  `;  
+  
+  export const FormContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 650px;
-  border-radius: 10px;
+  width: 100%;
+  border-radius: 18px;
+  padding:20px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-  padding-bottom: 48px;
-
   @media screen and (max-width: 992px) {
     width: 100%;
     padding: 0;
@@ -76,7 +70,11 @@ export const FieldLeftImg2  = styled.img`
 `; 
 
 export const PageHeading  = styled.h2` 
-  text-align: center;    
+  text-align: left;
+  @media screen and (max-width:768px){
+    text-align: center;
+  }
+  // font-size:20px;    
 `; 
 
 

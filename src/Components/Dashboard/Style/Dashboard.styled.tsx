@@ -3,7 +3,7 @@ import { Row, Card, Skeleton, Col, Select } from "antd";
    
 export const Main = styled.div`     
     padding: 20px;    
-    background: #fff;  
+      
 `;
 export const StyledHeading = styled.h2`     
     color: #000;
@@ -53,7 +53,7 @@ export const ChartHeading = styled.h2`
     } 
 `;
 export const OverviewCard = styled(Card)`  
-    border-radius: 10px;    
+    border-radius: 18px;    
     background: #fff;   
     box-shadow: 2px 4px 12px #00000014;
     border: none;       
@@ -64,7 +64,7 @@ export const OverviewCardWrapper = styled(Row)`
 `;     
 export const ChartCard = styled(Card)`   
     box-shadow: 2px 4px 12px #00000014;
-    border-radius: 10px;  
+    border-radius: 18px;  
 `; 
 export const ChartRow = styled(Row)`  
     margin-top: 20px;   

@@ -6,6 +6,7 @@ export const Container = styled.div`
   @media screen and (max-width: 768px) {
     padding: 0px;
   }
+  
 `;
 
 export const FilterContainer = styled.div`
@@ -22,7 +23,9 @@ export const FilterContainer = styled.div`
 export const ListContainer = styled.div`
   background: #fff;
   padding: 24px;
-  border-radius: 10px;
+  
+
+  border-radius: 18px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
@@ -46,7 +49,9 @@ export const Title = styled.h1`
   margin: 0px;
   padding-bottom: 0px;
   @media screen and (max-width: 992px) {
-    font-size: 16px;
+    font-size: 20px;
+    text-align: center;
+    width:100%;
     padding-bottom: 16px;
   }
 `;

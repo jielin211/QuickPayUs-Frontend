@@ -8,6 +8,7 @@ const { Meta } = Card;
 
 const MyComponent: React.FC = () => {
   const [loading, setLoading] = useState(true);
+  const [isClaimed,setisClaimed] =  useState(false);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,7 +21,7 @@ const MyComponent: React.FC = () => {
   return (
     <Styled.RankContainer>
       <div>
-        <h2>Rank</h2>
+        <Styled.RankTitle>Rank</Styled.RankTitle>
         <Styled.RankDataWrapper>
           <Styled.RankSubtitleWrapper>
             <Styled.RankSubtitle>Statistics</Styled.RankSubtitle>
@@ -73,20 +74,26 @@ const MyComponent: React.FC = () => {
                 </Row>
             </Col>
           </Row>
-          <Styled.RankDataDescription><b>Congratulations!</b> You have achieved your milestone. You can claim your rewards.</Styled.RankDataDescription>
-          <Styled.RankResultWrapper>
-                <Styled.RankResultTitle>Rank:</Styled.RankResultTitle>
-                <Styled.RankResultContent>
-                  {loading ? (<Skeleton.Input size='small' active/>) : ("Leader 1")}
-                </Styled.RankResultContent>
-                <Styled.RankResultTitle>Reward Range:</Styled.RankResultTitle>
-                <Styled.RankResultContent>
-                  {loading ? (<Skeleton.Input size='small' active/>) : ("300 - 500$")}
-                </Styled.RankResultContent>
-          </Styled.RankResultWrapper>
+                    {
+                      isClaimed ? <>
+                      <Styled.RankDataDescription><b>Congratulations!</b> You have achieved your milestone. You can claim your rewards.</Styled.RankDataDescription>
+                      <Styled.RankResultWrapper>
+                            <Styled.RankResultTitle>Rank:</Styled.RankResultTitle>
+                            <Styled.RankResultContent>
+                              {loading ? (<Skeleton.Input size='small' active/>) : ("Leader 1")}
+                            </Styled.RankResultContent>
+                            <Styled.RankResultTitle>Reward Range:</Styled.RankResultTitle>
+                            <Styled.RankResultContent>
+                              {loading ? (<Skeleton.Input size='small' active/>) : ("300 - 500$")}
+                            </Styled.RankResultContent>
+                      </Styled.RankResultWrapper>
+                      </>:null
+                    }
         </Styled.RankDataWrapper>
         <Styled.ClaimRewardBtnWrapper>
-            <Styled.ClaimRewardBtn type='primary' size='large'>Claim Reward</Styled.ClaimRewardBtn>
+            <Styled.ClaimRewardBtn type='primary' size='large' onClick={()=> {
+              setisClaimed(true);
+            }} >Claim Reward</Styled.ClaimRewardBtn>
           </Styled.ClaimRewardBtnWrapper>
       </div>
       <Styled.RankChartWrapper>
@@ -97,3 +104,4 @@ const MyComponent: React.FC = () => {
 };
 
 export default MyComponent;
+                    

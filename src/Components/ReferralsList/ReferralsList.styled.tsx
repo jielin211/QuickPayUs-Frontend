@@ -10,8 +10,8 @@ export const Container = styled.div`
 
 export const ListContainer = styled.div`
   background: #fff;
-  padding: 24px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 18px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
@@ -20,7 +20,6 @@ export const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 16px;
-
   @media screen and (max-width: 992px) {
     display: flex;
     flex-direction: column;
@@ -36,41 +35,63 @@ export const Title = styled.h1`
   margin: 0px;
   padding-bottom: 0px;
   @media screen and (max-width: 992px) {
-    font-size: 16px;
+    font-size: 20px;
+    width:100%;
+    text-align: center;
     padding-bottom: 16px;
   }
-`;
-export const FilterContainer = styled.div`
+  `;
+  export const FilterContainer = styled.div`
   display: flex;
   gap: 10px;
+  justify-content: center;
+  align-items: center;
   @media screen and (max-width: 768px) {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding:10px;
+    width: 100%;
+    
   }
-`;
-
-export const EmptyStateContainer = styled.div`
+  `;
+  export const searchField = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding:10px;
+    width: 100%;
+    
+  }
+  `;
+  
+  export const EmptyStateContainer = styled.div`
   padding: 20px;
-`;
-
-export const TableWrapper = styled.div`
+  `;
+  
+  export const TableWrapper = styled.div`
   overflow: auto;  
-`;  
-
-export const PaginationWrapper = styled.div`
+  border-radius: 18px;
+  `;  
+  
+  export const PaginationWrapper = styled.div`
   margin-top: 20px;  
   text-align: right;  
-`;
-
-export const EmptyState = styled(Empty)`
+  `;
+  
+  export const EmptyState = styled(Empty)`
   span {
     color: #ff0000;
   }
-`;
- 
-export const SelectStyled = styled(Select)` 
-  width: 120px;  
+  `;
+  
+  export const SelectStyled = styled(Select)` 
+  width: 100%; 
 `;
 
 

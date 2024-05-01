@@ -237,7 +237,7 @@ export const Banner = () => {
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
                   </Styled.AvatarInfo>
                 </Styled.AvatarWrapper>
-              </a>
+              </a> 
             </div>
             {!collapsed ? <div ref={menuRef} style={{ position: "absolute" }} className="fade-out">{userMenu}</div> : <div ref={menuRef} style={{ position: "absolute" }} className="fade-in">{userMenu}</div>}
           </Styled.CtaContainer>

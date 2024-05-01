@@ -5,10 +5,7 @@ export const WithdrawalContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding-right: 32px;
-  padding-left: 32px;
-  padding-top: 16px;
-  padding-bottom: 32px;
+  padding:30px;
   height: 100%;
   border-radius: 10px;
 `;
@@ -16,8 +13,9 @@ export const WithdrawalContainer = styled.div`
 export const FormContainer = styled.div`
   margin-left: auto;
   margin-right: auto; 
-  width: 650px; 
-  border-radius: 10px;
+  width: 100%;
+   
+  border-radius: 18px;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 24px;
   padding-bottom: 48px;
@@ -61,8 +59,10 @@ export const BalanceContainer = styled.div`
 `;
  
 export const StyledH2 = styled.h2`
+  text-align: left;  
+  @media screen and (max-width:768px){
   text-align: center;
-`; 
+}`;
 export const StyledForm = styled.form`
   text-align: left; 
 `;  

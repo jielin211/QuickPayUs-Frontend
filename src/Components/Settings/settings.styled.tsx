@@ -9,9 +9,10 @@ export const SettingsH1 = styled.h1`
         text-align: center;
         padding: 10px 0; 
     }   
-`;
-export const SettingsBox = styled.div`     
-    border-radius: 10px; 
+    `;
+    export const SettingsBox = styled.div`     
+    
+    border-radius: 18px; 
     box-shadow: 2px 4px 12px #00000014;
     padding: 50px 30px;
     margin: 0 30px 30px 30px;

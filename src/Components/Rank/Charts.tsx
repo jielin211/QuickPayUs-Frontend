@@ -19,7 +19,7 @@ const RankChart: React.FC = () => {
 
    return ( 
       <>
-         <Row justify="space-between" align={"middle"} style={{padding: "0 30px"}}>
+         <Row justify="space-between" align={"middle"} style={{padding: "0px 30px"}}>
             <Col className="w-100">  
                <h2>   
                   Analytics    

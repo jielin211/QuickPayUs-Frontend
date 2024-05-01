@@ -35,19 +35,21 @@ const Referrals: React.FC = () => {
                 placeholder="Search"
                 onSearch={handleSearch}
                 allowClear
+                style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}
               />
             </Space> 
             <Space size={10}>
               <Styled.SelectStyled
                 defaultValue={REFERRAL_TYPE.DIRECT}
                 onSelect={handleTypeChange}
+                
               >
                 <Option value={REFERRAL_TYPE.DIRECT}>Direct</Option>
                 <Option value={REFERRAL_TYPE.INDIRECT}>Indirect</Option>
               </Styled.SelectStyled>
               {type === REFERRAL_TYPE.DIRECT && (
-                <Styled.SelectStyled defaultValue={1}> 
-                  <Option key={directLevel} value={directLevel}>
+                <Styled.SelectStyled defaultValue={1} > 
+                  <Option key={directLevel} value={directLevel} >
                     {"Level 1"}  
                   </Option>
                 </Styled.SelectStyled>
