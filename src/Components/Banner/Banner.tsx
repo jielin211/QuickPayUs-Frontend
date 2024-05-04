@@ -4,7 +4,7 @@ import { Badge, Menu, QRCode, Popover } from "antd";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 import logo from "../../assets/images/logo.svg";
 import { Link } from "react-router-dom";
-import { CheckOutlined, QrcodeOutlined, CopyOutlined, ShareAltOutlined } from '@ant-design/icons';
+import {  CheckCircleOutlined, CopyOutlined, ShareAltOutlined } from '@ant-design/icons';
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
 import * as Styled from "./Banner.styled";
 
@@ -24,7 +24,7 @@ const AnnouncementIcon = (props) => (
   </svg>
 );
 
-function getItem(label, key, icon, children, type) {
+function getItem(label:any, key:any, icon:any, children:any, type:any) {
   return {
     key,
     icon,
@@ -105,9 +105,9 @@ export const Banner = () => {
     getItem(<a href="/settings">Settings</a>, '2', null, null, null),
     getItem(<a href="/support">Support</a>, '3', null, null, null),
     getItem('Mode', 'sub2', null, [
-      getItem(selectedKey === "dark" ? <Styled.ModeItem><span>Dark</span><CheckOutlined /></Styled.ModeItem> : <Styled.ModeItem>Dark</Styled.ModeItem>, 'dark', null, null, null),
-      getItem(selectedKey === "light" ? <Styled.ModeItem><span>Light</span><CheckOutlined /></Styled.ModeItem> : <Styled.ModeItem>Light</Styled.ModeItem>, 'light', null, null, null),
-      getItem(selectedKey === "auto" ? <Styled.ModeItem><span>Auto</span><CheckOutlined /></Styled.ModeItem> : <Styled.ModeItem>Auto</Styled.ModeItem>, 'auto', null, null, null),
+      getItem(selectedKey === "dark" ? <Styled.ModeItem ><span >Dark</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Dark</Styled.ModeItem>, 'dark', null, null, null),
+      getItem(selectedKey === "light" ? <Styled.ModeItem ><span>Light</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Light</Styled.ModeItem>, 'light', null, null, null),
+      getItem(selectedKey === "auto" ? <Styled.ModeItem ><span >Auto</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Auto</Styled.ModeItem>, 'auto', null, null, null),
     ], null),
     {
       type: 'divider',
@@ -245,12 +245,10 @@ export const Banner = () => {
         </Styled.HeaderContainer>
       )}
       {!device?.isBreakpoint("MD") && (
-        <div
-          className={`nav-container container-xxl ${openCloseNav ? "active menu-opened" : ""
-            }`}
+        <div className={`nav-container container-xxl ${openCloseNav ? "active menu-opened" : ""}`}
         >
           <nav>
-            <ul className="mobile-nav ps-0">
+            <ul className="mobile-nav ps-0 " >
               <li>
                 <div
                   className="menu-icon-container"

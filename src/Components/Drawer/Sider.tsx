@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, Collapse, Layout } from "antd";  
 import { Link, useLocation } from "react-router-dom";
-import dashboard from "../../assets/images/dashboard-icon.svg";
-import transaction from "../../../chart.svg";
-import deposit from "../../assets/images/deposit-icon.svg";
+import hollowdashboard from "../../assets/images/dashboard-icon.svg";
+import filleddashboard from "../../assets/images/filledDashboard.svg";
+import hollowchart from "../../assets/images/chart.svg";
+import filledchart from "../../assets/images/chart-1.svg";
+import hollowdeposit from "../../assets/images/deposit-icon.svg";
+import filleddeposit from "../../assets/images/wallet-add-1.svg";
 import withdrawal from "../../assets/images/withdrawal-icon.svg";
 import referral from "../../assets/images/referrals-icons.svg";
 import rank from "../../assets/images/rank-icon.svg";
@@ -17,7 +20,7 @@ const { Panel } = Collapse;
 const { Sider: UiSider } = Layout;
 
 const UiSiderCustom = styled(UiSider)`     
-  padding: 10px 5px;
+  padding: 10px 15px;
   position: fixed !important;
   top: 44px; 
   left: 0px;
@@ -96,10 +99,10 @@ export const Sider: React.FC = () => {
       <UiSiderCustom theme="light"  width={!device?.isBreakpoint("MD") ? "0" : "250"}>
         <div className="logo" />
         <MenuCustom theme="light" mode="inline" defaultSelectedKeys={["dashboard"]} selectedKeys={[selectedOption]}>
-          <SiderMenuItem icon={dashboard} selectedOption={selectedOption} keyValue="dashboard" label="Dashboard"/>
-          <SiderMenuItem icon={transaction} selectedOption={selectedOption} keyValue="transaction" label="Transactions"/>
-          <SiderMenuItem icon={deposit} selectedOption={selectedOption} keyValue="deposit" label="Deposit"/>
-          <SiderMenuItem icon={withdrawal} selectedOption={selectedOption} keyValue="withdrawal" label="Withdrawal"/>
+          <SiderMenuItem icon={selectedOption == 'dashboard' ?  filleddashboard:hollowdashboard} selectedOption={selectedOption} keyValue="dashboard" label="Dashboard"/>
+          <SiderMenuItem icon={selectedOption == 'transaction' ?  filledchart:hollowchart} selectedOption={selectedOption} keyValue="transaction" label="Transactions"/>
+          <SiderMenuItem icon={selectedOption == 'deposit' ?  filleddeposit:hollowdeposit} selectedOption={selectedOption} keyValue="deposit" label="Deposit"/>
+          <SiderMenuItem icon={withdrawal} selectedOption={selectedOption} keyValue="withdrawal" label="Withdraw"/>
           <SiderMenuItem icon={referral} selectedOption={selectedOption} keyValue="referrals" label="Referrals"/>
           <SiderMenuItem icon={rank} selectedOption={selectedOption} keyValue="rank" label="Rank"/>
           {/* <SiderMenuItem icon={support} selectedOption={selectedOption} keyValue="announcements" label="Announcements"/> */}

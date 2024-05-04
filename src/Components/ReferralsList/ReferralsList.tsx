@@ -91,8 +91,8 @@ const Referrals: React.FC = () => {
             total={referrals?.total}
             pageSize={pageSize} 
             current={currentPage} 
-            prevIcon={<LeftOutlined className="color-red"/>} 
-            nextIcon={<RightOutlined className="color-red"/>}  
+            prevIcon={<LeftOutlined className="color-black"/>} 
+            nextIcon={<RightOutlined className="color-black"/>}  
             onChange={handlePageChange}
             responsive={true} 
           /> 

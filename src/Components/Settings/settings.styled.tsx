@@ -24,12 +24,45 @@ export const SettingsH1 = styled.h1`
 export const SettingsBoxH2 = styled.h2`     
     font-size: 20px;
     font-weight: bold;
-    color: #f00000;
+    color: #121212;
     margin: 0px 0 20px 0;
     text-transform: uppercase;
     @media (max-width: 575px) {  
         font-size: 18px;
     }   
+`;
+export const SettingsBoxPdisable = styled.h2`     
+   
+    color: #121212;
+    opacity: 0.6;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:10px;
+    font-size: 16px;
+    color: black;
+    cursor:not-allowed;
+    font-weight: 500;
+    padding-right: 10px;
+    @media (max-width: 575px) {  
+        font-size: 15px;
+    } 
+`;
+
+export const TooltipImg  = styled.img` 
+  width: 15px; 
+  margin-top: 10px;  
+  opacity: 0.6;   
+`; 
+export const deletebtn = styled.h2`     
+font-size: 16px;
+color: red;
+font-weight: 600;
+opacity:0.7;
+padding-right: 10px;
+@media (max-width: 575px) {  
+    font-size: 15px;
+}   
 `;
 
 export const SettingsBoxP= styled.p`     
@@ -48,10 +81,15 @@ export const CustomLink = styled(Link)`
     justify-content: space-between;
     border-bottom: 1px solid #d9d9d9;
     padding-inline: 10px;
+    color:#000;
+     &:hover {
+        color: #000; /* Change text color on hover */
+    }
 `
 export const CustomSettingBox = styled.div`
     display: flex;
     align-items: center;
+    cursor:pointer;
     justify-content: space-between;
     border-bottom: 1px solid #d9d9d9;
     padding-inline: 10px;

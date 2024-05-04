@@ -20,9 +20,9 @@ const MyComponent: React.FC = () => {
 
   return (
     <Styled.RankContainer>
-      <div>
+      <div >
+        <Styled.RankDataWrapper style={{padding:"20px 10px"}}>
         <Styled.RankTitle>Rank</Styled.RankTitle>
-        <Styled.RankDataWrapper>
           <Styled.RankSubtitleWrapper>
             <Styled.RankSubtitle>Statistics</Styled.RankSubtitle>
           </Styled.RankSubtitleWrapper>
@@ -31,7 +31,7 @@ const MyComponent: React.FC = () => {
                 <Styled.RankCol>
                   <Row>
                     <Col span={12}>
-                      <h3>Current Rank</h3>
+                      <h3 style={{color:"#757575"}}>Current Rank</h3>
                     </Col>
                     <Col span={12}>
                       <Styled.RankDataItem>
@@ -41,7 +41,7 @@ const MyComponent: React.FC = () => {
                   </Row>
                   <Row>
                     <Col span={12}>
-                      <h3>Starts On:</h3>
+                      <h3 style={{color:"#757575"}}>Starts On:</h3>
                     </Col>
                     <Col span={12}>
                       <Styled.RankDataItem>
@@ -51,7 +51,7 @@ const MyComponent: React.FC = () => {
                   </Row>
                   <Row>
                     <Col span={12}>
-                      <h3>Ends On:</h3>
+                      <h3 style={{color:"#757575"}}>Ends On:</h3>
                     </Col>
                     <Col span={12}>
                       <Styled.RankDataItem>
@@ -64,7 +64,7 @@ const MyComponent: React.FC = () => {
             <Col span={24} md={12}>
                 <Row>
                   <Col span={12}>
-                    <h3 className='text-center'>Current Sales Revenue:</h3>
+                    <h3 style={{color:"#757575"}} className='text-center'>Current Sales Revenue:</h3>
                   </Col>
                   <Col span={12}>
                     <Styled.RankDataItem>
@@ -91,7 +91,7 @@ const MyComponent: React.FC = () => {
                     }
         </Styled.RankDataWrapper>
         <Styled.ClaimRewardBtnWrapper>
-            <Styled.ClaimRewardBtn type='primary' size='large' onClick={()=> {
+            <Styled.ClaimRewardBtn type='primary' size='large' style={{background:"#007AFF"}} onClick={()=> {
               setisClaimed(true);
             }} >Claim Reward</Styled.ClaimRewardBtn>
           </Styled.ClaimRewardBtnWrapper>

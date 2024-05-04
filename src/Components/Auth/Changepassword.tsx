@@ -1,8 +1,9 @@
-import { Row, Col, Input, Button, Form } from "antd";
+import { Row, Col, Input, Button, Form, Divider } from "antd";
 import { Formik, Field } from "formik";
 import * as Styled from "./Changepassword.style";
 
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
+import { Navigate } from "react-router-dom";
 
 interface FormErrors {
    currentPassword?: string;
@@ -89,7 +90,9 @@ const ChangePassword: React.FC = () => {
            
             </Formik>
             <Col lg={24}>
-               <Styled.SaveBtn type="primary" size="large">
+               <Styled.SaveBtn type="primary" size="large" onClick={()=> {
+                 
+               }}>
                   Save
                </Styled.SaveBtn>
             </Col>

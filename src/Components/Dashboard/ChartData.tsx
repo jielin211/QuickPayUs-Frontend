@@ -14,7 +14,7 @@ const eChart: {
       {
          name: "Sales",
          data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-         color: "#DF0B0B", 
+         color: "#7e7e7e", 
       },
    ],
 
@@ -23,8 +23,8 @@ const eChart: {
          type: "gradient",
          gradient: {
            type: "vertical",
-           gradientToColors: ["#FF6B00"],
-           stops: [0, 100],
+           gradientToColors: ["#121212"],
+           stops: [10, 100],
          },
       },
       chart: {
@@ -39,7 +39,7 @@ const eChart: {
       plotOptions: {
          bar: { 
             horizontal: false,
-            columnWidth: "27.5%",  
+            columnWidth: "23.5%",  
             borderRadius: 10,  
          },   
       },  

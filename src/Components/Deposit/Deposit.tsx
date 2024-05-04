@@ -4,10 +4,10 @@ import {
   usePostDepositFormMutation,
   useGetProgramsDataQuery, 
 } from "../../Redux/slice";
-import amount from "../../assets/images/amount.png";
+// import amount from "../../assets/images/amount.png";
 import support from "../../assets/images/question.svg";
-import statements from "../../assets/images/statements-icon.svg";
-import { FilePdfFilled, IdcardOutlined } from "@ant-design/icons";
+// import statements from "../../assets/images/statements-icon.svg";
+// import { FilePdfFilled, IdcardOutlined } from "@ant-design/icons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";  
 import * as Styled from "./Deposit.styled";
@@ -100,9 +100,7 @@ const Deposit: React.FC = () => {
                       </Tooltip>{" "}
                     </Styled.StyledLabel> 
                     <Styled.FieldCover>     
-                      <Styled.FieldLeft>         
-                        <Styled.FieldLeftImg src={amount} alt="Amount"/>
-                      </Styled.FieldLeft>
+                      
                       <Field name="investmentAmount">
                         {({ field }) => ( 
                           <Styled.SelectOne 
@@ -167,9 +165,7 @@ const Deposit: React.FC = () => {
                       </Tooltip>
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
-                      <Styled.FieldLeft>      
-                        <IdcardOutlined className="deposit-idcard"/>  
-                      </Styled.FieldLeft>
+                     
                       <Field name="receiverAddress">
                         {({ field }) => ( 
                           <Styled.InputBox 
@@ -204,12 +200,7 @@ const Deposit: React.FC = () => {
                       </Tooltip>{" "}
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
-                      <Styled.FieldLeft>  
-                        <Styled.FieldLeftImg2 
-                          src={statements}
-                          alt="Statements"
-                        />
-                      </Styled.FieldLeft> 
+                      
                       <Field name="senderAddress">
                         {({ field }) => (   
                           <Styled.InputBox 
@@ -235,7 +226,7 @@ const Deposit: React.FC = () => {
                 </Styled.PageCover>   
               </Styled.StyledCard>   
               <Styled.SubmitButtonContainer>
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" style={{background:"#007AFF"}}>
                   Submit
                 </Button>
               </Styled.SubmitButtonContainer>

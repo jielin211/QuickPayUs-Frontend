@@ -66,7 +66,12 @@ export const BellWrapper = styled.div`
   position: relative;
   display: flex;  
   align-items: center;  
-  height: 44px;  
+  height: 44px;
+  @media screen and (max-width: 768px) { 
+    top: 0px; 
+    position: absolute;
+    right: 105px;   
+  }   
 `;  
 export const PcLogoWrapper = styled.div`
   display: flex; 
@@ -97,38 +102,41 @@ export const AvatarInfoP1 = styled.p`
 export const AvatarInfoP2 = styled.p` 
   font-size: 11px; 
   font-weight: 400;   
-  color: #F00000;        
+  color: #000;        
 `;  
 export const MobileLogo = styled.img`
   width: 100%;   
   transform: translateX(39%) translateY(-12px);
-`;  
-export const StyledHeader = styled(Header)`
-  height: 44px;   
-`;    
-export const BellOutlinedNew = styled(BellOutlined)`
+  `;  
+  export const StyledHeader = styled(Header)`
+  height: 44px;
+  
+  `;    
+  export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px; 
   color: black;    
-`;   
-export const StyledAvatar = styled(Avatar)`
+  `;   
+  export const StyledAvatar = styled(Avatar)`
   font-size: 14px;   
   width: 26px;    
   height: 26px; 
   color: #fff;  
   background: #121212;
-`;  
-export const ModeItem = styled.div`
+  `;  
+  export const ModeItem = styled.div`
   display: flex;
-  justify-content: space-between
-`;
-export const ShareBtn = styled.button`
+  justify-content: space-between;
+  color:#000;
+  `;
+  export const ShareBtn = styled.button`
   border: none;
   background: #fff;
   cursor: pointer;
-  color: #f00000;
-`
-export const ReferralTitle = styled.p`
+  color: #00000;
+  `
+  export const ReferralTitle = styled.p`
   padding: 10px 0px 0px 0px;
+  
   text-align: center;
   font-size: 14px;
   font-weight: 600;
@@ -137,7 +145,7 @@ export const CopyToClipboardContent = styled.button`
   border: none;
   background: #fff;
   cursor: pointer;
-  color: #f00000;
+  color: #00000;
 `
 export const CustomQrCodeIcon = styled(QrcodeOutlined)`
   cursor: pointer;

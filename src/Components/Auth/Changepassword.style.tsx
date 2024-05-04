@@ -10,7 +10,7 @@ export const ChangePasswordWrapper = styled.div`
 export const ChangePasswordTitle = styled.h1`
     font-size: 20px;
     font-weight: bold;
-    color: #f00000;
+    color: #000;
     margin: 0px 0 20px 0;
     textTransform: uppercase;
 `

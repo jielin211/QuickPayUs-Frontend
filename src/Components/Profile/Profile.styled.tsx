@@ -75,17 +75,27 @@ export const KycMainRow = styled(Row)`
     } 
 `;
 export const KycBtn = styled(Button)`
-    display: block;
-    margin: auto;
-    padding: 8px 16px;
-    height: 40px;
-    width: 140px ;
-    color: #fff;
-    background: #f00000;
-    border: 1px solid #f00000;
-    font-weight: 600;
-    text-transform: uppercase;   
+    && {
+        display: block;
+        margin: auto;
+        padding: 8px 16px;
+        height: 40px;
+        width: 140px;
+        color: #fff;
+        border-radius: 5px;
+        background: #007AFF;
+        font-weight: 600;
+        text-transform: uppercase;
+
+        &:hover {
+            background: #fff !important;
+            color: #000 !important;
+            border: 2px solid #007AFF !important;
+        }
+    }
 `;
+
+
 export const StyledProfileAvatar = styled(Avatar)`
   color: #121212; 
   width: 100px;
@@ -99,7 +109,7 @@ export const StyledLevelLabel = styled.p`
   font-size: 18px; 
   margin: 0;
   font-weight: 600; 
-  color: #f00000 
+  color: #000 
 `
 export const StyledUserInfo = styled.div`
   text-align: center;

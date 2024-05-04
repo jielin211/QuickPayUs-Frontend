@@ -144,7 +144,7 @@ const Withdrawal = () => {
   return ( 
     <Styled.WithdrawalContainer>  
       <Styled.FormContainer>
-        <Styled.StyledH2>Withdrawal</Styled.StyledH2>
+        <Styled.StyledH2>Withdraw</Styled.StyledH2>
         <Styled.StyledForm 
           onSubmit={(e) => {
             e.preventDefault(); 
@@ -190,7 +190,7 @@ const Withdrawal = () => {
           </Styled.StyledCard> 
 
           <Styled.SubmitButtonContainer>
-            <Button type="primary" htmlType="submit" disabled={isLoading}>
+            <Button type="primary" htmlType="submit" disabled={isLoading} style={{background:"#007AFF"}}>
               Submit
             </Button>
           </Styled.SubmitButtonContainer>

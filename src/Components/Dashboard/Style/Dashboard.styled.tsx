@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Row, Card, Skeleton, Col, Select } from "antd";     
    
 export const Main = styled.div`     
-    padding: 20px;    
+    padding: 20px; 
+    background:#fafafa;   
       
 `;
 export const StyledHeading = styled.h2`     
@@ -25,17 +26,17 @@ export const CardCol = styled.div`
 export const CardH3 = styled.h3`     
     margin: 0px;
     font-size: 14px;    
-    font-weight: 600;    
+    font-weight: 600;  
     @media (max-width: 575px) {
         font-size: 10px; 
         display: block;
         margin: auto;     
         text-align: center;    
     }      
-`;
-export const CardP = styled.p`      
+    `;
+    export const CardP = styled.p`      
     margin: 0px;   
-    color: #DF0B0B;
+    color: #000;
     font-weight: bold;   
     font-size: 22px;
     @media (max-width: 575px) { 
@@ -63,8 +64,8 @@ export const OverviewCardWrapper = styled(Row)`
     margin-bottom: 22px; 
 `;     
 export const ChartCard = styled(Card)`   
-    box-shadow: 2px 4px 12px #00000014;
-    border-radius: 18px;  
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 18px; 
 `; 
 export const ChartRow = styled(Row)`  
     margin-top: 20px;   

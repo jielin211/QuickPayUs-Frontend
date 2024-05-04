@@ -7,6 +7,7 @@ export const DepositContainer = styled.div`
   width: 100%; 
   padding:30px;
   height: 100%;
+  background-color: #fafafc;
   `;  
   
   export const FormContainer = styled.div`
@@ -15,6 +16,7 @@ export const DepositContainer = styled.div`
   width: 100%;
   border-radius: 18px;
   padding:20px;
+  background-color:#fff;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   @media screen and (max-width: 992px) {
     width: 100%;

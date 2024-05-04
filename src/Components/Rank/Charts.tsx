@@ -30,15 +30,15 @@ const RankChart: React.FC = () => {
                   defaultValue="Profit"
                   options={[ 
                      { value: "profit", label: "Profit" },
-                     { value: "balance", label: "Balance" },
-                     { value: "reward", label: "Reward" },
+                     { value: "credits", label: "credits" },
+                     { value: "rewards", label: "Rewards" },
                   ]} 
                />  
                <Select
-                  defaultValue="Month"
+                  defaultValue="week"
                   options={[
-                     { value: "month", label: "Month" },
                      { value: "week", label: "Week" },
+                     { value: "month", label: "Month" },
                      { value: "year", label: "Year" },
                   ]}
                   style={{paddingLeft: "20px"}}

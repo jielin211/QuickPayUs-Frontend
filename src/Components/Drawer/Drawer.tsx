@@ -20,6 +20,7 @@ import { KycVerification } from "../KycVerification";
 import CustomTicket from "../Support/CustomTicket";
 import FAQ from "../Support/FAQ";
 import ContactInfo from "../Support/Contact";
+import DeleteAccount from '../DeleteAccount/Password'
 
 const { Content } = Layout; 
 
@@ -68,6 +69,7 @@ const App = () => {
                 <Route path="/support/ticket" element={<CustomTicket/>} />
                 <Route path="/support/faq" element={<FAQ/>} />
                 <Route path="/support/contact" element={<ContactInfo/>} />
+                <Route path="/settings/account-deletion" element={<DeleteAccount/>} />
               </Routes>
             </Content>
           </Layout>

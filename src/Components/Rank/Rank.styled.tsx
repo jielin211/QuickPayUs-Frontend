@@ -4,10 +4,10 @@ import styled from "styled-components";
 export const RankTitle = styled.h2`
     text-align: left;
     margin: 10px;
-    font-size:1.5vw;
-    font-weight:700;
+    font-size:24px;
+    font-weight:600;
     color:#2e2e2e;
-    margin-bottom: 25px;
+    
     @media screen and (max-width: 992px) {
         font-size:30px;
         text-align: center;
@@ -31,6 +31,7 @@ export const RankCol = styled.div`
 `
 export const RankContainer = styled.div`
     padding: 30px;
+    background-color:#fafafc;
     
     
 `
@@ -40,7 +41,7 @@ export const RankDataWrapper = styled.div`
     padding-bottom: 10px;
 `
 export const RankDataItem = styled.h3`
-    color: #DF0B0B;
+    color: #000;
     text-align: center;
 `
 export const RankDataDescription = styled.div`
@@ -60,7 +61,7 @@ export const ClaimRewardBtn = styled(Button)`
     margin: 20px 0;
 `
 export const RankResultTitle = styled.h3`
-    color: #DF0B0B;
+    color: #121212;
 `
 export const RankResultWrapper = styled.div`
     padding-bottom: 30px;
@@ -75,4 +76,5 @@ export const RankResultContent = styled.span`
     margin: auto 0;
     font-weight: 500;
     font-size: 16px;
+    color:#000;
 `

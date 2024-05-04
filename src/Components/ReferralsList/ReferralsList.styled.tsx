@@ -6,6 +6,7 @@ export const Container = styled.div`
   @media screen and (max-width: 768px) { 
     padding: 0px;
   }
+  background-color: #fafafc;
 `;
 
 export const ListContainer = styled.div`

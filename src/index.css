@@ -703,7 +703,7 @@ a {
 .sider-menu-item.active {
   color: black;
   background-color: rgba(0, 0, 0, 0.06);
-  transform: scale(0.98);
+  transform: scale(1);
   transition: transform 0.3s ease;
 }
 

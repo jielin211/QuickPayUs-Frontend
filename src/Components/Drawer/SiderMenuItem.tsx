@@ -27,10 +27,9 @@ const SiderMenuItem: React.FC<SiderMenuItemProp> = ({icon, selectedOption, keyVa
                 />
             }
             style={{
-                color: selectedOption === keyValue ? "red" : "black",
-                backgroundColor: selectedOption === keyValue ? "rgba(0, 0, 0, 0.00)" : "rgba(0, 0, 0, 0.06)",
+                backgroundColor: selectedOption === keyValue ? "#fafafa":"rgba(0, 0, 0, 0.00)",
                 fontWeight:selectedOption === keyValue ? "600" : "400",
-                paddingLeft: "30px",
+                paddingLeft: "14px",
                 fontSize: "13px",
                 borderRadius: "6px",
             }}

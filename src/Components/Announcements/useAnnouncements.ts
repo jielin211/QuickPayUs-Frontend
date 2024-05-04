@@ -16,7 +16,6 @@ export function useAnnouncements() {
   const announcements = useSelector(selectAnnouncements);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(true);
-
   const {
     data: announcementsList,
     error,

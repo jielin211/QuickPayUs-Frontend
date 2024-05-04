@@ -1,9 +1,14 @@
 import { Link } from "react-router-dom";
 import rightArrow from "../../assets/images/red-right-arrow.svg";
-import { Switch } from "antd";
+import { Switch, Tooltip } from "antd";
 import * as Styled from "./settings.styled.js"; 
+import { useState } from "react";
+import {RightOutlined } from "@ant-design/icons"  
+import support from "../../assets/images/question.svg";
+
 
 const GeneralSettings = () => {
+   const[iskycDone,setiskycDone] = useState(false);
    return (
       <Styled.SettingsBox>
          <Styled.SettingsBoxH2>
@@ -14,25 +19,36 @@ const GeneralSettings = () => {
                <Styled.SettingsBoxP>
                   Change Password
                </Styled.SettingsBoxP>
-               <img src={rightArrow} alt="." />
+               <RightOutlined />
             </Styled.CustomLink>
-            <Styled.CustomSettingBox>
-               <Styled.SettingsBoxP>
-                  Allow notifications on E-mail provided
-               </Styled.SettingsBoxP>
-               <Switch defaultChecked />
-            </Styled.CustomSettingBox>
+           
+            {iskycDone?
+            <Styled.CustomLink to={""}>
+               <Styled.SettingsBoxPdisable>
+                  Change Name 
+               </Styled.SettingsBoxPdisable>
+                  <Tooltip title="Unable to Change Name,as you have Done with your kyc Verification">
+                        {" "}   
+                        <Styled.TooltipImg
+                          src={support}
+                          alt="help"
+                        />
+                      </Tooltip>{" "}
+               
+            </Styled.CustomLink>
+            :
             <Styled.CustomLink to="/setting">
                <Styled.SettingsBoxP>
                   Change Name
                </Styled.SettingsBoxP>
-               <img src={rightArrow} alt="." />
+               <RightOutlined />
             </Styled.CustomLink>
+            }
             <Styled.CustomLink to="">
                <Styled.SettingsBoxP>
                   Change Email
                </Styled.SettingsBoxP>
-               <img src={rightArrow} alt="." />
+               <RightOutlined />
             </Styled.CustomLink>
          </div>
       </Styled.SettingsBox>
