@@ -35,6 +35,7 @@ export const Title = styled.h1`
   font-family: sans-serif;
   margin: 0px;
   padding-bottom: 0px;
+  padding-left: 7px;
   @media screen and (max-width: 992px) {
     font-size: 20px;
     width:100%;

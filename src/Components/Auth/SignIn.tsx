@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import { Form, Col, Checkbox } from "antd";
+import { Form, Col } from "antd";
+import { Checkbox } from 'antd';
+import type { CheckboxProps } from 'antd';
 import { Formik, Field } from "formik";
 import axios from "axios"
 import * as Styled from "./SignIn.styled";
@@ -84,7 +86,7 @@ const SignIn: React.FC = () => {
                   validateStatus={errors.email && "error"}
                   help={errors.email}
                 >
-                  <Field name="email"> 
+                  <Field name="email" > 
                     {({ field }) => (
                       <FloatingInput 
                         label="Email / Username" 
@@ -130,8 +132,8 @@ const SignIn: React.FC = () => {
                   </Styled.ForgetTxt>
                 </span>
                 <Form.Item name="remember" valuePropName="checked">
-                  <Checkbox>Remember me</Checkbox>
-                </Form.Item>
+                <Checkbox >Checkbox</Checkbox>
+                                </Form.Item>
               </Form>
             )}
           </Formik>

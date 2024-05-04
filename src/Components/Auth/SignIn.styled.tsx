@@ -27,9 +27,9 @@ export const PrivacyTxt2 = styled.p`
 export const LearnMoreButton = styled.a`     
     cursor: pointer;  
     padding-left: 5px;   
-    color: #f00000;  
+    color: #007AFF;  
     &:hover{
-        color: #f00000;
+        color: #007AFF;
     }
 `;
 export const MainRow = styled(Row)`  
@@ -58,17 +58,20 @@ export const SignInButton = styled(Button)`
     padding: 7px 15px;
     height: 45px; 
     font-size: 18px;    
-    background: #f00000; 
+    background: #007AFF; 
     border-radius: 5px;  
     margin-top: 20px;
+    &:hover{
+        background:#007Af9 !important;
+    }
 `; 
 export const SignUpBtn = styled.span`   
-    color: #f00000;
+    color: #007AFF;
     padding: 0 5px 0 0;  
 `;
 export const StyleLink = styled(Link)`
-  color: red;
+  color: #007AFF;
   &:hover{
-    color: red;
+    color: #007aff;
   }
 `;

@@ -67,6 +67,7 @@ const Deposit: React.FC = () => {
       
       <Styled.FormContainer>
         <Styled.PageHeading>Deposit</Styled.PageHeading>
+        
         <Formik  
           initialValues={{
             investmentAmount: "", 
@@ -84,6 +85,7 @@ const Deposit: React.FC = () => {
           })}
           onSubmit={(values) => handleConfirm(values)}
         >
+          
           {({ errors, touched, setFieldValue }) => (
             <Form>   
               <Styled.StyledCard bordered={true}>   
@@ -91,20 +93,15 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
                       <span>Investment amount:</span>
-                      <Tooltip title="Investment amount">
-                        {" "}   
-                        <Styled.TooltipImg
-                          src={support}
-                          alt="Investment amount"
-                        />
-                      </Tooltip>{" "}
-                    </Styled.StyledLabel> 
-                    <Styled.FieldCover>     
                       
-                      <Field name="investmentAmount">
+                    </Styled.StyledLabel> 
+                    <Styled.FieldCover >     
+                      
+                      <Field  name="investmentAmount">
                         {({ field }) => ( 
-                          <Styled.SelectOne 
+                          <Styled.SelectOne
                             className="select"
+                            style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
                             defaultValue="Select amount"
                             {...field}
                             placeholder="Select investment amount"
@@ -156,19 +153,13 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>  
                     <Styled.StyledLabel> 
                       <span>Receiver Address:</span>
-                      <Tooltip title="Receiver Address">
-                        {" "}   
-                        <Styled.TooltipImg    
-                          src={support}   
-                          alt="Receiver Address"
-                        /> 
-                      </Tooltip>
+                      
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
                      
                       <Field name="receiverAddress">
                         {({ field }) => ( 
-                          <Styled.InputBox 
+                          <Styled.InputBox style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
                             {...field}
                             placeholder="Enter receiver address"
                           />
@@ -191,19 +182,13 @@ const Deposit: React.FC = () => {
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel> 
                       <span>Sender Address:</span>
-                      <Tooltip title="Sender Address">
-                        {" "}
-                        <Styled.TooltipImg 
-                          src={support}
-                          alt="Sender Address"
-                        />
-                      </Tooltip>{" "}
+                      
                     </Styled.StyledLabel>
                     <Styled.FieldCover>   
                       
                       <Field name="senderAddress">
                         {({ field }) => (   
-                          <Styled.InputBox 
+                          <Styled.InputBox style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
                             {...field}
                             placeholder="Enter sender address"
                           />

@@ -267,7 +267,7 @@ const SignupForm = () => {
                         checked={field.value}
                         {...field}
                       >         
-                        I agree with the <a href="#" className="color-red">Privacy Policy</a> and <a href="#" className="color-red">Terms of Services.</a>
+                        I agree with the <a href="#" className="color-blue">Privacy Policy</a> and <a href="#" className="color-blue">Terms of Services.</a>
                       </Styled.StyledCheckbox>    
                       <ErrorMessage name="policy" component="div" className='color-red'/>     
                     </Styled.InputWrapper> 

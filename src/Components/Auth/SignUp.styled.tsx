@@ -48,8 +48,8 @@ export const InputFieldPassword = styled(Input.Password)`
     padding: 7px 15px;      
 `;
 export const PreviousBtn = styled(Button)`  
-    background-color: #f00000; 
-    border-color: #f00000;      
+    background-color: #007AFF; 
+    border-color: #007AFF;      
     color: #fff;
     margin-right: 20px; 
     font-size: 16px;  
@@ -57,8 +57,8 @@ export const PreviousBtn = styled(Button)`
     height: 42px;    
 `;  
 export const NextBtn = styled(Button)`   
-    background-color: #f00000;  
-    border-color: #f00000;      
+    background-color: #007AFF;  
+    border-color: #007AFF;      
     color: #fff; 
     font-size: 16px;  
     padding: 8px 30px;       
@@ -72,9 +72,9 @@ export const SignInBtn = styled.div`
     padding-right: 5px; 
 `;
 export const StyleLink = styled(Link)`
-  color: red;
+  color: #007AFF;
   &:hover{
-    color: red;
+    color: #007AFF;
   }
 `;  
 export const PrivacyTxt = styled.p`    
@@ -93,9 +93,9 @@ export const PrivacyTxt2 = styled.p`
 export const LearnMoreButton = styled.a`     
     cursor: pointer;  
     padding-left: 5px;   
-    color: #f00000;  
+    color: #007AFF;  
     &:hover{
-        color: #f00000;
+        color: #007AFF;
     }
 `;
 export const StyledCheckbox = styled(Checkbox)`   
@@ -110,7 +110,7 @@ export const Steps = styled(UiSteps)`
   max-width: 100%;
   padding: 0px;
   width: 6%;
-  padding-left: 2%;
+  padding-left: 1px;
   @media screen and (max-width: 768px) {
     width: calc(100% - 16px);
     padding: 0px;

@@ -42,6 +42,10 @@ export const SignInButton = styled(Button)`
   height: 45px;
   font-size: 18px;
   background: #f00000;
+  &:hover{
+    background: #f00 !important;
+    color: #fff !important;
+  }
   border-radius: 5px;
   margin-top: 20px;
 `;

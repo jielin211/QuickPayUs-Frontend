@@ -60,7 +60,7 @@ export const BalanceContainer = styled.div`
 `;
  
 export const StyledH2 = styled.h2`
-  text-align: left;  
+  padding-left:23px;  
   @media screen and (max-width:768px){
   text-align: center;
 }`;

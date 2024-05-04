@@ -4,11 +4,11 @@ const ThemeProvider = ({ children }) => {
       <ConfigProvider
          theme={{
             token: {
-               colorPrimary: "#DF0B0B",
+               colorPrimary: "#007AFF",
             },
             components: {
                Card: {
-                  borderRadius: 10,
+                  borderRadius: 18,
                },
                Layout: {
                   bodyBg: "white",
