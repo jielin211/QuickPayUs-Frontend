@@ -132,7 +132,6 @@ const SignIn: React.FC = () => {
                   </Styled.ForgetTxt>
                 </span>
                 <Form.Item name="remember" valuePropName="checked">
-                <Checkbox >Checkbox</Checkbox>
                                 </Form.Item>
               </Form>
             )}
@@ -154,7 +153,7 @@ const SignIn: React.FC = () => {
           </Styled.PrivacyTxt>
           <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}>
             The information collected by Google reCAPTCHA is subject to the
-            Google <a href="https://policies.google.com/privacy" className="color-red" target="_blank"> Privacy Policy </a>  and <a href="https://policies.google.com/terms" className="color-red" target="_blank"> Terms of Service, </a> and is used for
+            Google <a href="https://policies.google.com/privacy" className="color-blue" target="_blank"> Privacy Policy </a>  and <a href="https://policies.google.com/terms" className="color-blue" target="_blank"> Terms of Service, </a> and is used for
             providing, maintaining, and improving the reCAPTCHA service and for
             general security purposes (it is not used for personalized
             advertising by Google).

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, Collapse, Layout } from "antd";  
-import { Link, useLocation } from "react-router-dom";
+import {  useLocation } from "react-router-dom";
 import hollowdashboard from "../../assets/images/dashboard-icon.svg";
 import filleddashboard from "../../assets/images/filledDashboard.svg";
 import hollowchart from "../../assets/images/chart.svg";
@@ -10,7 +10,6 @@ import filleddeposit from "../../assets/images/wallet-add-1.svg";
 import withdrawal from "../../assets/images/withdrawal-icon.svg";
 import referral from "../../assets/images/referrals-icons.svg";
 import rank from "../../assets/images/rank-icon.svg";
-// import support from "../../assets/images/support-icon.svg";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
 import styled from "styled-components";
@@ -31,13 +30,14 @@ const UiSiderCustom = styled(UiSider)`
   background: #fff !important;  
   border-right: 1px solid #dfdfdf !important;   
   overflow: hidden;  
-  @media (max-width: 575px) {   
-      border-right: 0 !important;
+  @media (max-width: 800px) {   
+      display:none;
   }
 `;
 
 const MenuCustom = styled(Menu)`
   border-inline-end: 0 !important;
+  
 `;
 
 export const Sider: React.FC = () => {
@@ -62,7 +62,6 @@ export const Sider: React.FC = () => {
   ];
 
   useEffect(() => {
-    // Listen for route changes and update selectedOption accordingly
     const pathname = location.pathname;
     if (pathname.includes("/dashboard")) {
       setSelectedOption("dashboard");
@@ -105,7 +104,6 @@ export const Sider: React.FC = () => {
           <SiderMenuItem icon={withdrawal} selectedOption={selectedOption} keyValue="withdrawal" label="Withdraw"/>
           <SiderMenuItem icon={referral} selectedOption={selectedOption} keyValue="referrals" label="Referrals"/>
           <SiderMenuItem icon={rank} selectedOption={selectedOption} keyValue="rank" label="Rank"/>
-          {/* <SiderMenuItem icon={support} selectedOption={selectedOption} keyValue="announcements" label="Announcements"/> */}
         </MenuCustom>
         
       </UiSiderCustom>

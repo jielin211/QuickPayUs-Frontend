@@ -86,12 +86,6 @@ export const KycBtn = styled(Button)`
         background: #007AFF;
         font-weight: 600;
         text-transform: uppercase;
-
-        &:hover {
-            background: #fff !important;
-            color: #000 !important;
-            border: 2px solid #007AFF !important;
-        }
     }
 `;
 

@@ -8,7 +8,6 @@ import {  CheckCircleOutlined, CopyOutlined, ShareAltOutlined } from '@ant-desig
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
 import * as Styled from "./Banner.styled";
 
-// import support from "../../assets/images/support-icon.svg";
 
 const AnnouncementIcon = (props) => (
   <svg
@@ -48,22 +47,20 @@ export const Banner = () => {
       if (event.target.parentNode.id === "avatarMenu0" || event.target.parentNode.id === "avatarMenu1") {
         return
       }
-      setCollapsed(false); // Collapse the menu
+      setCollapsed(false); 
     }
 
     if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
       if (event.target.parentNode.parentNode.id === "mobileAvatarMenu") {
         return
       }
-      setCollapsed(false); // Collapse the menu
+      setCollapsed(false); 
     }
   };
 
   useEffect(() => {
-    // Add click event listener
     document.addEventListener('mousedown', handleClickOutside);
 
-    // Cleanup the event listener on component unmount
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -78,7 +75,7 @@ export const Banner = () => {
     toggleCollapsed();
   }
 
-  const [selectedKey, setSelectedKey] = useState(""); // Track selected option key
+  const [selectedKey, setSelectedKey] = useState(""); 
 
   const handleClick = (key) => {
     if (key === "dark" || key === "light" || key === "auto")
@@ -105,9 +102,9 @@ export const Banner = () => {
     getItem(<a href="/settings">Settings</a>, '2', null, null, null),
     getItem(<a href="/support">Support</a>, '3', null, null, null),
     getItem('Mode', 'sub2', null, [
-      getItem(selectedKey === "dark" ? <Styled.ModeItem ><span >Dark</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Dark</Styled.ModeItem>, 'dark', null, null, null),
-      getItem(selectedKey === "light" ? <Styled.ModeItem ><span>Light</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Light</Styled.ModeItem>, 'light', null, null, null),
-      getItem(selectedKey === "auto" ? <Styled.ModeItem ><span >Auto</span><CheckCircleOutlined style={{ fontSize: '16px', color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Auto</Styled.ModeItem>, 'auto', null, null, null),
+      getItem(selectedKey === "dark" ? <Styled.ModeItem ><span >Dark</span><CheckCircleOutlined style={{  color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Dark</Styled.ModeItem>, 'dark', null, null, null),
+      getItem(selectedKey === "light" ? <Styled.ModeItem ><span>Light</span><CheckCircleOutlined style={{  color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Light</Styled.ModeItem>, 'light', null, null, null),
+      getItem(selectedKey === "auto" ? <Styled.ModeItem ><span >Auto</span><CheckCircleOutlined style={{  color: '#08c' }}/></Styled.ModeItem> : <Styled.ModeItem>Auto</Styled.ModeItem>, 'auto', null, null, null),
     ], null),
     {
       type: 'divider',

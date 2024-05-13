@@ -144,8 +144,7 @@ const UserDashboard = () => {
                 </Row>
               </Styled.OverviewCard>
             </Col>
-          </Styled.OverviewCardWrapper>   
-          {/* Chart */}        
+          </Styled.OverviewCardWrapper>         
           <Styled.ChartRow gutter={[16, 16]}>  
             <Col span={24}>   
               <Styled.ChartCard className="dashboard-card">
