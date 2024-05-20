@@ -14,9 +14,9 @@ export const Announcements: React.FC = () => {
     <Styled.Container>
       <Styled.Header>
         <Styled.Title>Announcements</Styled.Title>
-      </Styled.Header>  
+      </Styled.Header>
       <Content className="announce-content">
-        <div> 
+        <div>
           {(isLoading || isFetching) && (
             <>
               <Skeleton active />

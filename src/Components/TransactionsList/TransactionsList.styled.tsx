@@ -1,13 +1,13 @@
 import styled from "styled-components";
-import { Select } from "antd";    
+import { Select } from "antd";
 
 export const Container = styled.div`
   padding: 30px;
   @media screen and (max-width: 768px) {
-    padding: 0px;
+    padding: 20px;
   }
-  background:#fafafc;
-  
+  height: 100vh;
+  background: #f4f4f4;
 `;
 
 export const FilterContainer = styled.div`
@@ -24,10 +24,8 @@ export const FilterContainer = styled.div`
 export const ListContainer = styled.div`
   background: #fff;
   padding: 24px;
-  
 
   border-radius: 18px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 `;
 
 export const ListHeader = styled.div`
@@ -52,21 +50,22 @@ export const Title = styled.h1`
   @media screen and (max-width: 992px) {
     font-size: 20px;
     text-align: center;
-    width:100%;
+    width: 100%;
     padding-bottom: 16px;
   }
+  color: #000;
 `;
 export const TableWrapper = styled.div`
-  overflow-x: auto;   
+  overflow-x: auto;
 `;
 export const PaginationWrapper = styled.div`
-  margin-top: 20px;  
-  text-align: right;      
-`;  
-export const SelectOne = styled(Select)`  
-  width: 120px;  
-`;   
-export const SelectTwo = styled(Select)`  
-  width: 120px;   
+  margin-top: 20px;
+  text-align: right;
+`;
+export const SelectOne = styled(Select)`
+  width: 120px;
+`;
+export const SelectTwo = styled(Select)`
+  width: 120px;
   margin-top: 0px;
-`;   
+`;

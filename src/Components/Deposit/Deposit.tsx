@@ -1,33 +1,33 @@
 import { useState, useEffect } from "react";
-import { Card, Select, Input, Tooltip, Button, Modal } from "antd"; 
-import {   
+import { Card, Select, Input, Tooltip, Button, Modal } from "antd";
+import {
   usePostDepositFormMutation,
-  useGetProgramsDataQuery, 
+  useGetProgramsDataQuery,
 } from "../../Redux/slice";
 // import amount from "../../assets/images/amount.png";
 import support from "../../assets/images/question.svg";
 // import statements from "../../assets/images/statements-icon.svg";
 // import { FilePdfFilled, IdcardOutlined } from "@ant-design/icons";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";  
+import * as Yup from "yup";
 import * as Styled from "./Deposit.styled";
 
-const { Option } = Select; 
+const { Option } = Select;
 
 interface FormProps {
   receiverAddress: string;
   senderAddress: string;
   investmentAmount: string;
 }
- 
+
 const Deposit: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [formValues, setFormValues] = useState<FormProps>({
     receiverAddress: "",
     senderAddress: "",
-    investmentAmount: ""
+    investmentAmount: "",
   });
-  
+
   const {
     data: programsData,
     isLoading: programsLoading,
@@ -36,7 +36,7 @@ const Deposit: React.FC = () => {
   const [postData, { isLoading: submitLoading }] = usePostDepositFormMutation();
 
   useEffect(() => {
-    refetch(); 
+    refetch();
   }, []);
 
   const handleConfirm = (values) => {
@@ -46,7 +46,7 @@ const Deposit: React.FC = () => {
 
   const handleModalSubmit = async () => {
     try {
-      await postData({ 
+      await postData({
         receiverAddress: formValues.receiverAddress,
         senderAddress: formValues.senderAddress,
         transactionType: "DEPOSIT",
@@ -63,14 +63,13 @@ const Deposit: React.FC = () => {
   };
 
   return (
-    <Styled.DepositContainer>   
-      
+    <Styled.DepositContainer>
       <Styled.FormContainer>
         <Styled.PageHeading>Deposit</Styled.PageHeading>
-        
-        <Formik  
+
+        <Formik
           initialValues={{
-            investmentAmount: "", 
+            investmentAmount: "",
             receiverAddress: "",
             senderAddress: "",
           }}
@@ -85,31 +84,34 @@ const Deposit: React.FC = () => {
           })}
           onSubmit={(values) => handleConfirm(values)}
         >
-          
           {({ errors, touched, setFieldValue }) => (
-            <Form>   
-              <Styled.StyledCard bordered={true}>   
-                <Styled.PageCover   className="hoverdata">
-                  <Styled.FlexColumnContainer>  
-                    <Styled.StyledLabel> 
-                      <span>Investment amount:</span>
-                      
-                    </Styled.StyledLabel> 
-                    <Styled.FieldCover >     
-                      
-                      <Field  name="investmentAmount">
-                        {({ field }) => ( 
+            <Form>
+              <Styled.StyledCard bordered={true}>
+                <Styled.PageCover className="hoverdata">
+                  <Styled.FlexColumnContainer>
+                    <Styled.StyledLabel>
+                      <span style={{ color: "#0a0a0a" }}>
+                        Investment amount:
+                      </span>
+                    </Styled.StyledLabel>
+                    <Styled.FieldCover>
+                      <Field name="investmentAmount">
+                        {({ field }) => (
                           <Styled.SelectOne
                             className="select"
-                            style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
+                            style={{
+                              border: "1px solid gray",
+                              borderRadius: "8px",
+                              overflow: "hidden",
+                            }}
                             defaultValue="Select amount"
                             {...field}
                             placeholder="Select investment amount"
                             loading={programsLoading}
                             onChange={(value) =>
                               setFieldValue("investmentAmount", value)
-                            } 
-                          > 
+                            }
+                          >
                             <Option value="">Select amount</Option>
                             {programsData &&
                               programsData?.data?.map((item) => {
@@ -134,9 +136,9 @@ const Deposit: React.FC = () => {
                                 }
                               })}
                           </Styled.SelectOne>
-                        )} 
-                      </Field> 
-                    </Styled.FieldCover> 
+                        )}
+                      </Field>
+                    </Styled.FieldCover>
                     <ErrorMessage
                       name="investmentAmount"
                       component="div"
@@ -149,17 +151,22 @@ const Deposit: React.FC = () => {
                         ></Styled.AlertMessage>
                       )}
                     </ErrorMessage>
-                  </Styled.FlexColumnContainer> 
-                  <Styled.FlexColumnContainer>  
-                    <Styled.StyledLabel> 
-                      <span>Receiver Address:</span>
-                      
+                  </Styled.FlexColumnContainer>
+                  <Styled.FlexColumnContainer>
+                    <Styled.StyledLabel>
+                      <span style={{ color: "#0a0a0a" }}>
+                        Receiver Address:
+                      </span>
                     </Styled.StyledLabel>
-                    <Styled.FieldCover>   
-                     
+                    <Styled.FieldCover>
                       <Field name="receiverAddress">
-                        {({ field }) => ( 
-                          <Styled.InputBox style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
+                        {({ field }) => (
+                          <Styled.InputBox
+                            style={{
+                              border: "1px solid gray",
+                              borderRadius: "8px",
+                              overflow: "hidden",
+                            }}
                             {...field}
                             placeholder="Enter receiver address"
                           />
@@ -178,17 +185,20 @@ const Deposit: React.FC = () => {
                         ></Styled.AlertMessage>
                       )}
                     </ErrorMessage>
-                  </Styled.FlexColumnContainer>  
+                  </Styled.FlexColumnContainer>
                   <Styled.FlexColumnContainer>
-                    <Styled.StyledLabel> 
-                      <span>Sender Address:</span>
-                      
+                    <Styled.StyledLabel>
+                      <span style={{ color: "#0a0a0a" }}>Sender Address:</span>
                     </Styled.StyledLabel>
-                    <Styled.FieldCover>   
-                      
+                    <Styled.FieldCover>
                       <Field name="senderAddress">
-                        {({ field }) => (   
-                          <Styled.InputBox style={{border:"1px solid gray",borderRadius:"8px",overflow:"hidden"}}
+                        {({ field }) => (
+                          <Styled.InputBox
+                            style={{
+                              border: "1px solid gray",
+                              borderRadius: "8px",
+                              overflow: "hidden",
+                            }}
                             {...field}
                             placeholder="Enter sender address"
                           />
@@ -208,38 +218,42 @@ const Deposit: React.FC = () => {
                       )}
                     </ErrorMessage>
                   </Styled.FlexColumnContainer>
-                </Styled.PageCover>   
-              </Styled.StyledCard>   
+                </Styled.PageCover>
+              </Styled.StyledCard>
               <Styled.SubmitButtonContainer>
-                <Button type="primary" htmlType="submit" style={{background:"#007AFF"}}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  style={{ background: "#007AFF" }}
+                >
                   Submit
                 </Button>
               </Styled.SubmitButtonContainer>
             </Form>
-          )} 
-        </Formik> 
-        <Modal 
+          )}
+        </Formik>
+        <Modal
           title="Confirmation"
-          open={isModalVisible} 
+          open={isModalVisible}
           onCancel={handleModalCancel}
           footer={[
             <Button key="cancel" onClick={handleModalCancel}>
               Cancel
-            </Button>,   
-            <Styled.GradientButton 
-              key="submit" 
+            </Button>,
+            <Styled.GradientButton
+              key="submit"
               type="primary"
               onClick={handleModalSubmit}
-              disabled={submitLoading} 
-            >  
-              Submit 
-            </Styled.GradientButton>, 
-          ]}  
+              disabled={submitLoading}
+            >
+              Submit
+            </Styled.GradientButton>,
+          ]}
         >
           <p>Are you sure you want to proceed?</p>
         </Modal>
       </Styled.FormContainer>
-    </Styled.DepositContainer>  
+    </Styled.DepositContainer>
   );
 };
 

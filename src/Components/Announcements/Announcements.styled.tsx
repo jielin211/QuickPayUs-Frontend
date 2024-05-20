@@ -25,6 +25,7 @@ export const Title = styled.h1`
   @media screen and (max-width: 992px) {
     font-size: 16px;
     padding-bottom: 16px;
+    text-align: center;
   }
 `;
 
@@ -49,7 +50,7 @@ export const ctaButton = styled.div`
   border-radius: 8px;
   transition: background-color 0.3s;
 
-  :hover {
+  &:hover {
     background-color: gray; /* Darker Green */
   }
 `;

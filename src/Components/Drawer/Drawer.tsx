@@ -7,9 +7,9 @@ import Rank from "../Rank/Rank";
 import Deposit from "../Deposit/Deposit";
 import Withdrawal from "../Withdrawal/Withdrawal";
 import ShareWithFriend from "../ShareLink/Sharelink";
-import ChangePassword from "../Auth/Changepassword"; 
+import ChangePassword from "../Auth/Changepassword";
 import { Notifications } from "../Notifications";
-import Profile from "../Profile/Profile"; 
+import Profile from "../Profile/Profile";
 import { Announcements } from "../Announcements";
 import Banner from "../Banner/Banner";
 import TransactionsList from "../TransactionsList/TransactionsList";
@@ -20,21 +20,23 @@ import { KycVerification } from "../KycVerification";
 import CustomTicket from "../Support/CustomTicket";
 import FAQ from "../Support/FAQ";
 import ContactInfo from "../Support/Contact";
-import DeleteAccount from '../DeleteAccount/Password'
+import DeleteAccount from "../DeleteAccount/Password";
 
-const { Content } = Layout; 
+const { Content } = Layout;
 
 const App = () => {
   const location = useLocation();
   const device = useDevice();
   const isSignInRoute =
-    location.pathname === "/signin" || location.pathname === "/signup" || location.pathname === "/forgot-password";
+    location.pathname === "/signin" ||
+    location.pathname === "/signup" ||
+    location.pathname === "/forgot-password";
 
   const contentStyle = {
     marginLeft: device?.isBreakpoint("MD") ? "250px" : "0px",
     backgroundColor: "#F5F5F7",
     minHeight: "100vh",
-  }; 
+  };
   const layoutStyle = {
     // borderRadius: 8,
     overflow: "hidden",
@@ -50,8 +52,7 @@ const App = () => {
           <Layout>
             <Sider />
             <Content style={contentStyle}>
-              <Routes> 
-                <Route path="/" element={<UserDashboard />} />
+              <Routes>
                 <Route path="/dashboard" element={<UserDashboard />} />
                 <Route path="/referrals" element={<ReferralsList />} />
                 <Route path="/transaction" element={<TransactionsList />} />
@@ -66,10 +67,13 @@ const App = () => {
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/announcements" element={<Announcements />} />
                 <Route path="/verification" element={<KycVerification />} />
-                <Route path="/support/ticket" element={<CustomTicket/>} />
-                <Route path="/support/faq" element={<FAQ/>} />
-                <Route path="/support/contact" element={<ContactInfo/>} />
-                <Route path="/settings/account-deletion" element={<DeleteAccount/>} />
+                <Route path="/support/ticket" element={<CustomTicket />} />
+                <Route path="/support/faq" element={<FAQ />} />
+                <Route path="/support/contact" element={<ContactInfo />} />
+                <Route
+                  path="/settings/account-deletion"
+                  element={<DeleteAccount />}
+                />
               </Routes>
             </Content>
           </Layout>

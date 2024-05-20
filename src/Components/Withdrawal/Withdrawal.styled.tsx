@@ -1,25 +1,27 @@
 import styled from "styled-components";
-import { Select, Card} from "antd";  
+import { Select, Card } from "antd";
 
 export const WithdrawalContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding:30px;
+  padding: 30px;
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
   height: 100%;
-  border-radius: 10px;
-  background-color:#fafafc;
+
+  background-color: #faf4f4f4;
 `;
- 
+
 export const FormContainer = styled.div`
   margin-left: auto;
-  margin-right: auto; 
+  margin-right: auto;
   width: 100%;
   border-radius: 18px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   padding: 24px;
   padding-bottom: 48px;
-  background-color:#fff;
+  background-color: #fff;
 
   @media screen and (max-width: 992px) {
     width: 100%;
@@ -32,7 +34,7 @@ export const SubmitButtonContainer = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  width: 100%;  
+  width: 100%;
   padding: 0 24px;
 `;
 
@@ -58,22 +60,23 @@ export const BalanceContainer = styled.div`
     align-items: flex-start;
   }
 `;
- 
+
 export const StyledH2 = styled.h2`
-  padding-left:23px;  
-  @media screen and (max-width:768px){
-  text-align: center;
-}`;
+  padding-left: 23px;
+  @media screen and (max-width: 768px) {
+    text-align: center;
+  }
+`;
 export const StyledForm = styled.form`
-  text-align: left; 
-`;  
+  text-align: left;
+`;
 export const InputWrapper = styled.div`
-  margin-bottom: 16px; 
+  margin-bottom: 16px;
   outline-style: none;
-`;     
-export const StyledSelect = styled(Select)`  
-  width: 200px;    
-`;  
-export const StyledCard= styled(Card)`  
-  border: none;    
-`;   
+`;
+export const StyledSelect = styled(Select)`
+  width: 200px;
+`;
+export const StyledCard = styled(Card)`
+  border: none;
+`;

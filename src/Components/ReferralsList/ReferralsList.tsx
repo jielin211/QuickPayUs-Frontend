@@ -1,13 +1,13 @@
 import { Table, Pagination, Select, Skeleton, Input, Space } from "antd";
 import { LeftOutlined, RightOutlined } from "@ant-design/icons";
-import * as Styled from "./ReferralsList.styled"; 
+import * as Styled from "./ReferralsList.styled";
 import { REFERRAL_TYPE } from "./constants";
 import { useReferralsList } from "./useReferralsList";
-  
-const { Option } = Select; 
- 
+
+const { Option } = Select;
+
 const Referrals: React.FC = () => {
-  const { 
+  const {
     currentPage,
     pageSize,
     isLoading,
@@ -35,29 +35,32 @@ const Referrals: React.FC = () => {
                 placeholder="Search"
                 onSearch={handleSearch}
                 allowClear
-                style={{ width: '100%', maxWidth: '100%', boxSizing: 'border-box' }}
+                style={{
+                  width: "100%",
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
+                }}
               />
-            </Space> 
+            </Space>
             <Space size={10}>
               <Styled.SelectStyled
                 defaultValue={REFERRAL_TYPE.DIRECT}
                 onSelect={handleTypeChange}
-                
               >
                 <Option value={REFERRAL_TYPE.DIRECT}>Direct</Option>
                 <Option value={REFERRAL_TYPE.INDIRECT}>Indirect</Option>
               </Styled.SelectStyled>
               {type === REFERRAL_TYPE.DIRECT && (
-                <Styled.SelectStyled defaultValue={1} > 
-                  <Option key={directLevel} value={directLevel} >
-                    {"Level 1"}  
+                <Styled.SelectStyled defaultValue={1}>
+                  <Option key={directLevel} value={directLevel}>
+                    {"Level 1"}
                   </Option>
                 </Styled.SelectStyled>
               )}
 
               {type === REFERRAL_TYPE.INDIRECT && (
                 <Styled.SelectStyled
-                  defaultValue={2} 
+                  defaultValue={2}
                   onChange={handleLevelChange}
                 >
                   {levels.map((level) => (
@@ -76,26 +79,26 @@ const Referrals: React.FC = () => {
             <Skeleton active />
             <Skeleton active />
           </div>
-        ) : (  
-          <Styled.TableWrapper>  
-            <Table 
+        ) : (
+          <Styled.TableWrapper>
+            <Table
               columns={columns}
               dataSource={isSuccess ? currentData : []}
               pagination={false}
             />
-          </Styled.TableWrapper> 
+          </Styled.TableWrapper>
         )}
-        <Styled.PaginationWrapper> 
+        <Styled.PaginationWrapper>
           <Pagination
             defaultCurrent={1}
             total={referrals?.total}
-            pageSize={pageSize} 
-            current={currentPage} 
-            prevIcon={<LeftOutlined className="color-black"/>} 
-            nextIcon={<RightOutlined className="color-black"/>}  
+            pageSize={pageSize}
+            current={currentPage}
+            prevIcon={<LeftOutlined className="color-black" />}
+            nextIcon={<RightOutlined className="color-black" />}
             onChange={handlePageChange}
-            responsive={true} 
-          /> 
+            responsive={true}
+          />
         </Styled.PaginationWrapper>
       </Styled.ListContainer>
     </Styled.Container>

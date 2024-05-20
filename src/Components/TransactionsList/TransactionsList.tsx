@@ -44,9 +44,9 @@ const TransactionsList: React.FC = () => {
                 allowClear
                 format={"DD-MM-YYYY"}
               />
-            </Space> 
-            <Space size={10}>   
-              <Styled.SelectOne  
+            </Space>
+            <Space size={10}>
+              <Styled.SelectOne
                 defaultValue={TRANSACTION_TYPE.DEPOSIT}
                 onChange={handleTransactionTypeChange}
                 placeholder="Transaction Type"
@@ -55,9 +55,9 @@ const TransactionsList: React.FC = () => {
                 <Option value={TRANSACTION_TYPE.WITHDRAWAL}>Withdrawal</Option>
                 <Option value={TRANSACTION_TYPE.PROFIT}>Profit</Option>
                 <Option value={TRANSACTION_TYPE.REFERRAL_CREDIT}>Credit</Option>
-              </Styled.SelectOne> 
-              <Styled.SelectTwo  
-                defaultValue={STATUS.APPROVED} 
+              </Styled.SelectOne>
+              <Styled.SelectTwo
+                defaultValue={STATUS.APPROVED}
                 onChange={handleStatusChange}
                 placeholder="Status"
               >
@@ -75,26 +75,26 @@ const TransactionsList: React.FC = () => {
             <Skeleton active />
           </>
         ) : (
-          <Styled.TableWrapper> 
-            <Table 
+          <Styled.TableWrapper>
+            <Table
               columns={columns}
               dataSource={currentData}
               pagination={false}
             />
-          </Styled.TableWrapper> 
-        )} 
-        <Styled.PaginationWrapper> 
-          <Pagination 
+          </Styled.TableWrapper>
+        )}
+        <Styled.PaginationWrapper>
+          <Pagination
             defaultCurrent={1}
             total={transactionsList?.total || 0}
             pageSize={pageSize}
-            current={currentPage} 
-            prevIcon={<LeftOutlined className="color-black"/>}
-            nextIcon={<RightOutlined className="color-black"/>}
+            current={currentPage}
+            prevIcon={<LeftOutlined className="color-black" />}
+            nextIcon={<RightOutlined className="color-black" />}
             onChange={handlePageChange}
             responsive={true}
           />
-        </Styled.PaginationWrapper> 
+        </Styled.PaginationWrapper>
       </Styled.ListContainer>
     </Styled.Container>
   );

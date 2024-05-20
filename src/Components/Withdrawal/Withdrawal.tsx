@@ -3,14 +3,14 @@ import { Card, Input, Select, Button, Modal } from "antd";
 import { InputOTP } from "antd-input-otp";
 import { usePostDataMutation } from "../../Redux/slice"; // Update the path accordingly
 import * as Styled from "./Withdrawal.styled";
- 
+
 const { Option } = Select;
 
 const Withdrawal = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [otpSent, setOtpSent] = useState(false);
   const [timer, setTimer] = useState(0);
-  const [otp, setOtp] = useState([]); 
+  const [otp, setOtp] = useState([]);
   const [verificationError, setVerificationError] = useState("");
   const [verificationLoading, setVerificationLoading] = useState(false);
   const [withdrawalAmount, setWithdrawalAmount] = useState("");
@@ -73,23 +73,32 @@ const Withdrawal = () => {
     }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     if (otp.length === 6) {
       handleVerifyOTP();
     }
   }, [otp]);
 
   const handleVerifyOTP = async () => {
-    if (otp.length === 6) { 
+    if (otp.length === 6) {
       setVerificationLoading(true);
-      try { 
+      try {
         const isVerified = await verifyOTP();
-        if (isVerified !== false && 'error' in isVerified && 'data' in isVerified.error && isVerified.error.data && typeof isVerified.error.data === "object") {
-          if ('success' in isVerified.error.data && isVerified.error.data.success !== false) {
+        if (
+          isVerified !== false &&
+          "error" in isVerified &&
+          "data" in isVerified.error &&
+          isVerified.error.data &&
+          typeof isVerified.error.data === "object"
+        ) {
+          if (
+            "success" in isVerified.error.data &&
+            isVerified.error.data.success !== false
+          ) {
             await submitTransaction(); // Submit transaction only if OTP is verified
             setIsModalVisible(false);
             setOtp([]); // Clear OTP input value
-          } 
+          }
         }
       } catch (error) {
         console.error("Error verifying OTP:", error);
@@ -110,7 +119,7 @@ const Withdrawal = () => {
           userId: "65d90f020e3b5a197c585b8f",
           otp: otp.join(""),
         },
-        id: ""
+        id: "",
       });
       return datares;
     } catch (error) {
@@ -132,7 +141,7 @@ const Withdrawal = () => {
           withdrawalType: transactionType,
           transactionType: "WITHDRAWAL",
         },
-        id: ""
+        id: "",
       });
     } catch (error) {
       console.error("Error submitting transaction:", error);
@@ -141,19 +150,19 @@ const Withdrawal = () => {
     }
   };
 
-  return ( 
-    <Styled.WithdrawalContainer>  
+  return (
+    <Styled.WithdrawalContainer>
       <Styled.FormContainer>
         <Styled.StyledH2>Withdraw</Styled.StyledH2>
-        <Styled.StyledForm 
+        <Styled.StyledForm
           onSubmit={(e) => {
-            e.preventDefault(); 
+            e.preventDefault();
             handleSubmit();
-          }}  
-        >      
-          <Styled.StyledCard>   
-            <Styled.InputWrapper>  
-              <label>Amount:</label> 
+          }}
+        >
+          <Styled.StyledCard>
+            <Styled.InputWrapper>
+              <label style={{ color: "#0a0a0a" }}>Amount:</label>
               <Input
                 type="text"
                 value={withdrawalAmount}
@@ -161,20 +170,20 @@ const Withdrawal = () => {
                 placeholder="Enter amount"
               />
             </Styled.InputWrapper>
-            <Styled.InputWrapper> 
-              <label>Address:</label>
+            <Styled.InputWrapper>
+              <label style={{ color: "#0a0a0a" }}>Address:</label>
               <Input
                 type="text"
                 value={withdrawalAddress}
                 onChange={(e) => setWithdrawalAddress(e.target.value)}
                 placeholder="Enter receiver account ID"
-              /> 
+              />
             </Styled.InputWrapper>
-            <Styled.BalanceContainer> 
+            <Styled.BalanceContainer>
               <div>
-                <div>Type:</div>   
-                <Styled.StyledSelect  
-                  value={transactionType} 
+                <div style={{ color: "#0a0a0a" }}>Type:</div>
+                <Styled.StyledSelect
+                  value={transactionType}
                   onChange={(value) => setTransactionType(value as string)}
                 >
                   <Option value="">Select Transaction Type</Option>
@@ -183,14 +192,19 @@ const Withdrawal = () => {
                 </Styled.StyledSelect>
               </div>
               <div>
-                <div>My Balance:</div>
+                <div style={{ color: "#0a0a0a" }}>My Balance:</div>
                 <Styled.Balance>$334400</Styled.Balance>
               </div>
             </Styled.BalanceContainer>
-          </Styled.StyledCard> 
+          </Styled.StyledCard>
 
           <Styled.SubmitButtonContainer>
-            <Button type="primary" htmlType="submit" disabled={isLoading} style={{background:"#007AFF"}}>
+            <Button
+              type="primary"
+              htmlType="submit"
+              disabled={isLoading}
+              style={{ background: "#007AFF" }}
+            >
               Submit
             </Button>
           </Styled.SubmitButtonContainer>
@@ -207,17 +221,17 @@ const Withdrawal = () => {
               <div>
                 <Button
                   type="primary"
-                  style={{marginTop: "20px", marginLeft: "auto"}}
+                  style={{ marginTop: "20px", marginLeft: "auto" }}
                   onClick={handleResendOTP}
                   disabled={timer > 0}
                 >
                   {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Send OTP"}
                 </Button>
               </div>
-              {verificationError && ( 
+              {verificationError && (
                 <div className="color-red">{verificationError}</div>
               )}
-            </div> 
+            </div>
           </Modal>
         </Styled.StyledForm>
       </Styled.FormContainer>
