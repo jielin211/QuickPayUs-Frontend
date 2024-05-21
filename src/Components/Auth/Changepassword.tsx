@@ -14,6 +14,7 @@ const ChangePassword: React.FC = () => {
   const [isOtpModalVisible, setIsOtpModalVisible] = useState(false);
   const [otp, setOtp] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [otpError, setOtpError] = useState("");
 
   const handleChangePassword = (
     values: any,
@@ -28,6 +29,7 @@ const ChangePassword: React.FC = () => {
     } else {
       console.log("Change Password Values:", values);
       setIsOtpModalVisible(true);
+      setIsSubmitting(false); // Stop submitting after opening the OTP modal
     }
   };
 
@@ -38,7 +40,7 @@ const ChangePassword: React.FC = () => {
       setIsOtpModalVisible(false);
       setIsSubmitting(false);
     } else {
-      message.error("Invalid OTP");
+      setOtpError("Invalid OTP");
     }
   };
 
@@ -77,13 +79,15 @@ const ChangePassword: React.FC = () => {
               validate={validateForm}
               onSubmit={handleChangePassword}
             >
-              {({ values, errors, handleChange, handleSubmit, touched }) => (
+              {({ errors, handleSubmit, touched }) => (
                 <Form style={{ width: "100%" }} onFinish={handleSubmit}>
                   <Form.Item
                     validateStatus={
-                      isSubmitting && errors.currentPassword ? "error" : ""
+                      touched.currentPassword && errors.currentPassword
+                        ? "error"
+                        : ""
                     }
-                    help={isSubmitting && errors.currentPassword}
+                    help={touched.currentPassword && errors.currentPassword}
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="currentPassword">
@@ -98,9 +102,9 @@ const ChangePassword: React.FC = () => {
                   </Form.Item>
                   <Form.Item
                     validateStatus={
-                      isSubmitting && errors.password ? "error" : ""
+                      touched.password && errors.password ? "error" : ""
                     }
-                    help={isSubmitting && errors.password}
+                    help={touched.password && errors.password}
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="password">
@@ -115,9 +119,11 @@ const ChangePassword: React.FC = () => {
                   </Form.Item>
                   <Form.Item
                     validateStatus={
-                      isSubmitting && errors.confirmPassword ? "error" : ""
+                      touched.confirmPassword && errors.confirmPassword
+                        ? "error"
+                        : ""
                     }
-                    help={isSubmitting && errors.confirmPassword}
+                    help={touched.confirmPassword && errors.confirmPassword}
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="confirmPassword">
@@ -135,6 +141,7 @@ const ChangePassword: React.FC = () => {
                       type="primary"
                       size="large"
                       htmlType="submit"
+                      disabled={isSubmitting}
                     >
                       Save
                     </Styled.SaveBtn>
@@ -155,12 +162,15 @@ const ChangePassword: React.FC = () => {
         <Form onFinish={handleOtpSubmit}>
           <Form.Item
             label="OTP"
-            validateStatus={otp ? "" : "error"}
-            help={otp ? "" : "Please enter the OTP"}
+            validateStatus={otpError ? "error" : ""}
+            help={otpError || ""}
           >
             <Input
               value={otp}
-              onChange={(e) => setOtp(e.target.value)}
+              onChange={(e) => {
+                setOtp(e.target.value);
+                setOtpError("");
+              }}
               placeholder="Enter OTP"
             />
           </Form.Item>
