@@ -6,7 +6,7 @@ export const AboutBoxH4 = styled.h4`
   font-size: 16px;
   padding-right: 10px;
   font-weight: 600;
-  color: #767678;
+  color: #0a0a0a;
 
   @media screen and (max-width: 580px) {
     font-size: 14px;
@@ -23,7 +23,8 @@ export const AboutBoxP = styled.p`
   }
 `;
 export const KycBox = styled.div`
-  background: white;
+  background-color: #f4f4f4 !important;
+
   width: 70%;
   border-radius: 5px;
   @media screen and (max-width: 580px) {
@@ -50,16 +51,17 @@ export const AboutMainRow = styled(Row)`
   }
 `;
 export const AboutBoxRow = styled(Row)`
-  box-shadow: 2px 4px 12px #00000014;
   padding: 10px 0;
   border-radius: 10px;
+  background: #fff;
   margin-bottom: 20px;
 `;
 export const AboutBoxCol = styled(Col)`
   display: flex;
   align-items: center;
   padding: 15px;
-  border-right: 1px solid #d9d9d9;
+
+  border-right: 1px solid #d3d3d3;
 `;
 export const AboutBoxCol2 = styled(Col)`
   display: flex;
@@ -69,6 +71,7 @@ export const AboutBoxCol2 = styled(Col)`
 export const KycMainRow = styled(Row)`
   padding: 0px 46px;
   padding-bottom: 100px;
+
   @media screen and (max-width: 580px) {
     padding: 0px;
   }
@@ -79,6 +82,7 @@ export const KycBtn = styled(Button)`
     margin: auto;
     padding: 8px 16px;
     height: 40px;
+
     width: 140px;
     color: #fff;
     border-radius: 5px;
@@ -147,17 +151,30 @@ export const ProfileHeroName = styled.h1`
 export const ProfileHeroImage = styled.img`
   display: block;
   border-radius: 6px;
-  width: 170px;
-  height: 170px;
-  margin-top: -105px;
 `;
-export const ProfileHeroImageWrapper = styled.div`
-  display: flex;
-  gap: 26px;
-`;
-export const SkeletonInputCustom = styled(Skeleton.Input)`
-  @media (max-width: 575px) {
-    min-width: 80px !important;
-    width: 80px !important;
+
+export const StyledKYCColMobile = styled(Col)`
+  display: none;
+  @media screen and (max-width: 580px) {
+    display: block;
+    margin: 40px auto;
+    display: flex;
+    justify-content: center;
+    padding: 15px;
   }
+`;
+
+export const SkeletonInputCustom = styled(Skeleton.Input)`
+  width: 80%;
+`;
+
+export const ColorPickerContainer = styled.div`
+  text-align: center;
+  margin: 10px;
+`;
+
+export const ColorPickerText = styled.div`
+  margin-top: 10px;
+  font-size: 14px;
+  color: #767678;
 `;

@@ -22,9 +22,10 @@ interface TimeProps {
 
 export const NotificationCardContainer = styled.div<NotificationCardContainerProps>`
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   padding: 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #d3d3d3;
   border-radius: 5px;
   margin-bottom: 8px;
   background-color: #fff;
@@ -40,7 +41,6 @@ export const NotificationCardContainer = styled.div<NotificationCardContainerPro
         return "gray";
     }
   }};
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
 
   &:hover {

@@ -9,11 +9,13 @@ const { Option } = Select;
 
 interface AddYourPicturesFormProps {
   errors: {
-    images: string,
-  }
+    images: string;
+  };
 }
 
-export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}) => {
+export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({
+  errors,
+}) => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState(1);
@@ -33,7 +35,7 @@ export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}
   };
 
   const getFileList = (images) => {
-    const filesWithSerializedDate = images.fileList.map(file => ({
+    const filesWithSerializedDate = images.fileList.map((file) => ({
       // ...file,
       lastModified: file.lastModified,
       lastModifiedDate: file.lastModifiedDate.toISOString(), // Convert Date to string
@@ -41,7 +43,9 @@ export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}
       size: file.size,
       // Copy any other needed properties
     }));
-    dispatch(updateKycField({ field: "images", value: filesWithSerializedDate}));
+    dispatch(
+      updateKycField({ field: "images", value: filesWithSerializedDate })
+    );
   };
 
   const InfoPoints = [
@@ -49,17 +53,17 @@ export const AddYourPicturesForm: React.FC<AddYourPicturesFormProps> = ({errors}
     "Ensure your face and ID are clearly visible and not obscured",
     "Avoid wearing sunglasses or hats that may obscure your face",
   ];
-  return ( 
+  return (
     <div>
       <Styled.Heading>Upload your pictures</Styled.Heading>
       <Styled.FormDetailsContainer>
-        <Styled.StyledForm  
-          form={form}  
+        <Styled.StyledForm
+          form={form}
           onValuesChange={handleValuesChange}
           layout="vertical"
-        > 
+        >
           <Form.Item label="Add Document">
-            <UploadButton getFileList={getFileList} maxCount={1}/>
+            <UploadButton getFileList={getFileList} maxCount={1} />
           </Form.Item>
           <Styled.ErrorMessage>{errors.images}</Styled.ErrorMessage>
         </Styled.StyledForm>

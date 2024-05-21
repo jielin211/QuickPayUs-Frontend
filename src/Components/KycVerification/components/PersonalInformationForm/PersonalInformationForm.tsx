@@ -18,13 +18,15 @@ const { Option } = Select;
 
 interface PersonalInformationFormProps {
   errors: {
-    dateOfBirth: string,
-    occupation: string,
-    address: string
-  }
+    dateOfBirth: string;
+    occupation: string;
+    address: string;
+  };
 }
 
-export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = ({errors}) => {
+export const PersonalInformationForm: React.FC<
+  PersonalInformationFormProps
+> = ({ errors }) => {
   const [form] = Form.useForm();
   const [formValues, setFormValues] = useState({});
   const [value, setValue] = useState();
@@ -95,9 +97,7 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
     setPhone(val);
   };
 
-  const handleChangeFloating = (value) => {
-
-  }
+  const handleChangeFloating = (value) => {};
 
   const makePhoneNumber = (countryCode, phoneNumber) => {
     return `${countryCode}${phoneNumber}`;
@@ -165,25 +165,35 @@ export const PersonalInformationForm: React.FC<PersonalInformationFormProps> = (
           )}
           <Col {...span}>
             <Styled.StyledFormItem label="Date of birth" name="dateOfBirth">
-              <Styled.StyledDatePicker/>
-            </Styled.StyledFormItem>    
+              <Styled.StyledDatePicker />
+            </Styled.StyledFormItem>
             <Styled.ErrorMessage>{errors.dateOfBirth}</Styled.ErrorMessage>
             <Form.Item name="gender" label="Gender">
-              <Styled.StyledSelect 
+              <Styled.StyledSelect
                 value={selectedGender}
                 onChange={handleGenderChange}
                 placeholder="Gender"
               >
                 <Option value="male">Male</Option>
                 <Option value="female">Female</Option>
-              </Styled.StyledSelect>  
+              </Styled.StyledSelect>
             </Form.Item>
             <Styled.StyledFormItem name="occupation">
-              <FloatingInput label="Occupation" name="occupation" onChange={handleChangeFloating} value={value}/>
+              <FloatingInput
+                label="Occupation"
+                name="occupation"
+                onChange={handleChangeFloating}
+                value={value}
+              />
             </Styled.StyledFormItem>
             <Styled.ErrorMessage>{errors.occupation}</Styled.ErrorMessage>
             <Styled.StyledFormItem name="address">
-              <FloatingInput label="Address" name="address" onChange={handleChangeFloating} value={value}/>
+              <FloatingInput
+                label="Address"
+                name="address"
+                onChange={handleChangeFloating}
+                value={value}
+              />
             </Styled.StyledFormItem>
             <Styled.ErrorMessage>{errors.address}</Styled.ErrorMessage>
           </Col>

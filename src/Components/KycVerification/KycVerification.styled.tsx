@@ -2,14 +2,12 @@ import styled from "styled-components";
 import { Button, Steps as UiSteps, Divider as UiDivider } from "antd";
 
 export const Header = styled.div`
-  font-family: IBM Plex Sans, sans-serif; 
+  font-family: IBM Plex Sans, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px 24px;
+  padding: 1px 2px;
   gap: 8px;
-  background-color: #fff;
-  color: black;
   border-top-right-radius: 8px;
   border-top-left-radius: 8px;
   /* border-bottom: 1px solid #f5f5f7; */
@@ -22,6 +20,7 @@ export const HeaderTitle = styled.h1`
   font-size: 28px;
   font-weight: 600;
   margin: 0;
+  color: #000;
   @media screen and (max-width: 768px) {
     font-size: 18px;
   }
@@ -31,6 +30,7 @@ export const HeaderSubTitle = styled.h2`
   font-size: 20px;
   font-weight: 500;
   margin: 0;
+  color: #767678;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -40,10 +40,9 @@ export const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  padding: 16px 24px;
+  padding: 16px 2px;
   gap: 8px;
-  background-color: #fff;
-  color: black;
+  color: #;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   font-family: IBM Plex Sans, sans-serif;
@@ -101,43 +100,42 @@ export const Divider = styled(UiDivider)`
   margin: 0px 0px;
 `;
 export const StyledDot = styled.div`
-  display: flex; 
+  display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   margin-top: -10px;
-  margin-left: -8px; 
-  width: 30px; 
-  height: 30px;  
-  border-radius: 50%;  
-  background-color: #f00000;  
+  margin-left: -8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f00000;
 `;
 export const PageWrapper = styled.div`
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
   padding: 16px 24px;
-  background-color: white; 
+  background-color: #f4f4f4;
+  height: 100%;
 `;
-export const StepsWrapper = styled.div` 
-  display: flex; 
-  width: 100%;  
+export const StepsWrapper = styled.div`
+  display: flex;
+  width: 100%;
   height: 68vh;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     height: 100%;
   }
 `;
-export const StepsContent = styled.div` 
-  width: 100%;  
-`; 
-export const PaginationWrapper = styled.div` 
-  margin-top: 16px;
-  margin-left: auto;  
+export const StepsContent = styled.div`
+  width: 100%;
+`;
+export const PaginationWrapper = styled.div`
+  margin-left: auto;
+
   @media screen and (max-width: 768px) {
     margin-left: 0;
   }
 `;
-export const StyledBtn = styled(Button)` 
-  margin: 0 8px;      
-`;   
-
-
+export const StyledBtn = styled(Button)`
+  margin: 0 8px;
+`;

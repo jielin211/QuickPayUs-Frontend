@@ -31,7 +31,7 @@ const UiSiderCustom = styled(UiSider)`
   min-height: 100vh;
   color: #fff;
   background: #fff !important;
-  border-right: 1px solid #dfdfdf !important;
+  border-right: 1px solid #d3d3d3 !important;
   overflow: hidden;
   @media (max-width: 800px) {
     display: none;

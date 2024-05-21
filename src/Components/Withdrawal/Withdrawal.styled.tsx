@@ -5,7 +5,7 @@ export const WithdrawalContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 30px;
+  padding: 17px;
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
@@ -19,7 +19,7 @@ export const FormContainer = styled.div`
   margin-right: auto;
   width: 100%;
   border-radius: 18px;
-  padding: 24px;
+  padding: 20px;
   padding-bottom: 48px;
   background-color: #fff;
 
@@ -72,6 +72,9 @@ export const StyledForm = styled.form`
 `;
 export const InputWrapper = styled.div`
   margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   outline-style: none;
 `;
 export const StyledSelect = styled(Select)`
@@ -79,4 +82,5 @@ export const StyledSelect = styled(Select)`
 `;
 export const StyledCard = styled(Card)`
   border: none;
+  margin-top: -10px;
 `;

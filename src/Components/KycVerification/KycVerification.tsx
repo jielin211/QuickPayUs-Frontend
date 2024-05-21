@@ -14,17 +14,18 @@ import { useSelector } from "react-redux";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
 import axios from "axios";
- 
+
 export const KycVerification: React.FC = () => {
   const [current, setCurrent] = useState(0);
   const device = useDevice();
-  const [result, setResult ] = useState(0);
+  const [result, setResult] = useState(0);
 
   const kycRedux = useSelector(selectKycVerification);
 
   const profileRedux = useSelector(selectProfile);
 
-  const [updateKycVerificationData, { isLoading }] = useUpdateKycVerificationDataMutation();
+  const [updateKycVerificationData, { isLoading }] =
+    useUpdateKycVerificationDataMutation();
 
   const [errors, setErrors] = useState({
     dateOfBirth: "",
@@ -32,8 +33,8 @@ export const KycVerification: React.FC = () => {
     address: "",
     country: "",
     documents: "",
-    images: ""
-  })
+    images: "",
+  });
 
   const next = () => {
     let flag = false;
@@ -42,12 +43,12 @@ export const KycVerification: React.FC = () => {
       let tempError = {
         dateOfBirth: "",
         occupation: "",
-        address: ""
-      } ;
+        address: "",
+      };
       if (!kycRedux.dateOfBirth) {
         flag = true;
         tempError.dateOfBirth = "Please insert date of birth";
-      } 
+      }
       if (!kycRedux.occupation && !kycRedux.occupation.length) {
         flag = true;
         tempError.occupation = "Please insert occupation";
@@ -56,30 +57,42 @@ export const KycVerification: React.FC = () => {
         flag = true;
         tempError.address = "Please insert address";
       }
-      setErrors({...errors, dateOfBirth: tempError.dateOfBirth, occupation: tempError.occupation, address: tempError.address});
-      if (flag) return
+      setErrors({
+        ...errors,
+        dateOfBirth: tempError.dateOfBirth,
+        occupation: tempError.occupation,
+        address: tempError.address,
+      });
+      if (flag) return;
     } else if (current === 1) {
       let tempError = {
         country: "",
-        documents: ""
-      }
+        documents: "",
+      };
       if (!kycRedux.country) {
         flag = true;
         tempError.country = "Please insert country";
       }
       if (!kycRedux.documents && !kycRedux.documents?.length) {
         flag = true;
-        tempError.documents = "Please insert documents"; 
+        tempError.documents = "Please insert documents";
       }
-      if (kycRedux.documentType !== "PASSPORT" && kycRedux.documents?.length < 2 ) {
+      if (
+        kycRedux.documentType !== "PASSPORT" &&
+        kycRedux.documents?.length < 2
+      ) {
         flag = true;
         tempError.documents = "Please insert both side of document";
       }
-      setErrors({...errors, country: tempError.country, documents: tempError.documents});
+      setErrors({
+        ...errors,
+        country: tempError.country,
+        documents: tempError.documents,
+      });
       if (flag) return;
     } else if (current === 2) {
       if (!kycRedux.images && !kycRedux.images?.length) {
-        setErrors({...errors, images: "Please insert your picture"});
+        setErrors({ ...errors, images: "Please insert your picture" });
         return;
       }
     }
@@ -91,9 +104,9 @@ export const KycVerification: React.FC = () => {
 
   const handleSubmitForm = async () => {
     next();
-    
+
     try {
-      const response = await axios.post('/api/v1/user/update/kyc', {
+      const response = await axios.post("/api/v1/user/update/kyc", {
         dateOfBirth: kycRedux.dateOfBirth,
         gender: kycRedux.gender,
         address: kycRedux.address,
@@ -107,7 +120,6 @@ export const KycVerification: React.FC = () => {
       // if (response.result === "APPROVED") {
       //   setResult(1);
       // }
-
     } catch (error) {
       console.error("Error:", error);
     }
@@ -115,83 +127,82 @@ export const KycVerification: React.FC = () => {
 
   const steps = [
     {
-      content: <PersonalInformationForm errors={errors}/>,
-      title: "personalInformation"
+      content: <PersonalInformationForm errors={errors} />,
+      title: "personalInformation",
     },
 
     {
-      content: <IDVerificationForm errors={errors}/>,
-      title: "IDVerification"
+      content: <IDVerificationForm errors={errors} />,
+      title: "IDVerification",
     },
     {
-      content: <AddYourPicturesForm errors={errors}/>,
-      title: "AddYourPicture"
+      content: <AddYourPicturesForm errors={errors} />,
+      title: "AddYourPicture",
     },
     {
       content: <ReviewForm />,
-      title: "Review"
+      title: "Review",
     },
     {
-      content: <CompleteForm state={0}/>,
-      title: "Complete"
+      content: <CompleteForm state={0} />,
+      title: "Complete",
     },
   ];
 
   const items = steps.map((item) => ({
     key: item.title,
-    title: ""
+    title: "",
   }));
- 
-  return ( 
+
+  return (
     <Styled.PageWrapper>
-      {current !== steps.length - 1 &&
-      <Styled.Header>
-        <Styled.HeaderTitle>KYC Verification</Styled.HeaderTitle>
-        <Styled.HeaderSubTitle>
-          Please complete your KYC verification to continue using our services
-        </Styled.HeaderSubTitle>
-      </Styled.Header>
-      }
+      {current !== steps.length - 1 && (
+        <Styled.Header>
+          <Styled.HeaderTitle>KYC Verification</Styled.HeaderTitle>
+          <Styled.HeaderSubTitle>
+            Please complete your KYC verification to continue using our services
+          </Styled.HeaderSubTitle>
+        </Styled.Header>
+      )}
       <Styled.Content>
-        { device?.isBreakpoint("MD") ? (
-          <Styled.StepsWrapper>   
-            {current !== steps.length - 1 &&
-            <Styled.Steps
-              progressDot
-              current={current}
-              items={items}
-              direction={"vertical"}
-              labelPlacement="horizontal"
-              responsive={false}
-            />}
-            <Styled.StepsContent>  
+        {device?.isBreakpoint("MD") ? (
+          <Styled.StepsWrapper>
+            {current !== steps.length - 1 && (
+              <Styled.Steps
+                progressDot
+                current={current}
+                items={items}
+                direction={"vertical"}
+                labelPlacement="horizontal"
+                responsive={false}
+              />
+            )}
+            <Styled.StepsContent>
               <div>{steps[current].content}</div>
             </Styled.StepsContent>
           </Styled.StepsWrapper>
         ) : (
           <>
-            <Styled.StepsWrapper>   
-            {current !== steps.length - 1 &&
-              <Styled.Steps
-                progressDot
-                current={current}
-                items={items}
-                direction={"horizontal"}
-                labelPlacement="vertical"
-                responsive={false}
-              />
-            }
-              <Styled.StepsContent>  
+            <Styled.StepsWrapper>
+              {current !== steps.length - 1 && (
+                <Styled.Steps
+                  progressDot
+                  current={current}
+                  items={items}
+                  direction={"horizontal"}
+                  labelPlacement="vertical"
+                  responsive={false}
+                />
+              )}
+              <Styled.StepsContent>
                 <div>{steps[current].content}</div>
               </Styled.StepsContent>
             </Styled.StepsWrapper>
           </>
         )}
-        <Styled.PaginationWrapper>  
-          {current > 0 && current < steps.length - 1 && ( 
-            <Styled.StyledBtn onClick={() => prev()}>
-              Previous
-            </Styled.StyledBtn>  
+        <Styled.PaginationWrapper>
+          {current > 0 && current < steps.length - 1 && (
+            <Styled.StyledBtn onClick={() => prev()}>Previous</Styled.StyledBtn>
           )}
           {current < steps.length - 2 && (
             <Button type="primary" onClick={() => next()}>

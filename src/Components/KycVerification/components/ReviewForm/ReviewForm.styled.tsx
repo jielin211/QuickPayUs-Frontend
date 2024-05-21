@@ -7,6 +7,7 @@ export const Heading = styled.div`
   font-weight: 600;
   padding: 16px 0px;
   padding-top: 0;
+  color: #0a0a0a;
   @media screen and (max-width: 1200px) {
     font-size: 16px;
   }
@@ -19,6 +20,7 @@ export const FieldTitle = styled.div`
   font-weight: 600;
   padding-bottom: 8px;
   border-radius: 8px;
+  color: #0a0a0a;
   text-align: left;
 `;
 
@@ -26,7 +28,8 @@ export const FieldValue = styled.div`
   font-family: IBM Plex Sans, sans-serif;
   font-size: 14px;
   font-weight: 400;
-  border: 1px solid #f5f5f7;
+  border: 1px solid #d3d3d3;
+  color: #0a0a0a;
   padding: 8px;
   border-radius: 8px;
 `;
@@ -38,25 +41,26 @@ export const Container = styled.div`
   @media screen and (max-width: 1200px) {
     flex-direction: column;
   }
+  color: #0a0a0a;
 `;
 
 export const ContainerWrapper = styled.div`
   display: flex;
-  flex-direction: column; 
-  gap: 36px;     
-`;   
+  flex-direction: column;
+  gap: 36px;
+`;
 
 export const UploadSection = styled.div`
   display: flex;
-  flex-direction: column;   
-`;   
- 
+  flex-direction: column;
+`;
+
 export const ImgGrp = styled.div`
   display: flex;
-  gap: 16px; 
-`;   
- 
+  gap: 16px;
+`;
+
 export const UploadImg = styled(SolutionOutlined)`
   font-size: 80px;
-  padding: 10px 2px;    
-`; 
+  padding: 10px 2px;
+`;

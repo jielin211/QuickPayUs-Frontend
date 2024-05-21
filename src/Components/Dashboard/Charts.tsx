@@ -6,17 +6,6 @@ import * as Styled from "./Style/Dashboard.styled";
 
 const EChart: React.FC = () => {
   const options: ApexOptions = eChart.options;
-  // {
-  //    fill: {
-  //      type: "gradient",
-  //      gradient: {
-  //        type: "vertical",
-  //        gradientToColors: ["#FF6B00"],
-  //        stops: [0, 100],
-  //      },
-  //    },
-  //    ...eChart.options,
-  //  };
 
   return (
     <>
@@ -43,13 +32,15 @@ const EChart: React.FC = () => {
           />
         </Styled.SelectCol>
       </Row>
-      <ReactApexChart
-        className="bar-chart"
-        options={options}
-        series={eChart.series}
-        type="bar"
-        height={220}
-      />
+      <div className="chart-container">
+        <ReactApexChart
+          className="bar-chart"
+          options={options}
+          series={eChart.series}
+          type="bar"
+          height={220}
+        />
+      </div>
     </>
   );
 };

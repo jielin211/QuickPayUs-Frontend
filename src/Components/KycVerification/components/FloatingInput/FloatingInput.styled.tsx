@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledFloatInputWrapper = styled.div`
-  position: relative; 
+  position: relative;
 `;
 
 export const StyledFloatInput = styled.input`
@@ -10,14 +10,13 @@ export const StyledFloatInput = styled.input`
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
-  border: 1px solid #d9d9d9;
-  background: transparent;
-  color: black;
+  border: 1px solid #d3d3d3;
+  color: #0a0a0a;
   outline: none;
   font-size: 14px;
 
   &:focus {
-    border: 1px solid red;
+    border: 1px solid #000;
   }
 
   &:focus ~ label,
@@ -26,7 +25,6 @@ export const StyledFloatInput = styled.input`
     left: 15px;
     font-size: 12px;
     padding: 0 2px;
-    background: white;
 
     position: absolute; /* Ensure label can be positioned relative to input */
     transition: all 0.3s ease; /* Smooth transition for label movement */
@@ -35,13 +33,12 @@ export const StyledFloatInput = styled.input`
 `;
 
 export const StyledFloatInputLabel = styled.label`
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: black;
-    font-size: 14px;
-    pointer-event: none;
-    transition: 0.3s;
-`
-
+  position: absolute;
+  top: 80%;
+  left: 15px;
+  transform: translateY(-100%);
+  color: #0a0a0a;
+  font-size: 14px;
+  pointer-event: none;
+  transition: 0.3s;
+`;

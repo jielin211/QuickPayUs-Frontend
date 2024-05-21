@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { Form } from "antd";   
+import { Form } from "antd";
 
 export const Heading = styled.div`
   font-size: 20px;
-  font-weight: 600; 
+  font-weight: 600;
   padding: 16px 0px;
   padding-top: 0;
+  color: #0a0a0a;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -35,7 +36,7 @@ export const RadioCard = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -81,11 +82,11 @@ export const InfoList = styled.ul`
       left: 0;
     }
   }
-`; 
+`;
 
-export const StyledForm = styled(Form)` 
-  width: 100%;        
-`; 
+export const StyledForm = styled(Form)`
+  width: 100%;
+`;
 export const ErrorMessage = styled.div`
   color: red;
   height: 24px;

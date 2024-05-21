@@ -7,8 +7,10 @@ import ProfileHero from "./ProfileHero";
 const Profile = () => {
   return (
     <>
-      <ProfileAbout />
-      <KYCVerification />
+      <div style={{ background: "#f4f4f4", height: "100%" }}>
+        <ProfileAbout />
+        <KYCVerification />
+      </div>
     </>
   );
 };

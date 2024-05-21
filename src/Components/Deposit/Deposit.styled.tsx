@@ -5,7 +5,8 @@ export const DepositContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  padding: 30px;
+  padding: 17px;
+
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
@@ -20,6 +21,7 @@ export const FormContainer = styled.div`
   width: 100%;
   border-radius: 18px;
   padding: 20px;
+
   background-color: #fff;
   @media screen and (max-width: 992px) {
     width: 100%;
@@ -29,9 +31,11 @@ export const FormContainer = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
+  background-color: #fff;
   text-align: left;
   width: 100%;
   box-shadow: none;
+  margin-top: -12px;
   border: none;
   transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 `;
@@ -61,7 +65,7 @@ export const PageHeading = styled.h2`
   }
   font-size: 23px;
   color: #000;
-  padding-left: 25px;
+  padding-left: 23px;
 `;
 
 export const SubmitButtonContainer = styled.div`
@@ -69,7 +73,7 @@ export const SubmitButtonContainer = styled.div`
   justify-content: right;
   align-items: center;
   width: 100%;
-  padding: 0px 24px;
+  padding: 10px 24px;
   margin: 0px !important;
 `;
 
@@ -78,7 +82,9 @@ export const PageCover = styled.div`
 `;
 
 export const AlertMessage = styled(Alert)`
-  margin-top: 16px;
+  margin-top: 10px;
+  background-color: #fff5f5;
+  border: 1px solid #ffe2e0;
 `;
 
 export const SelectOne = styled(Select)`

@@ -7,14 +7,14 @@ export const StyledH1 = styled.h1`
   align-items: center;
   justify-content: center;
   font-size: 30px;
-  gap:10px;
+  gap: 10px;
   font-weight: 600;
   margin-bottom: 40px;
 `;
 
 export const MainRow = styled(Row)`
   justify-content: center;
-  min-height: 100vh;
+  display: flex;
   align-items: center;
 `;
 
@@ -42,7 +42,7 @@ export const SignInButton = styled(Button)`
   height: 45px;
   font-size: 18px;
   background: #f00000;
-  &:hover{
+  &:hover {
     background: #f00 !important;
     color: #fff !important;
   }

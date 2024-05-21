@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Select } from "antd";
 
 export const Container = styled.div`
-  padding: 30px;
+  padding: 17px;
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
@@ -32,6 +32,7 @@ export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   padding-bottom: 16px;
 
   @media screen and (max-width: 992px) {
@@ -47,13 +48,13 @@ export const Title = styled.h1`
   font-family: sans-serif;
   margin: 0px;
   padding-bottom: 0px;
+  padding-left: 7px;
   @media screen and (max-width: 992px) {
     font-size: 20px;
-    text-align: center;
     width: 100%;
+    text-align: center;
     padding-bottom: 16px;
   }
-  color: #000;
 `;
 export const TableWrapper = styled.div`
   overflow-x: auto;

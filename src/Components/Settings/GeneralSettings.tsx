@@ -10,13 +10,8 @@ const GeneralSettings = () => {
   const [iskycDone, setiskycDone] = useState(false);
   return (
     <Styled.SettingsBox>
-      <Styled.SettingsBoxH2>General Settings</Styled.SettingsBoxH2>
+      <Styled.SettingsBoxH2>Profile</Styled.SettingsBoxH2>
       <div>
-        <Styled.CustomLink to="/change-password">
-          <Styled.SettingsBoxP>Change Password</Styled.SettingsBoxP>
-          <RightOutlined />
-        </Styled.CustomLink>
-
         {iskycDone ? (
           <Styled.CustomLink to={""}>
             <Styled.SettingsBoxPdisable>Change Name</Styled.SettingsBoxPdisable>
@@ -26,13 +21,18 @@ const GeneralSettings = () => {
             </Tooltip>{" "}
           </Styled.CustomLink>
         ) : (
-          <Styled.CustomLink to="/setting">
+          <Styled.CustomLink to="/settings/change-name">
             <Styled.SettingsBoxP>Change Name</Styled.SettingsBoxP>
             <RightOutlined />
           </Styled.CustomLink>
         )}
-        <Styled.CustomLink to="">
+
+        <Styled.CustomLink to="/settings/change-email">
           <Styled.SettingsBoxP>Change Email</Styled.SettingsBoxP>
+          <RightOutlined />
+        </Styled.CustomLink>
+        <Styled.CustomLink to="/change-password">
+          <Styled.SettingsBoxP>Change Password</Styled.SettingsBoxP>
           <RightOutlined />
         </Styled.CustomLink>
       </div>

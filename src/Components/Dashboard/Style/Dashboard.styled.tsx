@@ -2,9 +2,11 @@ import styled from "styled-components";
 import { Row, Card, Skeleton, Col, Select } from "antd";
 
 export const Main = styled.div`
-  padding: 20px;
+  padding-top: 2px;
+  padding-right: 25px;
+  padding-left: 25px;
   background-color: #f4f4f4;
-  height: 100vh;
+  height: 100%;
 `;
 export const StyledHeading = styled.h2`
   color: #000;

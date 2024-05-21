@@ -2,10 +2,10 @@ import { NOTIFICATION_TYPES } from "../Notifications/constanst";
 import { ANNOUNCEMENT_TYPES } from "../Announcements/constants";
 import * as Styled from "./NotificationCard.styled";
 import dayjs from "dayjs";
-import { 
+import {
   AlertTwoTone,
   BellTwoTone,
-  InfoCircleOutlined, 
+  InfoCircleOutlined,
   WarningOutlined,
 } from "@ant-design/icons";
 
@@ -16,8 +16,8 @@ export const NotificationCard = ({ cardItem, variant }) => {
         <BellTwoTone twoToneColor="blue" />
       ) : cardItem.type === NOTIFICATION_TYPES.IMPORTANT ? (
         <AlertTwoTone twoToneColor="#f00000" />
-      ) : ( 
-        <InfoCircleOutlined className="color-gray" /> 
+      ) : (
+        <InfoCircleOutlined className="color-gray" />
       )
     ) : variant === "announcements" ? (
       cardItem.type === ANNOUNCEMENT_TYPES.GENERAL ? (
@@ -29,7 +29,7 @@ export const NotificationCard = ({ cardItem, variant }) => {
       ) : cardItem.type === ANNOUNCEMENT_TYPES.URGENT ? (
         <AlertTwoTone twoToneColor="#f00000" />
       ) : cardItem.type === ANNOUNCEMENT_TYPES.WARNING ? (
-        <WarningOutlined className="color-orange"  />
+        <WarningOutlined className="color-orange" />
       ) : (
         <InfoCircleOutlined className="color-gray" />
       )

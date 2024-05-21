@@ -181,7 +181,9 @@ const Withdrawal = () => {
             </Styled.InputWrapper>
             <Styled.BalanceContainer>
               <div>
-                <div style={{ color: "#0a0a0a" }}>Type:</div>
+                <div style={{ color: "#0a0a0a", marginBottom: "10px" }}>
+                  Type:
+                </div>
                 <Styled.StyledSelect
                   value={transactionType}
                   onChange={(value) => setTransactionType(value as string)}
@@ -192,7 +194,9 @@ const Withdrawal = () => {
                 </Styled.StyledSelect>
               </div>
               <div>
-                <div style={{ color: "#0a0a0a" }}>My Balance:</div>
+                <div style={{ color: "#0a0a0a", marginBottom: "10px" }}>
+                  My Balance:
+                </div>
                 <Styled.Balance>$334400</Styled.Balance>
               </div>
             </Styled.BalanceContainer>

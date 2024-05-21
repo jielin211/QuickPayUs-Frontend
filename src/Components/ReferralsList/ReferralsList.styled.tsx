@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { Empty, Select } from "antd";
 
 export const Container = styled.div`
-  padding: 30px;
+  padding: 17px;
+
   @media screen and (max-width: 768px) {
     padding: 20px;
   }

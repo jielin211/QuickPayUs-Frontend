@@ -86,6 +86,30 @@ const MyComponent: React.FC = () => {
                   </Styled.RankDataItem>
                 </Col>
               </Row>
+              <Row>
+                <Col span={12}>
+                  <h3 style={{ color: "#767678" }} className="text-center">
+                    Direct Referrals :
+                  </h3>
+                </Col>
+                <Col span={12}>
+                  <Styled.RankDataItem>
+                    {loading ? <Skeleton.Input size="small" active /> : "200"}
+                  </Styled.RankDataItem>
+                </Col>
+              </Row>
+              <Row>
+                <Col span={12}>
+                  <h3 style={{ color: "#767678" }} className="text-center">
+                    Meeting compliance:
+                  </h3>
+                </Col>
+                <Col span={12}>
+                  <Styled.RankDataItem>
+                    {loading ? <Skeleton.Input size="small" active /> : "200"}
+                  </Styled.RankDataItem>
+                </Col>
+              </Row>
             </Col>
           </Row>
           {isClaimed ? (
@@ -114,19 +138,19 @@ const MyComponent: React.FC = () => {
               </Styled.RankResultWrapper>
             </>
           ) : null}
+          <Styled.ClaimRewardBtnWrapper>
+            <Styled.ClaimRewardBtn
+              type="primary"
+              size="large"
+              style={{ background: "#007AFF" }}
+              onClick={() => {
+                setisClaimed(true);
+              }}
+            >
+              Claim
+            </Styled.ClaimRewardBtn>
+          </Styled.ClaimRewardBtnWrapper>
         </Styled.RankDataWrapper>
-        <Styled.ClaimRewardBtnWrapper>
-          <Styled.ClaimRewardBtn
-            type="primary"
-            size="large"
-            style={{ background: "#007AFF" }}
-            onClick={() => {
-              setisClaimed(true);
-            }}
-          >
-            Claim Reward
-          </Styled.ClaimRewardBtn>
-        </Styled.ClaimRewardBtnWrapper>
       </div>
       <Styled.RankChartWrapper>
         <RankChart />

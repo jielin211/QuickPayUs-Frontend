@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import ReactFlagsSelect from "react-flags-select";
-import { Form } from "antd";  
-import { SolutionOutlined } from '@ant-design/icons';
+import { Form } from "antd";
+import { SolutionOutlined } from "@ant-design/icons";
 
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {
@@ -14,6 +14,7 @@ export const Heading = styled.div`
   font-weight: 600;
   padding: 16px 0px;
   padding-top: 0;
+  color: #0a0a0a;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -43,7 +44,7 @@ export const RadioCard = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid #d3d3d3;
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -93,20 +94,21 @@ export const InfoList = styled.ul`
   }
 `;
 export const StyledForm = styled(Form)`
-  width: 100%; 
-`; 
-export const StyledImg = styled.img` 
-  width: 200px;   
-  height: 200px; 
-`;  
+  width: 100%;
+`;
+export const StyledImg = styled.img`
+  width: 200px;
+  height: 200px;
+`;
 export const StyledSolutionIcon = styled(SolutionOutlined)`
   font-size: 100px;
-  padding: 20px
-`
+  padding: 20px;
+`;
 export const ErrorMessage = styled.div`
-  color: red;
+  color: #ff3b30;
   height: 24px;
 `;
 export const StyledFormItem = styled(Form.Item)`
   margin-bottom: 0;
-`
+  b
+`;

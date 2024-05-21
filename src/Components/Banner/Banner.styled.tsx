@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   height: 44px;
   padding-inline: 32px;
   z-index: 99;
-  border-bottom: 1px solid #ece8e8;
+  border-bottom: 1px solid #d3d3d3;
   display: flex;
   justify-content: space-between;
   align-items: center;

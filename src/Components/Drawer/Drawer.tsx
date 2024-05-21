@@ -18,9 +18,12 @@ import { useDevice } from "../../Utils/Hooks/useDevice";
 import { Sider } from "./Sider";
 import { KycVerification } from "../KycVerification";
 import CustomTicket from "../Support/CustomTicket";
-import FAQ from "../Support/FAQ";
+import Feedback from "../Support/Feedback";
 import ContactInfo from "../Support/Contact";
 import DeleteAccount from "../DeleteAccount/Password";
+import ChangeName from "../Settings/ChangeName";
+import ChangeEmail from "../Settings/ChangeEmail";
+import DeactivateAccount from "../Settings/DeactivateAccount";
 
 const { Content } = Layout;
 
@@ -57,6 +60,15 @@ const App = () => {
                 <Route path="/referrals" element={<ReferralsList />} />
                 <Route path="/transaction" element={<TransactionsList />} />
                 <Route path="/settings" element={<Settings />} />
+                <Route path="/settings/change-name" element={<ChangeName />} />
+                <Route
+                  path="/settings/change-email"
+                  element={<ChangeEmail />}
+                />
+                <Route
+                  path="/settings/deactivate-account"
+                  element={<DeactivateAccount />}
+                />
                 <Route path="/support" element={<Support />} />
                 <Route path="/rank" element={<Rank />} />
                 <Route path="/deposit" element={<Deposit />} />
@@ -68,7 +80,7 @@ const App = () => {
                 <Route path="/announcements" element={<Announcements />} />
                 <Route path="/verification" element={<KycVerification />} />
                 <Route path="/support/ticket" element={<CustomTicket />} />
-                <Route path="/support/faq" element={<FAQ />} />
+                <Route path="/support/feedback" element={<Feedback />} />
                 <Route path="/support/contact" element={<ContactInfo />} />
                 <Route
                   path="/settings/account-deletion"

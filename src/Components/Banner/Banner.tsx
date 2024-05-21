@@ -36,9 +36,20 @@ function getItem(label: any, key: any, icon: any, children: any, type: any) {
   };
 }
 
+const getRandomColor = () => {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+};
+
 export const Banner = () => {
   const [collapsed, setCollapsed] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
+  const [avatarColor, setAvatarColor] = useState(getRandomColor()); // Set random color
+
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = (event) => {
@@ -108,7 +119,7 @@ export const Banner = () => {
   const menuItems = [
     getItem(
       <a href="/profile" style={{ color: "#0a0a0a" }}>
-        Account
+        Profile
       </a>,
       "1",
       null,
@@ -267,7 +278,7 @@ export const Banner = () => {
 
   const onCopy = () => {
     setCopied(true);
-    setTimeout(() => setCopied(false), 3000); // Reset copied state after 3 seconds
+    setTimeout(() => setCopied(false), 3000);
   };
 
   return (
@@ -281,7 +292,7 @@ export const Banner = () => {
             <Popover
               overlayInnerStyle={{
                 padding: 10,
-                transform: "translateY(-15px)",
+                transform: "translateY(-0px)",
               }}
               content={
                 <>
@@ -326,7 +337,10 @@ export const Banner = () => {
             <div>
               <a onClick={(e) => handleToggle(e)}>
                 <Styled.AvatarWrapper>
-                  <Styled.StyledAvatar className="avatarMenu0">
+                  <Styled.StyledAvatar
+                    className="avatarMenu0"
+                    style={{ background: avatarColor }}
+                  >
                     U
                   </Styled.StyledAvatar>
                   <Styled.AvatarInfo id="avatarMenu1">
