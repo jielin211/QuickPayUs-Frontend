@@ -7,6 +7,7 @@ import axios from "axios";
 import * as Styled from "./SignIn.styled";
 import { FloatingInput } from "./FloatingInput/FloatingInput";
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
+import { useNavigate } from "react-router-dom";
 
 interface FormErrors {
   email?: string;
@@ -24,15 +25,13 @@ interface FormikBag {
 
 const SignIn: React.FC = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+  const navigate = useNavigate();
 
   const handleLearnMoreClick = () => {
     setShowMoreInfo(!showMoreInfo); // Toggle the state
   };
 
-  const handleSignIn = async (
-    values: SignInValues,
-    { setSubmitting }: FormikBag
-  ): Promise<void> => {
+  const handleSignIn = async (values: SignInValues, { setSubmitting }: FormikBag): Promise<void> => {
     const reqData = {
       email: values.email,
       password: values.password,
@@ -46,6 +45,8 @@ const SignIn: React.FC = () => {
 
       // Save the token in a cookie
       document.cookie = `token=${data.token}; path=/`;
+
+      navigate("/dashboard");
 
       console.log("Sign-in successful");
     } catch (error) {
@@ -81,52 +82,21 @@ const SignIn: React.FC = () => {
           >
             {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
               <Form layout="vertical" onFinish={handleSubmit}>
-                <Form.Item
-                  label=""
-                  validateStatus={errors.email && "error"}
-                  help={errors.email}
-                >
-                  <Field name="email">
-                    {({ field }) => (
-                      <FloatingInput
-                        label="Email / Username"
-                        name="email"
-                        field={field}
-                      />
-                    )}
-                  </Field>
+                <Form.Item label="" validateStatus={errors.email && "error"} help={errors.email}>
+                  <Field name="email">{({ field }) => <FloatingInput label="Email / Username" name="email" field={field} />}</Field>
                 </Form.Item>
 
-                <Form.Item
-                  label=""
-                  validateStatus={errors.password && "error"}
-                  style={{ marginTop: "30px" }}
-                  help={errors.password}
-                >
-                  <Field name="password">
-                    {({ field }) => (
-                      <FloatingLabelInputPassword
-                        label="Password"
-                        field={field}
-                        name="password"
-                      />
-                    )}
-                  </Field>
+                <Form.Item label="" validateStatus={errors.password && "error"} style={{ marginTop: "30px" }} help={errors.password}>
+                  <Field name="password">{({ field }) => <FloatingLabelInputPassword label="Password" field={field} name="password" />}</Field>
                 </Form.Item>
                 <Form.Item>
-                  <Styled.SignInButton
-                    type="primary"
-                    htmlType="submit"
-                    disabled={isSubmitting}
-                  >
+                  <Styled.SignInButton type="primary" htmlType="submit" disabled={isSubmitting}>
                     Sign In
                   </Styled.SignInButton>
                 </Form.Item>
                 <span>
                   <Styled.ForgetTxt>
-                    <Styled.StyleLink to="/forgot-password">
-                      Forget Password?
-                    </Styled.StyleLink>
+                    <Styled.StyleLink to="/forgot-password">Forget Password?</Styled.StyleLink>
                   </Styled.ForgetTxt>
                 </span>
                 <Form.Item name="remember" valuePropName="checked"></Form.Item>
@@ -141,34 +111,23 @@ const SignIn: React.FC = () => {
             to join QUICKPAYUS.
           </p>
           <Styled.PrivacyTxt>
-            This page is protected by Google reCAPTCHA to ensure you&apos;re not
-            a bot.
+            This page is protected by Google reCAPTCHA to ensure you&apos;re not a bot.
             <Styled.LearnMoreButton href="#" onClick={handleLearnMoreClick}>
               Learn more.
             </Styled.LearnMoreButton>
           </Styled.PrivacyTxt>
           <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}>
-            The information collected by Google reCAPTCHA is subject to the
-            Google{" "}
-            <a
-              href="https://policies.google.com/privacy"
-              className="color-blue"
-              target="_blank"
-            >
+            The information collected by Google reCAPTCHA is subject to the Google{" "}
+            <a href="https://policies.google.com/privacy" className="color-blue" target="_blank">
               {" "}
               Privacy Policy{" "}
             </a>{" "}
             and{" "}
-            <a
-              href="https://policies.google.com/terms"
-              className="color-blue"
-              target="_blank"
-            >
+            <a href="https://policies.google.com/terms" className="color-blue" target="_blank">
               {" "}
               Terms of Service,{" "}
             </a>{" "}
-            and is used for providing, maintaining, and improving the reCAPTCHA
-            service and for general security purposes (it is not used for
+            and is used for providing, maintaining, and improving the reCAPTCHA service and for general security purposes (it is not used for
             personalized advertising by Google).
           </Styled.PrivacyTxt2>
         </Styled.MainCard>
