@@ -74,10 +74,12 @@ export const BellWrapper = styled.div`
   }
 `;
 export const PcLogoWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  @media (min-width: 576px) and (max-width: 768px) {
-    transform: translateX(50%);
+  a {
+    display: flex;
+    align-items: center;
+    @media (min-width: 576px) and (max-width: 768px) {
+      transform: translateX(50%);
+    }
   }
 `;
 export const PcLogo = styled.img`
@@ -104,9 +106,19 @@ export const AvatarInfoP2 = styled.p`
   font-weight: 400;
   color: #0a0a0a;
 `;
-export const MobileLogo = styled.img`
+export const MobileLogoWrapper = styled.div`
+  position: absolute;
+  pointer-events: none;
+  top: 0;
+  left: 0;
   width: 100%;
-  transform: translateX(39%) translateY(-12px);
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export const MobileLogo = styled.img`
+  height: 150%;
 `;
 export const StyledHeader = styled(Header)`
   height: 44px;

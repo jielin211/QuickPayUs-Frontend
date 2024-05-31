@@ -1,12 +1,20 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import SideNav from "../Components/Drawer/Drawer";
-import AppRoutes from "./Authroutes";
+import AuthRoutes from "./Authroutes";
 
 export default function AllRoutes() {
   const location = useLocation();
   const navigate = useNavigate();
+
+  const isSignInRoute = useMemo(() => {
+    return (
+      location.pathname === "/signin" ||
+      location.pathname === "/signup" ||
+      location.pathname === "/forgot-password"
+    );
+  }, [location]);
 
   useEffect(() => {
     if (location.pathname === "/") {
@@ -18,7 +26,5 @@ export default function AllRoutes() {
     }
   }, [navigate, location]);
 
-  const isSignInRoute = location.pathname === "/signin" || location.pathname === "/signup" || location.pathname === "/forgot-password";
-
-  return isSignInRoute ? <AppRoutes /> : <SideNav />;
+  return isSignInRoute ? <AuthRoutes /> : <SideNav />;
 }

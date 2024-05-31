@@ -286,7 +286,9 @@ export const Banner = () => {
       {device?.isBreakpoint("MD") && (
         <Styled.HeaderContainer>
           <Styled.PcLogoWrapper>
-            <Styled.PcLogo src={logo} alt="QUICKPAYUS" />
+            <Link to="/dashboard">
+              <Styled.PcLogo src={logo} alt="QUICKPAYUS" />
+            </Link>
           </Styled.PcLogoWrapper>
           <Styled.CtaContainer>
             <Popover
@@ -389,13 +391,13 @@ export const Banner = () => {
                   </div>
                 </div>
               </li>
-              <li>
+              {/* <li>
                 <Link to="/" className="link-logo">
                   <Styled.PcLogoWrapper>
                     <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
                   </Styled.PcLogoWrapper>
                 </Link>
-              </li>
+              </li> */}
               <li style={{ position: "absolute", right: "80px" }}>
                 <Popover
                   overlayInnerStyle={{
@@ -524,25 +526,11 @@ export const Banner = () => {
                   Rank
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/share"
-                  id="get_started"
-                  onClick={() => setOpenCloseNav(false)}
-                >
-                  Refer a Friend
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/announcements"
-                  id="get_started"
-                  onClick={() => setOpenCloseNav(false)}
-                >
-                  Announcemnets
-                </Link>
-              </li>
             </ul>
+
+            <Styled.MobileLogoWrapper>
+              <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
+            </Styled.MobileLogoWrapper>
           </nav>
         </div>
       )}

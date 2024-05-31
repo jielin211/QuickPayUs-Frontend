@@ -6,7 +6,6 @@ import Support from "../Support/Support";
 import Rank from "../Rank/Rank";
 import Deposit from "../Deposit/Deposit";
 import Withdrawal from "../Withdrawal/Withdrawal";
-import ShareWithFriend from "../ShareLink/Sharelink";
 import ChangePassword from "../Auth/Changepassword";
 import { Notifications } from "../Notifications";
 import Profile from "../Profile/Profile";
@@ -73,7 +72,6 @@ const App = () => {
                 <Route path="/rank" element={<Rank />} />
                 <Route path="/deposit" element={<Deposit />} />
                 <Route path="/withdrawal" element={<Withdrawal />} />
-                <Route path="/share" element={<ShareWithFriend />} />
                 <Route path="/change-password" element={<ChangePassword />} />
                 <Route path="/notifications" element={<Notifications />} />
                 <Route path="/profile" element={<Profile />} />

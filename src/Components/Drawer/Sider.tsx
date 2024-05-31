@@ -73,8 +73,6 @@ export const Sider: React.FC = () => {
       setSelectedOption("transaction");
     } else if (pathname.includes("/support")) {
       setSelectedOption("support");
-    } else if (pathname.includes("/share")) {
-      setSelectedOption("share");
     } else if (pathname.includes("/withdrawal")) {
       setSelectedOption("withdrawal");
     } else if (pathname.includes("/deposit")) {

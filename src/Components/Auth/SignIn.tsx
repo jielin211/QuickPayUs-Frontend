@@ -46,6 +46,7 @@ const SignIn: React.FC = () => {
       // Save the token in a cookie
       document.cookie = `token=${data.token}; path=/`;
 
+      // Navigate to dashboard
       navigate("/dashboard");
 
       console.log("Sign-in successful");
