@@ -1,15 +1,27 @@
 import { useEffect, useState, useRef } from "react";
-import CopyToClipboard from "react-copy-to-clipboard";
-import { Badge, Menu, QRCode, Popover } from "antd";
-import { useDevice } from "../../Utils/Hooks/useDevice";
-import logo from "../../assets/images/logo.svg";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import CopyToClipboard from "react-copy-to-clipboard";
+
+// antd
+import { Badge, Menu, QRCode, Popover } from "antd";
 import {
   CheckCircleOutlined,
   CopyOutlined,
   ShareAltOutlined,
 } from "@ant-design/icons";
+
+// hooks
+import { useDevice } from "../../Utils/Hooks/useDevice";
+
+// assets
+import logo from "../../assets/images/logo.svg";
+
+// redux
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
+import { updateSettingField } from "../../Redux/settingSlice";
+
+// styles
 import * as Styled from "./Banner.styled";
 
 const AnnouncementIcon = (props) => (
@@ -51,6 +63,8 @@ export const Banner = () => {
   const [avatarColor, setAvatarColor] = useState(getRandomColor()); // Set random color
 
   const mobileMenuRef = useRef<HTMLDivElement>(null);
+
+  const dispatch = useDispatch();
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -97,8 +111,13 @@ export const Banner = () => {
   const [selectedKey, setSelectedKey] = useState("");
 
   const handleClick = (key) => {
-    if (key === "dark" || key === "light" || key === "auto")
+    if (key === "dark" || key === "light" || key === "auto") {
       setSelectedKey(key);
+
+      dispatch(updateSettingField({ field: "themeMode", value: key }));
+
+      localStorage.setItem('themeMode', key);
+    }
   };
 
   const handleShare = async () => {
@@ -352,23 +371,13 @@ export const Banner = () => {
                 </Styled.AvatarWrapper>
               </a>
             </div>
-            {!collapsed ? (
-              <div
-                ref={menuRef}
-                style={{ position: "absolute" }}
-                className="fade-out"
-              >
-                {userMenu}
-              </div>
-            ) : (
-              <div
-                ref={menuRef}
-                style={{ position: "absolute" }}
-                className="fade-in"
-              >
-                {userMenu}
-              </div>
-            )}
+            <div
+              ref={menuRef}
+              style={{ position: "absolute" }}
+              className={!collapsed ? "fade-out" : "fade-in"}
+            >
+              {userMenu}
+            </div>
           </Styled.CtaContainer>
         </Styled.HeaderContainer>
       )}
@@ -391,13 +400,6 @@ export const Banner = () => {
                   </div>
                 </div>
               </li>
-              {/* <li>
-                <Link to="/" className="link-logo">
-                  <Styled.PcLogoWrapper>
-                    <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
-                  </Styled.PcLogoWrapper>
-                </Link>
-              </li> */}
               <li style={{ position: "absolute", right: "80px" }}>
                 <Popover
                   overlayInnerStyle={{

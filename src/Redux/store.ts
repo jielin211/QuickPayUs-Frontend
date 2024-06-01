@@ -5,6 +5,7 @@ import notificationsReducer from "./notificationsSlice";
 import announcementsReducer from "./announcementsSlice";
 import kycVerificationReducer from "./KycVerificationSlice";
 import profileSliceReducer from "./profileSlice";
+import settingSliceReducer from "./settingSlice";
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     announcements: announcementsReducer,
     kycVerification: kycVerificationReducer,
     profile: profileSliceReducer,
+    setting: settingSliceReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(api.middleware),
