@@ -35,7 +35,7 @@ const App = () => {
   const location = useLocation();
   const device = useDevice();
   const { token } = useToken();
-  
+
   const isSignInRoute =
     location.pathname === "/signin" ||
     location.pathname === "/signup" ||
@@ -43,8 +43,8 @@ const App = () => {
 
   const contentStyle = {
     marginLeft: device?.isBreakpoint("MD") ? "250px" : "0px",
-    backgroundColor: token.colorBgContent,
-    minHeight: "100vh",
+    minHeight: "calc(100vh - 44px)",
+    marginTop: "44px",
   };
   const layoutStyle = {
     // borderRadius: 8,

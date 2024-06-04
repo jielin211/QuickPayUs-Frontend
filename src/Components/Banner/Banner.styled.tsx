@@ -6,13 +6,13 @@ const { Header } = Layout;
 export const HeaderContainer = styled.div`
   background-color: var(--color-bg-content);
   padding: 0px 32px;
-  position: fixed;
-  top: 0;
-  left: 0;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
   width: 100%;
-  height: 44px;
+  height: 100%;
   padding-inline: 32px;
-  z-index: 99;
+  // z-index: 99;
   border-bottom: 1px solid #d3d3d3;
   display: flex;
   justify-content: space-between;
@@ -74,7 +74,9 @@ export const BellWrapper = styled.div`
   }
 `;
 export const PcLogoWrapper = styled.div`
+  height: 100%;
   a {
+    height: 100%;
     display: flex;
     align-items: center;
     @media (min-width: 576px) and (max-width: 768px) {
@@ -83,7 +85,8 @@ export const PcLogoWrapper = styled.div`
   }
 `;
 export const PcLogo = styled.img`
-  width: 28%;
+  // width: 28%;
+  height: 100%;
   transform: translateX(-20px);
   src: "/src/assets/images/logo.svg";
 `;
@@ -127,7 +130,13 @@ export const MobileLogo = styled.img`
 `;
 export const StyledHeader = styled(Header)`
   height: 44px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 0;
   line-height: unset;
+  z-index: 99;
 `;
 export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px;
@@ -152,7 +161,8 @@ export const ShareBtn = styled.button`
   color: #00000;
 `;
 export const ReferralTitle = styled.p`
-  margin-top: calc(1em - 10px);
+  // margin-top: calc(1em - 10px);
+  padding-bottom: 10px;
   text-align: center;
   font-size: 14px;
   font-weight: 600;

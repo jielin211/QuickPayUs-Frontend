@@ -421,7 +421,7 @@ export const Banner = () => {
                           <div>
                             <p
                               style={{
-                                padding: "1em 0px 0px 0px",
+                                padding: "10px 0px",
                                 textAlign: "center",
                                 fontSize: "14px",
                                 fontWeight: "600",
