@@ -1,24 +1,30 @@
-import { ConfigProvider } from "antd";
+import { useSelector } from "react-redux";
+
+// antd
+import { ConfigProvider, theme } from "antd";
+
+// redux
+import { selectSetting } from "../Redux/selectors";
+
+// constants
+import { lightTheme, darkTheme } from "../Utils/constants";
+
 const ThemeProvider = ({ children }) => {
-   return (
-      <ConfigProvider
-         theme={{
-            token: {
-               colorPrimary: "#007AFF",
-            },
-            components: {
-               Card: {
-                  borderRadius: 18,
-               },
-               Layout: {
-                  bodyBg: "white",
-               },
-            },
-         }}
-      >
-         {children}
-      </ConfigProvider>
-   );
+  const setting = useSelector(selectSetting);
+
+  return (
+    <ConfigProvider
+      theme={{
+        algorithm:
+          setting.themeMode === "light"
+            ? theme.defaultAlgorithm
+            : theme.darkAlgorithm,
+        token: setting.themeMode === "light" ? lightTheme : darkTheme,
+      }}
+    >
+      {children}
+    </ConfigProvider>
+  );
 };
 
 export default ThemeProvider;

@@ -135,7 +135,7 @@ export const Banner = () => {
     }
   };
 
-  const menuItems: MenuProps['items'] = [
+  const menuItems: MenuProps["items"] = [
     getItem(
       <a href="/profile" style={{ color: "#0a0a0a" }}>
         Profile
@@ -546,7 +546,7 @@ export const Banner = () => {
             </ul>
 
             <Styled.MobileLogoWrapper>
-              <Link to='/dashboard'>
+              <Link to="/dashboard">
                 <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
               </Link>
             </Styled.MobileLogoWrapper>
