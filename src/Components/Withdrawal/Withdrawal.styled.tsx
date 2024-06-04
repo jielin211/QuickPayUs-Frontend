@@ -9,7 +9,7 @@ export const WithdrawalContainer = styled.div`
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
-  height: 100%;
+  // height: 100%;
 
 `;
 
@@ -20,7 +20,7 @@ export const FormContainer = styled.div`
   border-radius: 18px;
   padding: 20px;
   padding-bottom: 48px;
-  background-color: #fff;
+  // background-color: #fff;
 
   @media screen and (max-width: 992px) {
     width: 100%;
@@ -38,10 +38,10 @@ export const SubmitButtonContainer = styled.div`
 `;
 
 export const Balance = styled.div`
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--color-border-primary);
   border-radius: 5px;
-  background-color: #fff;
-  color: #000;
+  // background-color: #fff;
+  color: var(--color-text);
   width: 200px;
   height: 32px;
   padding: 4px 8px;
@@ -81,5 +81,5 @@ export const StyledSelect = styled(Select)`
 `;
 export const StyledCard = styled(Card)`
   border: none;
-  margin-top: -10px;
+  // margin-top: -10px;
 `;

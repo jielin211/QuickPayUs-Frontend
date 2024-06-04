@@ -13,7 +13,7 @@ export const HeaderContainer = styled.div`
   height: 100%;
   padding-inline: 32px;
   // z-index: 99;
-  border-bottom: 1px solid #d3d3d3;
+  // border-bottom: 1px solid #d3d3d3;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,9 +86,9 @@ export const PcLogoWrapper = styled.div`
 `;
 export const PcLogo = styled.img`
   // width: 28%;
-  height: 100%;
-  transform: translateX(-20px);
-  src: "/src/assets/images/logo.svg";
+  height: 50%;
+  // transform: translateX(-20px);
+  // src: "/src/assets/images/logo.svg";
 `;
 export const AvatarWrapper = styled.div`
   position: relative;
@@ -101,12 +101,12 @@ export const AvatarInfo = styled.div`
 export const AvatarInfoP1 = styled.p`
   font-size: 12px;
   font-weight: 600;
-  color: #000;
+  color: var(--color-text);
 `;
 export const AvatarInfoP2 = styled.p`
   font-size: 11px;
   font-weight: 400;
-  color: #0a0a0a;
+  color: var(--color-text);
 `;
 export const MobileLogoWrapper = styled.div`
   position: absolute;
@@ -126,7 +126,7 @@ export const MobileLogoWrapper = styled.div`
   }
 `;
 export const MobileLogo = styled.img`
-  height: 150%;
+  height: 50%;
 `;
 export const StyledHeader = styled(Header)`
   height: 44px;
@@ -137,28 +137,30 @@ export const StyledHeader = styled(Header)`
   padding: 0;
   line-height: unset;
   z-index: 99;
+  background: var(--color-bg-container);
+  border-bottom: 1px solid var(--color-border-primary);
 `;
 export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px;
-  color: #0a0a0a;
+  // color: #0a0a0a;
 `;
 export const StyledAvatar = styled(Avatar)`
   font-size: 14px;
   width: 26px;
   height: 26px;
   color: #fff;
-  background: #121212;
+  // background: #121212;
 `;
 export const ModeItem = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #000;
+  // color: #000;
 `;
 export const ShareBtn = styled.button`
   border: none;
-  background: #fff;
+  background: var(--color-bg-container);
   cursor: pointer;
-  color: #00000;
+  color: var(--color-text);
 `;
 export const ReferralTitle = styled.p`
   // margin-top: calc(1em - 10px);
@@ -169,9 +171,9 @@ export const ReferralTitle = styled.p`
 `;
 export const CopyToClipboardContent = styled.button`
   border: none;
-  background: #fff;
+  background: var(--color-bg-container);
   cursor: pointer;
-  color: #00000;
+  color: var(--color-text);
 `;
 export const CustomQrCodeIcon = styled(QrcodeOutlined)`
   cursor: pointer;

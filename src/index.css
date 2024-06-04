@@ -25,13 +25,13 @@ body::-webkit-scrollbar {
 /* Desktop Nav */
 
 .nav-container {
-  background: #fff;
-  height: 80px;
-  z-index: 300;
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
+  /* background: #fff; */
+  /* height: 80px; */
+  /* z-index: 300; */
+  /* position: fixed; */
+  /* left: 0; */
+  /* top: 0; */
+  /* right: 0; */
 }
 
 .nav-container nav {
@@ -53,7 +53,7 @@ nav .desktop-nav li:first-child {
 }
 
 nav .desktop-nav li a {
-  color: #000;
+  /* color: #000; */
   text-decoration: none;
   font-size: 14px;
   opacity: 0.8;
@@ -271,7 +271,7 @@ nav .desktop-nav li a:hover {
     left: 0;
     width: 100%;
     height: 0vh;
-    background: #fff;
+    background: var(--color-bg-container);
     justify-content: start;
     overflow-y: auto;
     scrollbar-width: thin;
@@ -368,7 +368,7 @@ nav .desktop-nav li a:hover {
     position: absolute;
     height: 1px;
     width: 100%;
-    background: #000;
+    background: var(--color-text);
     transition-property: transform, top;
     transition-delay: 0ms, 125ms;
     transition-duration: 125ms;
@@ -632,16 +632,16 @@ a {
 }
 
 .ant-menu-item.ant-menu-item-selected {
-  /* color: black !important; */
+  color: var(--color-text) !important;
 }
 
-.ant-menu-submenu-selected {
-  background: #fff !important;
-  color: black !important;
+.ant-menu-submenu-selected .ant-menu-submenu-title {
+  /* background: #fff !important; */
+  color: var(--color-text) !important;
 }
 
 .ant-menu-sub.ant-menu-inline {
-  background: #fff !important;
+  /* background: #fff !important; */
 }
 
 .ant-menu-sub.ant-menu-inline .ant-menu-item {

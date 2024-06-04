@@ -25,7 +25,7 @@ export const RankSubtitleWrapper = styled.div`
 export const RankSubtitle = styled.h2`
   padding: 10px 5px;
   font-weight: 500;
-  color: #0a0a0a;
+  // color: #0a0a0a;
 `;
 export const RankCol = styled.div`
   text-align: left;
@@ -35,7 +35,7 @@ export const RankCol = styled.div`
 export const RankContainer = styled.div`
   padding: 17px;
   height: 100%;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
@@ -43,10 +43,10 @@ export const RankContainer = styled.div`
 export const RankDataWrapper = styled.div`
   border-radius: 18px;
   padding: 30px !important;
-  background-color: #fff;
+  background-color: var(--color-bg-container);
 `;
 export const RankDataItem = styled.h3`
-  color: #0a0a0a;
+  // color: #0a0a0a;
   text-align: center;
 `;
 export const RankDataDescription = styled.div`
@@ -74,7 +74,7 @@ export const RankResultWrapper = styled.div`
 export const RankChartWrapper = styled.div`
   border-radius: 18px;
   margin: 30px 0;
-  background-color: #fff;
+  background-color: var(--color-bg-container);
 `;
 export const RankResultContent = styled.span`
   margin: auto 0;

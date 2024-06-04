@@ -9,7 +9,7 @@ export const Main = styled.div`
   height: 100%;
 `;
 export const StyledHeading = styled.h2`
-  color: #000;
+  // color: #000;
   text-align: left;
   font-weight: 600;
   margin-bottom: 20px;

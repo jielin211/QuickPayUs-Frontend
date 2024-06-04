@@ -86,7 +86,7 @@ const Deposit: React.FC = () => {
                 <Styled.PageCover className="hoverdata">
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel>
-                      <span style={{ color: "#0a0a0a" }}>
+                      <span>
                         Investment amount:
                       </span>
                     </Styled.StyledLabel>
@@ -150,7 +150,7 @@ const Deposit: React.FC = () => {
                   </Styled.FlexColumnContainer>
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel>
-                      <span style={{ color: "#0a0a0a" }}>
+                      <span>
                         Receiver Address:
                       </span>
                     </Styled.StyledLabel>
@@ -162,7 +162,7 @@ const Deposit: React.FC = () => {
                               border: "1px solid #BDBDBD",
                               borderRadius: "8px",
                               overflow: "hidden",
-                              backgroundColor: "#fff",
+                              // backgroundColor: "#fff",
                               color: "#0a0a0a",
                             }}
                             {...field}
@@ -176,7 +176,7 @@ const Deposit: React.FC = () => {
                   </Styled.FlexColumnContainer>
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel>
-                      <span style={{ color: "#0a0a0a" }}>Sender Address:</span>
+                      <span>Sender Address:</span>
                     </Styled.StyledLabel>
                     <Styled.FieldCover>
                       <Field name="senderAddress">
@@ -186,7 +186,7 @@ const Deposit: React.FC = () => {
                               border: "1px solid #BDBDBD",
                               borderRadius: "8px",
                               overflow: "hidden",
-                              backgroundColor: "#fff",
+                              // backgroundColor: "#fff",
                               color: "#0a0a0a",
                             }}
                             {...field}

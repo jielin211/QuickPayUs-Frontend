@@ -30,8 +30,8 @@ const UiSiderCustom = styled(UiSider)`
   line-height: 120px;
   min-height: 100vh;
   color: #fff;
-  background: #fff !important;
-  border-right: 1px solid #d3d3d3 !important;
+  background: var(--color-bg-container) !important;
+  border-right: 1px solid var(--color-border-primary) !important;
   overflow: hidden;
   @media (max-width: 800px) {
     display: none;
@@ -40,6 +40,10 @@ const UiSiderCustom = styled(UiSider)`
 
 const MenuCustom = styled(Menu)`
   border-inline-end: 0 !important;
+  .sider-menu-item.active {
+    background: var(--color-bg-list-item-actived) !important;
+    color: var(--color-text);
+  }
 `;
 
 export const Sider: React.FC = () => {
@@ -96,12 +100,12 @@ export const Sider: React.FC = () => {
   return (
     <>
       <UiSiderCustom
-        theme="light"
+        // theme="light"
         width={!device?.isBreakpoint("MD") ? "0" : "250"}
       >
         <div className="logo" />
         <MenuCustom
-          theme="light"
+          // theme="light"
           mode="inline"
           defaultSelectedKeys={["dashboard"]}
           selectedKeys={[selectedOption]}

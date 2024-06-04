@@ -6,7 +6,7 @@ export const Container = styled.div`
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
-  height: 100vh;
+  // height: 100vh;
 `;
 
 export const FilterContainer = styled.div`
@@ -21,7 +21,7 @@ export const FilterContainer = styled.div`
 `;
 
 export const ListContainer = styled.div`
-  background: #fff;
+  background: var(--color-bg-container);
   padding: 24px;
 
   border-radius: 18px;

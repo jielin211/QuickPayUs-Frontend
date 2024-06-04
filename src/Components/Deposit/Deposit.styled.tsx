@@ -11,8 +11,8 @@ export const DepositContainer = styled.div`
     padding: 20px;
   }
 
-  height: 100%;
-  background-color: #f4f4f4;
+  // height: 100%;
+  // background-color: #f4f4f4;
 `;
 
 export const FormContainer = styled.div`
@@ -22,7 +22,7 @@ export const FormContainer = styled.div`
   border-radius: 18px;
   padding: 20px;
 
-  background-color: #fff;
+  // background-color: #fff;
   @media screen and (max-width: 992px) {
     width: 100%;
     padding: 0;
@@ -31,11 +31,11 @@ export const FormContainer = styled.div`
 `;
 
 export const StyledCard = styled(Card)`
-  background-color: #fff;
+  // background-color: #fff;
   text-align: left;
   width: 100%;
   box-shadow: none;
-  margin-top: -12px;
+  // margin-top: -12px;
   border: none;
   transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
 `;
@@ -64,7 +64,7 @@ export const PageHeading = styled.h2`
     text-align: center;
   }
   font-size: 23px;
-  color: #000;
+  // color: #000;
   padding-left: 23px;
 `;
 

@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 
@@ -15,18 +15,20 @@ import {
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
 // assets
-import logo from "../../assets/images/logo.svg";
+import logoLight from "../../assets/images/logo-light.svg";
+import logoDark from "../../assets/images/logo-dark.svg";
 
 // redux
 import { useGetUnreadNotificationsCountQuery } from "../../Redux/slice";
 import { updateSettingField } from "../../Redux/settingSlice";
+import { selectSetting } from "../../Redux/selectors";
 
 // styles
 import * as Styled from "./Banner.styled";
 
 const AnnouncementIcon = (props) => (
   <svg
-    fill="#0a0a0a"
+    fill="var(--color-text)"
     width="16px"
     height="16px"
     viewBox="0 0 24 24"
@@ -65,6 +67,8 @@ export const Banner = () => {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useDispatch();
+
+  const setting = useSelector(selectSetting);
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -136,33 +140,9 @@ export const Banner = () => {
   };
 
   const menuItems: MenuProps["items"] = [
-    getItem(
-      <a href="/profile" style={{ color: "#0a0a0a" }}>
-        Profile
-      </a>,
-      "1",
-      null,
-      null,
-      null
-    ),
-    getItem(
-      <a href="/settings" style={{ color: "#0a0a0a" }}>
-        Settings
-      </a>,
-      "2",
-      null,
-      null,
-      null
-    ),
-    getItem(
-      <a href="/support" style={{ color: "#0a0a0a" }}>
-        Support
-      </a>,
-      "3",
-      null,
-      null,
-      null
-    ),
+    getItem(<a href="/profile">Profile</a>, "1", null, null, null),
+    getItem(<a href="/settings">Settings</a>, "2", null, null, null),
+    getItem(<a href="/support">Support</a>, "3", null, null, null),
     getItem(
       "Mode",
       "sub2",
@@ -171,8 +151,8 @@ export const Banner = () => {
         getItem(
           selectedKey === "dark" ? (
             <Styled.ModeItem>
-              <span style={{ color: "#0a0a0a" }}>Dark</span>
-              <CheckCircleOutlined style={{ color: "#08c" }} />
+              <span>Dark</span>
+              <CheckCircleOutlined />
             </Styled.ModeItem>
           ) : (
             <Styled.ModeItem>Dark</Styled.ModeItem>
@@ -185,8 +165,8 @@ export const Banner = () => {
         getItem(
           selectedKey === "light" ? (
             <Styled.ModeItem>
-              <span style={{ color: "#0a0a0a" }}>Light</span>
-              <CheckCircleOutlined style={{ color: "#08c" }} />
+              <span>Light</span>
+              <CheckCircleOutlined />
             </Styled.ModeItem>
           ) : (
             <Styled.ModeItem>Light</Styled.ModeItem>
@@ -199,8 +179,8 @@ export const Banner = () => {
         getItem(
           selectedKey === "auto" ? (
             <Styled.ModeItem>
-              <span style={{ color: "#0a0a0a" }}>Auto</span>
-              <CheckCircleOutlined style={{ color: "#08c" }} />
+              <span>Auto</span>
+              <CheckCircleOutlined />
             </Styled.ModeItem>
           ) : (
             <Styled.ModeItem>Auto</Styled.ModeItem>
@@ -217,15 +197,7 @@ export const Banner = () => {
       type: "divider",
       key: "10",
     },
-    getItem(
-      <a href="/signin" style={{ color: "#0a0a0a" }}>
-        Sign Out
-      </a>,
-      "4",
-      null,
-      null,
-      null
-    ),
+    getItem(<a href="/signin">Sign Out</a>, "4", null, null, null),
   ];
 
   const userMenu = (
@@ -306,7 +278,10 @@ export const Banner = () => {
         <Styled.HeaderContainer>
           <Styled.PcLogoWrapper>
             <Link to="/dashboard">
-              <Styled.PcLogo src={logo} alt="QUICKPAYUS" />
+              <Styled.PcLogo
+                src={setting.themeMode === "dark" ? logoDark : logoLight}
+                alt="QUICKPAYUS"
+              />
             </Link>
           </Styled.PcLogoWrapper>
           <Styled.CtaContainer>
@@ -320,10 +295,7 @@ export const Banner = () => {
                 <>
                   <div>
                     <Styled.ReferralTitle>Referral code</Styled.ReferralTitle>
-                    <QRCode
-                      value="https://quickpayus.com/username"
-                      color="#0a0a0a"
-                    />
+                    <QRCode value="https://quickpayus.com/username" />
                     <div className="d-flex">
                       <CopyToClipboard
                         text="https://quickpayus.com/username"
@@ -481,24 +453,15 @@ export const Banner = () => {
                   </li>
                 </ul>
               </li>
-
-              {!collapsed ? (
+              {
                 <div
                   ref={mobileMenuRef}
                   style={{ position: "absolute" }}
-                  className="fade-out"
+                  className={!collapsed ? "fade-out" : "fade-in"}
                 >
                   {mobileUserMenu}
                 </div>
-              ) : (
-                <div
-                  ref={mobileMenuRef}
-                  style={{ position: "absolute" }}
-                  className="fade-in"
-                >
-                  {mobileUserMenu}
-                </div>
-              )}
+              }
             </ul>
 
             <ul className="desktop-nav ps-0">
@@ -547,7 +510,10 @@ export const Banner = () => {
 
             <Styled.MobileLogoWrapper>
               <Link to="/dashboard">
-                <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
+                <Styled.MobileLogo
+                  src={setting.themeMode === "dark" ? logoDark : logoLight}
+                  alt="QUICKPAYUS"
+                />
               </Link>
             </Styled.MobileLogoWrapper>
           </nav>

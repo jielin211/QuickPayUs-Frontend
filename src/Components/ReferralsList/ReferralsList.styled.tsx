@@ -7,12 +7,12 @@ export const Container = styled.div`
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
-  height: 100%;
-  background-color: #f4f4f4;
+  // height: 100%;
+  // background-color: #f4f4f4;
 `;
 
 export const ListContainer = styled.div`
-  background: #fff;
+  background: var(--color-bg-container);
   padding: 30px;
   border-radius: 18px;
 `;

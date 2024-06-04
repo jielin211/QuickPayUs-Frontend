@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+
+// antd
+import { theme } from "antd";
 
 // redux
-import { selectSetting } from "./Redux/selectors";
 import { updateSettingField } from "./Redux/settingSlice";
 
 // routes
@@ -13,8 +15,12 @@ import AppRoutes from "./AppRoutes";
 import "./App.css";
 import "react-international-phone/style.css";
 
+const { useToken } = theme;
+
 function App() {
   const dispatch = useDispatch();
+
+  const { token } = useToken();
 
   useEffect(() => {
     const themeMode = localStorage.getItem("themeMode");
@@ -28,7 +34,16 @@ function App() {
 
   return (
     <Router>
-      <AppRoutes />
+      <div
+        style={{
+          "--color-bg-container": token.colorBgContainer,
+          "--color-bg-list-item-actived": token.colorBgListItemActived,
+          "--color-text": token.colorText,
+          "--color-border-primary": token.colorBorderPrimary,
+        }}
+      >
+        <AppRoutes />
+      </div>
     </Router>
   );
 }

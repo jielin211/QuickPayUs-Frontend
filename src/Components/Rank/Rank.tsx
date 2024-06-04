@@ -31,7 +31,7 @@ const MyComponent: React.FC = () => {
               <Styled.RankCol>
                 <Row>
                   <Col span={12}>
-                    <h3 style={{ color: "#767678" }}>Current Rank</h3>
+                    <h3>Current Rank</h3>
                   </Col>
                   <Col span={12}>
                     <Styled.RankDataItem>
@@ -41,7 +41,7 @@ const MyComponent: React.FC = () => {
                 </Row>
                 <Row>
                   <Col span={12}>
-                    <h3 style={{ color: "#767678" }}>Starts On:</h3>
+                    <h3>Starts On:</h3>
                   </Col>
                   <Col span={12}>
                     <Styled.RankDataItem>
@@ -55,7 +55,7 @@ const MyComponent: React.FC = () => {
                 </Row>
                 <Row>
                   <Col span={12}>
-                    <h3 style={{ color: "#767678" }}>Ends On:</h3>
+                    <h3>Ends On:</h3>
                   </Col>
                   <Col span={12}>
                     <Styled.RankDataItem>
@@ -72,7 +72,7 @@ const MyComponent: React.FC = () => {
             <Col span={24} md={12}>
               <Row>
                 <Col span={12}>
-                  <h3 style={{ color: "#767678" }} className="text-center">
+                  <h3 className="text-center">
                     Current Sales Revenue:
                   </h3>
                 </Col>
@@ -88,7 +88,7 @@ const MyComponent: React.FC = () => {
               </Row>
               <Row>
                 <Col span={12}>
-                  <h3 style={{ color: "#767678" }} className="text-center">
+                  <h3 className="text-center">
                     Direct Referrals :
                   </h3>
                 </Col>
@@ -100,7 +100,7 @@ const MyComponent: React.FC = () => {
               </Row>
               <Row>
                 <Col span={12}>
-                  <h3 style={{ color: "#767678" }} className="text-center">
+                  <h3 className="text-center">
                     Meeting compliance:
                   </h3>
                 </Col>

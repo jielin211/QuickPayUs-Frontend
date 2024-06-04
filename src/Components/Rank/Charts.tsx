@@ -25,7 +25,7 @@ const RankChart: React.FC = () => {
         style={{ padding: "0px 30px" }}
       >
         <Col className="w-100">
-          <h2 style={{ color: "#0a0a0a" }}>Analytics</h2>
+          <h2>Analytics</h2>
         </Col>
         <Col>
           <Select
