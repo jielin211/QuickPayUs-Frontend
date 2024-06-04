@@ -19,3 +19,7 @@ a {
    color: inherit;
    text-decoration: inherit;
 }
+
+.ant-select-selection-item {
+   color: var(--color-primary-text);
+}

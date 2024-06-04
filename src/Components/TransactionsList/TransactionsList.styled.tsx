@@ -7,7 +7,6 @@ export const Container = styled.div`
     padding: 20px;
   }
   height: 100vh;
-  background: #f4f4f4;
 `;
 
 export const FilterContainer = styled.div`

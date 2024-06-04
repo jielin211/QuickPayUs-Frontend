@@ -5,7 +5,7 @@ export const Main = styled.div`
   padding-top: 2px;
   padding-right: 25px;
   padding-left: 25px;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   height: 100%;
 `;
 export const StyledHeading = styled.h2`
@@ -29,7 +29,7 @@ export const CardH3 = styled.h3`
   margin: 0px;
   font-size: 14px;
   font-weight: 600;
-  color: #767678;
+  color: var(--color-primary-text);
   @media (max-width: 575px) {
     font-size: 10px;
     display: block;
@@ -39,7 +39,7 @@ export const CardH3 = styled.h3`
 `;
 export const CardP = styled.p`
   margin: 0px;
-  color: #0a0a0a;
+  color: var(--color-primary-text);
   font-weight: bold;
   font-size: 22px;
   @media (max-width: 575px) {
@@ -51,7 +51,7 @@ export const CardP = styled.p`
 export const ChartHeading = styled.h2`
   font-size: 19px;
   width: 100%;
-  color: #0a0a0a;
+  color: var(--color-primary-text);
   text-align: left;
   @media (max-width: 575px) {
     text-align: center;
@@ -59,7 +59,6 @@ export const ChartHeading = styled.h2`
 `;
 export const OverviewCard = styled(Card)`
   border-radius: 18px;
-  background: #fff;
   border: none;
   padding: 8px 20px;
 `;
@@ -68,6 +67,7 @@ export const OverviewCardWrapper = styled(Row)`
 `;
 export const ChartCard = styled(Card)`
   border-radius: 18px;
+  border: none;
 `;
 export const ChartRow = styled(Row)`
   margin-top: 20px;

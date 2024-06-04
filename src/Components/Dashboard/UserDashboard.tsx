@@ -1,10 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Row, Col, Skeleton } from "antd";
+
+// antd
+import { Row, Col, Skeleton, theme } from "antd";
+
+// components
 import EChart from "./Charts";
+
+// styles
 import * as Styled from "./Style/Dashboard.styled";
+
+const { useToken } = theme;
 
 const UserDashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
+
+  const { token } = useToken();
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -39,7 +49,9 @@ const UserDashboard = () => {
                         <Styled.SkeletonInputCustom active size="small" />
                       ) : (
                         <>
-                          <Styled.CardH3>Account Balance</Styled.CardH3>
+                          <Styled.CardH3>
+                            Account Balance
+                          </Styled.CardH3>
                           <Styled.CardP>$50.53</Styled.CardP>
                         </>
                       )}

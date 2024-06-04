@@ -4,7 +4,7 @@ import { BellOutlined, QrcodeOutlined } from "@ant-design/icons";
 const { Header } = Layout;
 
 export const HeaderContainer = styled.div`
-  background-color: white;
+  background-color: var(--color-bg-content);
   padding: 0px 32px;
   position: fixed;
   top: 0;
@@ -52,11 +52,11 @@ export const BellIconCounter = styled.div`
   font-size: 8px;
 `;
 export const MobileBellWrapper = styled.div`
-  position: absolute;
+  // position: absolute;
   display: flex;
   align-items: center;
-  top: 16px;
-  right: 55px;
+  // top: 16px;
+  // right: 55px;
   @media (min-width: 576px) and (max-width: 768px) {
     top: 16px;
     right: 55px;
@@ -68,9 +68,9 @@ export const BellWrapper = styled.div`
   align-items: center;
   height: 44px;
   @media screen and (max-width: 768px) {
-    top: 0px;
-    position: absolute;
-    right: 105px;
+    // top: 0px;
+    // position: absolute;
+    // right: 105px;
   }
 `;
 export const PcLogoWrapper = styled.div`
@@ -93,7 +93,6 @@ export const AvatarWrapper = styled.div`
   align-items: center;
 `;
 export const AvatarInfo = styled.div`
-  line-height: 2px;
   padding-left: 10px;
 `;
 export const AvatarInfoP1 = styled.p`
@@ -116,12 +115,19 @@ export const MobileLogoWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  a {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 export const MobileLogo = styled.img`
   height: 150%;
 `;
 export const StyledHeader = styled(Header)`
   height: 44px;
+  line-height: unset;
 `;
 export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px;
@@ -146,8 +152,7 @@ export const ShareBtn = styled.button`
   color: #00000;
 `;
 export const ReferralTitle = styled.p`
-  padding: 10px 0px 0px 0px;
-
+  margin-top: calc(1em - 10px);
   text-align: center;
   font-size: 14px;
   font-weight: 600;

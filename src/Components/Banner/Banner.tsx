@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 // antd
-import { Badge, Menu, QRCode, Popover } from "antd";
+import { Badge, Menu, QRCode, Popover, MenuProps } from "antd";
 import {
   CheckCircleOutlined,
   CopyOutlined,
@@ -116,7 +116,7 @@ export const Banner = () => {
 
       dispatch(updateSettingField({ field: "themeMode", value: key }));
 
-      localStorage.setItem('themeMode', key);
+      localStorage.setItem("themeMode", key);
     }
   };
 
@@ -135,7 +135,7 @@ export const Banner = () => {
     }
   };
 
-  const menuItems = [
+  const menuItems: MenuProps['items'] = [
     getItem(
       <a href="/profile" style={{ color: "#0a0a0a" }}>
         Profile
@@ -311,6 +311,7 @@ export const Banner = () => {
           </Styled.PcLogoWrapper>
           <Styled.CtaContainer>
             <Popover
+              trigger="click"
               overlayInnerStyle={{
                 padding: 10,
                 transform: "translateY(-0px)",
@@ -342,17 +343,16 @@ export const Banner = () => {
             >
               <Styled.CustomQrCodeIcon />
             </Popover>
-
+            <Link to="/announcements">
+              <Styled.BellWrapper>
+                <AnnouncementIcon />
+              </Styled.BellWrapper>
+            </Link>
             <Link to="/notifications">
               <Styled.BellWrapper>
                 <Badge count={counter}>
                   <Styled.BellOutlinedNew />
                 </Badge>
-              </Styled.BellWrapper>
-            </Link>
-            <Link to="/announcements">
-              <Styled.BellWrapper>
-                <AnnouncementIcon />
               </Styled.BellWrapper>
             </Link>
             <div>
@@ -400,73 +400,88 @@ export const Banner = () => {
                   </div>
                 </div>
               </li>
-              <li style={{ position: "absolute", right: "80px" }}>
-                <Popover
-                  overlayInnerStyle={{
-                    padding: 0,
-                    transform: "translateY(-15px)",
+              <li>
+                <ul
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    listStyle: "none",
+                    paddingLeft: "0px",
+                    gap: "10px",
                   }}
-                  content={
-                    <>
-                      <div>
-                        <p
-                          style={{
-                            padding: "10px 0px 0px 0px",
-                            textAlign: "center",
-                            fontSize: "14px",
-                            fontWeight: "600",
-                          }}
-                        >
-                          Referral code
-                        </p>
-                        <QRCode
-                          value="https://quickpayus.com/username"
-                          style={{
-                            marginTop: "0px",
-                          }}
-                        />
-                        <div className="d-flex">
-                          <CopyToClipboard
-                            text="https://quickpayus.com/username"
-                            onCopy={onCopy}
-                          >
-                            <Styled.CopyToClipboardContent>
-                              {copied ? "Copied!" : "Copy"} <CopyOutlined />{" "}
-                            </Styled.CopyToClipboardContent>
-                          </CopyToClipboard>
-                          <Styled.ShareBtn onClick={handleShare}>
-                            Share <ShareAltOutlined />
-                          </Styled.ShareBtn>
-                        </div>
-                      </div>
-                    </>
-                  }
                 >
-                  <Styled.CustomQrCodeIcon />
-                </Popover>
+                  <li>
+                    <Popover
+                      overlayInnerStyle={{
+                        padding: 0,
+                        transform: "translateY(-15px)",
+                      }}
+                      content={
+                        <>
+                          <div>
+                            <p
+                              style={{
+                                padding: "1em 0px 0px 0px",
+                                textAlign: "center",
+                                fontSize: "14px",
+                                fontWeight: "600",
+                              }}
+                            >
+                              Referral code
+                            </p>
+                            <QRCode
+                              value="https://quickpayus.com/username"
+                              style={{
+                                marginTop: "0px",
+                              }}
+                            />
+                            <div className="d-flex">
+                              <CopyToClipboard
+                                text="https://quickpayus.com/username"
+                                onCopy={onCopy}
+                              >
+                                <Styled.CopyToClipboardContent>
+                                  {copied ? "Copied!" : "Copy"} <CopyOutlined />{" "}
+                                </Styled.CopyToClipboardContent>
+                              </CopyToClipboard>
+                              <Styled.ShareBtn onClick={handleShare}>
+                                Share <ShareAltOutlined />
+                              </Styled.ShareBtn>
+                            </div>
+                          </div>
+                        </>
+                      }
+                    >
+                      <Styled.CustomQrCodeIcon />
+                    </Popover>
+                  </li>
+
+                  <li>
+                    <Link to="/announcements">
+                      <Styled.BellWrapper>
+                        <AnnouncementIcon />
+                      </Styled.BellWrapper>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/notifications">
+                      <Styled.MobileBellWrapper>
+                        <Badge count={counter}>
+                          <Styled.BellOutlinedNew />
+                        </Badge>
+                      </Styled.MobileBellWrapper>
+                    </Link>
+                  </li>
+                  <li>
+                    <a onClick={(e) => handleToggle(e)}>
+                      <Styled.AvatarWrapper id="mobileAvatarMenu">
+                        <Styled.StyledAvatar>U</Styled.StyledAvatar>
+                      </Styled.AvatarWrapper>
+                    </a>
+                  </li>
+                </ul>
               </li>
 
-              <li>
-                <Link to="/announcements">
-                  <Styled.BellWrapper>
-                    <AnnouncementIcon />
-                  </Styled.BellWrapper>
-                </Link>
-                <Link to="/notifications">
-                  <Styled.MobileBellWrapper>
-                    <Badge count={counter}>
-                      <Styled.BellOutlinedNew />
-                    </Badge>
-                  </Styled.MobileBellWrapper>
-                </Link>
-              </li>
-              <li>
-                <a onClick={(e) => handleToggle(e)}>
-                  <Styled.AvatarWrapper id="mobileAvatarMenu">
-                    <Styled.StyledAvatar>U</Styled.StyledAvatar>
-                  </Styled.AvatarWrapper>
-                </a>
-              </li>
               {!collapsed ? (
                 <div
                   ref={mobileMenuRef}
@@ -531,7 +546,9 @@ export const Banner = () => {
             </ul>
 
             <Styled.MobileLogoWrapper>
-              <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
+              <Link to='/dashboard'>
+                <Styled.MobileLogo src={logo} alt="QUICKPAYUS" />
+              </Link>
             </Styled.MobileLogoWrapper>
           </nav>
         </div>

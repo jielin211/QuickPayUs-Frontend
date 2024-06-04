@@ -1,9 +1,10 @@
 import React, { useState, useMemo } from "react";
+import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Steps, Select } from "antd";
 import * as Styled from "./SignUp.styled";
 import { getCountryCode, getCountryData } from "countries-list";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { FloatingInput } from "./FloatingInput/FloatingInput";
 import { AntPhone } from "./AntPhone";
 import PasswordStrengthBar from "react-password-strength-bar";
@@ -50,6 +51,8 @@ const SignupForm = () => {
   const [phone, setPhone] = useState<string>("");
   const [dial, setDial] = useState<string>("");
 
+  const navigate = useNavigate();
+
   const handleChangePhone = (dial, phone) => {
     setPhone(phone);
     setDial(dial);
@@ -75,11 +78,27 @@ const SignupForm = () => {
     setCurrentStep((prevStep) => prevStep - 1);
   };
 
-  const handleSubmit = (values, { setSubmitting }) => {
-    setTimeout(() => {
-      alert(JSON.stringify(values, null, 2));
+  const handleSubmit = async (values, { setSubmitting }) => {
+    const reqData = {
+      
+    };
+
+    try {
+      await axios.post("/api/v1/auth/signup", reqData);
+
+      // Navigate to signin
+      navigate("/signin");
+
+      console.log("Sign-up successful");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        console.error("Error during sign-up:", error.response?.data);
+      } else {
+        console.error("Error during sign-up:", error);
+      }
+    } finally {
       setSubmitting(false);
-    }, 400);
+    }
   };
 
   const validate = (values): FormErrors => {

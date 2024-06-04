@@ -8,7 +8,6 @@ export const BgTop = styled.div`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  background: #f4f4f4;
   border-bottom: 1px solid #d3d3d3;
   padding-bottom: 20px;
 `;

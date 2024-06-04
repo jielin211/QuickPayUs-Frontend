@@ -11,7 +11,6 @@ export const WithdrawalContainer = styled.div`
   }
   height: 100%;
 
-  background-color: #faf4f4f4;
 `;
 
 export const FormContainer = styled.div`

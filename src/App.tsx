@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 // antd
-import { ConfigProvider } from "antd";
+import { ConfigProvider, theme } from "antd";
 
 // redux
 import { selectSetting } from "./Redux/selectors";
@@ -16,6 +16,7 @@ import AppRoutes from "./AppRoutes";
 import { lightTheme, darkTheme } from "./Utils/constants";
 
 // styles
+import "./App.css";
 import "react-international-phone/style.css";
 
 function App() {
@@ -35,7 +36,17 @@ function App() {
 
   return (
     <ConfigProvider
-      theme={{ token: setting.themeMode === "light" ? lightTheme : darkTheme }}
+      theme={
+        setting.themeMode === "light"
+          ? {
+              algorithm: theme.defaultAlgorithm,
+              token: lightTheme,
+            }
+          : {
+              algorithm: theme.darkAlgorithm,
+              token: darkTheme,
+            }
+      }
     >
       <Router>
         <AppRoutes />

@@ -1,5 +1,10 @@
 import { Route, Routes, useLocation } from "react-router-dom";
-import { Layout } from "antd";
+import { Layout, theme } from "antd";
+
+// hooks
+import { useDevice } from "../../Utils/Hooks/useDevice";
+
+// components
 import UserDashboard from "../Dashboard/UserDashboard";
 import Settings from "../Settings/Settings";
 import Support from "../Support/Support";
@@ -13,7 +18,6 @@ import { Announcements } from "../Announcements";
 import Banner from "../Banner/Banner";
 import TransactionsList from "../TransactionsList/TransactionsList";
 import ReferralsList from "../ReferralsList/ReferralsList";
-import { useDevice } from "../../Utils/Hooks/useDevice";
 import { Sider } from "./Sider";
 import { KycVerification } from "../KycVerification";
 import CustomTicket from "../Support/CustomTicket";
@@ -25,10 +29,13 @@ import ChangeEmail from "../Settings/ChangeEmail";
 import DeactivateAccount from "../Settings/DeactivateAccount";
 
 const { Content } = Layout;
+const { useToken } = theme;
 
 const App = () => {
   const location = useLocation();
   const device = useDevice();
+  const { token } = useToken();
+  
   const isSignInRoute =
     location.pathname === "/signin" ||
     location.pathname === "/signup" ||
@@ -36,7 +43,7 @@ const App = () => {
 
   const contentStyle = {
     marginLeft: device?.isBreakpoint("MD") ? "250px" : "0px",
-    backgroundColor: "#F5F5F7",
+    backgroundColor: token.colorBgContent,
     minHeight: "100vh",
   };
   const layoutStyle = {

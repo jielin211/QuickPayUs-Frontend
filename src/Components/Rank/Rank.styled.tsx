@@ -19,7 +19,6 @@ export const RankTitle = styled.h2`
 
 export const RankSubtitleWrapper = styled.div`
   padding: 0 20px;
-  background: #f4f4f4;
   border-radius: 8px 8px 8px 0;
 `;
 

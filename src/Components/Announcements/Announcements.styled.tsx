@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   padding: 30px;
-  background: #f4f4f4;
   height: 100%;
   @media screen and (max-width: 768px) {
     padding: 0px;
