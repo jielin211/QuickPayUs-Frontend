@@ -1,18 +1,38 @@
 import { useState, useEffect } from "react";
-import { Menu, Collapse, Layout } from "antd";
 import { useLocation } from "react-router-dom";
-import hollowdashboard from "../../assets/images/dashboard-icon.svg";
-import filleddashboard from "../../assets/images/filledDashboard.svg";
-import hollowchart from "../../assets/images/chart.svg";
-import filledchart from "../../assets/images/chart-1.svg";
-import hollowdeposit from "../../assets/images/deposit-icon.svg";
-import filleddeposit from "../../assets/images/wallet-add-1.svg";
-import hollowwithdrawal from "../../assets/images/withdrawal-icon.svg";
-import filledwithdrawal from "../../assets/images/withdrawal-icon-filled.svg";
-import hollowreferral from "../../assets/images/referrals-icons.svg";
-import filledreferral from "../../assets/images/referrals-icons-filled.svg";
-import hollowrank from "../../assets/images/rank-icon.svg";
-import filledrank from "../../assets/images/rank-icon-filled.svg";
+import { useSelector } from "react-redux";
+
+// antd
+import { Menu, Collapse, Layout } from "antd";
+
+// redux
+import { selectSetting } from "../../Redux/selectors";
+
+// icons
+import DashboardIconLight from "../../assets/images/dashboard-icon-light.svg";
+import DashboardIconFilledLight from "../../assets/images/dashboard-icon-filled-light.svg";
+import DashboardIconDark from "../../assets/images/dashboard-icon-dark.svg";
+import DashboardIconFilledDark from "../../assets/images/dashboard-icon-filled-dark.svg";
+import TransactionsIconLight from "../../assets/images/transactions-icon-light.svg";
+import TransactionsIconFilledLight from "../../assets/images/transactions-icon-filled-light.svg";
+import TransactionsIconDark from "../../assets/images/transactions-icon-dark.svg";
+import TransactionsIconFilledDark from "../../assets/images/transactions-icon-filled-dark.svg";
+import DepositIconLight from "../../assets/images/deposit-icon-light.svg";
+import DepositIconFilledLight from "../../assets/images/deposit-icon-filled-light.svg";
+import DepositIconDark from "../../assets/images/deposit-icon-dark.svg";
+import DepositIconFilledDark from "../../assets/images/deposit-icon-filled-dark.svg";
+import WithdrawalIconLight from "../../assets/images/withdrawal-icon.svg";
+import WithdrawalIconFilledLight from "../../assets/images/withdrawal-icon-filled-light.svg";
+import WithdrawalIconDark from "../../assets/images/withdrawal-icon-dark.svg";
+import WithdrawalIconFilledDark from "../../assets/images/withdrawal-icon-filled-dark.svg";
+import ReferralsIconLight from "../../assets/images/referrals-icon-light.svg";
+import ReferralsIconFilledLight from "../../assets/images/referrals-icon-filled-light.svg";
+import ReferralsIconDark from "../../assets/images/referrals-icon-dark.svg";
+import ReferralsIconFilledDark from "../../assets/images/referrals-icon-filled-dark.svg";
+import RankIconLight from "../../assets/images/rank-icon-light.svg";
+import RankIconFilledLight from "../../assets/images/rank-icon-filled-light.svg";
+import RankIconDark from "../../assets/images/rank-icon-dark.svg";
+import RankIconFilledDark from "../../assets/images/rank-icon-filled-dark.svg";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
 import styled from "styled-components";
@@ -47,10 +67,13 @@ const MenuCustom = styled(Menu)`
 `;
 
 export const Sider: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("");
-  const [collapsed, setCollapsed] = useState<boolean>(false);
   const location = useLocation();
   const device = useDevice();
+
+  const [selectedOption, setSelectedOption] = useState<string>("");
+  const [collapsed, setCollapsed] = useState<boolean>(false);
+
+  const setting = useSelector(selectSetting);
 
   const handleCollapse = () => {
     setCollapsed(!collapsed);
@@ -112,20 +135,42 @@ export const Sider: React.FC = () => {
         >
           <SiderMenuItem
             icon={
-              selectedOption == "dashboard" ? filleddashboard : hollowdashboard
+              selectedOption == "dashboard"
+                ? setting.themeMode === "dark"
+                  ? DashboardIconFilledDark
+                  : DashboardIconFilledLight
+                : setting.themeMode === "dark"
+                ? DashboardIconDark
+                : DashboardIconLight
             }
             selectedOption={selectedOption}
             keyValue="dashboard"
             label="Dashboard"
           />
           <SiderMenuItem
-            icon={selectedOption == "transaction" ? filledchart : hollowchart}
+            icon={
+              selectedOption == "transaction"
+                ? setting.themeMode === "dark"
+                  ? TransactionsIconFilledDark
+                  : TransactionsIconFilledLight
+                : setting.themeMode === "dark"
+                ? TransactionsIconDark
+                : TransactionsIconLight
+            }
             selectedOption={selectedOption}
             keyValue="transaction"
             label="Transactions"
           />
           <SiderMenuItem
-            icon={selectedOption == "deposit" ? filleddeposit : hollowdeposit}
+            icon={
+              selectedOption == "deposit"
+                ? setting.themeMode === "dark"
+                  ? DepositIconFilledDark
+                  : DepositIconFilledLight
+                : setting.themeMode === "dark"
+                ? DepositIconDark
+                : DepositIconLight
+            }
             selectedOption={selectedOption}
             keyValue="deposit"
             label="Deposit"
@@ -133,8 +178,12 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "withdrawal"
-                ? filledwithdrawal
-                : hollowwithdrawal
+                ? setting.themeMode === "dark"
+                  ? WithdrawalIconFilledDark
+                  : WithdrawalIconFilledLight
+                : setting.themeMode === "dark"
+                ? WithdrawalIconDark
+                : WithdrawalIconLight
             }
             selectedOption={selectedOption}
             keyValue="withdrawal"
@@ -142,14 +191,28 @@ export const Sider: React.FC = () => {
           />
           <SiderMenuItem
             icon={
-              selectedOption == "referrals" ? filledreferral : hollowreferral
+              selectedOption == "referrals"
+                ? setting.themeMode === "dark"
+                  ? ReferralsIconFilledDark
+                  : ReferralsIconFilledLight
+                : setting.themeMode === "dark"
+                ? ReferralsIconDark
+                : ReferralsIconLight
             }
             selectedOption={selectedOption}
             keyValue="referrals"
             label="Referrals"
           />
           <SiderMenuItem
-            icon={selectedOption == "rank" ? filledrank : hollowrank}
+            icon={
+              selectedOption == "rank"
+                ? setting.themeMode === "dark"
+                  ? RankIconFilledDark
+                  : RankIconFilledLight
+                : setting.themeMode === "dark"
+                ? RankIconDark
+                : RankIconLight
+            }
             selectedOption={selectedOption}
             keyValue="rank"
             label="Rank"
