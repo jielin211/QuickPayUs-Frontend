@@ -86,9 +86,7 @@ const Deposit: React.FC = () => {
                 <Styled.PageCover className="hoverdata">
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel>
-                      <span>
-                        Investment amount:
-                      </span>
+                      <span>Investment amount:</span>
                     </Styled.StyledLabel>
                     <Styled.FieldCover>
                       <Field name="investmentAmount">
@@ -150,9 +148,7 @@ const Deposit: React.FC = () => {
                   </Styled.FlexColumnContainer>
                   <Styled.FlexColumnContainer>
                     <Styled.StyledLabel>
-                      <span>
-                        Receiver Address:
-                      </span>
+                      <span>Receiver Address:</span>
                     </Styled.StyledLabel>
                     <Styled.FieldCover>
                       <Field name="receiverAddress">

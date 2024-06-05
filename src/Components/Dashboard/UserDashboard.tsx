@@ -25,7 +25,7 @@ const UserDashboard = () => {
   }, []);
 
   return (
-    <Styled.Main className="dashboard bg-[#f4f4f4]">
+    <Styled.Main className="dashboard">
       <Styled.StyledHeading>
         {loading ? (
           <Styled.SkeletonInputCustomHeader active size="small" />
@@ -49,9 +49,7 @@ const UserDashboard = () => {
                         <Styled.SkeletonInputCustom active size="small" />
                       ) : (
                         <>
-                          <Styled.CardH3>
-                            Account Balance
-                          </Styled.CardH3>
+                          <Styled.CardH3>Account Balance</Styled.CardH3>
                           <Styled.CardP>$50.53</Styled.CardP>
                         </>
                       )}

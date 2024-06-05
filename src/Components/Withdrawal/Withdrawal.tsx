@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Card, Input, Select, Button, Modal } from "antd";
+import { Input, Select, Button, Modal } from "antd";
 import { InputOTP } from "antd-input-otp";
 import { usePostDataMutation } from "../../Redux/slice"; // Update the path accordingly
 import * as Styled from "./Withdrawal.styled";

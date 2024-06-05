@@ -2,24 +2,24 @@ import styled from "styled-components";
 import { Select, Card } from "antd";
 
 export const WithdrawalContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  padding: 17px;
+  // display: flex;
+  // flex-direction: column;
+  // width: 100%;
+  // padding: 17px;
   @media screen and (max-width: 768px) {
-    padding: 20px;
+    // padding: 20px;
   }
   // height: 100%;
 
 `;
 
 export const FormContainer = styled.div`
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  border-radius: 18px;
-  padding: 20px;
-  padding-bottom: 48px;
+  // margin-left: auto;
+  // margin-right: auto;
+  // width: 100%;
+  // border-radius: 18px;
+  // padding: 20px;
+  // padding-bottom: 48px;
   // background-color: #fff;
 
   @media screen and (max-width: 992px) {
@@ -33,8 +33,8 @@ export const SubmitButtonContainer = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  width: 100%;
-  padding: 0 24px;
+  // width: 100%;
+  // padding: 0 24px;
 `;
 
 export const Balance = styled.div`
@@ -61,10 +61,11 @@ export const BalanceContainer = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-  padding-left: 23px;
+  // padding-left: 23px;
   @media screen and (max-width: 768px) {
     text-align: center;
   }
+  margin-bottom: 20px;
 `;
 export const StyledForm = styled.form`
   text-align: left;
@@ -82,4 +83,5 @@ export const StyledSelect = styled(Select)`
 export const StyledCard = styled(Card)`
   border: none;
   // margin-top: -10px;
+  margin-bottom: 20px;
 `;
