@@ -83,13 +83,14 @@ const SignIn: React.FC = () => {
           >
             {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
               <Form layout="vertical" onFinish={handleSubmit}>
-                <Form.Item label="" validateStatus={errors.email && "error"} help={errors.email}>
+                <Form.Item label="" validateStatus={!errors.email ? "success" : "error"} help={errors.email}>
                   <Field name="email">{({ field }) => <FloatingInput label="Email / Username" name="email" field={field} />}</Field>
                 </Form.Item>
 
-                <Form.Item label="" validateStatus={errors.password && "error"} style={{ marginTop: "30px" }} help={errors.password}>
-                  <Field name="password">{({ field }) => <FloatingLabelInputPassword label="Password" field={field} name="password" />}</Field>
+                <Form.Item label="" validateStatus={!errors.password ? "success" : "error"} style={{ marginTop: "30px" }} help={errors.password}>
+                  <Field name="password">{({ field }) => <FloatingInput label="Password" name="password" field={field} type='password' />}</Field>
                 </Form.Item>
+
                 <Form.Item>
                   <Styled.SignInButton type="primary" htmlType="submit" disabled={isSubmitting}>
                     Sign In

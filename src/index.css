@@ -8,6 +8,13 @@ body {
 body::-webkit-scrollbar {
   display: none;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
+}
+
 /* .ant-layout-content {
   background: #fff !important;
 } */
@@ -644,4 +651,8 @@ a {
 
 .text-center {
   text-align: center;
+}
+
+.ant-form-item-has-success .ant-input {
+  border-color: #73d742 !important;
 }

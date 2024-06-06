@@ -11,10 +11,10 @@ export const StyledLabel = styled.label`
   top: 50%;
   transform: translateY(-50%);
   transition: all 0.3s ease;
-  background: white;
+  background: var(--color-bg-container);
   padding: 0 2px;
   pointer-events: none;
-  color: black;
+  // color: black;
 `;
 
 export const StyledFloatInputPassword = styled(Input.Password)`
@@ -39,12 +39,12 @@ export const StyledFloatInput = styled(Input)`
   border-radius: 6px;
   font-size: 14px; // Consolidated to one font-size for consistency
   padding: 0 15px;
-  border: 1px solid #d9d9d9;
+  border: 1px solid var(--color-border-primary);
   background: transparent;
-  color: black;
+  // color: black;
   outline: none;
 
   &:focus {
-    border: 1px solid red;
+    // border: 1px solid red;
   }
 `;

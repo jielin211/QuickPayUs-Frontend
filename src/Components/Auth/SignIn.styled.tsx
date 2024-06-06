@@ -6,7 +6,7 @@ export const StyledH1 = styled.h1`
   text-align: center;
   font-size: 24px;
   font-weight: 600;
-  color: #000;
+  // color: #000;
   margin-bottom: 40px;
 `;
 
@@ -16,11 +16,11 @@ export const ForgetTxt = styled.p`
 `;
 export const PrivacyTxt = styled.p`
   font-size: 12px;
-  color: #121212;
+  // color: #121212;
 `;
 export const PrivacyTxt2 = styled.p`
   font-size: 12px;
-  color: #121212;
+  // color: #121212;
   opacity: 0;
   transition: height 0.5s ease, opacity 0.5s ease;
   visibility: hidden;
@@ -37,6 +37,7 @@ export const MainRow = styled(Row)`
   justify-content: center;
   min-height: 100vh;
   align-items: center;
+  background: var(--color-bg-layout);
 `;
 export const MainCard = styled(Card)`
   border: none;

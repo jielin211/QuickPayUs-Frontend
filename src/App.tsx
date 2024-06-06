@@ -36,6 +36,7 @@ function App() {
     <Router>
       <div
         style={{
+          "--color-bg-layout": token.colorBgLayout,
           "--color-bg-container": token.colorBgContainer,
           "--color-bg-list-item-actived": token.colorBgListItemActived,
           "--color-text": token.colorText,

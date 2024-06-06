@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import * as Styled from "./FloatingInput.styled";
 
-export const FloatingInput = ({ label, field, name }) => {
+export const FloatingInput = ({ label, field, name, type }) => {
     const [isFocused, setIsFocused] = useState(false);
   
     const handleFocus = () => setIsFocused(true);
@@ -29,6 +29,7 @@ export const FloatingInput = ({ label, field, name }) => {
           onChange={field.onChange}
           value={field.value}
           name= {name}
+          type={type}
         />
       </Styled.InputWrapper>
     );
