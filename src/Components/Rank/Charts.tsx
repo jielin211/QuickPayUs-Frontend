@@ -25,12 +25,11 @@ const RankChart: React.FC = () => {
         style={{ padding: "0px 30px" }}
       >
         <Col className="w-100">
-          <h2>Analytics</h2>
+          <h2 style={{ margin: "20px 0" }}>Analytics</h2>
         </Col>
         <Col>
           <Select
             defaultValue="Profit"
-            
             options={[
               { value: "profit", label: "Profit" },
               { value: "credits", label: "credits" },

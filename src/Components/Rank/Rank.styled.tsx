@@ -51,7 +51,7 @@ export const RankDataItem = styled.h3`
 `;
 export const RankDataDescription = styled.div`
   text-align: center;
-  color: black;
+  // color: black;
   font-size: 20px;
   margin: 30px;
 `;
@@ -65,7 +65,7 @@ export const ClaimRewardBtn = styled(Button)`
   font-weight: 600;
 `;
 export const RankResultTitle = styled.h3`
-  color: #121212;
+  // color: #121212;
 `;
 export const RankResultWrapper = styled.div`
   padding-bottom: 30px;
@@ -80,5 +80,5 @@ export const RankResultContent = styled.span`
   margin: auto 0;
   font-weight: 500;
   font-size: 16px;
-  color: #000;
+  // color: #000;
 `;
