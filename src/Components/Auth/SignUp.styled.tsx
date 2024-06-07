@@ -8,6 +8,7 @@ export const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;   
+    background: var(--color-bg-layout);
 `; 
 export const InputBox = styled.div`     
     margin-top: 20px;     
@@ -18,7 +19,7 @@ export const InputLabel = styled.label`
     display: block;      
 `;  
 export const InputWrapper = styled.div`     
-    margin-bottom: 20px;      
+    // margin-bottom: 20px;      
 `;    
 export const BtnGrp = styled.div`     
     margin-top: 30px; 
@@ -41,9 +42,9 @@ export const InputField = styled(Input)`
     border-radius: 5px; 
     padding: 7px 15px;      
 `; 
-export const InputFieldPassword = styled(Input.Password)`  
+export const InputFieldPassword = styled(Input)`  
     font-size: 16px;  
-    border: 1px solid #1e1e1e; 
+    // border: 1px solid #1e1e1e; 
     border-radius: 5px; 
     padding: 7px 15px;      
 `;
@@ -79,7 +80,7 @@ export const StyleLink = styled(Link)`
 `;  
 export const PrivacyTxt = styled.p`    
     font-size: 12px; 
-    color: #121212;   
+    // color: #121212;   
     padding: 0 10px; 
 `; 
 export const PrivacyTxt2 = styled.p`     

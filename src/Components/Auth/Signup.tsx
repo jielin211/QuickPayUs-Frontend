@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import axios from "axios";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Form } from "antd";
+import { Formik, Field, ErrorMessage } from "formik";
 import { Steps, Select } from "antd";
 import * as Styled from "./SignUp.styled";
 import { getCountryCode, getCountryData } from "countries-list";
@@ -79,9 +80,7 @@ const SignupForm = () => {
   };
 
   const handleSubmit = async (values, { setSubmitting }) => {
-    const reqData = {
-      
-    };
+    const reqData = {};
 
     try {
       await axios.post("/api/v1/auth/signup", reqData);
@@ -170,7 +169,7 @@ const SignupForm = () => {
           validate={validate}
           onSubmit={handleSubmit}
         >
-          {({ isSubmitting, values }) => (
+          {({ isSubmitting, values, errors, touched }) => (
             <Form>
               <Styled.Steps
                 current={currentStep}
@@ -186,47 +185,67 @@ const SignupForm = () => {
                 {currentStep === 0 && <p></p>}
                 {currentStep === 1 && (
                   <>
-                    <Field name="firstName">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          {/* <Styled.InputLabel htmlFor="firstName" > 
-                            First Name  
-                          </Styled.InputLabel>
-                          <Styled.InputField {...field}  
-                          placeholder="First Name" />  */}
-                          <FloatingInput
-                            label="First Name"
-                            name="firstName"
-                            field={field}
-                          />
-                          <ErrorMessage
-                            name="firstName"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
-                    <Field name="lastName">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          {/* <Styled.InputLabel htmlFor="lastName">
-                            Last Name 
-                          </Styled.InputLabel> 
-                          <Styled.InputField {...field} placeholder="Last Name" /> */}
-                          <FloatingInput
-                            label="Last Name"
-                            name="lastName"
-                            field={field}
-                          />
-                          <ErrorMessage
-                            name="lastName"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
+                    <Form.Item
+                      validateStatus={
+                        touched.firstName
+                          ? !errors.firstName
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="firstName">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            {/* <Styled.InputLabel htmlFor="firstName" > 
+                              First Name  
+                            </Styled.InputLabel>
+                            <Styled.InputField {...field}  
+                            placeholder="First Name" />  */}
+                            <FloatingInput
+                              label="First Name"
+                              name="firstName"
+                              field={field}
+                            />
+                            <ErrorMessage
+                              name="firstName"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
+                    <Form.Item
+                      validateStatus={
+                        touched.lastName
+                          ? !errors.lastName
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="lastName">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            {/* <Styled.InputLabel htmlFor="lastName">
+                              Last Name 
+                            </Styled.InputLabel> 
+                            <Styled.InputField {...field} placeholder="Last Name" /> */}
+                            <FloatingInput
+                              label="Last Name"
+                              name="lastName"
+                              field={field}
+                            />
+                            <ErrorMessage
+                              name="lastName"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
                   </>
                 )}
                 {currentStep === 2 && (
@@ -245,84 +264,124 @@ const SignupForm = () => {
                 )}
                 {currentStep === 3 && (
                   <>
-                    <Field name="email">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          <FloatingInput
-                            label="Email"
-                            name="email"
-                            field={field}
-                          />
-                          <ErrorMessage
-                            name="email"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
-                    <Field name="username">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          <FloatingInput
-                            label="User Name"
-                            name="username"
-                            field={field}
-                          />
-                          <ErrorMessage
-                            name="username"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
+                    <Form.Item
+                      validateStatus={
+                        touched.email
+                          ? !errors.email
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="email">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            <FloatingInput
+                              label="Email"
+                              name="email"
+                              field={field}
+                            />
+                            <ErrorMessage
+                              name="email"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
+                    <Form.Item
+                      validateStatus={
+                        touched.username
+                          ? !errors.username
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="username">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            <FloatingInput
+                              label="User Name"
+                              name="username"
+                              field={field}
+                            />
+                            <ErrorMessage
+                              name="username"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
                   </>
                 )}
                 {currentStep === 4 && (
                   <>
-                    <Field name="password">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          <Styled.InputLabel htmlFor="password">
-                            Password
-                          </Styled.InputLabel>
-                          <Styled.InputFieldPassword
-                            {...field}
-                            type="password"
-                            placeholder="Password"
-                          />
-                          <PasswordStrengthBar
-                            password={field.value}
-                            style={{ height: "5px", borderRadius: "3px" }}
-                          />
-                          <ErrorMessage
-                            name="password"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
-                    <Field name="confirmPassword">
-                      {({ field }) => (
-                        <Styled.InputWrapper>
-                          <Styled.InputLabel htmlFor="confirmPassword">
-                            Confirm Password
-                          </Styled.InputLabel>
-                          <Styled.InputFieldPassword
-                            {...field}
-                            type="password"
-                            placeholder="Confirm Password"
-                          />
-                          <ErrorMessage
-                            name="confirmPassword"
-                            component="div"
-                            className="color-red"
-                          />
-                        </Styled.InputWrapper>
-                      )}
-                    </Field>
+                    <Form.Item
+                      validateStatus={
+                        touched.password
+                          ? !errors.password
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="password">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            <Styled.InputLabel htmlFor="password">
+                              Password
+                            </Styled.InputLabel>
+                            <Styled.InputFieldPassword
+                              {...field}
+                              type="password"
+                              placeholder="Password"
+                            />
+                            <PasswordStrengthBar
+                              password={field.value}
+                              style={{ height: "5px", borderRadius: "3px" }}
+                            />
+                            <ErrorMessage
+                              name="password"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
+                    <Form.Item
+                      validateStatus={
+                        touched.confirmPassword
+                          ? !errors.confirmPassword
+                            ? "success"
+                            : "error"
+                          : ""
+                      }
+                    >
+                      <Field name="confirmPassword">
+                        {({ field }) => (
+                          <Styled.InputWrapper>
+                            <Styled.InputLabel htmlFor="confirmPassword">
+                              Confirm Password
+                            </Styled.InputLabel>
+                            <Styled.InputFieldPassword
+                              {...field}
+                              type="password"
+                              placeholder="Confirm Password"
+                            />
+                            <ErrorMessage
+                              name="confirmPassword"
+                              component="div"
+                              className="color-red"
+                            />
+                          </Styled.InputWrapper>
+                        )}
+                      </Field>
+                    </Form.Item>
                   </>
                 )}
                 {currentStep === 5 && (

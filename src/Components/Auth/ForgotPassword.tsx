@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Formik, Field } from 'formik';
-import { Form } from 'antd';  
-import * as Styled from "./SignUp.styled";  
+import { Formik, Field } from "formik";
+import { Form } from "antd";
+import * as Styled from "./SignUp.styled";
 import { InputOTP } from "antd-input-otp";
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
 import { FloatingInput } from "./FloatingInput/FloatingInput";
@@ -12,23 +12,21 @@ interface FormErrors {
   confirmPassword?: string;
 }
 
-const initialValues = {  
-  email: '',
-  password: '', 
-  confirmPassword: '', 
-};  
-  
-const steps = [ 'Email', 'OTP', 'Password', 'Confirm Password'];
-  
-const ForgotPassword: React.FC = () => {    
- 
+const initialValues = {
+  email: "",
+  password: "",
+  confirmPassword: "",
+};
+
+const steps = ["Email", "OTP", "Password", "Confirm Password"];
+
+const ForgotPassword: React.FC = () => {
   const [otp, setOtp] = useState([]);
   const [minutes, setMinutes] = useState<number>(1);
   const [seconds, setSeconds] = useState<number>(59);
   const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false);
 
   useEffect(() => {
-
     const interval = setInterval(() => {
       if (seconds > 0) {
         setSeconds(seconds - 1);
@@ -47,7 +45,7 @@ const ForgotPassword: React.FC = () => {
     return () => {
       clearInterval(interval);
     };
-  }, [seconds]); 
+  }, [seconds]);
 
   const resendOTP = () => {
     setMinutes(1);
@@ -56,10 +54,10 @@ const ForgotPassword: React.FC = () => {
 
   const handleLearnMoreClick = () => {
     setShowMoreInfo(!showMoreInfo); // Toggle the state
-  };  
+  };
 
   const [currentStep, setCurrentStep] = React.useState(0);
-   
+
   const nextStep = () => {
     if (currentStep === steps.length - 1) {
       window.location.href = "/signin";
@@ -82,13 +80,13 @@ const ForgotPassword: React.FC = () => {
   const validate = (values): FormErrors => {
     const errors: FormErrors = {};
 
-   if (currentStep === 0) {
+    if (currentStep === 0) {
       if (!values.email) {
-        errors.email = 'Email address is required';
+        errors.email = "Email address is required";
       } else if (!/^\S+@\S+\.\S+$/.test(values.email)) {
-        errors.email = 'Invalid email address';
+        errors.email = "Invalid email address";
       }
-    } 
+    }
 
     if (currentStep === 2) {
       if (!values.password) {
@@ -115,71 +113,75 @@ const ForgotPassword: React.FC = () => {
       nextStep();
     }
   };
- 
-  return (     
-    <Styled.StyledWrapper className='signup'> 
-      <Styled.MainCard 
-        title="Reset Your Password"   
-      > 
+
+  return (
+    <Styled.StyledWrapper className="signup">
+      <Styled.MainCard title="Reset Your Password">
         <Formik
           initialValues={initialValues}
           validate={validate}
-          onSubmit={handleSubmit} 
-        > 
-          {({ isSubmitting, values, errors }) => (  
-            <Form>   
-              <Styled.InputBox>   
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting, values, errors, touched }) => (
+            <Form>
+              <Styled.InputBox>
                 {currentStep === 0 && (
                   <Form.Item
-                    label=""
-                    validateStatus={errors.email && "error"}
-                    help={errors.email}
+                    validateStatus={
+                      touched.email ? (!errors.email ? "success" : "error") : ""
+                    }
                   >
-                    <Field name="email"> 
-                      {({ field }) => (
-                        <FloatingInput 
-                          label="Email" 
-                          name="email" 
-                          field= {field}
-                        />
+                    <Form.Item
+                      label=""
+                      validateStatus={errors.email && "error"}
+                      help={errors.email}
+                    >
+                      <Field name="email">
+                        {({ field }) => (
+                          <FloatingInput
+                            label="Email"
+                            name="email"
+                            field={field}
+                          />
+                        )}
+                      </Field>
+                    </Form.Item>
+                  </Form.Item>
+                )}
+                {currentStep === 1 && (
+                  <>
+                    <InputOTP value={otp} onChange={handleOtpInput} />
+                    <Styled.CountDownTimer>
+                      {seconds > 0 || minutes > 0 ? (
+                        <p>
+                          Time Remaining:{" "}
+                          <span style={{ fontWeight: 600 }}>
+                            {minutes < 10 ? `0${minutes}` : minutes}:
+                            {seconds < 10 ? `0${seconds}` : seconds}
+                          </span>
+                        </p>
+                      ) : (
+                        // Display if countdown timer reaches 0
+                        <p>Didn't receive code?</p>
                       )}
-                    </Field>
-                  </Form.Item>                    
-                )}  
-                {currentStep === 1 && (  
-                    <>
-                        <InputOTP value={otp} onChange={handleOtpInput} />
-                        <Styled.CountDownTimer>
-                            {seconds > 0 || minutes > 0 ? (
-                                <p>
-                                Time Remaining:{" "}
-                                <span style={{ fontWeight: 600 }}>
-                                    {minutes < 10 ? `0${minutes}` : minutes}:
-                                    {seconds < 10 ? `0${seconds}` : seconds}
-                                </span>
-                                </p>
-                            ) : (
-                                // Display if countdown timer reaches 0
-                                <p>Didn't receive code?</p>
-                            )}
-                        </Styled.CountDownTimer>
-                    </>
-                )} 
+                    </Styled.CountDownTimer>
+                  </>
+                )}
                 {currentStep === 2 && (
                   <Form.Item
                     label=""
                     validateStatus={errors.password && "error"}
                     help={errors.password}
                   >
-                    <Field name="password"> 
-                      {({ field }) => (   
-                        <FloatingLabelInputPassword 
-                            label="Password" 
-                            field= {field}
-                            name="password"
+                    <Field name="password">
+                      {({ field }) => (
+                        <FloatingLabelInputPassword
+                          label="Password"
+                          field={field}
+                          name="password"
                         />
                       )}
-                    </Field> 
+                    </Field>
                   </Form.Item>
                 )}
                 {currentStep === 3 && (
@@ -188,73 +190,103 @@ const ForgotPassword: React.FC = () => {
                     validateStatus={errors.confirmPassword && "error"}
                     help={errors.confirmPassword}
                   >
-                    <Field name="confirmPassword">    
-                      {({ field }) => (  
-                          <FloatingLabelInputPassword 
-                              label="Confirm Password" 
-                              field= {field}
-                              name="confirmPassword"
-                          />
+                    <Field name="confirmPassword">
+                      {({ field }) => (
+                        <FloatingLabelInputPassword
+                          label="Confirm Password"
+                          field={field}
+                          name="confirmPassword"
+                        />
                       )}
                     </Field>
                   </Form.Item>
                 )}
 
-                { currentStep !== steps.length &&
-                  <Styled.BtnGrp>    
-                    {currentStep !== 1 && ( 
-                        <>
-                            {currentStep > 0 && 
-                              <Styled.PreviousBtn onClick={prevStep}>Previous</Styled.PreviousBtn>                            
-                            }
-                            <Styled.NextBtn    
-                                type="primary" 
-                                htmlType={currentStep === steps.length - 1 ? 'submit' : 'button'}
-                                onClick={nextStep} 
-                                loading={isSubmitting}   
-                                className={currentStep === 1 ? 'getone' : (currentStep === steps.length - 1 ? 'Submit' : 'Next')}
-                                disabled={Object.keys(validate(values)).some(field => !!field)} 
-                                >   
-                                {currentStep === steps.length - 1 ? 'Submit' : 'Next'}
-                            </Styled.NextBtn> 
-                        </>  
-                    )} 
-                    {
-                    currentStep === 1 && 
-                    <Styled.PreviousBtn 
+                {currentStep !== steps.length && (
+                  <Styled.BtnGrp>
+                    {currentStep !== 1 && (
+                      <>
+                        {currentStep > 0 && (
+                          <Styled.PreviousBtn onClick={prevStep}>
+                            Previous
+                          </Styled.PreviousBtn>
+                        )}
+                        <Styled.NextBtn
+                          type="primary"
+                          htmlType={
+                            currentStep === steps.length - 1
+                              ? "submit"
+                              : "button"
+                          }
+                          onClick={nextStep}
+                          loading={isSubmitting}
+                          className={
+                            currentStep === 1
+                              ? "getone"
+                              : currentStep === steps.length - 1
+                              ? "Submit"
+                              : "Next"
+                          }
+                          disabled={Object.keys(validate(values)).some(
+                            (field) => !!field
+                          )}
+                        >
+                          {currentStep === steps.length - 1 ? "Submit" : "Next"}
+                        </Styled.NextBtn>
+                      </>
+                    )}
+                    {currentStep === 1 && (
+                      <Styled.PreviousBtn
                         onClick={resendOTP}
-                        disabled={seconds > 0 || minutes > 0}>
+                        disabled={seconds > 0 || minutes > 0}
+                      >
                         Resend OTP
-                    </Styled.PreviousBtn>
-                    }
-                    
-                  </Styled.BtnGrp> 
-                }
- 
-              </Styled.InputBox>  
+                      </Styled.PreviousBtn>
+                    )}
+                  </Styled.BtnGrp>
+                )}
+              </Styled.InputBox>
             </Form>
           )}
-        </Formik>   
-        <Styled.SignInWrapper>      
-          <Styled.SignInBtn><Styled.StyleLink to="/signin">Sign In</Styled.StyleLink></Styled.SignInBtn>  
-          <p>if you’re a member.</p>       
-        </Styled.SignInWrapper>  
-         
-          <Styled.PrivacyTxt>     
-            This page is protected by Google reCAPTCHA to ensure you&apos;re not
-            a bot.    
-            <Styled.LearnMoreButton href="#" onClick={handleLearnMoreClick}>    
-              Learn more.  
-            </Styled.LearnMoreButton>          
-          </Styled.PrivacyTxt>       
-          <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}> 
-            The information collected by Google reCAPTCHA is subject to the 
-            Google <a href="https://policies.google.com/privacy" className="color-red" target="_blank"> Privacy Policy </a>  and <a href="https://policies.google.com/terms" className="color-red" target="_blank"> Terms of Service, </a> and is used for
-            providing, maintaining, and improving the reCAPTCHA service and for
-            general security purposes (it is not used for personalized
-            advertising by Google). 
-          </Styled.PrivacyTxt2>       
-      </Styled.MainCard>   
+        </Formik>
+        <Styled.SignInWrapper>
+          <Styled.SignInBtn>
+            <Styled.StyleLink to="/signin">Sign In</Styled.StyleLink>
+          </Styled.SignInBtn>
+          <p>if you’re a member.</p>
+        </Styled.SignInWrapper>
+
+        <Styled.PrivacyTxt>
+          This page is protected by Google reCAPTCHA to ensure you&apos;re not a
+          bot.
+          <Styled.LearnMoreButton href="#" onClick={handleLearnMoreClick}>
+            Learn more.
+          </Styled.LearnMoreButton>
+        </Styled.PrivacyTxt>
+        <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}>
+          The information collected by Google reCAPTCHA is subject to the Google{" "}
+          <a
+            href="https://policies.google.com/privacy"
+            className="color-red"
+            target="_blank"
+          >
+            {" "}
+            Privacy Policy{" "}
+          </a>{" "}
+          and{" "}
+          <a
+            href="https://policies.google.com/terms"
+            className="color-red"
+            target="_blank"
+          >
+            {" "}
+            Terms of Service,{" "}
+          </a>{" "}
+          and is used for providing, maintaining, and improving the reCAPTCHA
+          service and for general security purposes (it is not used for
+          personalized advertising by Google).
+        </Styled.PrivacyTxt2>
+      </Styled.MainCard>
     </Styled.StyledWrapper>
   );
 };

@@ -13,16 +13,17 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
+  -webkit-text-fill-color: var(--color-text);
 }
 
 /* .ant-layout-content {
   background: #fff !important;
 } */
 .ant-steps .ant-steps-item-process .ant-steps-item-icon {
-  background-color: red;
+  /* background-color: red; */
 }
 .ant-steps .ant-steps-item-finish .ant-steps-item-icon {
-  background-color: red;
+  /* background-color: red; */
 }
 
 .ant-card .ant-card-head-title {
