@@ -2,7 +2,7 @@ import { Button, Row } from "antd";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   padding: 17px;
   min-height: 100vh;
   display: flex;
@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 `;
 
 export const ContainerWrap = styled.div`
-  background-color: #fff;
+  background-color: var(--color-bg-container);
   padding: 20px;
   border-radius: 10px;
   width: 100%;
@@ -24,7 +24,7 @@ export const ChangePasswordWrapper = styled.div`
 export const ChangePasswordTitle = styled.h1`
   font-size: 24px;
   font-weight: bold;
-  color: #000;
+  // color: #000;
   text-transform: uppercase;
 `;
 

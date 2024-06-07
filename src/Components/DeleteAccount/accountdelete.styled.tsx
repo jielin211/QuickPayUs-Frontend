@@ -38,16 +38,16 @@ export const StyledInputPassword = styled(Input.Password)`
 
 export const SignInButton = styled(Button)`
   width: 100%;
-  padding: 7px 15px;
-  height: 45px;
-  font-size: 18px;
-  background: #f00000;
+  // padding: 7px 15px;
+  // height: 45px;
+  // font-size: 18px;
+  background: #ff4d4f;
   &:hover {
-    background: #f00 !important;
-    color: #fff !important;
+    background: #ff4d4f !important;
+    // color: #fff !important;
   }
-  border-radius: 5px;
-  margin-top: 20px;
+  // border-radius: 5px;
+  // margin-top: 20px;
 `;
 
 export const StyleLink = styled(Link)`

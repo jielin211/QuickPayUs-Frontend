@@ -79,15 +79,21 @@ const ChangePassword: React.FC = () => {
               validate={validateForm}
               onSubmit={handleChangePassword}
             >
-              {({ errors, handleSubmit, touched }) => (
+              {({ errors, handleSubmit, touched, values }) => (
                 <Form style={{ width: "100%" }} onFinish={handleSubmit}>
                   <Form.Item
                     validateStatus={
-                      touched.currentPassword && errors.currentPassword
-                        ? "error"
+                      touched.currentPassword || values.currentPassword.length !== 0
+                        ? !errors.currentPassword
+                          ? "success"
+                          : "error"
                         : ""
                     }
-                    help={touched.currentPassword && errors.currentPassword}
+                    help={
+                      touched.currentPassword && errors.currentPassword
+                        ? errors.currentPassword
+                        : null
+                    }
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="currentPassword">
@@ -102,9 +108,17 @@ const ChangePassword: React.FC = () => {
                   </Form.Item>
                   <Form.Item
                     validateStatus={
-                      touched.password && errors.password ? "error" : ""
+                      touched.password || values.password.length !== 0
+                        ? !errors.password
+                          ? "success"
+                          : "error"
+                        : ""
                     }
-                    help={touched.password && errors.password}
+                    help={
+                      touched.password && errors.password
+                        ? errors.password
+                        : null
+                    }
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="password">
@@ -119,11 +133,17 @@ const ChangePassword: React.FC = () => {
                   </Form.Item>
                   <Form.Item
                     validateStatus={
-                      touched.confirmPassword && errors.confirmPassword
-                        ? "error"
+                      touched.confirmPassword || values.confirmPassword.length !== 0
+                        ? !errors.confirmPassword
+                          ? "success"
+                          : "error"
                         : ""
                     }
-                    help={touched.confirmPassword && errors.confirmPassword}
+                    help={
+                      touched.confirmPassword && errors.confirmPassword
+                        ? errors.confirmPassword
+                        : null
+                    }
                     style={{ marginTop: "30px" }}
                   >
                     <Field name="confirmPassword">

@@ -6,7 +6,7 @@ export const AboutBoxH4 = styled.h4`
   font-size: 16px;
   padding-right: 10px;
   font-weight: 600;
-  color: #0a0a0a;
+  color: var(--color-text);
 
   @media screen and (max-width: 580px) {
     font-size: 14px;
@@ -16,14 +16,14 @@ export const AboutBoxP = styled.p`
   margin: 0;
   font-size: 16px;
   font-weight: 500;
-  color: #0a0a0a;
+  color: var(--color-text);
 
   @media screen and (max-width: 580px) {
     font-size: 14px;
   }
 `;
 export const KycBox = styled.div`
-  background-color: #f4f4f4 !important;
+  // background-color: #f4f4f4 !important;
 
   width: 70%;
   border-radius: 5px;
@@ -53,7 +53,7 @@ export const AboutMainRow = styled(Row)`
 export const AboutBoxRow = styled(Row)`
   padding: 10px 0;
   border-radius: 10px;
-  background: #fff;
+  background: var(--color-bg-container);
   margin-bottom: 20px;
 `;
 export const AboutBoxCol = styled(Col)`
@@ -100,13 +100,13 @@ export const StyledProfileAvatar = styled(Avatar)`
 `;
 export const StyledNameLabel = styled.h1`
   margin-bottom: 5px;
-  color: #000;
+  color: var(--color-text);
 `;
 export const StyledLevelLabel = styled.p`
   font-size: 18px;
   margin: 0;
   font-weight: 600;
-  color: #0a0a0a;
+  color: var(--color-text);
 `;
 export const StyledUserInfo = styled.div`
   text-align: center;

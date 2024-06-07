@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Input } from 'antd';
+import styled from "styled-components";
+import { Input } from "antd";
 
 export const InputWrapper = styled.div`
   position: relative;
@@ -23,10 +23,14 @@ export const StyledFloatInputPassword = styled(Input.Password)`
   border-radius: 6px;
   font-size: 14px; // Consolidated to one font-size for consistency
   padding: 0 15px;
-  border: 1px solid #d9d9d9;
+  // border: 1px solid #d9d9d9;
   background: transparent;
-  color: black;
+  // color: black;
   outline: none;
+
+  input {
+    box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
+  }
 
   &:focus {
     border: 1px solid red;

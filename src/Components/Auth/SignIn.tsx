@@ -131,7 +131,7 @@ const SignIn: React.FC = () => {
                 >
                   <Field name="password">
                     {({ field }) => (
-                      <FloatingInput
+                      <FloatingLabelInputPassword
                         label="Password"
                         name="password"
                         field={field}

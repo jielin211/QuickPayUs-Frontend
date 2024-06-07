@@ -127,25 +127,29 @@ const ForgotPassword: React.FC = () => {
               <Styled.InputBox>
                 {currentStep === 0 && (
                   <Form.Item
+                    label=""
                     validateStatus={
-                      touched.email ? (!errors.email ? "success" : "error") : ""
+                      touched.email || values.email.length > 0
+                        ? !errors.email
+                          ? "success"
+                          : "error"
+                        : ""
+                    }
+                    help={
+                      (touched.email || values.email.length > 0) && errors.email
+                        ? errors.email
+                        : null
                     }
                   >
-                    <Form.Item
-                      label=""
-                      validateStatus={errors.email && "error"}
-                      help={errors.email}
-                    >
-                      <Field name="email">
-                        {({ field }) => (
-                          <FloatingInput
-                            label="Email"
-                            name="email"
-                            field={field}
-                          />
-                        )}
-                      </Field>
-                    </Form.Item>
+                    <Field name="email">
+                      {({ field }) => (
+                        <FloatingInput
+                          label="Email"
+                          name="email"
+                          field={field}
+                        />
+                      )}
+                    </Field>
                   </Form.Item>
                 )}
                 {currentStep === 1 && (
@@ -170,8 +174,19 @@ const ForgotPassword: React.FC = () => {
                 {currentStep === 2 && (
                   <Form.Item
                     label=""
-                    validateStatus={errors.password && "error"}
-                    help={errors.password}
+                    validateStatus={
+                      touched.password || values.password.length > 0
+                        ? !errors.password
+                          ? "success"
+                          : "error"
+                        : ""
+                    }
+                    help={
+                      (touched.password || values.password.length > 0) &&
+                      errors.password
+                        ? errors.password
+                        : null
+                    }
                   >
                     <Field name="password">
                       {({ field }) => (
@@ -187,8 +202,21 @@ const ForgotPassword: React.FC = () => {
                 {currentStep === 3 && (
                   <Form.Item
                     label=""
-                    validateStatus={errors.confirmPassword && "error"}
-                    help={errors.confirmPassword}
+                    validateStatus={
+                      touched.confirmPassword ||
+                      values.confirmPassword.length > 0
+                        ? !errors.confirmPassword
+                          ? "success"
+                          : "error"
+                        : ""
+                    }
+                    help={
+                      (touched.confirmPassword ||
+                        values.confirmPassword.length > 0) &&
+                      errors.confirmPassword
+                        ? errors.confirmPassword
+                        : null
+                    }
                   >
                     <Field name="confirmPassword">
                       {({ field }) => (

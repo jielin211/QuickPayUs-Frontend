@@ -8,14 +8,14 @@ export const BgTop = styled.div`
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  border-bottom: 1px solid #d3d3d3;
+  border-bottom: 1px solid var(--color-border-primary);
   padding-bottom: 20px;
 `;
 export const StyledH1 = styled.h1`
   font-size: 32px;
   font-weight: 600;
   padding: 20px 0;
-  color: #0a0a0a;
+  // color: #0a0a0a;
 `;
 
 export const TopicWrapper = styled.div`
@@ -62,7 +62,7 @@ export const StyledRow = styled(Row)`
 export const StyledCol = styled(Col)`
   padding: 24px 0;
   border-radius: 18px;
-  background: #fff;
+  background: var(--color-bg-container);
 `;
 export const StyledSearch = styled(Search)`
   padding-bottom: 30px;

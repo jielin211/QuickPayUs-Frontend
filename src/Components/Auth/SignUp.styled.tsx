@@ -42,7 +42,7 @@ export const InputField = styled(Input)`
     border-radius: 5px; 
     padding: 7px 15px;      
 `; 
-export const InputFieldPassword = styled(Input)`  
+export const InputFieldPassword = styled(Input.Password)`  
     font-size: 16px;  
     // border: 1px solid #1e1e1e; 
     border-radius: 5px; 

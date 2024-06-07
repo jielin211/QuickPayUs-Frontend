@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Input, Button } from "antd";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -6,7 +7,7 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  background-color: #fff;
+  background-color: var(--color-bg-container);
   border-radius: 8px;
   max-width: 100%;
   margin: 0 auto;
@@ -16,17 +17,17 @@ const Container = styled.div`
 const Title = styled.h2`
   margin-bottom: 20px;
   font-size: 24px;
-  color: #333333;
+  // color: #333333;
 `;
 
-const Input = styled.input`
-  padding: 12px 15px;
+const StyledInput = styled(Input)`
+  // padding: 12px 15px;
   margin: 10px 0;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  width: 100%;
-  font-size: 16px;
-  box-sizing: border-box;
+  // border: 1px solid #ddd;
+  // border-radius: 4px;
+  // width: 100%;
+  // font-size: 16px;
+  // box-sizing: border-box;
 
   &:focus {
     border-color: #007bff;
@@ -35,25 +36,25 @@ const Input = styled.input`
   }
 `;
 
-const Button = styled.button`
-  padding: 12px 20px;
+const StyledButton = styled(Button)`
+  // padding: 12px 20px;
   margin-top: 20px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
+  // background-color: #007bff;
+  // color: white;
+  // border: none;
+  // border-radius: 4px;
+  // cursor: pointer;
+  // font-size: 16px;
+  // width: 100%;
+  // box-sizing: border-box;
 
   &:hover {
-    background-color: #0056b3;
+    // background-color: #0056b3;
   }
 
   &:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+    // background-color: #ccc;
+    // cursor: not-allowed;
   }
 `;
 
@@ -90,7 +91,7 @@ const ChangeEmail: React.FC = () => {
   return (
     <div
       style={{
-        background: "#f4f4f4",
+        // background: "#f4f4f4",
         height: "100%",
         width: "100%",
         padding: "17px",
@@ -98,24 +99,26 @@ const ChangeEmail: React.FC = () => {
     >
       <Container>
         <Title>Change Email</Title>
-        <Input
+        <StyledInput
           type="password"
           placeholder="Current Password"
           value={currentPassword}
           onChange={(e) => setCurrentPassword(e.target.value)}
         />
-        <Input
+        <StyledInput
           type="email"
           placeholder="New Email"
           value={newEmail}
           onChange={(e) => setNewEmail(e.target.value)}
         />
-        <Button
+        <StyledButton
           onClick={handleChangeEmail}
+          type="primary"
           disabled={!currentPassword || !newEmail}
+          block
         >
           Change Email
-        </Button>
+        </StyledButton>
         {error && <ErrorMessage>{error}</ErrorMessage>}
       </Container>
     </div>

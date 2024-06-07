@@ -7,7 +7,7 @@ const Settings = () => {
   return (
     <div
       style={{
-        backgroundColor: "#f4f4f4",
+        // backgroundColor: "#f4f4f4",
         height: "100%",
         marginTop: "-15px",
       }}

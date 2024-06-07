@@ -7,7 +7,7 @@ const { Title, Text } = Typography;
 const { confirm } = Modal;
 
 const MainContainer = styled.div`
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   padding: 17px;
   height: 100%;
 `;
@@ -17,7 +17,7 @@ const DeactivateContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 40px;
-  background-color: #ffffff; /* White background */
+  background-color: var(--color-bg-container); /* White background */
   border-radius: 16px;
   max-width: 500px;
   margin: 0 auto;

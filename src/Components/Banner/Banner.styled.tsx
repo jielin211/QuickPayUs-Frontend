@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { Badge, Layout, Avatar } from "antd";
+import { Link } from "react-router-dom";
+import { Layout, Avatar } from "antd";
 import { BellOutlined, QrcodeOutlined } from "@ant-design/icons";
 const { Header } = Layout;
 
@@ -124,6 +125,9 @@ export const MobileLogoWrapper = styled.div`
     justify-content: center;
     align-items: center;
   }
+`;
+export const MobileLogoLink = styled(Link)`
+  pointer-events: initial;
 `;
 export const MobileLogo = styled.img`
   height: 50%;

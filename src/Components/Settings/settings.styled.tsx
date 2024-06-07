@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 export const SettingsH1 = styled.h1`
   font-size: 24px;
   padding: 17px 35px;
-  color: #000;
+  // color: var(--color-text);
   @media (max-width: 575px) {
     text-align: center;
     padding: 10px 0;
@@ -14,7 +14,7 @@ export const SettingsH1 = styled.h1`
 export const SettingsBox = styled.div`
   border-radius: 18px;
   padding: 30px 30px;
-  background: #fff;
+  background: var(--color-bg-container);
   margin: 0 30px 30px 30px;
   @media (max-width: 575px) {
     padding: 40px 20px;
@@ -24,7 +24,7 @@ export const SettingsBox = styled.div`
 export const SettingsBoxH2 = styled.h2`
   font-size: 20px;
   font-weight: bold;
-  color: #0a0a0a !important;
+  // color: #0a0a0a !important;
   margin: 0px 0 20px 0;
   text-transform: uppercase;
   @media (max-width: 575px) {
@@ -32,14 +32,14 @@ export const SettingsBoxH2 = styled.h2`
   }
 `;
 export const SettingsBoxPdisable = styled.h2`
-  color: #121212;
+  // color: #121212;
   opacity: 0.3;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   font-size: 16px;
-  color: black;
+  // color: black;
   cursor: not-allowed;
   font-weight: 500;
   padding-right: 10px;
@@ -66,7 +66,7 @@ export const deletebtn = styled.h2`
 
 export const SettingsBoxP = styled.p`
   font-size: 16px;
-  color: #767678;
+  // color: var(--color-text);
   font-weight: 500;
   padding-right: 10px;
   @media (max-width: 575px) {
@@ -78,15 +78,16 @@ export const CustomLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 1px solid var(--color-border-primary);
   &:last-child {
     border-bottom: none; /* Remove bottom border for the last CustomLink */
   }
   padding-inline: 10px;
-  color: #000;
+  // color: #000;
   &:hover {
-    color: #000; /* Change text color on hover */
+    // color: #000; /* Change text color on hover */
   }
+  padding: 10px;
 `;
 export const CustomSettingBox = styled.div`
   display: flex;

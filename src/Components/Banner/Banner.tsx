@@ -140,9 +140,9 @@ export const Banner = () => {
   };
 
   const menuItems: MenuProps["items"] = [
-    getItem(<a href="/profile">Profile</a>, "1", null, null, null),
-    getItem(<a href="/settings">Settings</a>, "2", null, null, null),
-    getItem(<a href="/support">Support</a>, "3", null, null, null),
+    getItem(<Link to="/profile">Profile</Link>, "1", null, null, null),
+    getItem(<Link to="/settings">Settings</Link>, "2", null, null, null),
+    getItem(<Link to="/support">Support</Link>, "3", null, null, null),
     getItem(
       "Mode",
       "sub2",
@@ -345,7 +345,10 @@ export const Banner = () => {
             </div>
             <div
               ref={menuRef}
-              style={{ position: "absolute" }}
+              style={{
+                position: "absolute",
+                display: !collapsed ? "none" : "block",
+              }}
               className={!collapsed ? "fade-out" : "fade-in"}
             >
               {userMenu}
@@ -509,12 +512,12 @@ export const Banner = () => {
             </ul>
 
             <Styled.MobileLogoWrapper>
-              <Link to="/dashboard">
+              <Styled.MobileLogoLink to="/dashboard">
                 <Styled.MobileLogo
                   src={setting.themeMode === "dark" ? logoDark : logoLight}
                   alt="QUICKPAYUS"
                 />
-              </Link>
+              </Styled.MobileLogoLink>
             </Styled.MobileLogoWrapper>
           </nav>
         </div>
