@@ -469,10 +469,12 @@ const SignupForm = () => {
           )}
         </Formik>
         <Styled.SignInWrapper>
-          <Styled.SignInBtn>
-            <Styled.StyleLink to="/signin">Sign In</Styled.StyleLink>
-          </Styled.SignInBtn>
-          <p>if you’re a member.</p>
+          <p>
+            <Styled.SignInBtn>
+              <Styled.StyleLink to="/signin">Sign In</Styled.StyleLink>
+            </Styled.SignInBtn>
+            if you’re a member.
+          </p>
         </Styled.SignInWrapper>
 
         <Styled.PrivacyTxt>
@@ -489,7 +491,6 @@ const SignupForm = () => {
             className="color-red"
             target="_blank"
           >
-            
             Privacy Policy
           </a>
           and
@@ -498,7 +499,6 @@ const SignupForm = () => {
             className="color-red"
             target="_blank"
           >
-            
             Terms of Service,
           </a>
           and is used for providing, maintaining, and improving the reCAPTCHA

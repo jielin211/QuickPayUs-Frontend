@@ -77,7 +77,6 @@ export const SignInButton = styled(Button)`
   }
 `;
 export const SignUpBtn = styled.span`
-  color: #007aff;
   padding: 0 5px 0 0;
 `;
 export const StyleLink = styled(Link)`
