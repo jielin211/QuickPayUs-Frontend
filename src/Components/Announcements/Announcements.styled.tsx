@@ -15,6 +15,7 @@ export const Header = styled.div`
   align-items: baseline;d
   width: 100%;
   padding: 0px 8px 0px 8px;
+  margin-bottom: 20px;
 `;
 export const Title = styled.h1`
   text-align: center;

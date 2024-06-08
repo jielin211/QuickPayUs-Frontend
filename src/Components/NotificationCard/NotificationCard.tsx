@@ -50,7 +50,9 @@ export const NotificationCard = ({ cardItem, variant }) => {
             <Styled.Title $type={cardItem.$type}>{cardItem.title}</Styled.Title>
           ) : null}
           {variant === "announcements" ? (
-            <Styled.Message>{cardItem.description}</Styled.Message>
+            cardItem.description && (
+              <Styled.Message>{cardItem.description}</Styled.Message>
+            )
           ) : (
             <Styled.Message>{cardItem.message}</Styled.Message>
           )}

@@ -25,10 +25,10 @@ export const NotificationCardContainer = styled.div<NotificationCardContainerPro
   align-items: center;
   justify-content: center;
   padding: 15px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-border-primary);
   border-radius: 5px;
   margin-bottom: 8px;
-  background-color: #fff;
+  background-color: var(--color-bg-container);
   color: ${(props) => {
     switch (props.$type) {
       case "GENERAL":
@@ -63,6 +63,7 @@ export const NotificationBody = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
   @media screen and (max-width: 768px) {
     text-align: left;
@@ -80,7 +81,7 @@ export const NotificationContent = styled.div`
 export const Message = styled.p`
   width: 100%;
   text-align: left;
-  margin: 0;
+  margin-top: 8px;
   font-size: 14px;
 `;
 
@@ -108,7 +109,7 @@ export const UnreadDot = styled.div`
 export const Title = styled.div<TitleProps>`
   font-size: 16px;
   font-weight: 600;
-  margin-bottom: 8px;
+  // margin-bottom: 8px;
   color: ${(props) => {
     switch (props.$type) {
       case "GENERAL":
