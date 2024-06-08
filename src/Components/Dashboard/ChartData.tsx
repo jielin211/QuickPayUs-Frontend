@@ -1,94 +1,100 @@
-import { ApexOptions } from 'apexcharts';
+import { ApexOptions } from "apexcharts";
 
 interface ChartSeries {
-   name: string;
-   data: number[];
-   color: string;
+  name: string;
+  data: number[];
+  color: string;
 }
 
 const eChart: {
-   series: ChartSeries[];
-   options: ApexOptions;
- } = {
-   series: [
-      {
-         name: "Sales",
-         data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
-         color: "#7e7e7e", 
-      },
-   ],
+  series: ChartSeries[];
+  options: ApexOptions;
+} = {
+  series: [
+    {
+      name: "Sales",
+      data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+      color: "#7e7e7e",
+    },
+  ],
 
-   options: {
-      fill: {
-         type: "gradient",
-         gradient: {
-           type: "vertical",
-           gradientToColors: ["#121212"],
-           stops: [10, 100],
-         },
+  options: {
+    fill: {
+      type: "gradient",
+      gradient: {
+        type: "vertical",
+        gradientToColors: ["#121212"],
+        stops: [10, 100],
       },
-      chart: {
-         type: 'bar',
-         width: "100%",
-         height: "auto",
+    },
+    chart: {
+      type: "bar",
+      width: "100%",
+      height: "auto",
 
-         toolbar: {
-            show: false,
-         },
-      }, 
-      plotOptions: {
-         bar: { 
-            horizontal: false,
-            columnWidth: "23.5%",  
-            borderRadius: 10,  
-         },   
-      },  
-      dataLabels: {
-         enabled: false,
+      toolbar: {
+        show: false,
       },
-      stroke: {
-         show: true,
-         width: 1,
-         colors: ["transparent"],
+    },
+    plotOptions: {
+      bar: {
+        horizontal: false,
+        columnWidth: "23.5%",
+        borderRadius: 10,
       },
-      grid: {
-         show: true,
-         borderColor: "#ccc",
-         strokeDashArray: 2,
+    },
+    dataLabels: {
+      enabled: false,
+    },
+    stroke: {
+      show: true,
+      width: 1,
+      colors: ["transparent"],
+    },
+    grid: {
+      show: true,
+      borderColor: "#ccc",
+      strokeDashArray: 2,
+    },
+    xaxis: {
+      categories: [
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+      ],
+      labels: {
+        show: true,
+        style: {
+          colors: "var(--color-text)",
+        },
       },
-      xaxis: {
-         categories: [
-            "Feb",
-            "Mar",
-            "Apr",
-            "May",
-            "Jun",
-            "Jul",
-            "Aug",
-            "Sep",
-            "Oct",
-         ],
-         labels: {
-            show: true,
-         },
+    },
+    yaxis: {
+      labels: {
+        show: true,
+        align: "right",
+        minWidth: 0,
+        maxWidth: 160,
+        style: {
+          colors: "var(--color-text)",
+        },
       },
-      yaxis: {
-         labels: {
-            show: true,
-            align: "right",
-            minWidth: 0,
-            maxWidth: 160,
-         },
-      },
+    },
 
-      tooltip: {
-         y: {
-            formatter: function (val) {
-               return "$ " + val + " thousands";
-            },
-         },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return "$ " + val + " thousands";
+        },
       },
-   },
+    },
+  },
 };
 
 export default eChart;

@@ -112,7 +112,7 @@ export const LearnMoreButton = styled.a`
     }
 `;
 export const StyledCheckbox = styled(Checkbox)`   
-    margin-top: 0px;    
+    margin-top: 10px;    
 `;   
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {

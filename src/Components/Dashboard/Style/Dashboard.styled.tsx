@@ -53,6 +53,7 @@ export const ChartHeading = styled.h2`
   width: 100%;
   color: var(--color-primary-text);
   text-align: left;
+  margin-bottom: 20px;
   @media (max-width: 575px) {
     text-align: center;
   }

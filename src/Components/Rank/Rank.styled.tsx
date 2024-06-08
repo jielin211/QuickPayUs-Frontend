@@ -1,12 +1,17 @@
-import { Button } from "antd";
 import styled from "styled-components";
+
+// antd
+import { Button } from "antd";
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const RankTitle = styled.h2`
   text-align: left;
   font-size: 20px;
   font-weight: 600;
   font-family: sans-serif;
-  margin: 0px;
+  margin-bottom: 20px;
   padding-bottom: 0px;
   padding-left: 7px;
   @media screen and (max-width: 992px) {
@@ -18,7 +23,7 @@ export const RankTitle = styled.h2`
 `;
 
 export const RankSubtitleWrapper = styled.div`
-  padding: 0 20px;
+  // padding: 0 20px;
   border-radius: 8px 8px 8px 0;
 `;
 
@@ -27,10 +32,25 @@ export const RankSubtitle = styled.h2`
   font-weight: 500;
   // color: #0a0a0a;
 `;
-export const RankCol = styled.div`
+export const RankCol1 = styled.div`
   text-align: left;
-  padding: 0px 24px;
-  border-right: 1px solid #d3d3d3;
+  padding: 0 0 20px 0;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--color-border-primary);
+  border-bottom-width: 1px;
+  ${breakpoint.md} {
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    padding: 0 20px 0 0;
+  }
+`;
+export const RankCol2 = styled(RankCol1)`
+  padding: 20px 0 0 0;
+  border: unset;
+  ${breakpoint.md} {
+    padding: 0 0 0 20px;
+  }
 `;
 export const RankContainer = styled.div`
   padding: 17px;
@@ -42,12 +62,12 @@ export const RankContainer = styled.div`
 `;
 export const RankDataWrapper = styled.div`
   border-radius: 18px;
-  padding: 30px !important;
+  padding: 25px !important;
   background-color: var(--color-bg-container);
 `;
 export const RankDataItem = styled.h3`
   // color: #0a0a0a;
-  text-align: center;
+  text-align: right;
 `;
 export const RankDataDescription = styled.div`
   text-align: center;
@@ -58,6 +78,7 @@ export const RankDataDescription = styled.div`
 export const ClaimRewardBtnWrapper = styled.div`
   display: flex;
   justify-content: right;
+  margin-top: 20px;
 `;
 export const ClaimRewardBtn = styled(Button)`
   padding: 0 25px;
