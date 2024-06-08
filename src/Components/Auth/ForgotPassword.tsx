@@ -158,7 +158,7 @@ const ForgotPassword: React.FC = () => {
                     <Styled.CountDownTimer>
                       {seconds > 0 || minutes > 0 ? (
                         <p>
-                          Time Remaining:{" "}
+                          Time Remaining:
                           <span style={{ fontWeight: 600 }}>
                             {minutes < 10 ? `0${minutes}` : minutes}:
                             {seconds < 10 ? `0${seconds}` : seconds}
@@ -292,24 +292,22 @@ const ForgotPassword: React.FC = () => {
           </Styled.LearnMoreButton>
         </Styled.PrivacyTxt>
         <Styled.PrivacyTxt2 className={showMoreInfo ? "privacy-visible" : ""}>
-          The information collected by Google reCAPTCHA is subject to the Google{" "}
+          The information collected by Google reCAPTCHA is subject to the Google
           <a
             href="https://policies.google.com/privacy"
             className="color-red"
             target="_blank"
           >
-            {" "}
-            Privacy Policy{" "}
-          </a>{" "}
-          and{" "}
+            Privacy Policy
+          </a>
+          and
           <a
             href="https://policies.google.com/terms"
             className="color-red"
             target="_blank"
           >
-            {" "}
-            Terms of Service,{" "}
-          </a>{" "}
+            Terms of Service,
+          </a>
           and is used for providing, maintaining, and improving the reCAPTCHA
           service and for general security purposes (it is not used for
           personalized advertising by Google).

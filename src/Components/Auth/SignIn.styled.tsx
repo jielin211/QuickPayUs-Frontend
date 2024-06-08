@@ -1,6 +1,11 @@
 import styled from "styled-components";
-import { Row, Card, Input, Button } from "antd";
 import { Link } from "react-router-dom";
+
+// antd
+import { Row, Card, Input, Button } from "antd";
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const StyledH1 = styled.h1`
   text-align: center;
@@ -41,6 +46,11 @@ export const MainRow = styled(Row)`
 `;
 export const MainCard = styled(Card)`
   border: none;
+  background: none;
+  max-width: 500px;
+  ${breakpoint.sm} {
+    background: var(--color-bg-container);
+  }
 `;
 export const StyledInput = styled(Input)`
   padding: 7px 15px;

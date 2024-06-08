@@ -428,11 +428,11 @@ a {
 }
 
 /* sign in */
-.signin *,
+/* .signin *,
 .signup *,
 .dashboard * {
   font-family: "IBM Plex Sans", sans-serif !important;
-}
+} */
 /* sign up */
 .ant-steps.ant-steps-dot .ant-steps-item-content,
 .ant-steps.ant-steps-dot.ant-steps-small .ant-steps-item-content {

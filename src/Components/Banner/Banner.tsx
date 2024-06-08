@@ -459,7 +459,10 @@ export const Banner = () => {
               {
                 <div
                   ref={mobileMenuRef}
-                  style={{ position: "absolute" }}
+                  style={{
+                    position: "absolute",
+                    display: !collapsed ? "none" : "block",
+                  }}
                   className={!collapsed ? "fade-out" : "fade-in"}
                 >
                   {mobileUserMenu}

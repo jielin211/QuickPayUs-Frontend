@@ -1,7 +1,12 @@
 import styled from "styled-components";
-import { Card, Input, Button, Checkbox, Steps as UiSteps} from "antd";     
-import ReactFlagsSelect from "react-flags-select";
 import { Link } from 'react-router-dom';
+import ReactFlagsSelect from "react-flags-select";
+
+// antd
+import { Card, Input, Button, Checkbox, Steps as UiSteps} from "antd";     
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const StyledWrapper = styled.div`    
     display: flex;
@@ -24,7 +29,7 @@ export const InputWrapper = styled.div`
 export const BtnGrp = styled.div`     
     margin-top: 30px; 
     display: flex;   
-    justify-content: right;       
+    justify-content: center;       
 `;
 export const SignInWrapper = styled.div`     
     display: flex;        
@@ -33,8 +38,15 @@ export const SignInWrapper = styled.div`
     margin-top: 20px; 
 `;   
 export const MainCard = styled(Card)`  
-    width: 500px;  
+    max-width: 500px;  
     border: none;
+    background: none;
+    .ant-card-head {
+      padding-top: 50px
+    }
+    ${breakpoint.sm} {
+      background: var(--color-bg-container);
+    }
 `;       
 export const InputField = styled(Input)`  
     font-size: 16px; 
@@ -49,18 +61,18 @@ export const InputFieldPassword = styled(Input.Password)`
     padding: 7px 15px;      
 `;
 export const PreviousBtn = styled(Button)`  
-    background-color: #007AFF; 
-    border-color: #007AFF;      
-    color: #fff;
+    // background-color: #007AFF; 
+    // border-color: #007AFF;      
+    // color: #fff;
     margin-right: 20px; 
     font-size: 16px;  
     padding: 6px 20px;     
     height: 42px;    
 `;  
 export const NextBtn = styled(Button)`   
-    background-color: #007AFF;  
-    border-color: #007AFF;      
-    color: #fff; 
+    // background-color: #007AFF;  
+    // border-color: #007AFF;      
+    // color: #fff; 
     font-size: 16px;  
     padding: 8px 30px;       
     height: 42px;  
@@ -152,4 +164,5 @@ export const Steps = styled(UiSteps)`
 `;
 export const CountDownTimer = styled.div`
   text-align: center;
+  margin-top: 20px;
 `;
