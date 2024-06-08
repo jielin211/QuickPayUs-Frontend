@@ -34,7 +34,7 @@ const ProfileAbout = () => {
           <Styled.StyledLevelLabel>Level: 1</Styled.StyledLevelLabel>
         </Styled.StyledUserInfo>
         <Styled.AboutBoxRow>
-          <Styled.AboutBoxCol span={12}>
+          <Styled.AboutBoxCol span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (
@@ -44,7 +44,7 @@ const ProfileAbout = () => {
               </>
             )}
           </Styled.AboutBoxCol>
-          <Styled.AboutBoxCol2 span={12}>
+          <Styled.AboutBoxCol2 span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (
@@ -56,7 +56,7 @@ const ProfileAbout = () => {
           </Styled.AboutBoxCol2>
         </Styled.AboutBoxRow>
         <Styled.AboutBoxRow>
-          <Styled.AboutBoxCol span={12}>
+          <Styled.AboutBoxCol span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (
@@ -66,7 +66,7 @@ const ProfileAbout = () => {
               </>
             )}
           </Styled.AboutBoxCol>
-          <Styled.AboutBoxCol2 span={12}>
+          <Styled.AboutBoxCol2 span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (
@@ -78,7 +78,7 @@ const ProfileAbout = () => {
           </Styled.AboutBoxCol2>
         </Styled.AboutBoxRow>
         <Styled.AboutBoxRow>
-          <Styled.AboutBoxCol span={12}>
+          <Styled.AboutBoxCol span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (
@@ -88,7 +88,7 @@ const ProfileAbout = () => {
               </>
             )}
           </Styled.AboutBoxCol>
-          <Styled.AboutBoxCol2 span={12}>
+          <Styled.AboutBoxCol2 span={24} md={12}>
             {isLoading ? (
               <Styled.SkeletonInputCustom size="small" active />
             ) : (

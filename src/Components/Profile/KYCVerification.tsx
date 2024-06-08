@@ -7,7 +7,7 @@ const KYCVerification = () => {
       <Styled.KycMainRow>
         <Styled.StyledKYCCol span={24}>
           <Styled.KycBox>
-            <Styled.KycBtn>
+            <Styled.KycBtn type="primary">
               <Link to="/verification">Get Verified</Link>
             </Styled.KycBtn>
           </Styled.KycBox>

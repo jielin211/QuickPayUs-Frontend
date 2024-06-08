@@ -1,22 +1,25 @@
 import styled from "styled-components";
 
+// antd
+import { Input } from "antd";
+
 export const StyledFloatInputWrapper = styled.div`
   position: relative;
 `;
 
-export const StyledFloatInput = styled.input`
+export const StyledFloatInput = styled(Input)`
   width: 100%;
   height: 35px;
   border-radius: 6px;
   font-size: 18px;
   padding: 0 15px;
-  border: 1px solid #d3d3d3;
-  color: #0a0a0a;
+  // border: 1px solid #d3d3d3;
+  // color: #0a0a0a;
   outline: none;
   font-size: 14px;
 
   &:focus {
-    border: 1px solid #000;
+    // border: 1px solid #000;
   }
 
   &:focus ~ label,
@@ -37,7 +40,7 @@ export const StyledFloatInputLabel = styled.label`
   top: 80%;
   left: 15px;
   transform: translateY(-100%);
-  color: #0a0a0a;
+  color: var(--color-text);
   font-size: 14px;
   pointer-event: none;
   transition: 0.3s;

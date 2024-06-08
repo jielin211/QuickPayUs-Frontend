@@ -1,5 +1,10 @@
 import styled from "styled-components";
+
+// antd
 import { Col, Row, Button, Avatar, Skeleton } from "antd";
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const AboutBoxH4 = styled.h4`
   margin: 0;
@@ -60,13 +65,14 @@ export const AboutBoxCol = styled(Col)`
   display: flex;
   align-items: center;
   padding: 15px;
-
-  border-right: 1px solid #d3d3d3;
+  ${breakpoint.md} {
+    border-right: 1px solid var(--color-border-primary);
+  }
 `;
 export const AboutBoxCol2 = styled(Col)`
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 15px;
 `;
 export const KycMainRow = styled(Row)`
   padding: 0px 46px;
@@ -84,9 +90,9 @@ export const KycBtn = styled(Button)`
     height: 40px;
 
     width: 140px;
-    color: #fff;
+    // color: #fff;
     border-radius: 5px;
-    background: #007aff;
+    // background: #007aff;
     font-weight: 600;
     text-transform: uppercase;
   }

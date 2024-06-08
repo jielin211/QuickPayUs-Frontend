@@ -168,7 +168,7 @@ export const PersonalInformationForm: React.FC<
               <Styled.StyledDatePicker />
             </Styled.StyledFormItem>
             <Styled.ErrorMessage>{errors.dateOfBirth}</Styled.ErrorMessage>
-            <Form.Item name="gender" label="Gender">
+            <Styled.StyledFormItem name="gender" label="Gender">
               <Styled.StyledSelect
                 value={selectedGender}
                 onChange={handleGenderChange}
@@ -177,19 +177,25 @@ export const PersonalInformationForm: React.FC<
                 <Option value="male">Male</Option>
                 <Option value="female">Female</Option>
               </Styled.StyledSelect>
-            </Form.Item>
-            <Styled.StyledFormItem name="occupation">
-              <FloatingInput
-                label="Occupation"
+            </Styled.StyledFormItem>
+            <Styled.StyledFormItem
+              name="occupation"
+              label="Occupation"
+              validateStatus=""
+            >
+              <Styled.StyledInput
                 name="occupation"
                 onChange={handleChangeFloating}
                 value={value}
               />
             </Styled.StyledFormItem>
             <Styled.ErrorMessage>{errors.occupation}</Styled.ErrorMessage>
-            <Styled.StyledFormItem name="address">
-              <FloatingInput
-                label="Address"
+            <Styled.StyledFormItem
+              name="address"
+              label="Address"
+              validateStatus=""
+            >
+              <Styled.StyledInput
                 name="address"
                 onChange={handleChangeFloating}
                 value={value}

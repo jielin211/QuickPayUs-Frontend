@@ -14,7 +14,7 @@ export const Heading = styled.div`
   font-weight: 600;
   padding: 16px 0px;
   padding-top: 0;
-  color: #0a0a0a;
+  // color: #0a0a0a;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }
@@ -44,7 +44,7 @@ export const RadioCard = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 20px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-border-primary);
   border-radius: 10px;
   cursor: pointer;
   transition: all 0.3s ease;

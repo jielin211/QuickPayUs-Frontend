@@ -42,7 +42,6 @@ export const Content = styled.div`
   align-items: flex-start;
   padding: 16px 2px;
   gap: 8px;
-  color: #;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   font-family: IBM Plex Sans, sans-serif;
@@ -114,7 +113,7 @@ export const PageWrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 16px 24px;
-  background-color: #f4f4f4;
+  // background-color: #f4f4f4;
   height: 100%;
 `;
 export const StepsWrapper = styled.div`

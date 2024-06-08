@@ -6,7 +6,7 @@ export const Heading = styled.div`
   font-size: 20px;
   font-weight: bold;
   padding: 16px 0px;
-  color: #0a0a0a;
+  // color: #0a0a0a;
   @media screen and (max-width: 768px) {
     font-size: 16px;
   }

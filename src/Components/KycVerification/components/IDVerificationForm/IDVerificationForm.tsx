@@ -119,13 +119,13 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({
               value={documentType}
             >
               <Styled.RadioCardContainer>
-                <Styled.RadioCard style={{ backgroundColor: "#fff" }}>
+                <Styled.RadioCard>
                   <Radio value={DOCUMENT_TYPES.ID_CARD}>ID Card</Radio>
                 </Styled.RadioCard>
-                <Styled.RadioCard style={{ backgroundColor: "#fff" }}>
+                <Styled.RadioCard>
                   <Radio value={DOCUMENT_TYPES.PASSPORT}>Passport</Radio>
                 </Styled.RadioCard>
-                <Styled.RadioCard style={{ backgroundColor: "#fff" }}>
+                <Styled.RadioCard>
                   <Radio value={DOCUMENT_TYPES.LICENSE}>License</Radio>
                 </Styled.RadioCard>
               </Styled.RadioCardContainer>
