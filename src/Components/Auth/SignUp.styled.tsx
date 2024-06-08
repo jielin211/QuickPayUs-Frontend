@@ -13,7 +13,10 @@ export const StyledWrapper = styled.div`
     justify-content: center;
     align-items: center;
     height: 100vh;   
-    background: var(--color-bg-layout);
+    background: var(--color-bg-container);
+    ${breakpoint.sm} {
+      background: var(--color-bg-layout);
+    }    
 `; 
 export const InputBox = styled.div`     
     margin-top: 20px;     
@@ -34,18 +37,15 @@ export const BtnGrp = styled.div`
 export const SignInWrapper = styled.div`     
     display: flex;        
     align-items: center; 
-    justify-content: center;
+    // justify-content: center;
     margin-top: 20px; 
+    padding: 0 10px; 
 `;   
 export const MainCard = styled(Card)`  
     max-width: 500px;  
     border: none;
-    background: none;
     .ant-card-head {
       padding-top: 50px
-    }
-    ${breakpoint.sm} {
-      background: var(--color-bg-container);
     }
 `;       
 export const InputField = styled(Input)`  
@@ -97,7 +97,7 @@ export const PrivacyTxt = styled.p`
 `; 
 export const PrivacyTxt2 = styled.p`     
     font-size: 12px;  
-    color: #121212;     
+    // color: #121212;     
     opacity: 0;
     transition: height .5s ease, opacity .5s ease;
     visibility: hidden;

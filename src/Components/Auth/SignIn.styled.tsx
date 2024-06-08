@@ -42,15 +42,14 @@ export const MainRow = styled(Row)`
   justify-content: center;
   min-height: 100vh;
   align-items: center;
-  background: var(--color-bg-layout);
+  background: var(--color-bg-container);
+  ${breakpoint.sm} {
+    background: var(--color-bg-layout);
+  }
 `;
 export const MainCard = styled(Card)`
   border: none;
-  background: none;
   max-width: 500px;
-  ${breakpoint.sm} {
-    background: var(--color-bg-container);
-  }
 `;
 export const StyledInput = styled(Input)`
   padding: 7px 15px;
