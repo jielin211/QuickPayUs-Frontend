@@ -255,14 +255,14 @@ input:-webkit-autofill:focus {
     z-index: -1;
     font-size: 28px;
     font-weight: 600;
-    transition: all 0.5s ease-out, background 1s ease-out;
-    transition-delay: 0.2s;
+    transition: all 0.4s ease-out, background 0.9s ease-out;
+    transition-delay: 0.1s;
   }
 
   .nav-container.menu-opened .desktop-nav {
     height: 100vh;
-    transition: all 0.3s ease-in, background 0.5s ease-in;
-    transition-delay: 0.25s;
+    transition: all 0.2s ease-in, background 0.4s ease-in;
+    transition-delay: 0.35s;
   }
 
   .nav-container .desktop-nav li:first-child {
@@ -275,7 +275,7 @@ input:-webkit-autofill:focus {
     display: inline-block;
     width: 100%;
     font-size: 17px;
-    transition: all 150ms ease;
+    transition: all 50ms ease;
     text-align: center;
   }
 
@@ -285,8 +285,8 @@ input:-webkit-autofill:focus {
     opacity: 0;
     /* pointer-events: none; */
     /* transform: scale(1.15) translateY(-30px); */
-    transition: transform 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99),
-      opacity 0.6s cubic-bezier(0.4, 0.01, 0.165, 0.99);
+    transition: transform 0.4s cubic-bezier(0.4, 0.01, 0.165, 0.99),
+      opacity 0.5s cubic-bezier(0.4, 0.01, 0.165, 0.99);
   }
 
   .nav-container.menu-opened .desktop-nav li {
@@ -314,47 +314,47 @@ input:-webkit-autofill:focus {
   }
 
   .nav-container .desktop-nav li:nth-child(7) {
-    transition-delay: 0.14s;
+    transition-delay: 0.04s;
   }
 
   .nav-container .desktop-nav li:nth-child(6) {
-    transition-delay: 0.21s;
+    transition-delay: 0.11s;
   }
 
   .nav-container .desktop-nav li:nth-child(5) {
-    transition-delay: 0.28s;
+    transition-delay: 0.18s;
   }
 
   .nav-container .desktop-nav li:nth-child(4) {
-    transition-delay: 0.35s;
+    transition-delay: 0.25s;
   }
 
   .nav-container .desktop-nav li:nth-child(3) {
-    transition-delay: 0.42s;
+    transition-delay: 0.32s;
   }
 
   .nav-container .desktop-nav li:nth-child(2) {
-    transition-delay: 0.49s;
+    transition-delay: 0.39s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(7) {
-    transition-delay: 0.62s;
+    transition-delay: 0.52s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(6) {
-    transition-delay: 0.55s;
+    transition-delay: 0.45s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(5) {
-    transition-delay: 0.48s;
+    transition-delay: 0.38s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(4) {
-    transition-delay: 0.41s;
+    transition-delay: 0.31s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(3) {
-    transition-delay: 0.34s;
+    transition-delay: 0.24s;
   }
 
   .nav-container.menu-opened .desktop-nav li:nth-child(2) {
