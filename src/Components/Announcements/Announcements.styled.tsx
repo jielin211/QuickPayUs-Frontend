@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+// breakpoints
+import { breakpoint } from "../../breakpoints";
+
 export const Container = styled.div`
   padding: 30px;
   height: 100%;
@@ -16,16 +19,17 @@ export const Header = styled.div`
   width: 100%;
   padding: 0px 8px 0px 8px;
   margin-bottom: 20px;
+  ${breakpoint.md} {
+    justify-content: left;
+  }
 `;
 export const Title = styled.h1`
   text-align: center;
   font-size: 20px;
   font-weight: 600;
   font-family: sans-serif;
-  padding-bottom: 0px;
   @media screen and (max-width: 992px) {
     font-size: 16px;
-    padding-bottom: 16px;
     text-align: center;
   }
 `;
