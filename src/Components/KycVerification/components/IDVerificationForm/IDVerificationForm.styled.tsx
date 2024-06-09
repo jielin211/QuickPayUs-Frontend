@@ -1,11 +1,43 @@
 import styled from "styled-components";
 import ReactFlagsSelect from "react-flags-select";
+
+// antd
 import { Form } from "antd";
 import { SolutionOutlined } from "@ant-design/icons";
 
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {
     border-radius: 8px !important;
+    color: var(--color-text);
+  }
+  ul {
+    background: var(--color-bg-container);
+    border: 1px solid var(--color-border-primary);
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+    &::-webkit-scrollbar-track {
+      background: var(--color-bg-container);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: #888;
+      border-radius: 3px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background-color: #888;
+    }
+    div {
+      background: var(--color-bg-container);
+      input {
+        background: var(--color-bg-container);
+        color: var(--color-text);
+        border-radius: 8px;
+        border: 1px solid var(--color-border-primary);
+      }
+    }
+    li:hover {
+      background: var(--color-bg-list-item-actived);
+    }
   }
 `;
 

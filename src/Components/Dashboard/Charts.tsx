@@ -15,19 +15,19 @@ const EChart: React.FC = () => {
         </Col>
         <Styled.SelectCol>
           <Styled.ChartSubjectSelect
-            defaultValue="Profit"
+            defaultValue="profits"
             options={[
-              { value: "profit", label: "Profit" },
-              { value: "balance", label: "Balance" },
-              { value: "reward", label: "Reward" },
+              { value: "profits", label: "Profits" },
+              { value: "credits", label: "Credits" },
+              { value: "rewards", label: "Rewards" },
             ]}
           />
           <Styled.ChartDateSelect
-            defaultValue="Month"
+            defaultValue="day"
             options={[
-              { value: "month", label: "Month" },
+              { value: "day", label: "Day" },
               { value: "week", label: "Week" },
-              { value: "year", label: "Year" },
+              { value: "month", label: "Month" },
             ]}
           />
         </Styled.SelectCol>

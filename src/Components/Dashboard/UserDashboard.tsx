@@ -14,8 +14,6 @@ const { useToken } = theme;
 const UserDashboard = () => {
   const [loading, setLoading] = useState<boolean>(true);
 
-  const { token } = useToken();
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -183,8 +181,6 @@ const UserDashboard = () => {
             </Col>
           </Styled.ChartRow>
         </Col>
-
-        {/* Right Side */}
       </Row>
     </Styled.Main>
   );

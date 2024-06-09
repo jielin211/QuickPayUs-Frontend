@@ -1,13 +1,23 @@
-import { Form, Select, Radio, Divider } from "antd";
-import * as Styled from "./IDVerificationForm.styled";
-import { UploadButton } from "../../../UploadButton/UploadButton";
-import { useDispatch, useSelector } from "react-redux";
-import { updateKycField } from "../../../../Redux/KycVerificationSlice";
 import { useState, useCallback } from "react";
-import { selectKycVerification } from "../../../../Redux/selectors";
-import { DOCUMENT_TYPES } from "./constants";
+import { useDispatch, useSelector } from "react-redux";
 import { getCountryCode, getCountryData } from "countries-list";
 import ReactFlagsSelect from "react-flags-select";
+
+// antd
+import { Form, Radio } from "antd";
+
+// styles
+import * as Styled from "./IDVerificationForm.styled";
+
+// components
+import { UploadButton } from "../../../UploadButton/UploadButton";
+
+// redux
+import { updateKycField } from "../../../../Redux/KycVerificationSlice";
+import { selectKycVerification } from "../../../../Redux/selectors";
+
+// constants
+import { DOCUMENT_TYPES } from "./constants";
 
 interface IDVerificationFormProps {
   errors: {
@@ -105,7 +115,7 @@ export const IDVerificationForm: React.FC<IDVerificationFormProps> = ({
           layout="vertical"
         >
           <Styled.StyledFormItem label="Country" name="country">
-            <ReactFlagsSelect
+            <Styled.CountrySelect
               searchable
               selected={selected || ""}
               onSelect={handleCountryChange}

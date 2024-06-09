@@ -93,6 +93,9 @@ const eChart: {
           return "$ " + val + " thousands";
         },
       },
+      marker: {
+        show: false,
+      },
     },
   },
 };

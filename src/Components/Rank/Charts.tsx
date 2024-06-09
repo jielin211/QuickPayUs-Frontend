@@ -29,19 +29,19 @@ const RankChart: React.FC = () => {
         </Col>
         <Col>
           <Select
-            defaultValue="Profit"
+            defaultValue="profits"
             options={[
-              { value: "profit", label: "Profit" },
-              { value: "credits", label: "credits" },
+              { value: "profits", label: "Profits" },
+              { value: "credits", label: "Credits" },
               { value: "rewards", label: "Rewards" },
             ]}
           />
           <Select
-            defaultValue="week"
+            defaultValue="day"
             options={[
+              { value: "day", label: "Day" },
               { value: "week", label: "Week" },
               { value: "month", label: "Month" },
-              { value: "year", label: "Year" },
             ]}
             style={{ paddingLeft: "20px" }}
           />
