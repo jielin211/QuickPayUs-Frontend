@@ -64,7 +64,7 @@ export const PageHeading = styled.h2`
   @media screen and (max-width: 768px) {
     text-align: center;
   }
-  font-size: 23px;
+  // font-size: 23px;
   // color: #000;
   // padding-left: 23px;
   margin-bottom: 20px;

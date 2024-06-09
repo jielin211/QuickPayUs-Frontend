@@ -13,7 +13,7 @@ export const Container = styled.div`
 
 export const ListContainer = styled.div`
   background: var(--color-bg-container);
-  padding: 30px;
+  padding: 24px;
   border-radius: 18px;
 `;
 

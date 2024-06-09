@@ -106,7 +106,7 @@ const Deposit: React.FC = () => {
                           <Styled.SelectOne
                             className="select"
                             style={{
-                              border: "1px solid #BDBDBD",
+                              border: "1px solid var(--color-border-primary)",
                               borderRadius: "8px",
                               overflow: "hidden",
                             }}
@@ -167,7 +167,7 @@ const Deposit: React.FC = () => {
                         {({ field }) => (
                           <Styled.InputBox
                             style={{
-                              border: "1px solid #BDBDBD",
+                              // border: "1px solid var(--color-border-primary)",
                               borderRadius: "8px",
                               overflow: "hidden",
                               // backgroundColor: "#fff",
@@ -191,7 +191,7 @@ const Deposit: React.FC = () => {
                         {({ field }) => (
                           <Styled.InputBox
                             style={{
-                              border: "1px solid #BDBDBD",
+                              // border: "1px solid var(--color-border-primary)",
                               borderRadius: "8px",
                               overflow: "hidden",
                               // backgroundColor: "#fff",

@@ -663,7 +663,8 @@ a {
 }
 
 .ant-input:not([type="password"]):not([type="tel"]),
-.ant-input-password {
+.ant-input-password,
+.ant-select {
   border-radius: 12px !important;
 }
 
