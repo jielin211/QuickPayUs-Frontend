@@ -10,11 +10,10 @@ export const StyledLabel = styled.label`
   left: 15px;
   top: 50%;
   transform: translateY(-50%);
-  transition: all 0.3s ease;
+  transition: all 0.3s ease, transform 0.2s ease;
   background: var(--color-bg-container);
   padding: 0 2px;
   pointer-events: none;
-  // color: black;
 `;
 
 export const StyledFloatInputPassword = styled(Input.Password)`
