@@ -218,14 +218,19 @@ const Withdrawal = () => {
           >
             <div>
               <InputOTP value={otp} onChange={handleInputChange} />
-              <div>
+              <div
+                style={{
+                  marginTop: "20px",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
                 <Button
                   type="primary"
-                  style={{ marginTop: "20px", marginLeft: "auto" }}
                   onClick={handleResendOTP}
                   disabled={timer > 0}
                 >
-                  {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Send OTP"}
+                  {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Submit OTP"}
                 </Button>
               </div>
               {verificationError && (
