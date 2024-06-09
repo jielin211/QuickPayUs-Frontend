@@ -1,5 +1,10 @@
 import styled from "styled-components";
+
+// antd
 import { Row, Card, Skeleton, Col, Select } from "antd";
+
+// breakpoints
+import { breakpoint } from "../../../breakpoints";
 
 export const Main = styled.div`
   // padding-top: 2px;
@@ -82,9 +87,11 @@ export const SelectCol = styled(Col)`
   }
 `;
 export const SkeletonInputCustom = styled(Skeleton.Input)`
-  @media (max-width: 575px) {
-    min-width: 100px !important;
-    width: 100px !important;
+  min-width: 100% !important;
+  width: 100% !important;
+  ${breakpoint.sm} {
+    min-width: 150px !important;
+    width: 150px !important;
   }
 `;
 export const SkeletonInputCustomHeader = styled(Skeleton.Input)`
