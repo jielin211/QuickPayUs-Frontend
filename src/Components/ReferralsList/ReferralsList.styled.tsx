@@ -1,5 +1,10 @@
 import styled from "styled-components";
-import { Empty, Select } from "antd";
+
+// antd
+import { Empty, Select, Space } from "antd";
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const Container = styled.div`
   padding: 17px;
@@ -22,39 +27,39 @@ export const ListHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 16px;
-  @media screen and (max-width: 992px) {
-    display: flex;
-    flex-direction: column;
-    align-items: start;
+  gap: 10px;
+  flex-direction: column;
+  ${breakpoint.lg} {
+    flex-direction: row;
   }
 `;
 
 export const Title = styled.h1`
-  text-align: left;
-  font-size: 20px;
+  text-align: center;
   font-weight: 600;
   font-family: sans-serif;
   margin: 0px;
-  padding-bottom: 0px;
-  padding-left: 7px;
-  @media screen and (max-width: 992px) {
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 16px;
+  padding-bottom: 10px;
+  width: 100%;
+  font-size: 20px;
+  ${breakpoint.md} {
+    text-align: left;
+  }
+  ${breakpoint.lg} {
+    padding-bottom: 0px;
+    width: auto;
   }
 `;
 export const FilterContainer = styled.div`
   display: flex;
   gap: 10px;
-  justify-content: center;
-  align-items: center;
-  @media screen and (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 10px;
-    width: 100%;
+  flex-direction: column;
+  width: 100%;
+  ${breakpoint.md} {
+    flex-direction: row;
+  }
+  ${breakpoint.lg} {
+    width: auto;
   }
 `;
 export const searchField = styled.div`
@@ -93,4 +98,12 @@ export const EmptyState = styled(Empty)`
 
 export const SelectStyled = styled(Select)`
   width: 100%;
+`;
+
+export const StyledSpace = styled(Space)`
+  display: flex;
+  flex: 1;
+  .ant-space-item {
+    flex: 1;
+  }
 `;

@@ -30,7 +30,7 @@ const Referrals: React.FC = () => {
         <Styled.ListHeader>
           <Styled.Title>Referrals</Styled.Title>
           <Styled.FilterContainer>
-            <Space>
+            <Styled.StyledSpace size={10}>
               <Input.Search
                 placeholder="Search"
                 onSearch={handleSearch}
@@ -41,8 +41,8 @@ const Referrals: React.FC = () => {
                   boxSizing: "border-box",
                 }}
               />
-            </Space>
-            <Space size={10}>
+            </Styled.StyledSpace>
+            <Styled.StyledSpace size={10}>
               <Styled.SelectStyled
                 defaultValue={REFERRAL_TYPE.DIRECT}
                 onSelect={handleTypeChange}
@@ -70,7 +70,7 @@ const Referrals: React.FC = () => {
                   ))}
                 </Styled.SelectStyled>
               )}
-            </Space>
+            </Styled.StyledSpace>
           </Styled.FilterContainer>
         </Styled.ListHeader>
         {isLoading || isFetching ? ( // Show skeleton loader while data is loading

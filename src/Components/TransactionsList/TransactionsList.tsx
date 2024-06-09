@@ -29,7 +29,7 @@ const TransactionsList: React.FC = () => {
         <Styled.ListHeader>
           <Styled.Title>Transactions</Styled.Title>
           <Styled.FilterContainer>
-            <Space size={10}>
+            <Styled.StyledSpace size={10}>
               <DatePicker
                 onChange={handleStartDateChange}
                 disabledDate={disabledDate}
@@ -37,15 +37,17 @@ const TransactionsList: React.FC = () => {
                 placeholder="From"
                 allowClear
                 format={"DD-MM-YYYY"}
+                style={{ width: "100%" }}
               />
               <DatePicker
                 onChange={handleEndDateChange}
                 placeholder="To"
                 allowClear
                 format={"DD-MM-YYYY"}
+                style={{ width: "100%" }}
               />
-            </Space>
-            <Space size={10}>
+            </Styled.StyledSpace>
+            <Styled.StyledSpace size={10}>
               <Styled.SelectOne
                 defaultValue={TRANSACTION_TYPE.DEPOSIT}
                 onChange={handleTransactionTypeChange}
@@ -65,7 +67,7 @@ const TransactionsList: React.FC = () => {
                 <Option value={STATUS.PENDING}>Pending</Option>
                 <Option value={STATUS.REJECTED}>Rejected</Option>
               </Styled.SelectTwo>
-            </Space>
+            </Styled.StyledSpace>
           </Styled.FilterContainer>
         </Styled.ListHeader>
         {isLoading || isFetching ? (

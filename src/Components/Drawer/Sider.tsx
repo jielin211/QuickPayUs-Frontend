@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
+import styled from "styled-components";
 
 // antd
 import { Menu, Collapse, Layout } from "antd";
@@ -35,10 +36,12 @@ import RankIconDark from "../../assets/images/rank-icon-dark.svg";
 import RankIconFilledDark from "../../assets/images/rank-icon-filled-dark.svg";
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
-import styled from "styled-components";
+// components
 import SiderMenuItem from "./SiderMenuItem";
 
-const { Panel } = Collapse;
+// breakpoints
+import { breakpoint } from "../../breakpoints";
+
 const { Sider: UiSider } = Layout;
 
 const UiSiderCustom = styled(UiSider)`
@@ -53,8 +56,9 @@ const UiSiderCustom = styled(UiSider)`
   background: var(--color-bg-container) !important;
   border-right: 1px solid var(--color-border-primary) !important;
   overflow: hidden;
-  @media (max-width: 800px) {
-    display: none;
+  display: none;
+  ${breakpoint.md} {
+    display: block;
   }
 `;
 
