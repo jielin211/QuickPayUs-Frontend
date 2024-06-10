@@ -1,19 +1,21 @@
 import styled from "styled-components";
 
 // antd
-import { Select, Collapse, Typography } from "antd";
+import { Select, Collapse, Card } from "antd";
 
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-const { Title } = Typography;
-
-export const StyledTitle = styled(Title)`
+export const StyledTitle = styled.h2`
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
   text-align: center;
-  margin-bottom: 20px !important;
   ${breakpoint.md} {
     text-align: left;
   }
+`;
+export const StyledCard = styled(Card)`
+  margin-bottom: 20px;
 `;
 export const StyledSelect = styled(Select)`
   width: 100%;
@@ -64,4 +66,8 @@ export const ContactItemWrapper = styled.div`
 export const ContactItemContentWrapper = styled.div`
   padding: 0 10px;
   wordwrap: break-word;
+`;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: right;
 `;

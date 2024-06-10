@@ -2,15 +2,16 @@ import React from "react";
 import styled from "styled-components";
 
 // antd
-import { Input, Button, Card, Form, Typography } from "antd";
+import { Input, Button, Card, Form } from "antd";
 
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-const { Title } = Typography;
-
-const StyledTitle = styled(Title)`
+const StyledTitle = styled.h1`
   text-align: center;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  font-size: var(--font-size-page-title);
   ${breakpoint.md} {
     text-align: left;
   }
@@ -30,7 +31,7 @@ const ChangeEmail: React.FC = () => {
 
   return (
     <Card>
-      <StyledTitle level={3}>Change Email</StyledTitle>
+      <StyledTitle>Change Email</StyledTitle>
       <Form name="change_email_form" onFinish={handleChangeEmail}>
         <Form.Item
           name="password"
@@ -50,11 +51,9 @@ const ChangeEmail: React.FC = () => {
         >
           <Input placeholder="New Email" type="email" name="email" />
         </Form.Item>
-        <Form.Item>
-          <Button type="primary" htmlType="submit" block>
-            Change Email
-          </Button>
-        </Form.Item>
+        <Button type="primary" htmlType="submit" block>
+          Change Email
+        </Button>
       </Form>
     </Card>
   );

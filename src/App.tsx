@@ -45,6 +45,9 @@ function App() {
           "--border-radius-button": "12px",
           "--border-radius-container": "18px",
           "--padding-container": "24px",
+          "--font-size-page-title": "20px",
+          "--font-weight-page-title": "600",
+          "--margin-bottom-page-title": "20px",
         }}
       >
         <AppRoutes />

@@ -1,8 +1,14 @@
-import * as Styled from "./CustomTicket.styled";
-import { Card, Input, Button, Modal, Form } from "antd";
 import { useState } from "react";
+
+// antd
+import { Input, Button, Modal, Form } from "antd";
 import { PaperClipOutlined } from "@ant-design/icons";
+
+// components
 import { UploadButton } from "../UploadButton/UploadButton";
+
+// styles
+import * as Styled from "./CustomTicket.styled";
 
 const { TextArea } = Input;
 
@@ -47,19 +53,18 @@ const CustomTicket: React.FC = () => {
 
   return (
     <>
-      <Card>
-        <Styled.StyledTitle level={3}>
-          Ticket Submission System
-        </Styled.StyledTitle>
-        <Form
-          name="ticket_submit_form"
-          onFinish={(values) => {
-            setSubject(values.subject);
-            setDescription(values.description);
-            showModal();
-          }}
-          layout="vertical"
-        >
+      <Styled.StyledTitle>Ticket Submission System</Styled.StyledTitle>
+
+      <Form
+        name="ticket_submit_form"
+        onFinish={(values) => {
+          setSubject(values.subject);
+          setDescription(values.description);
+          showModal();
+        }}
+        layout="vertical"
+      >
+        <Styled.StyledCard>
           <Form.Item
             name="subject"
             rules={[{ required: true, message: "Please input subject!" }]}
@@ -77,11 +82,13 @@ const CustomTicket: React.FC = () => {
           <Form.Item label="Attachments">
             <UploadButton getFileList={getFileList} maxCount={2} />
           </Form.Item>
-          <Button type="primary" htmlType="submit" block>
+        </Styled.StyledCard>
+        <Styled.ButtonWrapper>
+          <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </Form>
-      </Card>
+        </Styled.ButtonWrapper>
+      </Form>
       <Modal
         title="Review Ticket"
         open={open}

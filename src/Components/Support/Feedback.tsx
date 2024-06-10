@@ -1,10 +1,32 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Upload, Modal, Typography, Card } from "antd";
-import { InboxOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
+// antd
+import { Form, Input, Button, Upload, Modal, Card } from "antd";
+import { InboxOutlined } from "@ant-design/icons";
+
+// breakpoints
+import { breakpoint } from "../../breakpoints";
+
 const { TextArea } = Input;
-const { Title } = Typography;
+
+export const Title = styled.h2`
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
+  }
+`;
+
+export const StyledCard = styled(Card)`
+  margin-bottom: 20px;
+`;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: right;
+`;
 
 const FeedbackForm: React.FC = () => {
   const [form] = Form.useForm();
@@ -28,14 +50,15 @@ const FeedbackForm: React.FC = () => {
 
   return (
     <>
-      <Card>
-        <Title level={3}>Send Feedback</Title>
-        <Form
-          form={form}
-          name="feedback_form"
-          onFinish={onFinish}
-          layout="vertical"
-        >
+      <Title>Send Feedback</Title>
+
+      <Form
+        form={form}
+        name="feedback_form"
+        onFinish={onFinish}
+        layout="vertical"
+      >
+        <StyledCard>
           <Form.Item
             name="feedback"
             label="Feedback"
@@ -59,11 +82,14 @@ const FeedbackForm: React.FC = () => {
               </p>
             </Upload.Dragger>
           </Form.Item>
-          <Button type="primary" htmlType="submit" block>
+        </StyledCard>
+        <ButtonWrapper>
+          <Button type="primary" htmlType="submit">
             Submit Feedback
           </Button>
-        </Form>
-      </Card>
+        </ButtonWrapper>
+      </Form>
+
       <Modal
         title="Feedback Submitted"
         visible={isModalVisible}

@@ -21,7 +21,7 @@ const AccountDeactivation = () => {
           <img
             src={deleteicon}
             alt="."
-            style={{ display: "block", width: "18px", opacity: "0.7" }}
+            style={{ display: "block", width: "14px", opacity: "0.7" }}
           />
         </Styled.CustomLink>
         <Styled.CustomLink to="/signin">

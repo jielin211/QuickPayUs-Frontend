@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 // antd
-import { Button, Form, Input, Card, Typography, message, Modal } from "antd";
+import { Button, Form, Input, Card, message, Modal } from "antd";
 
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-const { Title } = Typography;
-
-const StyledTitle = styled(Title)`
+const StyledTitle = styled.h1`
   text-align: center;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  font-size: var(--font-size-page-title);
   ${breakpoint.md} {
     text-align: left;
   }
@@ -44,7 +45,7 @@ const ChangeNamePage: React.FC = () => {
   return (
     <>
       <Card>
-        <StyledTitle level={3}>Change Name</StyledTitle>
+        <StyledTitle>Change Name</StyledTitle>
         <Form
           name="change_name_form"
           initialValues={{ name }}
@@ -75,11 +76,9 @@ const ChangeNamePage: React.FC = () => {
           >
             <Input placeholder="Confirm Name" />
           </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit" block>
-              Change Name
-            </Button>
-          </Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Change Name
+          </Button>
         </Form>
       </Card>
 

@@ -21,7 +21,6 @@ export const ListHeader = styled.div`
 export const Title = styled.h1`
   text-align: center;
   font-weight: 600;
-  font-family: sans-serif;
   margin: 0px;
   padding-bottom: 10px;
   width: 100%;

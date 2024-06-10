@@ -1,43 +1,12 @@
 import styled from "styled-components";
+
+// antd
 import { Alert, Card, Select, Input, Button } from "antd";
 
-export const DepositContainer = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // width: 100%;
-  // padding: 17px;
-
-  @media screen and (max-width: 768px) {
-    // padding: 20px;
-  }
-
-  // height: 100%;
-  // background-color: #f4f4f4;
-`;
-
-export const FormContainer = styled.div`
-  // margin-left: auto;
-  // margin-right: auto;
-  // width: 100%;
-  // border-radius: 18px;
-  // padding: 20px;
-
-  // background-color: #fff;
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    padding: 0;
-    box-shadow: none;
-  }
-`;
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const StyledCard = styled(Card)`
-  // background-color: #fff;
-  // text-align: left;
-  // width: 100%;
-  // box-shadow: none;
-  // margin-top: -12px;
-  border: none;
-  // transition: all 0.3s cubic-bezier(0, 0, 0.5, 1);
   margin-bottom: 20px;
 `;
 
@@ -61,13 +30,12 @@ export const FieldCover = styled.div`
 `;
 
 export const PageHeading = styled.h2`
-  @media screen and (max-width: 768px) {
-    text-align: center;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
   }
-  // font-size: 23px;
-  // color: #000;
-  // padding-left: 23px;
-  margin-bottom: 20px;
 `;
 
 export const SubmitButtonContainer = styled.div`

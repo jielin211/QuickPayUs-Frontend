@@ -27,7 +27,6 @@ export const Title = styled.h1`
   text-align: center;
   font-size: 20px;
   font-weight: 600;
-  font-family: sans-serif;
   @media screen and (max-width: 992px) {
     font-size: 16px;
     text-align: center;

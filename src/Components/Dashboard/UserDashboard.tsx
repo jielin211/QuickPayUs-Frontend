@@ -23,14 +23,8 @@ const UserDashboard = () => {
   }, []);
 
   return (
-    <Styled.Main className="dashboard">
-      <Styled.StyledHeading>
-        {loading ? (
-          <Styled.SkeletonInputCustomHeader active size="small" />
-        ) : (
-          <>Account Overview</>
-        )}
-      </Styled.StyledHeading>
+    <>
+      <Styled.StyledHeading>Account Overview</Styled.StyledHeading>
       <Row>
         <Col md={24} xl={24} xs={24}>
           {/* Account Balance */}
@@ -182,7 +176,7 @@ const UserDashboard = () => {
           </Styled.ChartRow>
         </Col>
       </Row>
-    </Styled.Main>
+    </>
   );
 };
 

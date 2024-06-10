@@ -7,18 +7,11 @@ import { Button, Col, Row } from "antd";
 import { breakpoint } from "../../breakpoints";
 
 export const RankTitle = styled.h2`
-  text-align: left;
-  font-size: 20px;
-  font-weight: 600;
-  font-family: sans-serif;
-  margin-bottom: 20px;
-  padding-bottom: 0px;
-  padding-left: 7px;
-  @media screen and (max-width: 992px) {
-    font-size: 20px;
-    width: 100%;
-    text-align: center;
-    padding-bottom: 16px;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
   }
 `;
 

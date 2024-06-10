@@ -1,46 +1,20 @@
 import styled from "styled-components";
+
+// antd
 import { Select, Card } from "antd";
 
-export const WithdrawalContainer = styled.div`
-  // display: flex;
-  // flex-direction: column;
-  // width: 100%;
-  // padding: 17px;
-  @media screen and (max-width: 768px) {
-    // padding: 20px;
-  }
-  // height: 100%;
-
-`;
-
-export const FormContainer = styled.div`
-  // margin-left: auto;
-  // margin-right: auto;
-  // width: 100%;
-  // border-radius: 18px;
-  // padding: 20px;
-  // padding-bottom: 48px;
-  // background-color: #fff;
-
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    padding: 0;
-    box-shadow: none;
-  }
-`;
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
 export const SubmitButtonContainer = styled.div`
   display: flex;
   justify-content: right;
   align-items: center;
-  // width: 100%;
-  // padding: 0 24px;
 `;
 
 export const Balance = styled.div`
   border: 1px solid var(--color-border-primary);
   border-radius: var(--border-radius-input);
-  // background-color: #fff;
   color: var(--color-text);
   width: 200px;
   height: 32px;
@@ -61,11 +35,12 @@ export const BalanceContainer = styled.div`
 `;
 
 export const StyledH2 = styled.h2`
-  // padding-left: 23px;
-  @media screen and (max-width: 768px) {
-    text-align: center;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
   }
-  margin-bottom: 20px;
 `;
 export const StyledForm = styled.form`
   text-align: left;

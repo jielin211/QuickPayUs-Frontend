@@ -151,98 +151,94 @@ const Withdrawal = () => {
   };
 
   return (
-    <Styled.WithdrawalContainer>
-      <Styled.FormContainer>
-        <Styled.StyledH2>Withdraw</Styled.StyledH2>
-        <Styled.StyledForm
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSubmit();
-          }}
-        >
-          <Styled.StyledCard>
-            <Styled.InputWrapper>
-              <label>Amount:</label>
-              <Input
-                type="text"
-                value={withdrawalAmount}
-                onChange={(e) => setWithdrawalAmount(e.target.value)}
-                placeholder="Enter amount"
-              />
-            </Styled.InputWrapper>
-            <Styled.InputWrapper>
-              <label>Address:</label>
-              <Input
-                type="text"
-                value={withdrawalAddress}
-                onChange={(e) => setWithdrawalAddress(e.target.value)}
-                placeholder="Enter receiver account ID"
-              />
-            </Styled.InputWrapper>
-            <Styled.BalanceContainer>
-              <div>
-                <div style={{ marginBottom: "10px" }}>Type:</div>
-                <Styled.StyledSelect
-                  value={transactionType}
-                  onChange={(value) => setTransactionType(value as string)}
-                >
-                  <Option value="">Select Transaction Type</Option>
-                  <Option value="profit">Profit</Option>
-                  <Option value="principal">Deposit</Option>
-                </Styled.StyledSelect>
-              </div>
-              <div>
-                <div style={{ marginBottom: "10px" }}>My Balance:</div>
-                <Styled.Balance>$334400</Styled.Balance>
-              </div>
-            </Styled.BalanceContainer>
-          </Styled.StyledCard>
-
-          <Styled.SubmitButtonContainer>
-            <Button
-              type="primary"
-              htmlType="submit"
-              disabled={isLoading}
-              style={{ background: "#007AFF" }}
-            >
-              Submit
-            </Button>
-          </Styled.SubmitButtonContainer>
-
-          {/* OTP Modal */}
-          <Modal
-            title="Enter OTP"
-            open={isModalVisible}
-            onCancel={() => setIsModalVisible(false)}
-            footer={null}
-          >
+    <>
+      <Styled.StyledH2>Withdraw</Styled.StyledH2>
+      <Styled.StyledForm
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleSubmit();
+        }}
+      >
+        <Styled.StyledCard>
+          <Styled.InputWrapper>
+            <label>Amount:</label>
+            <Input
+              type="text"
+              value={withdrawalAmount}
+              onChange={(e) => setWithdrawalAmount(e.target.value)}
+              placeholder="Enter amount"
+            />
+          </Styled.InputWrapper>
+          <Styled.InputWrapper>
+            <label>Address:</label>
+            <Input
+              type="text"
+              value={withdrawalAddress}
+              onChange={(e) => setWithdrawalAddress(e.target.value)}
+              placeholder="Enter receiver account ID"
+            />
+          </Styled.InputWrapper>
+          <Styled.BalanceContainer>
             <div>
-              <InputOTP value={otp} onChange={handleInputChange} />
-              <div
-                style={{
-                  marginTop: "20px",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
+              <div style={{ marginBottom: "10px" }}>Type:</div>
+              <Styled.StyledSelect
+                value={transactionType}
+                onChange={(value) => setTransactionType(value as string)}
               >
-                <Button
-                  type="primary"
-                  onClick={handleResendOTP}
-                  disabled={timer > 0}
-                >
-                  {otpSent && timer > 0
-                    ? `Resend OTP (${timer}s)`
-                    : "Submit OTP"}
-                </Button>
-              </div>
-              {verificationError && (
-                <div className="color-red">{verificationError}</div>
-              )}
+                <Option value="">Select Transaction Type</Option>
+                <Option value="profit">Profit</Option>
+                <Option value="principal">Deposit</Option>
+              </Styled.StyledSelect>
             </div>
-          </Modal>
-        </Styled.StyledForm>
-      </Styled.FormContainer>
-    </Styled.WithdrawalContainer>
+            <div>
+              <div style={{ marginBottom: "10px" }}>My Balance:</div>
+              <Styled.Balance>$334400</Styled.Balance>
+            </div>
+          </Styled.BalanceContainer>
+        </Styled.StyledCard>
+
+        <Styled.SubmitButtonContainer>
+          <Button
+            type="primary"
+            htmlType="submit"
+            disabled={isLoading}
+            style={{ background: "#007AFF" }}
+          >
+            Submit
+          </Button>
+        </Styled.SubmitButtonContainer>
+
+        {/* OTP Modal */}
+        <Modal
+          title="Enter OTP"
+          open={isModalVisible}
+          onCancel={() => setIsModalVisible(false)}
+          footer={null}
+        >
+          <div>
+            <InputOTP value={otp} onChange={handleInputChange} />
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              <Button
+                type="primary"
+                onClick={handleResendOTP}
+                disabled={timer > 0}
+              >
+                {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Submit OTP"}
+              </Button>
+            </div>
+            {verificationError && (
+              <div className="color-red">{verificationError}</div>
+            )}
+          </div>
+        </Modal>
+      </Styled.StyledForm>
+    </>
   );
 };
 

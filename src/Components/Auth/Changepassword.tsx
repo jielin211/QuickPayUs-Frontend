@@ -16,8 +16,6 @@ import {
 // styles
 import * as Styled from "./Changepassword.style";
 
-const { Title } = Typography;
-
 interface FormErrors {
   currentPassword?: string;
   password?: string;
@@ -79,111 +77,103 @@ const ChangePassword: React.FC = () => {
   return (
     <>
       <Card>
-        <Styled.ChangePasswordWrapper>
-          <Title level={3}>Change Password</Title>
-          <Styled.ChangePasswordContent>
-            <Formik
-              initialValues={{
-                currentPassword: "",
-                password: "",
-                confirmPassword: "",
-              }}
-              validate={validateForm}
-              onSubmit={handleChangePassword}
-            >
-              {({ errors, handleSubmit, touched, values }) => (
-                <Form style={{ width: "100%" }} onFinish={handleSubmit}>
-                  <Form.Item
-                    validateStatus={
-                      touched.currentPassword ||
-                      values.currentPassword.length !== 0
-                        ? !errors.currentPassword
-                          ? "success"
-                          : "error"
-                        : ""
-                    }
-                    help={
-                      touched.currentPassword && errors.currentPassword
-                        ? errors.currentPassword
-                        : null
-                    }
-                  >
-                    <Field name="currentPassword">
-                      {({ field }) => (
-                        <Input
-                          type="password"
-                          name="currentPassword"
-                          placeholder="Current Password"
-                        />
-                      )}
-                    </Field>
-                  </Form.Item>
-                  <Form.Item
-                    validateStatus={
-                      touched.password || values.password.length !== 0
-                        ? !errors.password
-                          ? "success"
-                          : "error"
-                        : ""
-                    }
-                    help={
-                      touched.password && errors.password
-                        ? errors.password
-                        : null
-                    }
-                    style={{ marginTop: "24px" }}
-                  >
-                    <Field name="password">
-                      {({ field }) => (
-                        <Input
-                          type="password"
-                          name="password"
-                          placeholder="New Password"
-                        />
-                      )}
-                    </Field>
-                  </Form.Item>
-                  <Form.Item
-                    validateStatus={
-                      touched.confirmPassword ||
-                      values.confirmPassword.length !== 0
-                        ? !errors.confirmPassword
-                          ? "success"
-                          : "error"
-                        : ""
-                    }
-                    help={
-                      touched.confirmPassword && errors.confirmPassword
-                        ? errors.confirmPassword
-                        : null
-                    }
-                    style={{ marginTop: "24px" }}
-                  >
-                    <Field name="confirmPassword">
-                      {({ field }) => (
-                        <Input
-                          type="password"
-                          name="confirmPassword"
-                          placeholder="Confirm Password"
-                        />
-                      )}
-                    </Field>
-                  </Form.Item>
-                  <Col span={24}>
-                    <Button
-                      type="primary"
-                      htmlType="submit"
-                      disabled={isSubmitting}
-                      block
-                    >
-                      Change Password
-                    </Button>
-                  </Col>
-                </Form>
-              )}
-            </Formik>
-          </Styled.ChangePasswordContent>
-        </Styled.ChangePasswordWrapper>
+        <Styled.Title level={3}>Change Password</Styled.Title>
+        <Formik
+          initialValues={{
+            currentPassword: "",
+            password: "",
+            confirmPassword: "",
+          }}
+          validate={validateForm}
+          onSubmit={handleChangePassword}
+        >
+          {({ errors, handleSubmit, touched, values }) => (
+            <Form style={{ width: "100%" }} onFinish={handleSubmit}>
+              <Form.Item
+                validateStatus={
+                  touched.currentPassword || values.currentPassword.length !== 0
+                    ? !errors.currentPassword
+                      ? "success"
+                      : "error"
+                    : ""
+                }
+                help={
+                  touched.currentPassword && errors.currentPassword
+                    ? errors.currentPassword
+                    : null
+                }
+              >
+                <Field name="currentPassword">
+                  {({ field }) => (
+                    <Input
+                      type="password"
+                      name="currentPassword"
+                      placeholder="Current Password"
+                    />
+                  )}
+                </Field>
+              </Form.Item>
+              <Form.Item
+                validateStatus={
+                  touched.password || values.password.length !== 0
+                    ? !errors.password
+                      ? "success"
+                      : "error"
+                    : ""
+                }
+                help={
+                  touched.password && errors.password ? errors.password : null
+                }
+                style={{ marginTop: "24px" }}
+              >
+                <Field name="password">
+                  {({ field }) => (
+                    <Input
+                      type="password"
+                      name="password"
+                      placeholder="New Password"
+                    />
+                  )}
+                </Field>
+              </Form.Item>
+              <Form.Item
+                validateStatus={
+                  touched.confirmPassword || values.confirmPassword.length !== 0
+                    ? !errors.confirmPassword
+                      ? "success"
+                      : "error"
+                    : ""
+                }
+                help={
+                  touched.confirmPassword && errors.confirmPassword
+                    ? errors.confirmPassword
+                    : null
+                }
+                style={{ marginTop: "24px" }}
+              >
+                <Field name="confirmPassword">
+                  {({ field }) => (
+                    <Input
+                      type="password"
+                      name="confirmPassword"
+                      placeholder="Confirm Password"
+                    />
+                  )}
+                </Field>
+              </Form.Item>
+              <Col span={24}>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  disabled={isSubmitting}
+                  block
+                >
+                  Change Password
+                </Button>
+              </Col>
+            </Form>
+          )}
+        </Formik>
       </Card>
 
       <Modal

@@ -6,20 +6,12 @@ import { Row, Card, Skeleton, Col, Select } from "antd";
 // breakpoints
 import { breakpoint } from "../../../breakpoints";
 
-export const Main = styled.div`
-  // padding-top: 2px;
-  // padding-right: 25px;
-  // padding-left: 25px;
-  // background-color: #f4f4f4;
-  // height: 100%;
-`;
 export const StyledHeading = styled.h2`
-  // color: #000;
-  // text-align: left;
-  font-weight: 600;
-  margin-bottom: 20px;
-  @media (max-width: 575px) {
-    text-align: center;
+  font-weight: var(--font-weight-page-title);
+  margin-bottom: var(--margin-bottom-page-title);
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
   }
 `;
 export const CardCol = styled.div`
