@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // antd
-import { Button } from "antd";
+import { Button, Col, Row } from "antd";
 
 // breakpoints
 import { breakpoint } from "../../breakpoints";
@@ -28,9 +28,8 @@ export const RankSubtitleWrapper = styled.div`
 `;
 
 export const RankSubtitle = styled.h2`
-  padding: 10px 5px;
+  padding-bottom: 15px;
   font-weight: 500;
-  // color: #0a0a0a;
 `;
 export const RankCol1 = styled.div`
   text-align: left;
@@ -52,22 +51,27 @@ export const RankCol2 = styled(RankCol1)`
     padding: 0 0 0 20px;
   }
 `;
-export const RankContainer = styled.div`
-  padding: 17px;
-  height: 100%;
-  // background-color: #f4f4f4;
-  @media screen and (max-width: 768px) {
-    padding: 20px;
-  }
-`;
 export const RankDataWrapper = styled.div`
-  border-radius: 18px;
-  padding: 25px !important;
+  border-radius: var(--border-radius-container);
+  padding: var(--padding-container) !important;
   background-color: var(--color-bg-container);
 `;
-export const RankDataItem = styled.h3`
-  // color: #0a0a0a;
-  text-align: right;
+export const RankDataItem = styled(Row)`
+  margin-bottom: 5px;
+`;
+export const RankDataLabel = styled(Col)`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2px;
+  ${breakpoint.md} {
+    justify-content: flex-start;
+  }
+`;
+export const RankDataValue = styled(Col)`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 `;
 export const RankDataDescription = styled.div`
   text-align: center;
@@ -93,9 +97,10 @@ export const RankResultWrapper = styled.div`
   padding-left: 50px;
 `;
 export const RankChartWrapper = styled.div`
-  border-radius: 18px;
+  border-radius: var(--border-radius-container);
   margin: 30px 0;
   background-color: var(--color-bg-container);
+  padding: var(--padding-container) !important;
 `;
 export const RankResultContent = styled.span`
   margin: auto 0;

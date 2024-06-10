@@ -19,7 +19,7 @@ const MyComponent: React.FC = () => {
   }, []);
 
   return (
-    <Styled.RankContainer>
+    <>
       <Styled.RankTitle>Rank</Styled.RankTitle>
       <Styled.RankDataWrapper>
         <Styled.RankSubtitleWrapper>
@@ -28,82 +28,88 @@ const MyComponent: React.FC = () => {
         <Row>
           <Col span={24} md={12}>
             <Styled.RankCol1>
-              <Row>
-                <Col span={12}>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
                   <h3>Current Rank</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? <Skeleton.Input size="small" active /> : "N/A"}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={12}>
-                  <h3>Starts On:</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
+                  <h3>Starts On</h3>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? (
                       <Skeleton.Input size="small" active />
                     ) : (
                       "20/03/2024"
                     )}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={12}>
-                  <h3>Ends On:</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
+                  <h3>Ends On</h3>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? (
                       <Skeleton.Input size="small" active />
                     ) : (
                       "20/03/2024"
                     )}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
             </Styled.RankCol1>
           </Col>
           <Col span={24} md={12}>
             <Styled.RankCol2>
-              <Row>
-                <Col span={12}>
-                  <h3 className="text-left">Current Sales Revenue:</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
+                  <h3 className="text-left">Current Sales Revenue</h3>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? (
                       <Skeleton.Input size="small" active />
                     ) : (
                       "$ 100000"
                     )}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={12}>
-                  <h3 className="text-left">Direct Referrals :</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
+                  <h3 className="text-left">Direct Referrals</h3>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? <Skeleton.Input size="small" active /> : "200"}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={12}>
-                  <h3 className="text-left">Meeting compliance:</h3>
-                </Col>
-                <Col span={12}>
-                  <Styled.RankDataItem>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
+              <Styled.RankDataItem>
+                <Styled.RankDataLabel span={12}>
+                  <h3 className="text-left">Meeting compliance</h3>
+                  <span>:</span>
+                </Styled.RankDataLabel>
+                <Styled.RankDataValue span={12}>
+                  <h3>
                     {loading ? <Skeleton.Input size="small" active /> : "200"}
-                  </Styled.RankDataItem>
-                </Col>
-              </Row>
+                  </h3>
+                </Styled.RankDataValue>
+              </Styled.RankDataItem>
             </Styled.RankCol2>
           </Col>
         </Row>
@@ -144,7 +150,7 @@ const MyComponent: React.FC = () => {
       <Styled.RankChartWrapper>
         <RankChart />
       </Styled.RankChartWrapper>
-    </Styled.RankContainer>
+    </>
   );
 };
 

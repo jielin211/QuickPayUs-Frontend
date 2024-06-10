@@ -44,6 +44,7 @@ function App() {
           "--border-radius-input": "12px",
           "--border-radius-button": "12px",
           "--border-radius-container": "18px",
+          "--padding-container": "24px",
         }}
       >
         <AppRoutes />

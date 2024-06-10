@@ -5,27 +5,12 @@ import { Row, Select, Col } from "antd";
 
 const RankChart: React.FC = () => {
   const options: ApexOptions = eChart.options;
-  // {
-  //    fill: {
-  //      type: "gradient",
-  //      gradient: {
-  //        type: "vertical",
-  //        gradientToColors: ["#FF6B00"],
-  //        stops: [0, 100],
-  //      },
-  //    },
-  //    ...eChart.options,
-  //  };
 
   return (
     <>
-      <Row
-        justify="space-between"
-        align={"middle"}
-        style={{ padding: "0px 30px" }}
-      >
+      <Row justify="space-between" align={"middle"}>
         <Col className="w-100">
-          <h2 style={{ margin: "20px 0" }}>Sales Analytics</h2>
+          <h2 style={{ paddingBottom: "15px" }}>Sales Analytics</h2>
         </Col>
         <Col>
           <Select
