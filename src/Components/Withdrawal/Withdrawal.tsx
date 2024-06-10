@@ -215,6 +215,8 @@ const Withdrawal = () => {
         open={isModalVisible}
         onCancel={() => setIsModalVisible(false)}
         footer={null}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <div>
           <InputOTP value={otp} onChange={handleInputChange} />

@@ -92,13 +92,15 @@ const FeedbackForm: React.FC = () => {
 
       <Modal
         title="Feedback Submitted"
-        visible={isModalVisible}
+        open={isModalVisible}
         onCancel={handleCancel}
         footer={[
           <Button key="ok" type="primary" onClick={handleCancel}>
             OK
           </Button>,
         ]}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <p>Thank you for your feedback!</p>
         <p>We'll review it and get back to you if necessary.</p>

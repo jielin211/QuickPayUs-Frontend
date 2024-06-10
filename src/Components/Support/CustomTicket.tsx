@@ -94,6 +94,8 @@ const CustomTicket: React.FC = () => {
         open={open}
         onOk={handleOk}
         onCancel={handleCancel}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <Styled.StyledModalTitle>{subject}</Styled.StyledModalTitle>
         <p>{description}</p>

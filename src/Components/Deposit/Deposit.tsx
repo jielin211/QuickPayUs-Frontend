@@ -224,6 +224,8 @@ const Deposit: React.FC = () => {
             Submit
           </Styled.GradientButton>,
         ]}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <p>Are you sure you want to proceed?</p>
       </Modal>

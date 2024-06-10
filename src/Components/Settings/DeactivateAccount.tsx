@@ -116,12 +116,14 @@ const DeactivateAccount: React.FC = () => {
 
         <Modal
           title="Confirm Deactivation"
-          visible={isModalVisible}
+          open={isModalVisible}
           onOk={showDeactivateConfirm}
           onCancel={() => setIsModalVisible(false)}
           okText="Deactivate"
           okType="danger"
           cancelText="Cancel"
+          centered
+          getContainer={() => document.getElementById("app-modals")}
         >
           <Form
             name="deactivate_form"

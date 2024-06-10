@@ -178,9 +178,11 @@ const ChangePassword: React.FC = () => {
 
       <Modal
         title="Enter OTP"
-        visible={isOtpModalVisible}
+        open={isOtpModalVisible}
         onCancel={() => setIsOtpModalVisible(false)}
         footer={null}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <Form onFinish={handleOtpSubmit}>
           <Form.Item

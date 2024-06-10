@@ -98,9 +98,11 @@ const AccountDelete: React.FC = () => {
 
       <Modal
         title="Enter OTP"
-        visible={otpModalVisible}
+        open={otpModalVisible}
         onOk={handleOtpSubmit}
         onCancel={() => setOtpModalVisible(false)}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <Input
           placeholder="Enter OTP"
@@ -111,9 +113,11 @@ const AccountDelete: React.FC = () => {
 
       <Modal
         title="Confirm Account Deletion"
-        visible={confirmationModalVisible}
+        open={confirmationModalVisible}
         onOk={handleFinalDeleteAccount}
         onCancel={() => setConfirmationModalVisible(false)}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <p>
           Are you sure you want to delete your account? This action cannot be

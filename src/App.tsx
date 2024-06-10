@@ -51,6 +51,7 @@ function App() {
         }}
       >
         <AppRoutes />
+        <div id="app-modals"></div>
       </div>
     </Router>
   );

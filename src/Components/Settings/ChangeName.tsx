@@ -87,6 +87,8 @@ const ChangeNamePage: React.FC = () => {
         open={isModalVisible}
         footer={null}
         onCancel={() => setIsModalVisible(false)}
+        centered
+        getContainer={() => document.getElementById("app-modals")}
       >
         <Form name="password_form" onFinish={handlePasswordSubmit}>
           <Form.Item
