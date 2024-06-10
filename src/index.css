@@ -31,7 +31,8 @@ input:-webkit-autofill:focus {
 }
 
 .ant-card {
-  border-radius: 18px !important;
+  border-radius: 18px;
+  border: unset;
 }
 
 .ant-card .ant-card-head-title {
