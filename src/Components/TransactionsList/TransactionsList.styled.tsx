@@ -6,13 +6,6 @@ import { Select, Space } from "antd";
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-export const Container = styled.div`
-  padding: 17px;
-  @media screen and (max-width: 768px) {
-    padding: 20px;
-  }
-`;
-
 export const FilterContainer = styled.div`
   display: flex;
   gap: 10px;
@@ -26,12 +19,12 @@ export const FilterContainer = styled.div`
   }
 `;
 
-export const ListContainer = styled.div`
-  background: var(--color-bg-container);
-  padding: 24px;
+// export const ListContainer = styled.div`
+//   background: var(--color-bg-container);
+//   padding: 24px;
 
-  border-radius: 18px;
-`;
+//   border-radius: 18px;
+// `;
 
 export const ListHeader = styled.div`
   display: flex;

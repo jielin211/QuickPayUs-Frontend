@@ -6,22 +6,6 @@ import { Empty, Select, Space, Input } from "antd";
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-export const Container = styled.div`
-  padding: 17px;
-
-  @media screen and (max-width: 768px) {
-    padding: 20px;
-  }
-  // height: 100%;
-  // background-color: #f4f4f4;
-`;
-
-export const ListContainer = styled.div`
-  background: var(--color-bg-container);
-  padding: 24px;
-  border-radius: 18px;
-`;
-
 export const ListHeader = styled.div`
   display: flex;
   justify-content: space-between;
