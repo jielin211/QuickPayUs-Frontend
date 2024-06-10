@@ -22,7 +22,6 @@ import { Sider } from "./Sider";
 import { KycVerification } from "../KycVerification";
 import CustomTicket from "../Support/CustomTicket";
 import Feedback from "../Support/Feedback";
-import ContactInfo from "../Support/Contact";
 import DeleteAccount from "../DeleteAccount/Password";
 import ChangeName from "../Settings/ChangeName";
 import ChangeEmail from "../Settings/ChangeEmail";
@@ -86,7 +85,6 @@ const App = () => {
                 <Route path="/verification" element={<KycVerification />} />
                 <Route path="/support/ticket" element={<CustomTicket />} />
                 <Route path="/support/feedback" element={<Feedback />} />
-                <Route path="/support/contact" element={<ContactInfo />} />
                 <Route
                   path="/settings/account-deletion"
                   element={<DeleteAccount />}

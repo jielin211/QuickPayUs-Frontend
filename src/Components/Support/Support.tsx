@@ -1,14 +1,11 @@
-import { Col, Input, Row } from "antd";
-import type { SearchProps } from "antd/es/input/Search";
 import { Link } from "react-router-dom";
-import {
-  FileProtectOutlined,
-  QuestionCircleTwoTone,
-  ContactsTwoTone,
-} from "@ant-design/icons";
-import * as Styled from "./Support.styled";
 
-const { Search } = Input;
+// antd
+import type { SearchProps } from "antd/es/input/Search";
+import { FileProtectOutlined, QuestionCircleTwoTone } from "@ant-design/icons";
+
+// styles
+import * as Styled from "./Support.styled";
 
 const Support = () => {
   const onSearch: SearchProps["onSearch"] = (value, _e, info) =>
@@ -25,45 +22,31 @@ const Support = () => {
           size="middle"
         />
       </Styled.BgTop>
-
-      <div style={{ height: "100%" }}>
-        <Styled.TopicWrapper>
-          <Styled.StyledH2>
-            Choose a topic to help us route your request quickly.
-          </Styled.StyledH2>
-          <Styled.StyledRow justify={"space-between"}>
-            {/* Col */}
-            <Styled.StyledCol lg={7} sm={12}>
-              <Link to="/support/ticket">
-                <Styled.IconWrapper>
-                  <FileProtectOutlined />
-                </Styled.IconWrapper>
-                <Styled.ItemTitleWrapper>
-                  Ticket Submission
-                </Styled.ItemTitleWrapper>
-              </Link>
-            </Styled.StyledCol>
-            <Styled.StyledCol lg={7} sm={12}>
-              <Link to="/support/feedback">
-                <Styled.IconWrapper>
-                  <QuestionCircleTwoTone />
-                </Styled.IconWrapper>
-                <Styled.ItemTitleWrapper>Feedback</Styled.ItemTitleWrapper>
-              </Link>
-            </Styled.StyledCol>
-            <Styled.StyledCol lg={7} sm={12}>
-              <Link to="/support/contact">
-                <Styled.IconWrapper>
-                  <ContactsTwoTone />
-                </Styled.IconWrapper>
-                <Styled.ItemTitleWrapper>
-                  Contact Information
-                </Styled.ItemTitleWrapper>
-              </Link>
-            </Styled.StyledCol>
-          </Styled.StyledRow>
-        </Styled.TopicWrapper>
-      </div>
+      <Styled.TopicWrapper>
+        <Styled.StyledH2>
+          Choose a topic to help us route your request quickly.
+        </Styled.StyledH2>
+        <Styled.StyledRow justify="center" style={{ gap: 10 }}>
+          <Styled.StyledCol span={24} lg={7}>
+            <Link to="/support/ticket">
+              <Styled.IconWrapper>
+                <FileProtectOutlined />
+              </Styled.IconWrapper>
+              <Styled.ItemTitleWrapper>
+                Ticket Submission
+              </Styled.ItemTitleWrapper>
+            </Link>
+          </Styled.StyledCol>
+          <Styled.StyledCol span={24} lg={7}>
+            <Link to="/support/feedback">
+              <Styled.IconWrapper>
+                <QuestionCircleTwoTone />
+              </Styled.IconWrapper>
+              <Styled.ItemTitleWrapper>Feedback</Styled.ItemTitleWrapper>
+            </Link>
+          </Styled.StyledCol>
+        </Styled.StyledRow>
+      </Styled.TopicWrapper>
     </div>
   );
 };

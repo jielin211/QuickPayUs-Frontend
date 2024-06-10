@@ -37,36 +37,6 @@ export const StyledFAQContent = styled(Collapse)`
     box-shadow: none;
   }
 `;
-export const StyledContactContent = styled.div`
-  margin: 0 auto;
-  width: 350px;
-  margin-top: 10px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  padding: 24px;
-
-  @media screen and (max-width: 992px) {
-    width: 100%;
-    box-shadow: none;
-  }
-`;
-export const ContactIconWrapper = styled.div`
-  font-size: 24px;
-  background: #4f95f7;
-  padding: 10px 12px;
-  border-radius: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 48px;
-`;
-export const ContactItemWrapper = styled.div`
-  display: flex;
-  margin: 20px;
-`;
-export const ContactItemContentWrapper = styled.div`
-  padding: 0 10px;
-  wordwrap: break-word;
-`;
 export const ButtonWrapper = styled.div`
   display: flex;
   justify-content: right;
