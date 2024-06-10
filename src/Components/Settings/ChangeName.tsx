@@ -94,11 +94,6 @@ const ChangeNamePage: React.FC = () => {
               Change Name
             </Button>
           </Form.Item>
-          <Space direction="vertical" size="middle" style={{ width: "100%" }}>
-            <Text type="secondary">
-              Note: Your name will be visible to others.
-            </Text>
-          </Space>
         </Form>
       </FormCard>
 
