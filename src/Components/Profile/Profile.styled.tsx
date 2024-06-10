@@ -57,7 +57,7 @@ export const AboutMainRow = styled(Row)`
 `;
 export const AboutBoxRow = styled(Row)`
   padding: 10px 0;
-  border-radius: 10px;
+  border-radius: var(--border-radius-container);
   background: var(--color-bg-container);
   margin-bottom: 20px;
 `;
