@@ -1,5 +1,5 @@
 import * as Styled from "./CustomTicket.styled";
-import { Card, Input, Select, Button, Modal } from "antd";
+import { Card, Input, Button, Modal, Form } from "antd";
 import { useState } from "react";
 import { PaperClipOutlined } from "@ant-design/icons";
 import { UploadButton } from "../UploadButton/UploadButton";
@@ -46,61 +46,58 @@ const CustomTicket: React.FC = () => {
   };
 
   return (
-    <Styled.CustomTicketContainer>
-      <Styled.FormContainer>
-        <Styled.StyledH2>Ticket Submission System</Styled.StyledH2>
-        <Styled.StyledForm
-          onSubmit={(e) => {
-            e.preventDefault();
+    <>
+      <Card>
+        <Styled.StyledTitle level={3}>
+          Ticket Submission System
+        </Styled.StyledTitle>
+        <Form
+          name="ticket_submit_form"
+          onFinish={(values) => {
+            setSubject(values.subject);
+            setDescription(values.description);
+            showModal();
           }}
+          layout="vertical"
         >
-          <Styled.StyledCard>
-            <Styled.InputWrapper>
-              <label>Subject:</label>
-              <Input
-                type="text"
-                placeholder="Enter Subject"
-                value={subject}
-                onChange={(e) => setSubject(e.target.value)}
-              />
-            </Styled.InputWrapper>
-            <Styled.InputWrapper>
-              <label>Description:</label>
-              <TextArea
-                rows={4}
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-              />
-            </Styled.InputWrapper>
-            <Styled.InputWrapper>
-              <label>Attachments:</label>
-              <UploadButton getFileList={getFileList} maxCount={2} />
-            </Styled.InputWrapper>
-          </Styled.StyledCard>
-
-          <Styled.SubmitButtonContainer>
-            <Button type="primary" onClick={showModal}>
-              Submit
-            </Button>
-          </Styled.SubmitButtonContainer>
-          <Modal
-            title="Review Ticket"
-            open={open}
-            onOk={handleOk}
-            onCancel={handleCancel}
+          <Form.Item
+            name="subject"
+            rules={[{ required: true, message: "Please input subject!" }]}
+            label="Subject"
           >
-            <Styled.StyledModalTitle>{subject}</Styled.StyledModalTitle>
-            <p>{description}</p>
-            {fileList.map((item, index) => (
-              <p key={index}>
-                <PaperClipOutlined />
-                {item.name}
-              </p>
-            ))}
-          </Modal>
-        </Styled.StyledForm>
-      </Styled.FormContainer>
-    </Styled.CustomTicketContainer>
+            <Input type="text" />
+          </Form.Item>
+          <Form.Item
+            name="description"
+            rules={[{ required: true, message: "Please input description!" }]}
+            label="Description"
+          >
+            <TextArea rows={4} />
+          </Form.Item>
+          <Form.Item label="Attachments">
+            <UploadButton getFileList={getFileList} maxCount={2} />
+          </Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Submit
+          </Button>
+        </Form>
+      </Card>
+      <Modal
+        title="Review Ticket"
+        open={open}
+        onOk={handleOk}
+        onCancel={handleCancel}
+      >
+        <Styled.StyledModalTitle>{subject}</Styled.StyledModalTitle>
+        <p>{description}</p>
+        {fileList.map((item, index) => (
+          <p key={index}>
+            <PaperClipOutlined />
+            {item.name}
+          </p>
+        ))}
+      </Modal>
+    </>
   );
 };
 
