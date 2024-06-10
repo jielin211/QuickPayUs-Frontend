@@ -31,7 +31,7 @@ const Referrals: React.FC = () => {
           <Styled.Title>Referrals</Styled.Title>
           <Styled.FilterContainer>
             <Styled.StyledSpace size={10}>
-              <Input.Search
+              <Styled.StyledSearch
                 placeholder="Search"
                 onSearch={handleSearch}
                 allowClear

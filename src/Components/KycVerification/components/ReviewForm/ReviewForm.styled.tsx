@@ -31,7 +31,7 @@ export const FieldValue = styled.div`
   border: 1px solid var(--color-border-primary);
   color: var(--color-text);
   padding: 8px;
-  border-radius: 8px;
+  border-radius: var(--border-radius-input);
 `;
 
 export const Container = styled.div`

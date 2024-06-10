@@ -230,7 +230,9 @@ const Withdrawal = () => {
                   onClick={handleResendOTP}
                   disabled={timer > 0}
                 >
-                  {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Submit OTP"}
+                  {otpSent && timer > 0
+                    ? `Resend OTP (${timer}s)`
+                    : "Submit OTP"}
                 </Button>
               </div>
               {verificationError && (

@@ -39,7 +39,7 @@ export const SubmitButtonContainer = styled.div`
 
 export const Balance = styled.div`
   border: 1px solid var(--color-border-primary);
-  border-radius: 5px;
+  border-radius: var(--border-radius-input);
   // background-color: #fff;
   color: var(--color-text);
   width: 200px;

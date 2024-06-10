@@ -106,8 +106,6 @@ const Deposit: React.FC = () => {
                           <Styled.SelectOne
                             className="select"
                             style={{
-                              border: "1px solid var(--color-border-primary)",
-                              borderRadius: "8px",
                               overflow: "hidden",
                             }}
                             defaultValue="Select amount"
@@ -167,11 +165,7 @@ const Deposit: React.FC = () => {
                         {({ field }) => (
                           <Styled.InputBox
                             style={{
-                              // border: "1px solid var(--color-border-primary)",
-                              borderRadius: "8px",
                               overflow: "hidden",
-                              // backgroundColor: "#fff",
-                              // color: "#0a0a0a",
                             }}
                             {...field}
                             value="alsaif"
@@ -191,11 +185,7 @@ const Deposit: React.FC = () => {
                         {({ field }) => (
                           <Styled.InputBox
                             style={{
-                              // border: "1px solid var(--color-border-primary)",
-                              borderRadius: "8px",
                               overflow: "hidden",
-                              // backgroundColor: "#fff",
-                              // color: "#0a0a0a",
                             }}
                             {...field}
                             placeholder="Enter sender address"

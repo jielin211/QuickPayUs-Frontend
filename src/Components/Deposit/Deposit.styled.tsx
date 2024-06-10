@@ -85,8 +85,6 @@ export const PageCover = styled.div`
 
 export const AlertMessage = styled(Alert)`
   margin-bottom: 10px;
-  // background-color: #fff5f5;
-  // border: 1px solid #ffe2e0;
 `;
 
 export const SelectOne = styled(Select)`

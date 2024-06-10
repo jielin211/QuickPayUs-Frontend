@@ -72,7 +72,7 @@ const SignIn: React.FC = () => {
             const errors: FormErrors = {};
 
             if (!values.email) {
-              errors.email = "Please input your email";
+              errors.email = "Please input your email / username";
             }
             if (!values.password) {
               errors.password = "Please input your password";

@@ -41,6 +41,9 @@ function App() {
           "--color-bg-list-item-actived": token.colorBgListItemActived,
           "--color-text": token.colorText,
           "--color-border-primary": token.colorBorderPrimary,
+          "--border-radius-input": "12px",
+          "--border-radius-button": "8px",
+          "--border-radius-container": "18px",
         }}
       >
         <AppRoutes />

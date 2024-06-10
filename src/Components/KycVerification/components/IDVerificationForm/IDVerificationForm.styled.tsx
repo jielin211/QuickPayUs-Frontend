@@ -7,7 +7,7 @@ import { SolutionOutlined } from "@ant-design/icons";
 
 export const CountrySelect = styled(ReactFlagsSelect)`
   button {
-    border-radius: 8px !important;
+    border-radius: var(--border-radius-input) !important;
     color: var(--color-text);
   }
   ul {
@@ -31,7 +31,7 @@ export const CountrySelect = styled(ReactFlagsSelect)`
       input {
         background: var(--color-bg-container);
         color: var(--color-text);
-        border-radius: 8px;
+        border-radius: var(--border-radius-input);
         border: 1px solid var(--color-border-primary);
       }
     }

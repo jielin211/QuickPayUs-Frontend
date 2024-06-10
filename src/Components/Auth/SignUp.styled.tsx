@@ -53,9 +53,11 @@ export const InputField = styled(Input)`
 `;
 export const InputFieldPassword = styled(Input.Password)`
   font-size: 16px;
-  // border: 1px solid #1e1e1e;
-  border-radius: 5px;
+  border-radius: var(--border-radius-input);
   padding: 7px 15px;
+  .ant-input {
+    border-radius: unset !important;
+  }
 `;
 export const PreviousBtn = styled(Button)`
   // background-color: #007AFF;

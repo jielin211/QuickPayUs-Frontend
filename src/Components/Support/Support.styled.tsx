@@ -67,6 +67,20 @@ export const StyledCol = styled(Col)`
 export const StyledSearch = styled(Search)`
   padding-bottom: 30px;
   max-width: 52em;
+  .ant-input-affix-wrapper {
+    border-radius: var(--border-radius-input) !important;
+    border-start-end-radius: 0 !important;
+    border-end-end-radius: 0 !important;
+    .ant-input {
+      border-radius: unset !important;
+    }
+  }
+  .ant-input-group-addon {
+    button {
+      border-start-start-radius: 0 !important;
+      border-end-start-radius: 0 !important;
+    }
+  }
 `;
 export const IconWrapper = styled(Row)`
   display: flex;

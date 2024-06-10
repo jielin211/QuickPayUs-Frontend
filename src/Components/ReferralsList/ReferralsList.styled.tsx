@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 // antd
-import { Empty, Select, Space } from "antd";
+import { Empty, Select, Space, Input } from "antd";
 
 // breakpoints
 import { breakpoint } from "../../breakpoints";
@@ -105,5 +105,22 @@ export const StyledSpace = styled(Space)`
   flex: 1;
   .ant-space-item {
     flex: 1;
+  }
+`;
+
+export const StyledSearch = styled(Input.Search)`
+  .ant-input-affix-wrapper {
+    border-start-start-radius: var(--border-radius-input) !important;
+    border-end-start-radius: var(--border-radius-input) !important;
+    .ant-input {
+      border-radius: unset !important;
+    }
+  }
+  .ant-input-group-addon {
+    button {
+      border-radius: unset !important;
+      border-start-end-radius: var(--border-radius-input) !important;
+      border-end-end-radius: var(--border-radius-input) !important;
+    }
   }
 `;

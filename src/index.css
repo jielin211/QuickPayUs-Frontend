@@ -331,12 +331,12 @@ a {
   }
 }
 .select .ant-select-selector {
-  border: none !important;
+  /* border: none !important; */
   outline: none !important;
 }
 
 .select .ant-select-selector:focus {
-  border: none !important;
+  /* border: none !important; */
   outline: none !important;
 }
 .supportbg {
@@ -604,14 +604,14 @@ a {
   text-align: center;
 }
 
-.ant-btn:not([role="combobox"]) {
-  border-radius: 12px !important;
+.ant-btn {
+  border-radius: var(--border-radius-button) !important;
 }
 
-.ant-input:not([type="password"]):not([type="tel"]),
-.ant-input-password,
-.ant-select {
-  border-radius: 12px !important;
+.ant-input,
+.ant-select-selector,
+.ant-picker {
+  border-radius: var(--border-radius-input) !important;
 }
 
 .ant-form-item-has-success .ant-input {

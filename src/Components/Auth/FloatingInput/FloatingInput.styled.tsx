@@ -22,15 +22,13 @@ export const StyledFloatInputPassword = styled(Input.Password)`
   border-radius: 6px;
   font-size: 14px; // Consolidated to one font-size for consistency
   padding: 0 15px;
-  // border: 1px solid #d9d9d9;
   background: transparent;
-  // color: black;
   outline: none;
-
+  border-radius: var(--border-radius-input);
   input {
     box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
+    border-radius: unset !important;
   }
-
   &:focus {
     border: 1px solid red;
   }
@@ -44,10 +42,5 @@ export const StyledFloatInput = styled(Input)`
   padding: 0 15px;
   border: 1px solid var(--color-border-primary);
   background: transparent;
-  // color: black;
   outline: none;
-
-  &:focus {
-    // border: 1px solid red;
-  }
 `;

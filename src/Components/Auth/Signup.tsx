@@ -389,9 +389,6 @@ const SignupForm = () => {
                     <Field name="referral">
                       {({ field }) => (
                         <Styled.InputWrapper>
-                          {/* <Styled.InputLabel htmlFor="referral">Referral</Styled.InputLabel>
-                        <Styled.InputField {...field} placeholder="Referral" />  */}
-                          {/* <FloatingInput label="Referal" name="referal" field={field}/> */}
                           <ReferralInput {...field} />
                           <ErrorMessage
                             name="referral"

@@ -1,25 +1,45 @@
-import { Button, Input, InputRef, Space } from "antd";
 import React, { useEffect, useRef } from "react";
-
+import styled from "styled-components";
 import { CountrySelector, usePhoneInput } from "react-international-phone";
+
+// antd
+import { Button, Input, InputRef, Space } from "antd";
+
 import "react-international-phone/style.css";
 
 interface AntPhoneProps {
   value: string;
   onChange: any;
   onBlur: any;
-  name: string,
-  handleChange: any
+  name: string;
+  handleChange: any;
 }
 
-export const AntPhone: React.FC<AntPhoneProps> = ({ value, onChange, handleChange }) => {
+const StyledInput = styled(Input)`
+  border-top-left-radius: unset !important;
+  border-bottom-left-radius: unset !important;
+`;
+
+const StyledButton = styled(Button)`
+  border-start-end-radius: 0 !important;
+  border-end-end-radius: 0 !important;
+  padding: 4px;
+  height: 100%;
+  z-index: 1;
+`;
+
+export const AntPhone: React.FC<AntPhoneProps> = ({
+  value,
+  onChange,
+  handleChange,
+}) => {
   const phoneInput = usePhoneInput({
     defaultCountry: "us",
     value,
     onChange: (data) => {
       onChange(data.phone);
       handleChange(data.country.dialCode, data.phone);
-    }
+    },
   });
 
   const inputRef = useRef<InputRef>(null);
@@ -33,36 +53,27 @@ export const AntPhone: React.FC<AntPhoneProps> = ({ value, onChange, handleChang
 
   return (
     <div style={{ display: "flex", alignItems: "center" }}>
-      <Space.Compact style={{width: "100%"}}>
+      <Space.Compact style={{ width: "100%" }}>
         <CountrySelector
           selectedCountry={phoneInput.country.iso2}
           onSelect={(country) => phoneInput.setCountry(country.iso2)}
           renderButtonWrapper={({ children, rootProps }) => (
-            <Button
-              {...rootProps}
-              style={{
-                padding: "4px",
-                height: "100%",
-                zIndex: 1 // fix focus overlap
-              }}
-            >
-              {children}
-            </Button>
+            <StyledButton {...rootProps}>{children}</StyledButton>
           )}
           dropdownStyleProps={{
             style: {
-              top: "35px"
-            }
+              top: "35px",
+            },
           }}
         />
-        <Input
+        <StyledInput
           placeholder="Phone number"
           type="tel"
           value={phoneInput.phone}
           name="phone"
           onChange={phoneInput.handlePhoneValueChange}
           ref={inputRef}
-          style={{height: "40px"}}
+          style={{ height: "40px", borderTopLeftRadius: "unset" }}
         />
       </Space.Compact>
     </div>
