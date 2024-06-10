@@ -27,6 +27,7 @@ export const FieldCover = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
+  margin-bottom: 10px;
 `;
 
 export const PageHeading = styled.h2`

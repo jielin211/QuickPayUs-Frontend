@@ -83,18 +83,6 @@ const Deposit: React.FC = () => {
           <Form>
             <Styled.StyledCard bordered={true}>
               <Styled.PageCover className="hoverdata">
-                <ErrorMessage
-                  name="senderAddress"
-                  component="div"
-                  className="error"
-                >
-                  {(msg) => (
-                    <Styled.AlertMessage
-                      message={msg}
-                      type="error"
-                    ></Styled.AlertMessage>
-                  )}
-                </ErrorMessage>
                 <Styled.FlexColumnContainer>
                   <Styled.StyledLabel>
                     <span>Investment amount:</span>
@@ -192,6 +180,18 @@ const Deposit: React.FC = () => {
                       )}
                     </Field>
                   </Styled.FieldCover>
+                  <ErrorMessage
+                    name="senderAddress"
+                    component="div"
+                    className="error"
+                  >
+                    {(msg) => (
+                      <Styled.AlertMessage
+                        message={msg}
+                        type="error"
+                      ></Styled.AlertMessage>
+                    )}
+                  </ErrorMessage>
                 </Styled.FlexColumnContainer>
               </Styled.PageCover>
             </Styled.StyledCard>

@@ -209,35 +209,35 @@ const Withdrawal = () => {
         </Styled.SubmitButtonContainer>
 
         {/* OTP Modal */}
-        <Modal
-          title="Enter OTP"
-          open={isModalVisible}
-          onCancel={() => setIsModalVisible(false)}
-          footer={null}
-        >
-          <div>
-            <InputOTP value={otp} onChange={handleInputChange} />
-            <div
-              style={{
-                marginTop: "20px",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              <Button
-                type="primary"
-                onClick={handleResendOTP}
-                disabled={timer > 0}
-              >
-                {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Submit OTP"}
-              </Button>
-            </div>
-            {verificationError && (
-              <div className="color-red">{verificationError}</div>
-            )}
-          </div>
-        </Modal>
       </Styled.StyledForm>
+      <Modal
+        title="Enter OTP"
+        open={isModalVisible}
+        onCancel={() => setIsModalVisible(false)}
+        footer={null}
+      >
+        <div>
+          <InputOTP value={otp} onChange={handleInputChange} />
+          <div
+            style={{
+              marginTop: "20px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            <Button
+              type="primary"
+              onClick={handleResendOTP}
+              disabled={timer > 0}
+            >
+              {otpSent && timer > 0 ? `Resend OTP (${timer}s)` : "Submit OTP"}
+            </Button>
+          </div>
+          {verificationError && (
+            <div className="color-red">{verificationError}</div>
+          )}
+        </div>
+      </Modal>
     </>
   );
 };
