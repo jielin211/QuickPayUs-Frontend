@@ -204,7 +204,7 @@ input:-webkit-autofill:focus {
     height: 0vh;
     background: var(--color-bg-container);
     justify-content: start;
-    overflow-y: auto;
+    overflow-y: hidden;
     scrollbar-width: thin;
     scrollbar-color: transparent transparent;
     z-index: -1;
