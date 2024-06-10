@@ -211,7 +211,7 @@ export const KycVerification: React.FC = () => {
           )}
           {current === steps.length - 2 && (
             <Button type="primary" onClick={handleSubmitForm}>
-              Submit{" "}
+              Submit
             </Button>
           )}
         </Styled.PaginationWrapper>

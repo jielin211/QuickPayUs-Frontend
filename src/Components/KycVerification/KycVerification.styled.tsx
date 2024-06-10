@@ -130,10 +130,6 @@ export const StepsContent = styled.div`
 `;
 export const PaginationWrapper = styled.div`
   margin-left: auto;
-
-  @media screen and (max-width: 768px) {
-    margin-left: 0;
-  }
 `;
 export const StyledBtn = styled(Button)`
   margin: 0 8px;
