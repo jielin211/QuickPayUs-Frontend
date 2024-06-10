@@ -1,31 +1,19 @@
 import React, { useState } from "react";
-import {
-  Button,
-  Form,
-  Input,
-  Card,
-  Typography,
-  Space,
-  message,
-  Modal,
-} from "antd";
-import { LockOutlined, UserOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
-const { Title, Text } = Typography;
+// antd
+import { Button, Form, Input, Card, Typography, message, Modal } from "antd";
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding: 17px;
-  height: 100vh;
-`;
+// breakpoints
+import { breakpoint } from "../../breakpoints";
 
-const FormCard = styled(Card)`
-  width: 100%;
-  border-radius: 10px;
+const { Title } = Typography;
+
+const StyledTitle = styled(Title)`
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
+  }
 `;
 
 const ChangeNamePage: React.FC = () => {
@@ -54,11 +42,9 @@ const ChangeNamePage: React.FC = () => {
   };
 
   return (
-    <Container>
-      <FormCard>
-        <Title align={"center"} level={3}>
-          Change Name
-        </Title>
+    <>
+      <Card>
+        <StyledTitle level={3}>Change Name</StyledTitle>
         <Form
           name="change_name_form"
           initialValues={{ name }}
@@ -95,11 +81,11 @@ const ChangeNamePage: React.FC = () => {
             </Button>
           </Form.Item>
         </Form>
-      </FormCard>
+      </Card>
 
       <Modal
         title="Confirm Password"
-        visible={isModalVisible}
+        open={isModalVisible}
         footer={null}
         onCancel={() => setIsModalVisible(false)}
       >
@@ -117,7 +103,7 @@ const ChangeNamePage: React.FC = () => {
           </Form.Item>
         </Form>
       </Modal>
-    </Container>
+    </>
   );
 };
 

@@ -42,7 +42,7 @@ function App() {
           "--color-text": token.colorText,
           "--color-border-primary": token.colorBorderPrimary,
           "--border-radius-input": "12px",
-          "--border-radius-button": "8px",
+          "--border-radius-button": "12px",
           "--border-radius-container": "18px",
         }}
       >
