@@ -1,28 +1,10 @@
 import React, { useState } from "react";
-import { Form, Input, Button, Upload, Modal, message, Typography } from "antd";
+import { Form, Input, Button, Upload, Modal, Typography, Card } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 import styled from "styled-components";
 
 const { TextArea } = Input;
 const { Title } = Typography;
-
-const MainContainer = styled.div`
-  padding-top: 1px;
-  padding-bottom: 17px;
-  padding-right: 17px;
-  padding-left: 17px;
-  background-color: #f4f4f4;
-  height: 100%;
-`;
-
-const FeedbackContainer = styled.div`
-  background-color: #fff;
-  padding-left: 24px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-right: 10px;
-  border-radius: 8px;
-`;
 
 const FeedbackForm: React.FC = () => {
   const [form] = Form.useForm();
@@ -45,16 +27,20 @@ const FeedbackForm: React.FC = () => {
   };
 
   return (
-    <MainContainer>
-      <Title level={3}>Send Feedback</Title>
-      <FeedbackContainer>
+    <>
+      <Card>
+        <Title level={3}>Send Feedback</Title>
         <Form
           form={form}
           name="feedback_form"
           onFinish={onFinish}
           layout="vertical"
         >
-          <Form.Item name="feedback" label="Feedback">
+          <Form.Item
+            name="feedback"
+            label="Feedback"
+            rules={[{ required: true, message: "Please input feedback!" }]}
+          >
             <TextArea rows={4} />
           </Form.Item>
 
@@ -73,29 +59,25 @@ const FeedbackForm: React.FC = () => {
               </p>
             </Upload.Dragger>
           </Form.Item>
-
-          <Form.Item>
-            <Button type="primary" htmlType="submit">
-              Submit Feedback
-            </Button>
-          </Form.Item>
+          <Button type="primary" htmlType="submit" block>
+            Submit Feedback
+          </Button>
         </Form>
-
-        <Modal
-          title="Feedback Submitted"
-          visible={isModalVisible}
-          onCancel={handleCancel}
-          footer={[
-            <Button key="ok" type="primary" onClick={handleCancel}>
-              OK
-            </Button>,
-          ]}
-        >
-          <p>Thank you for your feedback!</p>
-          <p>We'll review it and get back to you if necessary.</p>
-        </Modal>
-      </FeedbackContainer>
-    </MainContainer>
+      </Card>
+      <Modal
+        title="Feedback Submitted"
+        visible={isModalVisible}
+        onCancel={handleCancel}
+        footer={[
+          <Button key="ok" type="primary" onClick={handleCancel}>
+            OK
+          </Button>,
+        ]}
+      >
+        <p>Thank you for your feedback!</p>
+        <p>We'll review it and get back to you if necessary.</p>
+      </Modal>
+    </>
   );
 };
 
