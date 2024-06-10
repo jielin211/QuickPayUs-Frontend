@@ -25,17 +25,9 @@ const RankChart: React.FC = () => {
         style={{ padding: "0px 30px" }}
       >
         <Col className="w-100">
-          <h2 style={{ margin: "20px 0" }}>Analytics</h2>
+          <h2 style={{ margin: "20px 0" }}>Sales Analytics</h2>
         </Col>
         <Col>
-          <Select
-            defaultValue="profits"
-            options={[
-              { value: "profits", label: "Profits" },
-              { value: "credits", label: "Credits" },
-              { value: "rewards", label: "Rewards" },
-            ]}
-          />
           <Select
             defaultValue="day"
             options={[
@@ -43,7 +35,6 @@ const RankChart: React.FC = () => {
               { value: "week", label: "Week" },
               { value: "month", label: "Month" },
             ]}
-            style={{ paddingLeft: "20px" }}
           />
         </Col>
       </Row>
