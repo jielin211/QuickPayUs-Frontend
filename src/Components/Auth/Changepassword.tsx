@@ -1,8 +1,22 @@
 import React, { useState } from "react";
-import { Form, Col, Modal, Input, Button, message } from "antd";
 import { Formik, Field, FormikHelpers } from "formik";
-import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
+
+// antd
+import {
+  Form,
+  Col,
+  Modal,
+  Input,
+  Button,
+  message,
+  Card,
+  Typography,
+} from "antd";
+
+// styles
 import * as Styled from "./Changepassword.style";
+
+const { Title } = Typography;
 
 interface FormErrors {
   currentPassword?: string;
@@ -47,15 +61,15 @@ const ChangePassword: React.FC = () => {
   const validateForm = (values: any): FormErrors => {
     const errors: FormErrors = {};
     if (!values.currentPassword) {
-      errors.currentPassword = "Current password is required";
+      errors.currentPassword = "Please input current password!";
     }
     if (!values.password) {
-      errors.password = "New password is required";
+      errors.password = "Please input new password!";
     } else if (values.password.length < 6) {
       errors.password = "Password must be at least 6 characters";
     }
     if (!values.confirmPassword) {
-      errors.confirmPassword = "Confirm password is required";
+      errors.confirmPassword = "Please input confirm password!";
     } else if (values.confirmPassword !== values.password) {
       errors.confirmPassword = "Passwords do not match";
     }
@@ -63,12 +77,10 @@ const ChangePassword: React.FC = () => {
   };
 
   return (
-    <Styled.MainContainer>
-      <Styled.ContainerWrap>
+    <>
+      <Card>
         <Styled.ChangePasswordWrapper>
-          <Styled.ChangePasswordTitle>
-            Change Password
-          </Styled.ChangePasswordTitle>
+          <Title level={3}>Change Password</Title>
           <Styled.ChangePasswordContent>
             <Formik
               initialValues={{
@@ -83,7 +95,8 @@ const ChangePassword: React.FC = () => {
                 <Form style={{ width: "100%" }} onFinish={handleSubmit}>
                   <Form.Item
                     validateStatus={
-                      touched.currentPassword || values.currentPassword.length !== 0
+                      touched.currentPassword ||
+                      values.currentPassword.length !== 0
                         ? !errors.currentPassword
                           ? "success"
                           : "error"
@@ -94,14 +107,13 @@ const ChangePassword: React.FC = () => {
                         ? errors.currentPassword
                         : null
                     }
-                    style={{ marginTop: "30px" }}
                   >
                     <Field name="currentPassword">
                       {({ field }) => (
-                        <FloatingLabelInputPassword
-                          label="Current Password"
-                          field={field}
+                        <Input
+                          type="password"
                           name="currentPassword"
+                          placeholder="Current Password"
                         />
                       )}
                     </Field>
@@ -119,21 +131,22 @@ const ChangePassword: React.FC = () => {
                         ? errors.password
                         : null
                     }
-                    style={{ marginTop: "30px" }}
+                    style={{ marginTop: "24px" }}
                   >
                     <Field name="password">
                       {({ field }) => (
-                        <FloatingLabelInputPassword
-                          label="New Password"
-                          field={field}
+                        <Input
+                          type="password"
                           name="password"
+                          placeholder="New Password"
                         />
                       )}
                     </Field>
                   </Form.Item>
                   <Form.Item
                     validateStatus={
-                      touched.confirmPassword || values.confirmPassword.length !== 0
+                      touched.confirmPassword ||
+                      values.confirmPassword.length !== 0
                         ? !errors.confirmPassword
                           ? "success"
                           : "error"
@@ -144,34 +157,34 @@ const ChangePassword: React.FC = () => {
                         ? errors.confirmPassword
                         : null
                     }
-                    style={{ marginTop: "30px" }}
+                    style={{ marginTop: "24px" }}
                   >
                     <Field name="confirmPassword">
                       {({ field }) => (
-                        <FloatingLabelInputPassword
-                          label="Confirm Password"
-                          field={field}
+                        <Input
+                          type="password"
                           name="confirmPassword"
+                          placeholder="Confirm Password"
                         />
                       )}
                     </Field>
                   </Form.Item>
                   <Col span={24}>
-                    <Styled.SaveBtn
+                    <Button
                       type="primary"
-                      size="large"
                       htmlType="submit"
                       disabled={isSubmitting}
+                      block
                     >
-                      Save
-                    </Styled.SaveBtn>
+                      Change Password
+                    </Button>
                   </Col>
                 </Form>
               )}
             </Formik>
           </Styled.ChangePasswordContent>
         </Styled.ChangePasswordWrapper>
-      </Styled.ContainerWrap>
+      </Card>
 
       <Modal
         title="Enter OTP"
@@ -199,7 +212,7 @@ const ChangePassword: React.FC = () => {
           </Button>
         </Form>
       </Modal>
-    </Styled.MainContainer>
+    </>
   );
 };
 
