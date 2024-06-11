@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { createGlobalStyle } from "styled-components";
 
 // antd
 import { theme } from "antd";
+
+// hooks
+import usePreventZoomOnFocus from "./Utils/Hooks/usePreventZoomOnFocus";
 
 // redux
 import { updateSettingField } from "./Redux/settingSlice";
@@ -17,10 +21,33 @@ import "react-international-phone/style.css";
 
 const { useToken } = theme;
 
+const GlobalStyle = createGlobalStyle`
+  ${({ theme }) => `
+    body {
+      --color-bg-layout: ${theme.colorBgLayout};
+      --color-bg-container: ${theme.colorBgContainer};
+      --color-bg-list-item-actived: ${theme.colorBgListItemActived};
+      --color-border-primary: ${theme.colorBorderPrimary};
+      --border-radius-input: ${theme.borderRadiusInput};
+      --border-radius-button: ${theme.borderRadiusButton};
+      --border-radius-container: ${theme.borderRadiusContainer};
+      --padding-container: ${theme.paddingContainer};
+      --color-text: ${theme.colorText};
+      --font-size-page-title: ${theme.fontSizePageTitle};
+      --font-weight-page-title: ${theme.fontWeightPageTitle};
+      --margin-bottom-page-title: ${theme.marginBottomPageTitle};
+    }
+    input, select, textarea {
+      font-size: 16px !important;
+    }`}
+`;
+
 function App() {
   const dispatch = useDispatch();
 
   const { token } = useToken();
+
+  usePreventZoomOnFocus();
 
   useEffect(() => {
     const themeMode = localStorage.getItem("themeMode");
@@ -34,25 +61,23 @@ function App() {
 
   return (
     <Router>
-      <div
-        style={{
-          "--color-bg-layout": token.colorBgLayout,
-          "--color-bg-container": token.colorBgContainer,
-          "--color-bg-list-item-actived": token.colorBgListItemActived,
-          "--color-text": token.colorText,
-          "--color-border-primary": token.colorBorderPrimary,
-          "--border-radius-input": "12px",
-          "--border-radius-button": "12px",
-          "--border-radius-container": "18px",
-          "--padding-container": "24px",
-          "--font-size-page-title": "20px",
-          "--font-weight-page-title": "600",
-          "--margin-bottom-page-title": "20px",
+      <GlobalStyle
+        theme={{
+          colorBgLayout: token.colorBgLayout,
+          colorBgContainer: token.colorBgContainer,
+          colorBgListItemActived: token.colorBgListItemActived,
+          colorText: token.colorText,
+          colorBorderPrimary: token.colorBorderPrimary,
+          borderRadiusInput: "12px",
+          borderRadiusButton: "12px",
+          borderRadiusContainer: "18px",
+          paddingContainer: "24px",
+          fontSizePageTitle: "20px",
+          fontWeightPageTitle: "600",
+          marginBottomPageTitle: "20px",
         }}
-      >
-        <AppRoutes />
-        <div id="app-modals"></div>
-      </div>
+      />
+      <AppRoutes />
     </Router>
   );
 }

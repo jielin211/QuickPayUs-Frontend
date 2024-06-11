@@ -8,8 +8,6 @@ export const InputWrapper = styled.div`
 export const StyledLabel = styled.label`
   position: absolute;
   left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
   transition: all 0.27s ease, transform 0.21s ease;
   background: var(--color-bg-container);
   padding: 0 2px;
