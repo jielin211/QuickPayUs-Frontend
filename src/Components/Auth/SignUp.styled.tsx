@@ -17,7 +17,6 @@ export const StyledWrapper = styled.div`
   background: var(--color-bg-container);
   ${breakpoint.md} {
     background: var(--color-bg-layout);
-    margin: unset;
   }
 `;
 export const InputBox = styled.div`

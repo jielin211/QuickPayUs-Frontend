@@ -46,7 +46,6 @@ export const MainRow = styled(Row)`
   margin: calc(var(--padding-content) * -1);
   ${breakpoint.md} {
     background: var(--color-bg-layout);
-    margin: unset;
   }
 `;
 export const MainCard = styled(Card)`
