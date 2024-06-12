@@ -43,8 +43,10 @@ export const MainRow = styled(Row)`
   min-height: 100vh;
   align-items: center;
   background: var(--color-bg-container);
-  ${breakpoint.sm} {
+  margin: calc(var(--padding-content) * -1);
+  ${breakpoint.md} {
     background: var(--color-bg-layout);
+    margin: unset;
   }
 `;
 export const MainCard = styled(Card)`

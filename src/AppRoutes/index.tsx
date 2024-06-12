@@ -2,7 +2,7 @@ import { useEffect, useMemo } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 import SideNav from "../Components/Drawer/Drawer";
-import AuthRoutes from "./Authroutes";
+import AuthRoutes from "./AuthRoutes";
 
 export default function AllRoutes() {
   const location = useLocation();
@@ -26,5 +26,6 @@ export default function AllRoutes() {
     }
   }, [navigate, location]);
 
-  return isSignInRoute ? <AuthRoutes /> : <SideNav />;
+  // return isSignInRoute ? <AuthRoutes /> : <SideNav />;
+  return <SideNav />;
 }

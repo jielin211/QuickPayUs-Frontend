@@ -3,7 +3,7 @@ import SignIn from "../Components/Auth/SignIn";
 import SignupForm from "../Components/Auth/Signup";
 import ForgotPassword from "../Components/Auth/ForgotPassword";
 
-const AppRoutes = () => {
+const AuthRoutes = () => {
    return (
       <Routes>
          <Route path="/signin" element={<SignIn />} />
@@ -13,4 +13,4 @@ const AppRoutes = () => {
    );
 };
 
-export default AppRoutes;
+export default AuthRoutes;

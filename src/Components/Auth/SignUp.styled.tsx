@@ -13,9 +13,11 @@ export const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100vh;
+  margin: calc(var(--padding-content) * -1);
   background: var(--color-bg-container);
-  ${breakpoint.sm} {
+  ${breakpoint.md} {
     background: var(--color-bg-layout);
+    margin: unset;
   }
 `;
 export const InputBox = styled.div`

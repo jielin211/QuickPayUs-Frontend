@@ -31,6 +31,7 @@ const GlobalStyle = createGlobalStyle`
       --border-radius-input: ${theme.borderRadiusInput};
       --border-radius-button: ${theme.borderRadiusButton};
       --border-radius-container: ${theme.borderRadiusContainer};
+      --padding-content: ${theme.paddingContent};
       --padding-container: ${theme.paddingContainer};
       --color-text: ${theme.colorText};
       --font-size-page-title: ${theme.fontSizePageTitle};
@@ -71,6 +72,7 @@ function App() {
           borderRadiusInput: "12px",
           borderRadiusButton: "12px",
           borderRadiusContainer: "18px",
+          paddingContent: "25px",
           paddingContainer: "24px",
           fontSizePageTitle: "20px",
           fontWeightPageTitle: "600",
