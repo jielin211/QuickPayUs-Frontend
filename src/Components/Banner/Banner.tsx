@@ -13,6 +13,7 @@ import {
 
 // hooks
 import { useDevice } from "../../Utils/Hooks/useDevice";
+import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
 
 // assets
 import logoLight from "../../assets/images/logo-light.svg";
@@ -69,6 +70,8 @@ export const Banner = () => {
   const dispatch = useDispatch();
 
   const setting = useSelector(selectSetting);
+
+  const navbarHeight = useNavbarHeight();
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -273,7 +276,7 @@ export const Banner = () => {
   };
 
   return (
-    <Styled.StyledHeader className="header">
+    <Styled.StyledHeader className="header" height={navbarHeight}>
       {device?.isBreakpoint("MD") && (
         <Styled.HeaderContainer>
           <Styled.PcLogoWrapper>

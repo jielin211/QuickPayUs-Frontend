@@ -1,11 +1,20 @@
 import React, { useState } from "react";
-import { Form, Col } from "antd";
 import { Formik, Field } from "formik";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import * as Styled from "./SignIn.styled";
+
+// antd
+import { Form } from "antd";
+
+// components
 import { FloatingInput } from "./FloatingInput/FloatingInput";
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
-import { useNavigate } from "react-router-dom";
+
+// hooks
+import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
+
+// styled components
+import * as Styled from "./SignIn.styled";
 
 interface FormErrors {
   email?: string;
@@ -23,7 +32,10 @@ interface FormikBag {
 
 const SignIn: React.FC = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+
   const navigate = useNavigate();
+
+  const navbarHeight = useNavbarHeight();
 
   const handleLearnMoreClick = () => {
     setShowMoreInfo(!showMoreInfo); // Toggle the state
@@ -63,7 +75,7 @@ const SignIn: React.FC = () => {
   };
 
   return (
-    <Styled.MainRow>
+    <Styled.MainRow navbarHeight={navbarHeight}>
       <Styled.MainCard>
         <Styled.StyledH1>Sign In if you're a member</Styled.StyledH1>
         <Formik

@@ -42,13 +42,7 @@ input:-webkit-autofill:focus {
 /* Desktop Nav */
 
 .nav-container {
-  /* background: #fff; */
-  /* height: 80px; */
-  /* z-index: 300; */
-  /* position: fixed; */
-  /* left: 0; */
-  /* top: 0; */
-  /* right: 0; */
+  height: 100%;
 }
 
 .nav-container nav {
@@ -67,16 +61,6 @@ input:-webkit-autofill:focus {
   width: 8em;
   background-repeat: no-repeat;
   background-size: contain;
-}
-
-.link-close {
-  /* background: url('images/close-icon.svg'); */
-  display: block;
-  background-position: center;
-  background-size: 17px;
-  height: 44px;
-  width: 20px;
-  background-repeat: no-repeat;
 }
 
 /* Overlay */
@@ -112,9 +96,6 @@ input:-webkit-autofill:focus {
 }
 
 @media (max-width: 768px) {
-  .nav-container {
-    height: 44px;
-  }
   .ant-layout-header {
     padding: 0 16px;
   }
@@ -125,7 +106,7 @@ input:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     width: 100%;
-    height: 44px;
+    height: 100%;
     justify-content: space-between;
     list-style: none;
     margin: 0;

@@ -4,6 +4,10 @@ import { Layout, Avatar } from "antd";
 import { BellOutlined, QrcodeOutlined } from "@ant-design/icons";
 const { Header } = Layout;
 
+interface StyledHeaderProps {
+  height?: number;
+}
+
 export const HeaderContainer = styled.div`
   background-color: var(--color-bg-content);
   padding: 0px 32px;
@@ -132,8 +136,8 @@ export const MobileLogoLink = styled(Link)`
 export const MobileLogo = styled.img`
   height: 50%;
 `;
-export const StyledHeader = styled(Header)`
-  height: 44px;
+export const StyledHeader = styled(Header)<StyledHeaderProps>`
+  height: ${({ height }) => height}px;
   position: fixed;
   top: 0;
   right: 0;

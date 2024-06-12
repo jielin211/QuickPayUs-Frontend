@@ -7,6 +7,10 @@ import { Row, Card, Input, Button } from "antd";
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
+interface MainRowProps {
+  navbarHeight?: number;
+}
+
 export const StyledH1 = styled.h1`
   text-align: center;
   font-size: 24px;
@@ -38,9 +42,9 @@ export const LearnMoreButton = styled.a`
     color: #007aff;
   }
 `;
-export const MainRow = styled(Row)`
+export const MainRow = styled(Row)<MainRowProps>`
   justify-content: center;
-  min-height: 100vh;
+  min-height: ${({ navbarHeight }) => `calc(100vh - ${navbarHeight || 0}px)`};
   align-items: center;
   background: var(--color-bg-container);
   margin: calc(var(--padding-content) * -1);

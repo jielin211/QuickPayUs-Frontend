@@ -8,11 +8,15 @@ import { Card, Input, Button, Checkbox, Steps as UiSteps } from "antd";
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-export const StyledWrapper = styled.div`
+interface StyledWrapperProps {
+  navbarHeight?: number;
+}
+
+export const StyledWrapper = styled.div<StyledWrapperProps>`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: ${({ navbarHeight }) => `calc(100vh - ${navbarHeight || 0}px)`};
   margin: calc(var(--padding-content) * -1);
   background: var(--color-bg-container);
   ${breakpoint.md} {
@@ -36,6 +40,8 @@ export const BtnGrp = styled.div`
   justify-content: center;
 `;
 export const SignInWrapper = styled.div`
+  display: flex;
+  align-items: center;
   margin-top: 20px;
   padding: 0 10px;
 `;

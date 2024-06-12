@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Formik, Field } from "formik";
-import { Form } from "antd";
-import * as Styled from "./SignUp.styled";
 import { InputOTP } from "antd-input-otp";
+
+// antd
+import { Form } from "antd";
+
+// hooks
+import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
+
+// components
 import FloatingLabelInputPassword from "./FloatingInput/FloatingInputPassword";
 import { FloatingInput } from "./FloatingInput/FloatingInput";
+
+// styled components
+import * as Styled from "./SignUp.styled";
 
 interface FormErrors {
   email?: string;
@@ -25,6 +34,8 @@ const ForgotPassword: React.FC = () => {
   const [minutes, setMinutes] = useState<number>(1);
   const [seconds, setSeconds] = useState<number>(59);
   const [showMoreInfo, setShowMoreInfo] = useState<boolean>(false);
+
+  const navbarHeight = useNavbarHeight();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -115,7 +126,7 @@ const ForgotPassword: React.FC = () => {
   };
 
   return (
-    <Styled.StyledWrapper className="signup">
+    <Styled.StyledWrapper className="signup" navbarHeight={navbarHeight}>
       <Styled.MainCard title="Reset Your Password">
         <Formik
           initialValues={initialValues}

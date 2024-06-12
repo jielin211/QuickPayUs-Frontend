@@ -1,16 +1,23 @@
-import React, { useState, useMemo } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { Form } from "antd";
 import { Formik, Field, ErrorMessage } from "formik";
-import { Steps, Select } from "antd";
-import * as Styled from "./SignUp.styled";
-import { getCountryCode, getCountryData } from "countries-list";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import PasswordStrengthBar from "react-password-strength-bar";
+import { InputOTP } from "antd-input-otp";
+
+// antd
+import { Form, Steps, Select } from "antd";
+
+// hooks
+import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
+
+// components
 import { FloatingInput } from "./FloatingInput/FloatingInput";
 import { AntPhone } from "./AntPhone";
-import PasswordStrengthBar from "react-password-strength-bar";
 import { ReferralInput } from "./ReferralInput";
-import { InputOTP } from "antd-input-otp";
+
+// styled components
+import * as Styled from "./SignUp.styled";
 
 interface FormErrors {
   firstName?: string;
@@ -53,6 +60,8 @@ const SignupForm = () => {
   const [dial, setDial] = useState<string>("");
 
   const navigate = useNavigate();
+
+  const navbarHeight = useNavbarHeight();
 
   const handleChangePhone = (dial, phone) => {
     setPhone(phone);
@@ -162,7 +171,7 @@ const SignupForm = () => {
   };
 
   return (
-    <Styled.StyledWrapper className="signup">
+    <Styled.StyledWrapper className="signup" navbarHeight={navbarHeight}>
       <Styled.MainCard title="Sign Up to join QUICKPAYUS">
         <Formik
           initialValues={initialValues}
