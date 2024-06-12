@@ -292,7 +292,7 @@ export const Banner = () => {
               trigger="click"
               overlayInnerStyle={{
                 padding: 10,
-                transform: "translateY(-0px)",
+                background: "var(--color-bg-container)",
               }}
               content={
                 <>
@@ -391,8 +391,8 @@ export const Banner = () => {
                   <li>
                     <Popover
                       overlayInnerStyle={{
-                        padding: 0,
-                        transform: "translateY(-15px)",
+                        padding: 10,
+                        background: "var(--color-bg-container)",
                       }}
                       content={
                         <>
