@@ -1,18 +1,25 @@
-import { Form, Select, Input, DatePicker, Row, Col } from "antd";
-import * as Styled from "./PersonalInformationForm.styled";
-import { useGetUserQuery } from "../../../../Redux/slice";
 import { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { PhoneInput } from "react-international-phone";
+import dayjs from "dayjs";
+
+// antd
+import { Form, Select, Input, DatePicker, Row, Col } from "antd";
+
+// styled components
+import * as Styled from "./PersonalInformationForm.styled";
+
+// redux
+import { useGetUserQuery } from "../../../../Redux/slice";
 import { updateKycField } from "../../../../Redux/KycVerificationSlice";
 import { updateProfileField } from "../../../../Redux/profileSlice";
 import {
   selectKycVerification,
   selectProfile,
 } from "../../../../Redux/selectors";
-import { PhoneInput } from "react-international-phone";
-import { FloatingInput } from "../FloatingInput/FloatingInput";
 
-import dayjs from "dayjs";
+// components
+import PageTitle from "../../../PageTitle";
 
 const { Option } = Select;
 
@@ -114,8 +121,8 @@ export const PersonalInformationForm: React.FC<
   }, [form, user]);
 
   return (
-    <Styled.FormContainer>
-      <Styled.Heading>Personal Information Form</Styled.Heading>
+    <>
+      <PageTitle title="Personal Information Form" level={2} />
       <Form
         form={form}
         initialValues={{
@@ -139,72 +146,74 @@ export const PersonalInformationForm: React.FC<
         layout="vertical"
         style={{ maxWidth: isFirstTimeEditing ? "100%" : "600" }}
       >
-        <Row gutter={[16, 16]}>
-          {isFirstTimeEditing && (
-            <Col {...span}>
-              <Form.Item label="First Name" name="firstName">
-                <Input placeholder="Add your first name" />
-              </Form.Item>
-              <Form.Item label="Last Name" name="lastName">
-                <Input placeholder="Add your last name" />
-              </Form.Item>
-              <Form.Item label="Username" name="username">
-                <Input placeholder="Add your username" />
-              </Form.Item>
-              <Form.Item label="Email" name="email">
-                <Input placeholder="Add your email" type="email" />
-              </Form.Item>
-              <Form.Item label="Phone Number" name="mobileNo">
-                <PhoneInput
-                  defaultCountry="bd"
-                  value={value}
-                  onChange={handlePhoneNumberChange}
-                />
-              </Form.Item>
-            </Col>
-          )}
-          <Col {...span}>
-            <Styled.StyledFormItem label="Date of birth" name="dateOfBirth">
-              <Styled.StyledDatePicker />
-            </Styled.StyledFormItem>
+        {isFirstTimeEditing && (
+          <>
+            <Form.Item label="First Name" name="firstName">
+              <Input placeholder="Add your first name" />
+            </Form.Item>
+            <Form.Item label="Last Name" name="lastName">
+              <Input placeholder="Add your last name" />
+            </Form.Item>
+            <Form.Item label="Username" name="username">
+              <Input placeholder="Add your username" />
+            </Form.Item>
+            <Form.Item label="Email" name="email">
+              <Input placeholder="Add your email" type="email" />
+            </Form.Item>
+            <Form.Item label="Phone Number" name="mobileNo">
+              <PhoneInput
+                defaultCountry="bd"
+                value={value}
+                onChange={handlePhoneNumberChange}
+              />
+            </Form.Item>
+          </>
+        )}
+        <Styled.FormInputGroup>
+          <Form.Item label="Date of birth" name="dateOfBirth">
+            <Styled.StyledDatePicker />
+          </Form.Item>
+          {errors.dateOfBirth && (
             <Styled.ErrorMessage>{errors.dateOfBirth}</Styled.ErrorMessage>
-            <Styled.StyledFormItem name="gender" label="Gender">
-              <Styled.StyledSelect
-                value={selectedGender}
-                onChange={handleGenderChange}
-                placeholder="Gender"
-              >
-                <Option value="male">Male</Option>
-                <Option value="female">Female</Option>
-              </Styled.StyledSelect>
-            </Styled.StyledFormItem>
-            <Styled.StyledFormItem
+          )}
+        </Styled.FormInputGroup>
+        <Styled.FormInputGroup>
+          <Form.Item name="gender" label="Gender">
+            <Styled.StyledSelect
+              value={selectedGender}
+              onChange={handleGenderChange}
+              placeholder="Gender"
+            >
+              <Option value="male">Male</Option>
+              <Option value="female">Female</Option>
+            </Styled.StyledSelect>
+          </Form.Item>
+        </Styled.FormInputGroup>
+        <Styled.FormInputGroup>
+          <Form.Item name="occupation" label="Occupation" validateStatus="">
+            <Styled.StyledInput
               name="occupation"
-              label="Occupation"
-              validateStatus=""
-            >
-              <Styled.StyledInput
-                name="occupation"
-                onChange={handleChangeFloating}
-                value={value}
-              />
-            </Styled.StyledFormItem>
+              onChange={handleChangeFloating}
+              value={value}
+            />
+          </Form.Item>
+          {errors.occupation && (
             <Styled.ErrorMessage>{errors.occupation}</Styled.ErrorMessage>
-            <Styled.StyledFormItem
+          )}
+        </Styled.FormInputGroup>
+        <Styled.FormInputGroup>
+          <Form.Item name="address" label="Address" validateStatus="">
+            <Styled.StyledInput
               name="address"
-              label="Address"
-              validateStatus=""
-            >
-              <Styled.StyledInput
-                name="address"
-                onChange={handleChangeFloating}
-                value={value}
-              />
-            </Styled.StyledFormItem>
+              onChange={handleChangeFloating}
+              value={value}
+            />
+          </Form.Item>
+          {errors.address && (
             <Styled.ErrorMessage>{errors.address}</Styled.ErrorMessage>
-          </Col>
-        </Row>
+          )}
+        </Styled.FormInputGroup>
       </Form>
-    </Styled.FormContainer>
+    </>
   );
 };

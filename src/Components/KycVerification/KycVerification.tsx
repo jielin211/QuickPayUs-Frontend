@@ -1,19 +1,28 @@
 import { useState } from "react";
-import { Avatar, Button, message } from "antd";
-import { CheckOutlined } from "@ant-design/icons";
-import * as Styled from "./KycVerification.styled";
+import { useSelector } from "react-redux";
+import axios from "axios";
+
+// antd
+import { Button } from "antd";
+
+// components
 import { PersonalInformationForm } from "./components/PersonalInformationForm/PersonalInformationForm";
 import { IDVerificationForm } from "./components/IDVerificationForm/IDVerificationForm";
 import { ReviewForm } from "./components/ReviewForm/ReviewForm";
 import { CompleteForm } from "./components/FormStatus/CompleteForm";
 import { AddYourPicturesForm } from "./components/AddYourPicturesForm/AddYourPicturesForm";
+import PageTitle from "../PageTitle";
+
+// redux
 import { useUpdateKycVerificationDataMutation } from "../../Redux/slice";
 import { selectKycVerification } from "../../Redux/selectors";
 import { selectProfile } from "../../Redux/selectors";
-import { useSelector } from "react-redux";
+
+// hooks
 import { useDevice } from "../../Utils/Hooks/useDevice";
 
-import axios from "axios";
+// styles
+import * as Styled from "./KycVerification.styled";
 
 export const KycVerification: React.FC = () => {
   const [current, setCurrent] = useState(0);
@@ -155,67 +164,49 @@ export const KycVerification: React.FC = () => {
   }));
 
   return (
-    <Styled.PageWrapper>
+    <>
       {current !== steps.length - 1 && (
-        <Styled.Header>
-          <Styled.HeaderTitle>KYC Verification</Styled.HeaderTitle>
-          <Styled.HeaderSubTitle>
-            Please complete your KYC verification to continue using our services
-          </Styled.HeaderSubTitle>
-        </Styled.Header>
+        <PageTitle
+          title="KYC Verification"
+          description="Please complete your KYC verification to continue using our services"
+        />
       )}
       <Styled.Content>
-        {device?.isBreakpoint("MD") ? (
-          <Styled.StepsWrapper>
-            {current !== steps.length - 1 && (
-              <Styled.Steps
-                progressDot
-                current={current}
-                items={items}
-                direction={"vertical"}
-                labelPlacement="horizontal"
-                responsive={false}
-              />
-            )}
-            <Styled.StepsContent>
-              <div>{steps[current].content}</div>
-            </Styled.StepsContent>
-          </Styled.StepsWrapper>
-        ) : (
-          <>
-            <Styled.StepsWrapper>
-              {current !== steps.length - 1 && (
-                <Styled.Steps
-                  progressDot
-                  current={current}
-                  items={items}
-                  direction={"horizontal"}
-                  labelPlacement="vertical"
-                  responsive={false}
-                />
+        <Styled.StepsWrapper>
+          {current !== steps.length - 1 && (
+            <Styled.Steps
+              progressDot
+              current={current}
+              items={items}
+              direction={device?.isBreakpoint("MD") ? "vertical" : "horizontal"}
+              labelPlacement={
+                device?.isBreakpoint("MD") ? "horizontal" : "vertical"
+              }
+              responsive={false}
+            />
+          )}
+          <Styled.StepsContent>
+            <div>{steps[current].content}</div>
+            <Styled.BtnGroup>
+              {current > 0 && current < steps.length - 1 && (
+                <Styled.PreviousBtn onClick={() => prev()}>
+                  Previous
+                </Styled.PreviousBtn>
               )}
-              <Styled.StepsContent>
-                <div>{steps[current].content}</div>
-              </Styled.StepsContent>
-            </Styled.StepsWrapper>
-          </>
-        )}
-        <Styled.PaginationWrapper>
-          {current > 0 && current < steps.length - 1 && (
-            <Styled.StyledBtn onClick={() => prev()}>Previous</Styled.StyledBtn>
-          )}
-          {current < steps.length - 2 && (
-            <Button type="primary" onClick={() => next()}>
-              Next
-            </Button>
-          )}
-          {current === steps.length - 2 && (
-            <Button type="primary" onClick={handleSubmitForm}>
-              Submit
-            </Button>
-          )}
-        </Styled.PaginationWrapper>
+              {current < steps.length - 2 && (
+                <Button type="primary" onClick={() => next()}>
+                  Next
+                </Button>
+              )}
+              {current === steps.length - 2 && (
+                <Button type="primary" onClick={handleSubmitForm}>
+                  Submit
+                </Button>
+              )}
+            </Styled.BtnGroup>
+          </Styled.StepsContent>
+        </Styled.StepsWrapper>
       </Styled.Content>
-    </Styled.PageWrapper>
+    </>
   );
 };

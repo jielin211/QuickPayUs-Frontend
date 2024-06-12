@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 // antd
 import { Row, Col, Skeleton, theme } from "antd";
