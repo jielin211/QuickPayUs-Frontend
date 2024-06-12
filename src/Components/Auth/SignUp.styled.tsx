@@ -36,8 +36,11 @@ export const InputWrapper = styled.div`
 `;
 export const BtnGrp = styled.div`
   margin-top: 30px;
-  display: flex;
-  justify-content: center;
+  .ant-btn {
+    font-size: 16px;
+    padding: 6px 20px;
+    height: 42px;
+  }
 `;
 export const SignInWrapper = styled.div`
   display: flex;
@@ -66,22 +69,8 @@ export const InputFieldPassword = styled(Input.Password)`
     border-radius: unset !important;
   }
 `;
-export const PreviousBtn = styled(Button)`
-  // background-color: #007AFF;
-  // border-color: #007AFF;
-  // color: #fff;
-  margin-right: 20px;
-  font-size: 16px;
-  padding: 6px 20px;
-  height: 42px;
-`;
 export const NextBtn = styled(Button)`
-  // background-color: #007AFF;
-  // border-color: #007AFF;
-  // color: #fff;
-  font-size: 16px;
-  padding: 8px 30px;
-  height: 42px;
+  margin-top: 10px;
 `;
 export const SignInBtn = styled.span`
   padding: 0 5px 0 0;

@@ -6,7 +6,7 @@ import PasswordStrengthBar from "react-password-strength-bar";
 import { InputOTP } from "antd-input-otp";
 
 // antd
-import { Form, Steps, Select } from "antd";
+import { Form, Steps, Button } from "antd";
 
 // hooks
 import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
@@ -440,9 +440,9 @@ const SignupForm = () => {
                 {currentStep !== steps.length && (
                   <Styled.BtnGrp>
                     {currentStep > 0 && (
-                      <Styled.PreviousBtn onClick={prevStep}>
+                      <Button onClick={prevStep} block>
                         Previous
-                      </Styled.PreviousBtn>
+                      </Button>
                     )}
                     <Styled.NextBtn
                       type="primary"
@@ -461,6 +461,7 @@ const SignupForm = () => {
                       disabled={Object.keys(validate(values)).some(
                         (field) => !!field
                       )}
+                      block
                     >
                       {currentStep === 0
                         ? "Get Started"
