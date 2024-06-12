@@ -114,8 +114,6 @@ input:-webkit-autofill:focus {
   }
 
   nav .menu-icon-container {
-    width: 20px;
-    height: 44px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -130,7 +128,7 @@ input:-webkit-autofill:focus {
   nav .menu-icon .line-2 {
     position: absolute;
     height: 1px;
-    width: 100%;
+    width: 14px;
     background: var(--color-text);
     transition-property: transform, top;
     transition-delay: 0ms, 100ms;
@@ -138,11 +136,11 @@ input:-webkit-autofill:focus {
   }
 
   nav .menu-icon .line-1 {
-    top: -4px;
+    top: -3px;
   }
 
   nav .menu-icon .line-2 {
-    top: 4px;
+    top: 3px;
   }
 
   .nav-container.active nav .menu-icon-container .menu-icon .line-1 {
