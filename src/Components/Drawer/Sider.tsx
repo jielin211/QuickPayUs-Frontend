@@ -1,13 +1,12 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
 
 // antd
-import { Menu, Collapse, Layout } from "antd";
+import { Menu, Layout } from "antd";
 
-// redux
-import { selectSetting } from "../../Redux/selectors";
+// hooks
+import useThemeMode from "../../Utils/Hooks/useThemeMode";
 
 // icons
 import DashboardIconLight from "../../assets/images/dashboard-icon-light.svg";
@@ -77,22 +76,7 @@ export const Sider: React.FC = () => {
   const [selectedOption, setSelectedOption] = useState<string>("");
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
-  const setting = useSelector(selectSetting);
-
-  const handleCollapse = () => {
-    setCollapsed(!collapsed);
-  };
-
-  const items = [
-    {
-      key: "1",
-      label: <a href="/profile">My Profile</a>,
-    },
-    {
-      key: "2",
-      label: <a href="/settings">Settings</a>,
-    },
-  ];
+  const { themeMode } = useThemeMode();
 
   useEffect(() => {
     const pathname = location.pathname;
@@ -140,10 +124,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "dashboard"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? DashboardIconFilledDark
                   : DashboardIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? DashboardIconDark
                 : DashboardIconLight
             }
@@ -154,10 +138,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "transaction"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? TransactionsIconFilledDark
                   : TransactionsIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? TransactionsIconDark
                 : TransactionsIconLight
             }
@@ -168,10 +152,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "deposit"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? DepositIconFilledDark
                   : DepositIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? DepositIconDark
                 : DepositIconLight
             }
@@ -182,10 +166,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "withdrawal"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? WithdrawalIconFilledDark
                   : WithdrawalIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? WithdrawalIconDark
                 : WithdrawalIconLight
             }
@@ -196,10 +180,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "referrals"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? ReferralsIconFilledDark
                   : ReferralsIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? ReferralsIconDark
                 : ReferralsIconLight
             }
@@ -210,10 +194,10 @@ export const Sider: React.FC = () => {
           <SiderMenuItem
             icon={
               selectedOption == "rank"
-                ? setting.themeMode === "dark"
+                ? themeMode === "dark"
                   ? RankIconFilledDark
                   : RankIconFilledLight
-                : setting.themeMode === "dark"
+                : themeMode === "dark"
                 ? RankIconDark
                 : RankIconLight
             }

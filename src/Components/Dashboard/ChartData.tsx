@@ -35,6 +35,30 @@ const eChart: {
       toolbar: {
         show: false,
       },
+
+      events: {
+        mouseMove: function (event, chartContext, config) {
+          const tooltip = chartContext.el.querySelector(".apexcharts-tooltip");
+          // tooltip.style.display = "none";
+          // setTimeout(() => {
+          //   tooltip.style.top = "0px";
+          //   tooltip.style.left = "0px";
+          //   tooltip.style.display = "flex";
+          // }, 100);
+          const { pointsArray } = config.globals;
+
+          console.log(pointsArray);
+          var seriesIndex = config.seriesIndex;
+          console.log(seriesIndex);
+          // var dataPointIndex =
+          //   config.dataPointIndex === -1 ? 0 : config.dataPointIndex;
+          // if (seriesIndex !== -1) {
+          //   var position = pointsArray[seriesIndex][dataPointIndex];
+          //   tooltip.style.top = position[1] + "px";
+          //   tooltip.style.left = position[0] + "px";
+          // }
+        },
+      },
     },
     plotOptions: {
       bar: {

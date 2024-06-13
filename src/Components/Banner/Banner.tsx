@@ -14,6 +14,7 @@ import {
 // hooks
 import { useDevice } from "../../Utils/Hooks/useDevice";
 import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
+import useThemeMode from "../../Utils/Hooks/useThemeMode";
 
 // assets
 import logoLight from "../../assets/images/logo-light.svg";
@@ -62,9 +63,11 @@ const getRandomColor = () => {
 
 export const Banner = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const [selectedKey, setSelectedKey] = useState("");
   const [avatarColor, setAvatarColor] = useState(getRandomColor()); // Set random color
+  const [sMenuOpenKeys, setMenuOpenKeys] = useState<Array<string>>([]);
 
+  const menuRef = useRef<HTMLDivElement>(null);
   const mobileMenuRef = useRef<HTMLDivElement>(null);
 
   const dispatch = useDispatch();
@@ -72,6 +75,7 @@ export const Banner = () => {
   const setting = useSelector(selectSetting);
 
   const navbarHeight = useNavbarHeight();
+  const { themeMode } = useThemeMode();
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -99,12 +103,22 @@ export const Banner = () => {
   };
 
   useEffect(() => {
+    setSelectedKey(themeMode);
     document.addEventListener("mousedown", handleClickOutside);
-
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
+
+  useEffect(() => {
+    setSelectedKey(setting.themeMode);
+  }, [setting.themeMode]);
+
+  useEffect(() => {
+    if (!collapsed) {
+      setMenuOpenKeys([]);
+    }
+  }, [collapsed]);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
@@ -115,15 +129,13 @@ export const Banner = () => {
     toggleCollapsed();
   };
 
-  const [selectedKey, setSelectedKey] = useState("");
-
   const handleClick = (key) => {
     if (key === "dark" || key === "light" || key === "auto") {
       setSelectedKey(key);
-
       dispatch(updateSettingField({ field: "themeMode", value: key }));
-
       localStorage.setItem("themeMode", key);
+    } else {
+      setCollapsed(false);
     }
   };
 
@@ -215,8 +227,10 @@ export const Banner = () => {
         boxShadow: "2px 4px 12px #00000014",
         borderInlineEnd: 0,
       }}
-      defaultSelectedKeys={[]}
-      defaultOpenKeys={["sub1"]}
+      // defaultSelectedKeys={[]}
+      // defaultOpenKeys={["sub1"]}
+      openKeys={sMenuOpenKeys}
+      onOpenChange={setMenuOpenKeys}
       mode="inline"
       items={menuItems}
     />
@@ -228,13 +242,15 @@ export const Banner = () => {
       style={{
         width: 120,
         position: "fixed",
-        top: "46px",
+        top: navbarHeight + 5 + "px",
         right: "6px",
         boxShadow: "2px 4px 12px #00000014",
         borderInlineEnd: 0,
       }}
-      defaultSelectedKeys={[]}
-      defaultOpenKeys={["sub1"]}
+      // defaultSelectedKeys={[]}
+      // defaultOpenKeys={["sub1"]}
+      openKeys={sMenuOpenKeys}
+      onOpenChange={setMenuOpenKeys}
       mode="inline"
       items={menuItems}
     />
@@ -282,7 +298,7 @@ export const Banner = () => {
           <Styled.PcLogoWrapper>
             <Link to="/dashboard">
               <Styled.PcLogo
-                src={setting.themeMode === "dark" ? logoDark : logoLight}
+                src={themeMode === "dark" ? logoDark : logoLight}
                 alt="QUICKPAYUS"
               />
             </Link>
@@ -520,7 +536,7 @@ export const Banner = () => {
             <Styled.MobileLogoWrapper>
               <Styled.MobileLogoLink to="/dashboard">
                 <Styled.MobileLogo
-                  src={setting.themeMode === "dark" ? logoDark : logoLight}
+                  src={themeMode === "dark" ? logoDark : logoLight}
                   alt="QUICKPAYUS"
                 />
               </Styled.MobileLogoLink>

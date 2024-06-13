@@ -9,7 +9,7 @@ import App from "./App";
 import "./index.css";
 
 // provider
-import ThemeProvider from "./Theme/themeProvider";
+import { ThemeProvider } from "./Theme/themeProvider";
 
 // redux
 import { store } from "./Redux/store";
