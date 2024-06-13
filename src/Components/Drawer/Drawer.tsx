@@ -59,7 +59,11 @@ const App = () => {
     <>
       <Layout style={layoutStyle}>
         <Banner />
-        <Layout>
+        <Layout
+          style={{
+            transition: "background 0.5s",
+          }}
+        >
           {!isSignInRoute && <Sider />}
           <Content style={contentStyle}>
             <Routes>

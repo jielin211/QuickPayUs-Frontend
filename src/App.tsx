@@ -37,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
       --font-size-page-title: ${theme.fontSizePageTitle};
       --font-weight-page-title: ${theme.fontWeightPageTitle};
       --margin-bottom-page-title: ${theme.marginBottomPageTitle};
+      --transition-time-when-switch-theme-mode: ${theme.transitionTimeWhenSwitchThemeMode};
     }
     input, select, textarea {
       font-size: 16px !important;
@@ -77,6 +78,7 @@ function App() {
           fontSizePageTitle: "20px",
           fontWeightPageTitle: "600",
           marginBottomPageTitle: "20px",
+          transitionTimeWhenSwitchThemeMode: "0.5s",
         }}
       />
       <AppRoutes />

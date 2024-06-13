@@ -56,6 +56,8 @@ const UiSiderCustom = styled(UiSider)`
   border-right: 1px solid var(--color-border-primary) !important;
   overflow: hidden;
   display: none;
+  transition: all 0.2s, background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode) !important;
   ${breakpoint.md} {
     display: block;
   }
@@ -63,9 +65,13 @@ const UiSiderCustom = styled(UiSider)`
 
 const MenuCustom = styled(Menu)`
   border-inline-end: 0 !important;
+  transition: background 0.5s, border 0.5s;
   .sider-menu-item.active {
     background: var(--color-bg-list-item-actived) !important;
     color: var(--color-text);
+  }
+  a {
+    transition: color 0s;
   }
 `;
 

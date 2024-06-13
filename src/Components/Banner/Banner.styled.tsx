@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Layout, Avatar } from "antd";
 import { BellOutlined, QrcodeOutlined } from "@ant-design/icons";
+import { breakpoint } from "../../breakpoints";
 const { Header } = Layout;
 
 interface StyledHeaderProps {
@@ -146,7 +147,10 @@ export const StyledHeader = styled(Header)<StyledHeaderProps>`
   line-height: unset;
   z-index: 99;
   background: var(--color-bg-container);
-  border-bottom: 1px solid var(--color-border-primary);
+  transition: background 0.5s, border 0.5s;
+  ${breakpoint.md} {
+    border-bottom: 1px solid var(--color-border-primary);
+  }
 `;
 export const BellOutlinedNew = styled(BellOutlined)`
   font-size: 14px;

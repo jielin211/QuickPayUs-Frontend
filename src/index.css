@@ -9,8 +9,22 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-* {
+/* * {
   transition: background 0.2s ease, border 0.2s ease;
+} */
+
+.ant-select-selector {
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode),
+    color var(--transition-time-when-switch-theme-mode) !important;
+}
+
+.ant-input,
+.ant-picker {
+  transition: background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode),
+    color var(--transition-time-when-switch-theme-mode);
 }
 
 input:-webkit-autofill,
@@ -33,6 +47,7 @@ input:-webkit-autofill:focus {
 .ant-card {
   border-radius: 18px;
   border: unset;
+  transition: background 0.5s, border 0.5s;
 }
 
 .ant-card .ant-card-head-title {
