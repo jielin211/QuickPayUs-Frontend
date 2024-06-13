@@ -45,9 +45,6 @@ export const Content = styled.div`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   font-family: IBM Plex Sans, sans-serif;
-  @media screen and (max-width: 768px) {
-    padding: 16px;
-  }
 `;
 
 export const Steps = styled(UiSteps)`
@@ -112,7 +109,6 @@ export const StyledDot = styled.div`
 export const StepsWrapper = styled.div`
   display: flex;
   width: 100%;
-  height: 68vh;
   @media screen and (max-width: 768px) {
     flex-direction: column;
     height: 100%;

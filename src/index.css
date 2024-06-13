@@ -415,7 +415,7 @@ a {
 @media (max-width: 575px) {
   .ant-steps {
     transform: translateY(0px) translateX(0px);
-    margin-bottom: 50px;
+    margin-bottom: 20px;
   }
   .ant-steps.ant-steps-vertical {
     display: flex;
