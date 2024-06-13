@@ -132,6 +132,8 @@ input:-webkit-autofill:focus {
     display: flex;
     align-items: center;
     cursor: pointer;
+    width: 18px;
+    height: 18px;
   }
 
   nav .menu-icon {
