@@ -10,7 +10,7 @@ import Settings from "../Settings/Settings";
 import Support from "../Support/Support";
 import Rank from "../Rank/Rank";
 import Deposit from "../Deposit/Deposit";
-import Withdrawal from "../Withdrawal/Withdrawal";
+import Withdrawal from "../Withdraw";
 import ChangePassword from "../Auth/Changepassword";
 import { Notifications } from "../Notifications";
 import Profile from "../Profile/Profile";
