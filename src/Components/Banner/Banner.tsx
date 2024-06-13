@@ -404,6 +404,7 @@ export const Banner = () => {
                   <li>
                     <Popover
                       trigger="click"
+                      overlayClassName="popover-qrcode"
                       overlayInnerStyle={{
                         padding: 10,
                         background: "var(--color-bg-container)",
@@ -413,7 +414,7 @@ export const Banner = () => {
                           <div>
                             <p
                               style={{
-                                padding: "10px 0px",
+                                paddingBottom: "10px",
                                 textAlign: "center",
                                 fontSize: "14px",
                                 fontWeight: "600",
