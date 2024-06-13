@@ -19,6 +19,7 @@ export const Balance = styled.div`
   width: 200px;
   height: 32px;
   padding: 4px 8px;
+  transition: border var(--transition-time-when-switch-theme-mode);
 `;
 
 export const BalanceContainer = styled.div`

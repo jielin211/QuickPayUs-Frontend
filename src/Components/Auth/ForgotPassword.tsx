@@ -3,7 +3,7 @@ import { Formik, Field } from "formik";
 import { InputOTP } from "antd-input-otp";
 
 // antd
-import { Form } from "antd";
+import { Form, Button } from "antd";
 
 // hooks
 import useNavbarHeight from "../../Utils/Hooks/useNavbarHeight";
@@ -246,9 +246,9 @@ const ForgotPassword: React.FC = () => {
                     {currentStep !== 1 && (
                       <>
                         {currentStep > 0 && (
-                          <Styled.PreviousBtn onClick={prevStep}>
+                          <Button onClick={prevStep} block>
                             Previous
-                          </Styled.PreviousBtn>
+                          </Button>
                         )}
                         <Styled.NextBtn
                           type="primary"
@@ -269,18 +269,20 @@ const ForgotPassword: React.FC = () => {
                           disabled={Object.keys(validate(values)).some(
                             (field) => !!field
                           )}
+                          block
                         >
                           {currentStep === steps.length - 1 ? "Submit" : "Next"}
                         </Styled.NextBtn>
                       </>
                     )}
                     {currentStep === 1 && (
-                      <Styled.PreviousBtn
+                      <Button
                         onClick={resendOTP}
                         disabled={seconds > 0 || minutes > 0}
+                        block
                       >
                         Resend OTP
-                      </Styled.PreviousBtn>
+                      </Button>
                     )}
                   </Styled.BtnGrp>
                 )}

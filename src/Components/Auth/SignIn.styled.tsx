@@ -48,6 +48,7 @@ export const MainRow = styled(Row)<MainRowProps>`
   align-items: center;
   background: var(--color-bg-container);
   margin: calc(var(--padding-content) * -1);
+  transition: background var(--transition-time-when-switch-theme-mode);
   ${breakpoint.md} {
     background: var(--color-bg-layout);
   }

@@ -60,11 +60,13 @@ export const AboutBoxRow = styled(Row)`
   border-radius: var(--border-radius-container);
   background: var(--color-bg-container);
   margin-bottom: 20px;
+  transition: background var(--transition-time-when-switch-theme-mode);
 `;
 export const AboutBoxCol = styled(Col)`
   display: flex;
   align-items: center;
   padding: 15px;
+  transition: border-right var(--transition-time-when-switch-theme-mode);
   ${breakpoint.md} {
     border-right: 1px solid var(--color-border-primary);
   }

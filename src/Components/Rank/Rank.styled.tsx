@@ -31,6 +31,7 @@ export const RankCol1 = styled.div`
   border-style: solid;
   border-color: var(--color-border-primary);
   border-bottom-width: 1px;
+  transition: border-color var(--transition-time-when-switch-theme-mode);
   ${breakpoint.md} {
     border-right-width: 1px;
     border-bottom-width: 0px;
@@ -47,7 +48,8 @@ export const RankCol2 = styled(RankCol1)`
 export const RankDataWrapper = styled.div`
   border-radius: var(--border-radius-container);
   padding: var(--padding-container) !important;
-  background-color: var(--color-bg-container);
+  background: var(--color-bg-container);
+  transition: background var(--transition-time-when-switch-theme-mode);
 `;
 export const RankDataItem = styled(Row)`
   margin-bottom: 5px;
@@ -92,8 +94,9 @@ export const RankResultWrapper = styled.div`
 export const RankChartWrapper = styled.div`
   border-radius: var(--border-radius-container);
   margin: 30px 0;
-  background-color: var(--color-bg-container);
+  background: var(--color-bg-container);
   padding: var(--padding-container) !important;
+  transition: background var(--transition-time-when-switch-theme-mode);
 `;
 export const RankResultContent = styled.span`
   margin: auto 0;

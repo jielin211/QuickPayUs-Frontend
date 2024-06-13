@@ -65,7 +65,8 @@ const UiSiderCustom = styled(UiSider)`
 
 const MenuCustom = styled(Menu)`
   border-inline-end: 0 !important;
-  transition: background 0.5s, border 0.5s;
+  transition: background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode);
   .sider-menu-item.active {
     background: var(--color-bg-list-item-actived) !important;
     color: var(--color-text);

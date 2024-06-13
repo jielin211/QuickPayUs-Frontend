@@ -17,6 +17,7 @@ export const SettingsBox = styled.div`
   padding: var(--padding-container);
   background: var(--color-bg-container);
   margin-bottom: 30px;
+  transition: background var(--transition-time-when-switch-theme-mode);
 `;
 export const SettingsBoxH2 = styled.h2`
   font-size: 19px;
@@ -69,6 +70,7 @@ export const CustomLink = styled(Link)`
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid var(--color-border-primary);
+  transition: border-bottom var(--transition-time-when-switch-theme-mode);
   &:last-child {
     border-bottom: none; /* Remove bottom border for the last CustomLink */
   }

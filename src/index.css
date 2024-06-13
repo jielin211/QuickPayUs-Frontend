@@ -16,15 +16,61 @@ body::-webkit-scrollbar {
 .ant-select-selector {
   transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
     background var(--transition-time-when-switch-theme-mode),
-    border var(--transition-time-when-switch-theme-mode),
-    color var(--transition-time-when-switch-theme-mode) !important;
+    border var(--transition-time-when-switch-theme-mode), color 0s !important;
 }
 
 .ant-input,
 .ant-picker {
   transition: background var(--transition-time-when-switch-theme-mode),
-    border var(--transition-time-when-switch-theme-mode),
-    color var(--transition-time-when-switch-theme-mode);
+    border var(--transition-time-when-switch-theme-mode) !important;
+}
+
+.ant-input-affix-wrapper {
+  transition: all 0.2s, background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder {
+  transition: background var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-table-wrapper .ant-table-thead > tr > th {
+  transition: background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-table-wrapper .ant-table-thead th.ant-table-column-has-sorters {
+  transition: all 0.3s, background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode), color 0s;
+}
+
+.ant-table-wrapper
+  .ant-table-thead
+  > tr
+  > th:not(:last-child):not(.ant-table-selection-column):not(
+    .ant-table-row-expand-icon-cell
+  ):not([colspan])::before {
+  transition: background-color var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  transition: background var(--transition-time-when-switch-theme-mode),
+    border-color var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-empty .ant-empty-image svg path,
+.ant-empty .ant-empty-image svg ellipse {
+  transition: fill var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-empty .ant-empty-image g {
+  transition: stroke var(--transition-time-when-switch-theme-mode);
+}
+
+.ant-radio-wrapper .ant-radio-inner {
+  transition: all 0.2s,
+    border-color var(--transition-time-when-switch-theme-mode),
+    background-color var(--transition-time-when-switch-theme-mode);
 }
 
 input:-webkit-autofill,
@@ -32,6 +78,7 @@ input:-webkit-autofill:hover,
 input:-webkit-autofill:focus {
   -webkit-box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
   -webkit-text-fill-color: var(--color-text);
+  -webkit-transition: box-shadow var(--transition-time-when-switch-theme-mode);
 }
 
 /* .ant-layout-content {
@@ -47,7 +94,8 @@ input:-webkit-autofill:focus {
 .ant-card {
   border-radius: 18px;
   border: unset;
-  transition: background 0.5s, border 0.5s;
+  transition: background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode);
 }
 
 .ant-card .ant-card-head-title {
@@ -608,6 +656,9 @@ a {
 .ant-btn {
   border-radius: var(--border-radius-button) !important;
   box-shadow: none;
+  transition: all 0.2s cubic-bezier(0.645, 0.045, 0.355, 1),
+    background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode);
 }
 
 .ant-input,

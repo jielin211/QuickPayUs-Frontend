@@ -8,7 +8,8 @@ export const InputWrapper = styled.div`
 export const StyledLabel = styled.label`
   position: absolute;
   left: 15px;
-  transition: all 0.27s ease, transform 0.21s ease;
+  transition: all 0.27s ease, transform 0.21s ease,
+    background var(--transition-time-when-switch-theme-mode);
   background: var(--color-bg-container);
   padding: 0 2px;
   pointer-events: none;
@@ -26,6 +27,7 @@ export const StyledFloatInputPassword = styled(Input.Password)`
   input {
     box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
     border-radius: unset !important;
+    transition: box-shadow var(--transition-time-when-switch-theme-mode);
   }
   &:focus {
     border: 1px solid red;

@@ -32,6 +32,7 @@ export const FieldValue = styled.div`
   color: var(--color-text);
   padding: 8px;
   border-radius: var(--border-radius-input);
+  transition: border var(--transition-time-when-switch-theme-mode);
 `;
 
 export const Container = styled.div`

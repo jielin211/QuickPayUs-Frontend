@@ -9,10 +9,9 @@ import {
 } from "../../../../Redux/selectors";
 
 export const ReviewForm: React.FC = () => {
-
   const kycFormData = useSelector(selectKycVerification);
   const profileFormData = useSelector(selectProfile);
-  
+
   const firstName = profileFormData.firstName || "";
   const lastName = profileFormData.lastName || "";
   const country = kycFormData.country;
@@ -33,9 +32,9 @@ export const ReviewForm: React.FC = () => {
 
   const device = useDevice();
   return (
-    <div> 
+    <div>
       <Styled.Heading>Review your Information</Styled.Heading>
-      <Styled.ContainerWrapper>  
+      <Styled.ContainerWrapper>
         <Styled.Container>
           <Space
             size={device?.isBreakpoint("MD") ? 32 : 16}
@@ -93,19 +92,16 @@ export const ReviewForm: React.FC = () => {
             </div>
           </Space>
         </Styled.Container>
-        <Styled.UploadSection>    
+        <Styled.UploadSection>
           <Styled.FieldTitle> Uploaded Documents</Styled.FieldTitle>
-          <Styled.ImgGrp>    
-             
-            {
-              documents?.map((item, index) => (
-                <Styled.UploadImg key={index}/>
-                // <img key={index} src=""/>
-              ))
-            }           
-          </Styled.ImgGrp>  
+          <Styled.ImgGrp>
+            {documents?.map((item, index) => (
+              <Styled.UploadImg key={index} />
+              // <img key={index} src=""/>
+            ))}
+          </Styled.ImgGrp>
         </Styled.UploadSection>
-      </Styled.ContainerWrapper> 
+      </Styled.ContainerWrapper>
     </div>
   );
 };

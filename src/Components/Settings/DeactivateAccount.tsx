@@ -22,6 +22,7 @@ const DeactivateContainer = styled.div`
   max-width: 500px;
   margin: 0 auto;
   box-sizing: border-box;
+  transition: background-color var(--transition-time-when-switch-theme-mode);
 `;
 
 const DeactivateButton = styled(Button)`

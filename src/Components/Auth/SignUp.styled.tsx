@@ -19,6 +19,7 @@ export const StyledWrapper = styled.div<StyledWrapperProps>`
   min-height: ${({ navbarHeight }) => `calc(100vh - ${navbarHeight || 0}px)`};
   margin: calc(var(--padding-content) * -1);
   background: var(--color-bg-container);
+  transition: background var(--transition-time-when-switch-theme-mode);
   ${breakpoint.md} {
     background: var(--color-bg-layout);
   }

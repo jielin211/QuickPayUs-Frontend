@@ -10,6 +10,7 @@ export const BgTop = styled.div`
   text-align: center;
   border-bottom: 1px solid var(--color-border-primary);
   padding-bottom: 20px;
+  transition: border-bottom var(--transition-time-when-switch-theme-mode);
 `;
 export const StyledH1 = styled.h1`
   font-size: 32px;
@@ -63,6 +64,7 @@ export const StyledCol = styled(Col)`
   padding: 24px 0;
   border-radius: 18px;
   background: var(--color-bg-container);
+  transition: background var(--transition-time-when-switch-theme-mode);
 `;
 export const StyledSearch = styled(Search)`
   padding-bottom: 30px;
