@@ -303,31 +303,31 @@ export const Banner = () => {
           <Styled.CtaContainer>
             <Popover
               trigger="click"
+              overlayClassName="popover-qrcode"
               overlayInnerStyle={{
                 padding: 10,
                 background: "var(--color-bg-container)",
               }}
               content={
-                <>
-                  <div>
-                    <Styled.ReferralTitle>Referral code</Styled.ReferralTitle>
-                    <QRCode value="https://quickpayus.com/username" />
-                    <div className="d-flex">
-                      <CopyToClipboard
-                        text="https://quickpayus.com/username"
-                        onCopy={onCopy}
-                      >
-                        <Styled.CopyToClipboardContent>
-                          {copied ? "Copied!" : "Copy"} <CopyOutlined />{" "}
-                        </Styled.CopyToClipboardContent>
-                      </CopyToClipboard>
-                      <Styled.ShareBtn onClick={handleShare}>
-                        Share <ShareAltOutlined />
-                      </Styled.ShareBtn>
-                    </div>
+                <div>
+                  <Styled.ReferralTitle>Referral code</Styled.ReferralTitle>
+                  <QRCode value="https://quickpayus.com/username" />
+                  <div className="d-flex">
+                    <CopyToClipboard
+                      text="https://quickpayus.com/username"
+                      onCopy={onCopy}
+                    >
+                      <Styled.CopyToClipboardContent>
+                        {copied ? "Copied!" : "Copy"} <CopyOutlined />{" "}
+                      </Styled.CopyToClipboardContent>
+                    </CopyToClipboard>
+                    <Styled.ShareBtn onClick={handleShare}>
+                      Share <ShareAltOutlined />
+                    </Styled.ShareBtn>
                   </div>
-                </>
+                </div>
               }
+              style={{ background: "red" }}
             >
               <Styled.CustomQrCodeIcon />
             </Popover>
