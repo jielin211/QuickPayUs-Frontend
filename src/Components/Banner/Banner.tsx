@@ -305,6 +305,9 @@ export const Banner = () => {
             <Popover
               trigger="click"
               overlayClassName="popover-qrcode"
+              overlayStyle={{
+                padding: 9,
+              }}
               overlayInnerStyle={{
                 padding: 10,
                 background: "var(--color-bg-container)",
