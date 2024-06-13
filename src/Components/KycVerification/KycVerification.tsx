@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 
 // antd
-import { Button } from "antd";
+import { Button, Card } from "antd";
 
 // components
 import { PersonalInformationForm } from "./components/PersonalInformationForm/PersonalInformationForm";
@@ -186,7 +186,7 @@ export const KycVerification: React.FC = () => {
             />
           )}
           <Styled.StepsContent>
-            <div>{steps[current].content}</div>
+            <Card>{steps[current].content}</Card>
             <Styled.BtnGroup>
               {current > 0 && current < steps.length - 1 && (
                 <Styled.PreviousBtn onClick={() => prev()}>

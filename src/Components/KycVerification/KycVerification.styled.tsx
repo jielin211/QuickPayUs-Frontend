@@ -120,14 +120,11 @@ export const StepsWrapper = styled.div`
 `;
 export const StepsContent = styled.div`
   width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 `;
 export const BtnGroup = styled.div`
   display: flex;
   justify-content: right;
+  margin-top: 20px;
 `;
 export const PreviousBtn = styled(Button)`
   margin: 0 8px;
