@@ -5,7 +5,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 // antd
 import { Badge, Menu, QRCode, Popover, MenuProps } from "antd";
-import {
+import Icon, {
   CheckCircleOutlined,
   CopyOutlined,
   ShareAltOutlined,
@@ -28,15 +28,12 @@ import { selectSetting } from "../../Redux/selectors";
 // styles
 import * as Styled from "./Banner.styled";
 
-const AnnouncementIcon = (props) => (
+const AnnouncementIcon = () => (
   <svg
-    fill="var(--color-text)"
-    width="16px"
-    height="16px"
-    viewBox="0 0 24 24"
+    width="1em"
+    height="1em"
+    viewBox="1 1 24 24"
     xmlns="http://www.w3.org/2000/svg"
-    style={{ marginBottom: "2px" }}
-    {...props}
   >
     <path d="M5,7.087a3,3,0,0,0-3,3v3.826a3,3,0,0,0,2,2.816V21a1,1,0,0,0,1,1H9a1,1,0,0,0,1-1V17.423l10.609,4.5A1,1,0,0,0,22,21V3a1,1,0,0,0-1.391-.921L8.8,7.087ZM8,20H6V16.913H8Zm0-5.087H5a1,1,0,0,1-1-1V10.087a1,1,0,0,1,1-1H8Zm2-6.164L20,4.51V19.49L10,15.251Z" />
   </svg>
@@ -335,16 +332,15 @@ export const Banner = () => {
               <Styled.CustomQrCodeIcon />
             </Popover>
             <Link to="/announcements">
-              <Styled.BellWrapper>
-                <AnnouncementIcon />
-              </Styled.BellWrapper>
+              <Icon
+                component={AnnouncementIcon}
+                style={{ fontSize: "14px", cursor: "pointer" }}
+              />
             </Link>
             <Link to="/notifications">
-              <Styled.BellWrapper>
-                <Badge count={counter}>
-                  <Styled.BellOutlinedNew />
-                </Badge>
-              </Styled.BellWrapper>
+              <Badge count={counter}>
+                <Styled.BellOutlinedNew />
+              </Badge>
             </Link>
             <div>
               <a onClick={(e) => handleToggle(e)}>
@@ -406,6 +402,7 @@ export const Banner = () => {
                 >
                   <li>
                     <Popover
+                      trigger="click"
                       overlayInnerStyle={{
                         padding: 10,
                         background: "var(--color-bg-container)",
@@ -452,18 +449,17 @@ export const Banner = () => {
 
                   <li>
                     <Link to="/announcements">
-                      <Styled.BellWrapper>
-                        <AnnouncementIcon />
-                      </Styled.BellWrapper>
+                      <Icon
+                        component={AnnouncementIcon}
+                        style={{ fontSize: "14px", cursor: "pointer" }}
+                      />
                     </Link>
                   </li>
                   <li>
                     <Link to="/notifications">
-                      <Styled.MobileBellWrapper>
-                        <Badge count={counter}>
-                          <Styled.BellOutlinedNew />
-                        </Badge>
-                      </Styled.MobileBellWrapper>
+                      <Badge count={counter}>
+                        <Styled.BellOutlinedNew />
+                      </Badge>
                     </Link>
                   </li>
                   <li>

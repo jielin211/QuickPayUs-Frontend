@@ -57,28 +57,6 @@ export const BellIconCounter = styled.div`
   display: block;
   font-size: 8px;
 `;
-export const MobileBellWrapper = styled.div`
-  // position: absolute;
-  display: flex;
-  align-items: center;
-  // top: 16px;
-  // right: 55px;
-  @media (min-width: 576px) and (max-width: 768px) {
-    top: 16px;
-    right: 55px;
-  }
-`;
-export const BellWrapper = styled.div`
-  position: relative;
-  display: flex;
-  align-items: center;
-  height: 44px;
-  @media screen and (max-width: 768px) {
-    // top: 0px;
-    // position: absolute;
-    // right: 105px;
-  }
-`;
 export const PcLogoWrapper = styled.div`
   height: 100%;
   a {
@@ -153,8 +131,8 @@ export const StyledHeader = styled(Header)<StyledHeaderProps>`
   }
 `;
 export const BellOutlinedNew = styled(BellOutlined)`
+  cursor: pointer;
   font-size: 14px;
-  // color: #0a0a0a;
 `;
 export const StyledAvatar = styled(Avatar)`
   font-size: 14px;
@@ -189,4 +167,5 @@ export const CopyToClipboardContent = styled.button`
 `;
 export const CustomQrCodeIcon = styled(QrcodeOutlined)`
   cursor: pointer;
+  font-size: 14px;
 `;
