@@ -510,7 +510,7 @@ export const Banner = () => {
               </li>
               <li>
                 <Link to="/withdrawal" onClick={() => setOpenCloseNav(false)}>
-                  Withdrawal
+                  Withdraw
                 </Link>
               </li>
               <li>
