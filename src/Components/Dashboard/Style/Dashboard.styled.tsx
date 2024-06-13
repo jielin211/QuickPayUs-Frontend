@@ -21,6 +21,7 @@ export const CardCol = styled.div`
   align-items: flex-start;
   justify-content: center;
   flex-direction: column;
+  transition: border var(--transition-time-when-switch-theme-mode);
 `;
 export const CardH3 = styled.h3`
   margin: 0px;
