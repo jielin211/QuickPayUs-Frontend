@@ -102,6 +102,10 @@ input:-webkit-autofill:focus {
   text-align: center;
   font-size: 20px;
 }
+
+.ant-modal-content {
+  border-radius: var(--border-radius-container) !important;
+}
 /* Desktop Nav */
 
 .nav-container {
@@ -697,10 +701,10 @@ a {
   display: none;
 }
 
-.popover-qrcode {
+.popover-menu {
   /* transform: translateY(10px); */
 }
 
-.popover-qrcode .ant-popover-arrow {
+.popover-menu .ant-popover-arrow {
   display: none;
 }

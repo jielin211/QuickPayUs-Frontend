@@ -219,6 +219,7 @@ export const Banner = () => {
       selectedKeys={[selectedKey]}
       style={{
         borderInlineEnd: 0,
+        width: 120,
       }}
       openKeys={sMenuOpenKeys}
       onOpenChange={setMenuOpenKeys}
