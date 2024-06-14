@@ -25,6 +25,11 @@ body::-webkit-scrollbar {
   transition-duration: var(--transition-time-when-switch-theme-mode) !important;
 }
 
+.ant-checkbox-inner {
+  transition: all 0.3s, background var(--transition-time-when-switch-theme-mode),
+    border var(--transition-time-when-switch-theme-mode) !important;
+}
+
 .ant-input-affix-wrapper {
   transition: all 0.2s, background var(--transition-time-when-switch-theme-mode),
     border var(--transition-time-when-switch-theme-mode);
@@ -707,4 +712,8 @@ a {
 
 .popover-menu .ant-popover-arrow {
   display: none;
+}
+
+.color-blue {
+  color: #007aff;
 }

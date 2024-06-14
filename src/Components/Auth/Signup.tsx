@@ -312,7 +312,7 @@ const SignupForm = () => {
                         {({ field }) => (
                           <Styled.InputWrapper>
                             <FloatingInput
-                              label="User Name"
+                              label="Username"
                               name="username"
                               field={field}
                             />
@@ -415,11 +415,19 @@ const SignupForm = () => {
                             {...field}
                           >
                             I agree with the
-                            <a href="#" className="color-blue">
+                            <a
+                              href="#"
+                              className="color-blue"
+                              style={{ margin: "0 5px" }}
+                            >
                               Privacy Policy
                             </a>
                             and
-                            <a href="#" className="color-blue">
+                            <a
+                              href="#"
+                              className="color-blue"
+                              style={{ marginLeft: 5 }}
+                            >
                               Terms of Services.
                             </a>
                           </Styled.StyledCheckbox>
@@ -495,18 +503,20 @@ const SignupForm = () => {
           The information collected by Google reCAPTCHA is subject to the Google
           <a
             href="https://policies.google.com/privacy"
-            className="color-red"
+            className="color-blue"
             target="_blank"
+            style={{ margin: "0 5px" }}
           >
             Privacy Policy
           </a>
           and
           <a
             href="https://policies.google.com/terms"
-            className="color-red"
+            className="color-blue"
             target="_blank"
+            style={{ margin: "0 5px" }}
           >
-            Terms of Service,
+            Terms of Service
           </a>
           and is used for providing, maintaining, and improving the reCAPTCHA
           service and for general security purposes (it is not used for
