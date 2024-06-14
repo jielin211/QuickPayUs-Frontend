@@ -195,6 +195,7 @@ input:-webkit-autofill:focus {
     position: absolute;
     height: 1px;
     width: 14px;
+    border-radius: 1px;
     background: var(--color-text);
     transition-property: transform, top;
     transition-delay: 0ms, 100ms;
