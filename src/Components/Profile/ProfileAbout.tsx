@@ -30,7 +30,7 @@ const ProfileAbout = () => {
           <Styled.StyledProfileAvatar style={{ backgroundColor: avatarColor }}>
             U
           </Styled.StyledProfileAvatar>
-          <Styled.StyledNameLabel>Username</Styled.StyledNameLabel>
+          <Styled.StyledNameLabel>User Name</Styled.StyledNameLabel>
           <Styled.StyledLevelLabel>Level: 1</Styled.StyledLevelLabel>
         </Styled.StyledUserInfo>
         <Styled.AboutBoxRow>
