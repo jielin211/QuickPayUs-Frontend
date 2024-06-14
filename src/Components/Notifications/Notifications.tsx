@@ -6,7 +6,7 @@ import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { selectNotifications } from "../../Redux/selectors";
 import * as Styled from "./Notifications.styled";
-import { 
+import {
   setNotifications,
   resetNotifications,
   setNotificationsReadStatus,
@@ -111,7 +111,7 @@ export const Notifications = () => {
       const result = await putData({
         data: { isRead: true },
       });
-      if ('data' in result && result.data.success) {
+      if ("data" in result && result.data.success) {
         refetchTotal();
         dispatch(setNotificationsReadStatus());
       }
@@ -133,7 +133,7 @@ export const Notifications = () => {
           </>
         )}
       </Styled.Header>
-      <Content className="notification-content"> 
+      <Content className="notification-content">
         <div>
           {(isLoading || isFetching) && (
             <>
@@ -162,7 +162,7 @@ export const Notifications = () => {
               onClick={() => {
                 setCurrentPage((prev) => prev + 1);
               }}
-            > 
+            >
               Load More
             </Styled.LoadMoreButton>
           )}

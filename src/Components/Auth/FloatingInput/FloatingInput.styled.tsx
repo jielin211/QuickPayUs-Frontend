@@ -27,7 +27,10 @@ export const StyledFloatInputPassword = styled(Input.Password)`
   input {
     box-shadow: 0 0 0px 1000px var(--color-bg-container) inset !important;
     border-radius: unset !important;
-    transition: box-shadow var(--transition-time-when-switch-theme-mode);
+    transition-property: background, border, box-shadow !important;
+    transition-duration: var(
+      --transition-time-when-switch-theme-mode
+    ) !important;
   }
   &:focus {
     border: 1px solid red;

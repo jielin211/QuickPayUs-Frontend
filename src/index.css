@@ -21,8 +21,8 @@ body::-webkit-scrollbar {
 
 .ant-input,
 .ant-picker {
-  transition: background var(--transition-time-when-switch-theme-mode),
-    border var(--transition-time-when-switch-theme-mode) !important;
+  transition-property: background, border !important;
+  transition-duration: var(--transition-time-when-switch-theme-mode) !important;
 }
 
 .ant-input-affix-wrapper {
