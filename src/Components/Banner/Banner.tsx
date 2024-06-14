@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import CopyToClipboard from "react-copy-to-clipboard";
 
 // antd
-import { Badge, Menu, QRCode, Popover, MenuProps } from "antd";
+import { Badge, Menu, QRCode, Popover, Radio, MenuProps } from "antd";
 import Icon, {
   CheckCircleOutlined,
   CopyOutlined,
@@ -162,42 +162,21 @@ export const Banner = () => {
       null,
       [
         getItem(
-          selectedKey === "dark" ? (
-            <Styled.ModeItem>
-              <span>Dark</span>
-              <CheckCircleOutlined />
-            </Styled.ModeItem>
-          ) : (
-            <Styled.ModeItem>Dark</Styled.ModeItem>
-          ),
+          <Radio checked={selectedKey === "dark"}>Dark</Radio>,
           "dark",
           null,
           null,
           null
         ),
         getItem(
-          selectedKey === "light" ? (
-            <Styled.ModeItem>
-              <span>Light</span>
-              <CheckCircleOutlined />
-            </Styled.ModeItem>
-          ) : (
-            <Styled.ModeItem>Light</Styled.ModeItem>
-          ),
+          <Radio checked={selectedKey === "light"}>Light</Radio>,
           "light",
           null,
           null,
           null
         ),
         getItem(
-          selectedKey === "auto" ? (
-            <Styled.ModeItem>
-              <span>Auto</span>
-              <CheckCircleOutlined />
-            </Styled.ModeItem>
-          ) : (
-            <Styled.ModeItem>Auto</Styled.ModeItem>
-          ),
+          <Radio checked={selectedKey === "auto"}>Auto</Radio>,
           "auto",
           null,
           null,
