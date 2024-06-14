@@ -91,6 +91,7 @@ const Referrals: React.FC = () => {
             columns={columns}
             dataSource={isSuccess ? currentData : []}
             pagination={false}
+            showSorterTooltip={{ align: { offset: [0, -30] } }}
           />
         </Styled.TableWrapper>
       )}

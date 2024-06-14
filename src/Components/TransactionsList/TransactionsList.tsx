@@ -88,6 +88,7 @@ const TransactionsList: React.FC = () => {
             columns={columns}
             dataSource={currentData}
             pagination={false}
+            showSorterTooltip={{ align: { offset: [0, -30] } }}
           />
         </Styled.TableWrapper>
       )}
