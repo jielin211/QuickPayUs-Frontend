@@ -1,11 +1,16 @@
-import { api } from "../../Redux/slice";
-import { Layout, Skeleton, Empty } from "antd";
-import { NotificationCard } from "../NotificationCard";
-import { useLocation } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { selectNotifications } from "../../Redux/selectors";
+import { useLocation } from "react-router-dom";
+
+// antd
+import { Layout, Skeleton, Empty } from "antd";
+
+// styled components
 import * as Styled from "./Notifications.styled";
+
+// redux
+import { api } from "../../Redux/slice";
+import { selectNotifications } from "../../Redux/selectors";
 import {
   setNotifications,
   resetNotifications,
@@ -16,6 +21,10 @@ import {
   useUpdateNotificationMutation,
   useGetUnreadNotificationsCountQuery,
 } from "../../Redux/slice";
+
+// components
+import PageTitle from "../PageTitle";
+import { NotificationCard } from "../NotificationCard";
 
 const { Content } = Layout;
 
@@ -121,18 +130,16 @@ export const Notifications = () => {
   }, [dispatch, putData, refetchTotal]);
 
   return (
-    <Styled.Container>
-      <Styled.Header>
-        <Styled.Title>Notifications</Styled.Title>
-        {counter > 0 && (
+    <>
+      <PageTitle title="Notifications" />
+      {/* {counter > 0 && (
           <>
             <Styled.Counter>{`(New ${counter})`}</Styled.Counter>
             <Styled.ctaButton onClick={handlePutData}>
               Mark All Read
             </Styled.ctaButton>
           </>
-        )}
-      </Styled.Header>
+        )} */}
       <Content className="notification-content">
         <div>
           {(isLoading || isFetching) && (
@@ -171,6 +178,6 @@ export const Notifications = () => {
           )}
         </Styled.LoadMoreButtonContainer>
       </Content>
-    </Styled.Container>
+    </>
   );
 };

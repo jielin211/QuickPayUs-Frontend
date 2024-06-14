@@ -2,6 +2,10 @@ import React from "react";
 import { Layout, Skeleton, Empty } from "antd";
 import { NotificationCard } from "../NotificationCard";
 
+// components
+import PageTitle from "../PageTitle";
+
+// styled components
 import * as Styled from "./Announcements.styled";
 
 const { Content } = Layout;
@@ -40,10 +44,8 @@ export const Announcements: React.FC = () => {
     dummyData;
 
   return (
-    <Styled.Container>
-      <Styled.Header>
-        <Styled.Title>Announcements</Styled.Title>
-      </Styled.Header>
+    <>
+      <PageTitle title="Announcements" />
       <Content className="announcement-content">
         {(isLoading || isFetching) && (
           <>
@@ -89,6 +91,6 @@ export const Announcements: React.FC = () => {
           )}
         </Styled.LoadMoreButtonContainer>
       </Content>
-    </Styled.Container>
+    </>
   );
 };

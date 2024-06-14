@@ -26,7 +26,7 @@ export const NotificationCardContainer = styled.div<NotificationCardContainerPro
   justify-content: center;
   padding: 15px;
   border: 1px solid var(--color-border-primary);
-  border-radius: 5px;
+  border-radius: var(--border-radius-container);
   margin-bottom: 8px;
   background-color: var(--color-bg-container);
   color: ${(props) => {

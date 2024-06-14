@@ -3,14 +3,6 @@ import styled from "styled-components";
 // breakpoints
 import { breakpoint } from "../../breakpoints";
 
-export const Container = styled.div`
-  padding: 30px;
-  height: 100%;
-  @media screen and (max-width: 768px) {
-    padding: 0px;
-  }
-`;
-
 export const Header = styled.div`
   display: flex;
   flex-direction: row;

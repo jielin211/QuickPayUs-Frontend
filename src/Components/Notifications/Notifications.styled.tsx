@@ -1,14 +1,5 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  padding: 30px;
-
-  @media screen and (max-width: 768px) {
-    padding: 0px;
-  }
-  /* background: #ececec; */
-`;
-
 export const Header = styled.div`
   display: flex;
   flex-direction: row;
