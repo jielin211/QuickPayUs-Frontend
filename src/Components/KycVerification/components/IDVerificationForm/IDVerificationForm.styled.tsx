@@ -77,7 +77,7 @@ export const RadioCard = styled.div`
   justify-content: space-between;
   padding: 20px;
   border: 1px solid var(--color-border-primary);
-  border-radius: 10px;
+  border-radius: var(--border-radius-container);
   cursor: pointer;
   transition: all 0.3s ease,
     border var(--transition-time-when-switch-theme-mode);
