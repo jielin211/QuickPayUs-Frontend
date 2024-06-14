@@ -218,35 +218,8 @@ export const Banner = () => {
       onClick={(e) => handleClick(e.key)}
       selectedKeys={[selectedKey]}
       style={{
-        width: 130,
-        position: "absolute",
-        top: "27px",
-        left: "25px",
-        boxShadow: "2px 4px 12px #00000014",
         borderInlineEnd: 0,
       }}
-      // defaultSelectedKeys={[]}
-      // defaultOpenKeys={["sub1"]}
-      openKeys={sMenuOpenKeys}
-      onOpenChange={setMenuOpenKeys}
-      mode="inline"
-      items={menuItems}
-    />
-  );
-
-  const mobileUserMenu = (
-    <Menu
-      onClick={(e) => handleClick(e.key)}
-      style={{
-        width: 120,
-        position: "fixed",
-        top: navbarHeight + 5 + "px",
-        right: "6px",
-        boxShadow: "2px 4px 12px #00000014",
-        borderInlineEnd: 0,
-      }}
-      // defaultSelectedKeys={[]}
-      // defaultOpenKeys={["sub1"]}
       openKeys={sMenuOpenKeys}
       onOpenChange={setMenuOpenKeys}
       mode="inline"
@@ -347,7 +320,17 @@ export const Banner = () => {
               </Badge>
             </Link>
             <div>
-              <a onClick={(e) => handleToggle(e)}>
+              <Popover
+                trigger="click"
+                open={collapsed}
+                onOpenChange={setCollapsed}
+                overlayClassName="popover-menu"
+                overlayInnerStyle={{
+                  padding: 0,
+                  background: "var(--color-bg-container)",
+                }}
+                content={<>{userMenu}</>}
+              >
                 <Styled.AvatarWrapper>
                   <Styled.StyledAvatar
                     className="avatarMenu0"
@@ -360,17 +343,7 @@ export const Banner = () => {
                     <Styled.AvatarInfoP2>Level 1</Styled.AvatarInfoP2>
                   </Styled.AvatarInfo>
                 </Styled.AvatarWrapper>
-              </a>
-            </div>
-            <div
-              ref={menuRef}
-              style={{
-                position: "absolute",
-                display: !collapsed ? "none" : "block",
-              }}
-              className={!collapsed ? "fade-out" : "fade-in"}
-            >
-              {userMenu}
+              </Popover>
             </div>
           </Styled.CtaContainer>
         </Styled.HeaderContainer>
@@ -408,6 +381,9 @@ export const Banner = () => {
                     <Popover
                       trigger="click"
                       overlayClassName="popover-qrcode"
+                      overlayStyle={{
+                        padding: 9,
+                      }}
                       overlayInnerStyle={{
                         padding: 10,
                         background: "var(--color-bg-container)",
@@ -468,26 +444,27 @@ export const Banner = () => {
                     </Link>
                   </li>
                   <li>
-                    <a onClick={(e) => handleToggle(e)}>
+                    <Popover
+                      trigger="click"
+                      open={collapsed}
+                      onOpenChange={setCollapsed}
+                      overlayClassName="popover-menu"
+                      overlayStyle={{
+                        padding: "3px 5px",
+                      }}
+                      overlayInnerStyle={{
+                        padding: 0,
+                        background: "var(--color-bg-container)",
+                      }}
+                      content={<>{userMenu}</>}
+                    >
                       <Styled.AvatarWrapper id="mobileAvatarMenu">
                         <Styled.StyledAvatar>U</Styled.StyledAvatar>
                       </Styled.AvatarWrapper>
-                    </a>
+                    </Popover>
                   </li>
                 </ul>
               </li>
-              {
-                <div
-                  ref={mobileMenuRef}
-                  style={{
-                    position: "absolute",
-                    display: !collapsed ? "none" : "block",
-                  }}
-                  className={!collapsed ? "fade-out" : "fade-in"}
-                >
-                  {mobileUserMenu}
-                </div>
-              }
             </ul>
 
             <ul className="desktop-nav ps-0">

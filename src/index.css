@@ -694,3 +694,11 @@ a {
 .popover-qrcode .ant-popover-arrow {
   display: none;
 }
+
+.popover-menu {
+  /* transform: translateY(10px); */
+}
+
+.popover-menu .ant-popover-arrow {
+  display: none;
+}

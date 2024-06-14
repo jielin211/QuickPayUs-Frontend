@@ -78,6 +78,8 @@ export const AvatarWrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 `;
 export const AvatarInfo = styled.div`
   padding-left: 10px;
