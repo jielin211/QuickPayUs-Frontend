@@ -24,36 +24,36 @@ export const CardCol = styled.div`
   transition: border var(--transition-time-when-switch-theme-mode);
 `;
 export const CardH3 = styled.h3`
-  margin: 0px;
-  font-size: 14px;
   font-weight: 600;
   color: var(--color-primary-text);
-  @media (max-width: 575px) {
-    font-size: 10px;
-    display: block;
-    margin: auto;
-    text-align: center;
+  font-size: 10px;
+  display: block;
+  margin: auto;
+  text-align: center;
+  ${breakpoint.md} {
+    margin: 0;
+    font-size: 14px;
   }
 `;
 export const CardP = styled.p`
-  margin: 0px;
   color: var(--color-primary-text);
   font-weight: bold;
-  font-size: 22px;
-  @media (max-width: 575px) {
-    font-size: 18px;
-    display: block;
-    margin: auto;
+  font-size: 18px;
+  display: block;
+  margin: auto;
+  ${breakpoint.md} {
+    margin: 0;
+    font-size: 22px;
   }
 `;
 export const ChartHeading = styled.h2`
   font-size: 19px;
   width: 100%;
   color: var(--color-primary-text);
-  text-align: left;
   margin-bottom: 20px;
-  @media (max-width: 575px) {
-    text-align: center;
+  text-align: center;
+  ${breakpoint.md} {
+    text-align: left;
   }
 `;
 export const OverviewCard = styled(Card)`

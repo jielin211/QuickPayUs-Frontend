@@ -35,7 +35,7 @@ const UserDashboard = () => {
                 style={{ padding: "0" }}
               >
                 <Row gutter={[16, 16]}>
-                  <Col sm={8} xs={8} md={8} xl={8}>
+                  <Col sm={8} xs={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol className={loading ? "" : "br-1"}>
                       {loading ? (
                         <Styled.SkeletonInputCustom active size="small" />
@@ -47,7 +47,7 @@ const UserDashboard = () => {
                       )}
                     </Styled.CardCol>
                   </Col>
-                  <Col sm={8} xs={8} md={8} xl={8}>
+                  <Col sm={8} xs={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol className={loading ? "" : "br-1"}>
                       {loading ? (
                         <Styled.SkeletonInputCustom active size="small" />
@@ -59,7 +59,7 @@ const UserDashboard = () => {
                       )}
                     </Styled.CardCol>
                   </Col>
-                  <Col sm={8} xs={8} md={8} xl={8}>
+                  <Col sm={8} xs={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol>
                       {loading ? (
                         <Styled.SkeletonInputCustom active size="small" />
@@ -82,7 +82,7 @@ const UserDashboard = () => {
                 style={{ padding: "0" }}
               >
                 <Row gutter={[16, 16]}>
-                  <Col xs={8} sm={8} md={8} xl={8}>
+                  <Col xs={8} sm={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol className={loading ? "" : "br-1"}>
                       {loading ? (
                         <Styled.SkeletonInputCustom
@@ -98,7 +98,7 @@ const UserDashboard = () => {
                       )}
                     </Styled.CardCol>
                   </Col>
-                  <Col xs={8} sm={8} md={8} xl={8}>
+                  <Col xs={8} sm={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol className={loading ? "" : "br-1"}>
                       {loading ? (
                         <Styled.SkeletonInputCustom
@@ -114,7 +114,7 @@ const UserDashboard = () => {
                       )}
                     </Styled.CardCol>
                   </Col>
-                  <Col xs={8} sm={8} md={8} xl={8}>
+                  <Col xs={8} sm={8} md={8} xl={8} style={{ padding: 0 }}>
                     <Styled.CardCol>
                       {loading ? (
                         <Styled.SkeletonInputCustom
