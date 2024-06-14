@@ -40,7 +40,7 @@ const GlobalStyle = createGlobalStyle`
       --transition-time-when-switch-theme-mode: ${theme.transitionTimeWhenSwitchThemeMode};
     }
     input, select, textarea {
-      font-size: 16px !important;
+      // font-size: 16px !important;
     }`}
 `;
 
